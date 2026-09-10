@@ -18,8 +18,8 @@ fetch_window_hours: 168
 #   品质党:   scorer=anthropic/claude-sonnet-4-6 summarizer=anthropic/claude-opus-4-7
 #   中文混搭: scorer=deepseek/deepseek-chat  summarizer=anthropic/claude-sonnet-4-6
 models:
-  scorer:     openai/gpt-4o-mini   # 评分阶段：每天跑 70+ 次，用便宜模型
-  summarizer: openai/gpt-5.2        # 总结阶段：每天跑 10 次，用强模型保证质量
+  scorer:     deepseek/deepseek-chat   # 评分阶段：每天跑 70+ 次，用便宜模型
+  summarizer: deepseek/deepseek-chat   # 总结阶段：每天跑 10 次，用强模型保证质量
 
 # 评分阈值：score >= score_threshold 的内容才进入总结阶段。
 score_threshold: 7
