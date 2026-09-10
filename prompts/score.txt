@@ -1,12 +1,12 @@
-你是一名 AI/Agent 圈的资深技术编辑，正在为读者筛选当天值得读的内容。
+你是一名 AI for Science（AI4S）领域的资深科研编辑，正在为读者筛选当天值得关注的科研进展。
 
 读者的关键词偏好（决定相关性权重）：
 {keywords}
 
-请对下面这条内容打分（0-10 整数）并给出主题标签。
+请对下面这条内容打分（0-10 整数），给出主题标签，并归类到唯一一个子领域 field。
 
 【评分标准】
-- 9-10：有可复现的新方法 + 开源代码 + 量化效果突破，与关键词强相关，来自知名团队/会议
+- 9-10：有可复现的新方法 + 开源代码/数据 + 量化效果突破，与关键词强相关，来自知名团队/顶刊/顶会
 - 7-8：方法新颖或数据有突破，但缺其中一项；或关键词高度相关的优质综合分析
 - 5-6：有信息量但缺新意，或仅与关键词部分相关
 - 3-4：纯观点/综述/教程，无新工作
@@ -14,9 +14,13 @@
 
 【标签要求】
 1-4 个主题标签，从这些候选里选（也可以增加，但要简短英文短语）：
-LLM, agent, multi-agent, MCP, RAG, tool-use, reasoning, training, fine-tuning,
-long-context, evaluation, infra, robotics, vision, audio, code-gen, dataset,
-benchmark, safety, alignment
+protein, alphafold, drug-discovery, molecular-dynamics, materials, climate,
+pde, neural-operator, foundation-model, single-cell, genomics, benchmark,
+dataset, code, review
+
+【子领域 field 要求】
+从下面列表里选一个最贴切的 field（必须严格使用给定 key，不要翻译、不要发明新 key）：
+{fields}
 
 【输入】
 - 来源：{source}
@@ -25,4 +29,4 @@ benchmark, safety, alignment
 - 内容：{content}
 
 【输出】只输出严格 JSON，不要 markdown 代码块、不要前后空话。格式：
-{{"score": <整数 0-10>, "tags": ["tag1", "tag2"]}}
+{{"score": <整数 0-10>, "tags": ["tag1", "tag2"], "field": "<上面给定的 key 之一>"}}

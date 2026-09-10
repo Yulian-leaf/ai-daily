@@ -57,3 +57,38 @@ score_threshold: 11
 """)
     with pytest.raises(ConfigError, match="score_threshold"):
         load_config(sources_path=src, preferences_path=prefs)
+
+
+def test_parses_subfields(tmp_path: Path):
+    src = _write(tmp_path / "sources.yaml", "sources: []\n")
+    prefs = _write(tmp_path / "preferences.yaml", """
+keywords: []
+subfields:
+  - key: protein
+    label: 蛋白质/结构
+  - key: drug
+    label: 药物发现
+""")
+    cfg = load_config(sources_path=src, preferences_path=prefs)
+    assert cfg.subfields == [
+        {"key": "protein", "label": "蛋白质/结构"},
+        {"key": "drug", "label": "药物发现"},
+    ]
+
+
+def test_subfields_absent_defaults_to_empty(tmp_path: Path):
+    src = _write(tmp_path / "sources.yaml", "sources: []\n")
+    prefs = _write(tmp_path / "preferences.yaml", "keywords: []\n")
+    cfg = load_config(sources_path=src, preferences_path=prefs)
+    assert cfg.subfields == []
+
+
+def test_subfields_reject_bad_entry(tmp_path: Path):
+    src = _write(tmp_path / "sources.yaml", "sources: []\n")
+    prefs = _write(tmp_path / "preferences.yaml", """
+keywords: []
+subfields:
+  - key: protein
+""")
+    with pytest.raises(ConfigError, match="subfield"):
+        load_config(sources_path=src, preferences_path=prefs)

@@ -1,15 +1,35 @@
 # 用户偏好。在 fork 中改这个文件。
 keywords:
-  - LLM agent
-  - MCP
-  - tool use
-  - RAG
-  - multi-agent
-  - reasoning models
+  - protein structure prediction
+  - molecular dynamics
+  - drug discovery
+  - materials design
+  - climate modeling
+  - partial differential equations
+  - scientific machine learning
+  - AI for Science
 
-# 抓取窗口（小时）。默认抓最近 7 天的内容——
-# AI Lab 博客（OpenAI/DeepMind/HuggingFace）发布频率低，36h 窗口会系统性卡掉，
-# 7 天窗口配合 SQLite URL 去重，多抓的部分不会进新数据。
+# AI4S 子领域分类。scorer 会把每条内容归到其中一个 field（用 key 标识），
+# 前端据此做「按子领域分类导航」。label 是界面显示名。
+subfields:
+  - key: protein
+    label: 蛋白质/结构
+  - key: drug
+    label: 药物发现
+  - key: molsim
+    label: 分子模拟
+  - key: materials
+    label: 材料科学
+  - key: climate
+    label: 气候地球
+  - key: ai4math
+    label: AI4Math/PDE
+  - key: scifm
+    label: 科学基础模型
+  - key: bioinfo
+    label: 生物信息
+
+# 抓取窗口（小时）。默认抓最近 7 天的内容。
 fetch_window_hours: 168
 
 # LLM 选型。默认平衡预设（spec 第 6.3 节）。

@@ -23,6 +23,7 @@ class Config:
     models: Models | None = None
     score_threshold: int = 7
     top_n: int = 10
+    subfields: list[dict[str, str]] = field(default_factory=list)
     raw_preferences: dict[str, Any] = field(default_factory=dict)
 
 
@@ -66,6 +67,29 @@ def _parse_bounded_int(prefs: dict[str, Any], key: str, default: int, *, min_v: 
     return val
 
 
+def _parse_subfields(prefs: dict[str, Any]) -> list[dict[str, str]]:
+    """Parse optional `subfields: [{key, label}, ...]` into normalized dicts."""
+    subfields_doc = prefs.get("subfields")
+    if subfields_doc is None:
+        return []
+    if not isinstance(subfields_doc, list):
+        raise ConfigError("`subfields` must be a list of {key, label}")
+    out: list[dict[str, str]] = []
+    seen: set[str] = set()
+    for entry in subfields_doc:
+        if not isinstance(entry, dict):
+            raise ConfigError(f"subfield entry must be a mapping: {entry!r}")
+        key = entry.get("key")
+        label = entry.get("label")
+        if not isinstance(key, str) or not key or not isinstance(label, str) or not label:
+            raise ConfigError(f"subfield entry needs non-empty 'key' and 'label': {entry!r}")
+        if key in seen:
+            raise ConfigError(f"duplicate subfield key: {key!r}")
+        seen.add(key)
+        out.append({"key": key, "label": label})
+    return out
+
+
 def load_config(
     sources_path: Path = Path("config/sources.yaml"),
     preferences_path: Path = Path("config/preferences.yaml"),
@@ -94,5 +118,6 @@ def load_config(
         models=_parse_models(prefs_doc),
         score_threshold=score_threshold,
         top_n=top_n,
+        subfields=_parse_subfields(prefs_doc),
         raw_preferences=prefs_doc,
     )

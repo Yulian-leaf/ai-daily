@@ -14,9 +14,11 @@ _SCORE_CONTENT_CHARS = 800
 _SUMMARY_CONTENT_CHARS = 4000
 
 
-def _render_score_prompt(item: Item, keywords: list[str]) -> str:
+def _render_score_prompt(item: Item, cfg: Config) -> str:
+    fields = ", ".join(s["key"] for s in cfg.subfields) or "(none)"
     return render(load_prompt("score"), {
-        "keywords": ", ".join(keywords) or "(none)",
+        "keywords": ", ".join(cfg.keywords) or "(none)",
+        "fields": fields,
         "source": item.source,
         "date": item.published_at.date().isoformat(),
         "title": item.title,
@@ -24,9 +26,9 @@ def _render_score_prompt(item: Item, keywords: list[str]) -> str:
     })
 
 
-def _render_summary_prompt(item: Item, keywords: list[str]) -> str:
+def _render_summary_prompt(item: Item, cfg: Config) -> str:
     return render(load_prompt("summarize"), {
-        "keywords": ", ".join(keywords) or "(none)",
+        "keywords": ", ".join(cfg.keywords) or "(none)",
         "source": item.source,
         "date": item.published_at.date().isoformat(),
         "title": item.title,
@@ -38,7 +40,7 @@ async def _score_one(item: Item, cfg: Config) -> tuple[Item, Score | None, Excep
     try:
         data, cost = await complete_json(
             model=cfg.models.scorer,
-            prompt=_render_score_prompt(item, cfg.keywords),
+            prompt=_render_score_prompt(item, cfg),
             max_tokens=200,
         )
         score = int(data.get("score", -1))
@@ -47,8 +49,14 @@ async def _score_one(item: Item, cfg: Config) -> tuple[Item, Score | None, Excep
         tags = data.get("tags", [])
         if not isinstance(tags, list):
             raise LLMError(f"tags must be a list, got {type(tags).__name__}")
+        # field 必须是配置好的子领域 key；越界就回退为 ""（未归类）。
+        valid_fields = {s["key"] for s in cfg.subfields}
+        field = data.get("field", "")
+        if not isinstance(field, str) or field not in valid_fields:
+            logger.warning("score field %r not in subfields; falling back to ''", field)
+            field = ""
         return item, Score(
-            score=score, tags=[str(t) for t in tags],
+            score=score, tags=[str(t) for t in tags], field=field,
             model=cfg.models.scorer, cost_usd=cost,
         ), None
     except Exception as e:
@@ -60,7 +68,7 @@ async def _summarize_one(item: Item, cfg: Config) -> tuple[Item, Summary | None,
     try:
         data, cost = await complete_json(
             model=cfg.models.summarizer,
-            prompt=_render_summary_prompt(item, cfg.keywords),
+            prompt=_render_summary_prompt(item, cfg),
             max_tokens=1500,
         )
         required = ("innovation", "approach", "metrics", "links", "why_relevant")

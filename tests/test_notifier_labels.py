@@ -2,20 +2,26 @@ from src.notifier.labels import label_for
 
 
 def test_known_lab_source():
-    lbl = label_for("rss:openai-blog")
-    assert lbl.short == "OpenAI"
+    lbl = label_for("rss:deepmind-blog")
+    assert lbl.short == "DeepMind"
     assert lbl.category == "lab"
 
 
+def test_known_journal_source():
+    lbl = label_for("rss:nature")
+    assert lbl.short == "Nature"
+    assert lbl.category == "paper"
+
+
 def test_known_github_trending():
-    lbl = label_for("github:github-trending-agent")
-    assert lbl.short == "GitHub · agent"
+    lbl = label_for("github:github-trending-protein")
+    assert lbl.short == "GitHub · protein"
     assert lbl.category == "github"
 
 
 def test_known_arxiv():
-    lbl = label_for("arxiv:arxiv-cs-ai")
-    assert lbl.short == "arXiv"
+    lbl = label_for("arxiv:arxiv-qbio")
+    assert lbl.short == "arXiv · 生命"
     assert lbl.category == "paper"
 
 

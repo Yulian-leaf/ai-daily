@@ -137,7 +137,7 @@ def test_render_site_source_badge_uses_friendly_label_and_category(tmp_path: Pat
     s = Storage(tmp_path / "t.db"); s.init()
     s.record_items([Item(url="https://example/x", title="X", content="...",
                          published_at=datetime.now(timezone.utc),
-                         source="rss:openai-blog")])
+                         source="rss:deepmind-blog")])
     s.save_score("https://example/x", Score(score=9, tags=["LLM"], model="m", cost_usd=0.001))
     s.save_summary("https://example/x", Summary(innovation="i", approach="a",
                                                 metrics="m", links="l",
@@ -147,10 +147,10 @@ def test_render_site_source_badge_uses_friendly_label_and_category(tmp_path: Pat
     render_site(s, min_score=7, within_days=30, top_n=100, output_dir=out_dir)
     s.close()
     html = (out_dir / "index.html").read_text(encoding="utf-8")
-    assert "cat-lab" in html         # OpenAI -> lab category
-    assert ">OpenAI<" in html        # friendly label rendered
+    assert "cat-lab" in html         # DeepMind -> lab category
+    assert ">DeepMind<" in html       # friendly label rendered
     # raw id not in visible badge (only in the title= attribute for hover/debug)
-    assert ">rss:openai-blog<" not in html
+    assert ">rss:deepmind-blog<" not in html
 
 
 def test_render_site_archive_groups_by_surfaced_date(tmp_path: Path):

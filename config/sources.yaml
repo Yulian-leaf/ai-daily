@@ -1,36 +1,48 @@
 # 默认信息源。用户在 fork 中可改这个文件来增删源。
 sources:
-  # ── 论文 / 学术 ──
-  - name: arxiv-cs-ai
+  # ── 论文 / 学术（arXiv 科学分类） ──
+  - name: arxiv-qbio
     type: arxiv
-    categories: [cs.AI, cs.CL, cs.MA]
+    categories: [q-bio.BM, q-bio.QM, q-bio.GN]
     max_results: 50
 
-  - name: huggingface-blog
-    type: rss
-    url: https://huggingface.co/blog/feed.xml
+  - name: arxiv-physchem
+    type: arxiv
+    categories: [physics.chem-ph, physics.comp-ph, cond-mat.mtrl-sci]
+    max_results: 50
 
-  # ── GitHub Topic 趋势 ──
-  - name: github-trending-agent
+  - name: arxiv-climate
+    type: arxiv
+    categories: [physics.ao-ph, physics.geo-ph]
+    max_results: 50
+
+  - name: arxiv-ml
+    type: arxiv
+    categories: [cs.LG, stat.ML, math.NA]
+    max_results: 50
+
+  # ── GitHub Topic 趋势（AI for Science） ──
+  - name: github-trending-protein
     type: github
-    topic: agent
+    topic: protein-structure-prediction
     min_stars: 10
 
-  - name: github-trending-llm
+  - name: github-trending-moleculardynamics
     type: github
-    topic: llm
+    topic: molecular-dynamics
     min_stars: 10
 
-  - name: github-trending-mcp
+  - name: github-trending-drugdiscovery
     type: github
-    topic: mcp
+    topic: drug-discovery
     min_stars: 5
 
-  # ── 主要厂商 / 实验室 博客 ──
-  - name: openai-blog
-    type: rss
-    url: https://openai.com/blog/rss.xml
+  - name: github-trending-scientific-ml
+    type: github
+    topic: scientific-machine-learning
+    min_stars: 5
 
+  # ── 主要厂商 / 实验室 博客（AI for Science） ──
   - name: deepmind-blog
     type: rss
     url: https://deepmind.google/blog/rss.xml
@@ -39,69 +51,29 @@ sources:
     type: rss
     url: https://research.google/blog/rss/
 
-  - name: nvidia-dev-blog
-    type: rss
-    url: https://developer.nvidia.com/blog/feed/
-
   - name: microsoft-research
     type: rss
     url: https://www.microsoft.com/en-us/research/feed/
 
-  - name: together-ai-blog
+  - name: nvidia-dev-blog
     type: rss
-    url: https://www.together.ai/blog/rss.xml
+    url: https://developer.nvidia.com/blog/feed/
 
-  # 以下厂商 2026-05 验证暂无可用公开 RSS feed；如官方上线再添加：
-  # - Anthropic（substack 弃用、官网 /news/rss.xml /research/rss.xml /index.xml 全 404）
-  # - Mistral（/news/feed.xml /feed.xml /rss.xml 全 404）
-  # - Meta AI（ai.meta.com/blog/rss/ 等返回 400）
-  # - Cohere（/blog/rss.xml 200 但不是 feed）
-  # - xAI（/news/rss 403）
-  # - Stability AI（404）
-  # - DeepSeek（无公开 RSS）
-
-  # ── 框架方 ──
-  - name: langchain-blog
+  # ── 期刊 / 中文媒体 ──
+  - name: nature
     type: rss
-    url: https://blog.langchain.dev/rss.xml
+    url: https://www.nature.com/nature.rss
 
-  # LlamaIndex 暂无可用公开 RSS（medium feed 死、官网各种 feed 路径 404）。
-  # - name: llamaindex-blog
-  #   type: rss
-  #   url: <TBD>
-
-  # ── 行业评论 / 专家个人博客 / 通讯 ──
-  - name: lilian-weng
+  - name: science
     type: rss
-    url: https://lilianweng.github.io/index.xml
-
-  - name: simon-willison
-    type: rss
-    url: https://simonwillison.net/atom/everything/
-
-  - name: sebastian-raschka
-    type: rss
-    url: https://magazine.sebastianraschka.com/feed
-
-  - name: andrej-karpathy
-    type: rss
-    url: https://karpathy.github.io/feed.xml
-
-  - name: import-ai
-    type: rss
-    url: https://importai.substack.com/feed
-
-  # ── 社区聚合 ──
-  - name: hackernews-ai
-    type: hackernews
-    query: "AI"
-    min_points: 100
+    url: https://www.science.org/rss/news_current.xml
 
   - name: qbitai
     type: rss
     url: https://www.qbitai.com/feed
 
-  # 机器之心暂无可用公开 RSS（/rss /feed 返回非 feed 页面）。
-  # - name: jiqizhixin
-  #   type: rss
-  #   url: <TBD>
+  # ── 社区聚合 ──
+  - name: hackernews-ai
+    type: hackernews
+    query: "AI for Science"
+    min_points: 50

@@ -15,32 +15,28 @@ class SourceLabel:
 
 
 _REGISTRY: dict[str, SourceLabel] = {
-    # 主要厂商 / 实验室
-    "rss:openai-blog":        SourceLabel("OpenAI",          "lab"),
+    # 实验室 / 厂商
     "rss:deepmind-blog":      SourceLabel("DeepMind",        "lab"),
     "rss:google-research":    SourceLabel("Google Research", "lab"),
-    "rss:nvidia-dev-blog":    SourceLabel("NVIDIA",          "lab"),
     "rss:microsoft-research": SourceLabel("MS Research",     "lab"),
-    "rss:together-ai-blog":   SourceLabel("Together AI",     "lab"),
-    "rss:huggingface-blog":   SourceLabel("Hugging Face",    "lab"),
-    # 框架
-    "rss:langchain-blog":     SourceLabel("LangChain",       "framework"),
-    # 个人专家 / 通讯
-    "rss:simon-willison":     SourceLabel("Simon Willison",   "expert"),
-    "rss:lilian-weng":        SourceLabel("Lilian Weng",      "expert"),
-    "rss:sebastian-raschka":  SourceLabel("Sebastian Raschka","expert"),
-    "rss:andrej-karpathy":    SourceLabel("Karpathy",         "expert"),
-    "rss:import-ai":          SourceLabel("Import AI",        "expert"),
+    "rss:nvidia-dev-blog":    SourceLabel("NVIDIA",          "lab"),
+    # 期刊
+    "rss:nature":             SourceLabel("Nature",          "paper"),
+    "rss:science":            SourceLabel("Science",         "paper"),
     # 中文媒体
-    "rss:qbitai":             SourceLabel("量子位",            "media"),
-    # GitHub trending
-    "github:github-trending-agent": SourceLabel("GitHub · agent", "github"),
-    "github:github-trending-llm":   SourceLabel("GitHub · llm",   "github"),
-    "github:github-trending-mcp":   SourceLabel("GitHub · mcp",   "github"),
+    "rss:qbitai":             SourceLabel("量子位",           "media"),
+    # GitHub trending（AI4S）
+    "github:github-trending-protein":         SourceLabel("GitHub · protein", "github"),
+    "github:github-trending-moleculardynamics": SourceLabel("GitHub · MD",    "github"),
+    "github:github-trending-drugdiscovery":   SourceLabel("GitHub · drug",    "github"),
+    "github:github-trending-scientific-ml":   SourceLabel("GitHub · SciML",   "github"),
     # arXiv
-    "arxiv:arxiv-cs-ai":      SourceLabel("arXiv",            "paper"),
+    "arxiv:arxiv-qbio":       SourceLabel("arXiv · 生命",   "paper"),
+    "arxiv:arxiv-physchem":   SourceLabel("arXiv · 物化",   "paper"),
+    "arxiv:arxiv-climate":    SourceLabel("arXiv · 地球",   "paper"),
+    "arxiv:arxiv-ml":         SourceLabel("arXiv · ML",     "paper"),
     # HN
-    "hackernews:hackernews-ai": SourceLabel("Hacker News",    "community"),
+    "hackernews:hackernews-ai": SourceLabel("Hacker News",  "community"),
 }
 
 # Fallback category by prefix when source isn't in _REGISTRY.

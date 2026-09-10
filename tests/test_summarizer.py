@@ -115,3 +115,57 @@ async def test_run_summarize_with_no_items_is_noop(tmp_path: Path, monkeypatch):
     }
     assert m.await_count == 0
     s.close()
+
+
+def _cfg_with_subfields() -> Config:
+    return Config(
+        sources=[],
+        keywords=["AI for Science"],
+        models=Models(scorer="anthropic/claude-haiku-4-5",
+                      summarizer="anthropic/claude-sonnet-4-6"),
+        score_threshold=7,
+        top_n=2,
+        subfields=[{"key": "protein", "label": "蛋白质/结构"}],
+    )
+
+
+@pytest.mark.asyncio
+async def test_run_summarize_parses_field(tmp_path: Path, monkeypatch):
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "k")
+    s = Storage(tmp_path / "t.db")
+    s.init()
+    s.record_items([_item("https://a", title="TITLE-A")])
+
+    async def fake(*, model, prompt, max_tokens, temperature=0.2):
+        if model == "anthropic/claude-haiku-4-5":
+            return ({"score": 9, "tags": ["protein"], "field": "protein"}, 0.001)
+        return ({"innovation": "i", "approach": "a", "metrics": "m",
+                 "links": "l", "why_relevant": "w"}, 0.01)
+
+    with patch("src.summarizer.complete_json", new=AsyncMock(side_effect=fake)):
+        await run_summarize(s, _cfg_with_subfields())
+
+    top = s.get_top_summaries(min_score=7, limit=10, within_days=1)
+    assert top[0].score.field == "protein"
+    s.close()
+
+
+@pytest.mark.asyncio
+async def test_run_summarize_field_out_of_range_falls_back(tmp_path: Path, monkeypatch):
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "k")
+    s = Storage(tmp_path / "t.db")
+    s.init()
+    s.record_items([_item("https://a", title="TITLE-A")])
+
+    async def fake(*, model, prompt, max_tokens, temperature=0.2):
+        if model == "anthropic/claude-haiku-4-5":
+            return ({"score": 9, "tags": [], "field": "bogus"}, 0.001)
+        return ({"innovation": "i", "approach": "a", "metrics": "m",
+                 "links": "l", "why_relevant": "w"}, 0.01)
+
+    with patch("src.summarizer.complete_json", new=AsyncMock(side_effect=fake)):
+        await run_summarize(s, _cfg_with_subfields())
+
+    top = s.get_top_summaries(min_score=7, limit=10, within_days=1)
+    assert top[0].score.field == ""
+    s.close()

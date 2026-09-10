@@ -18,6 +18,7 @@ class Score:
     tags: list[str]
     model: str
     cost_usd: float
+    field: str = ""     # AI4S 子领域 key（scorer 输出，来自 preferences.subfields）
 
 
 @dataclass

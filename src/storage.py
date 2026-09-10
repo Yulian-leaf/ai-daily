@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS summaries (
     url TEXT PRIMARY KEY REFERENCES items(url),
     score INTEGER NOT NULL,
     tags_json TEXT NOT NULL,
+    field TEXT NOT NULL DEFAULT '',
     scorer_model TEXT NOT NULL,
     scorer_cost_usd REAL NOT NULL DEFAULT 0,
     innovation TEXT,
@@ -67,6 +68,8 @@ class Storage:
         # pre-existing table, add it and backfill from created_at so existing
         # rows are treated as already archived (not "new today").
         self._migrate_add_surfaced_at()
+        # AI4S migration: add summaries.field if missing (older DBs).
+        self._migrate_add_field()
         self._conn.commit()
 
     def _migrate_add_surfaced_at(self) -> None:
@@ -83,6 +86,15 @@ class Storage:
             "CREATE INDEX IF NOT EXISTS idx_summaries_surfaced_at"
             " ON summaries(surfaced_at)"
         )
+
+    def _migrate_add_field(self) -> None:
+        assert self._conn is not None
+        cols = self._conn.execute("PRAGMA table_info(summaries)").fetchall()
+        col_names = {c[1] for c in cols}
+        if "field" not in col_names:
+            self._conn.execute(
+                "ALTER TABLE summaries ADD COLUMN field TEXT NOT NULL DEFAULT ''"
+            )
 
     def close(self) -> None:
         if self._conn is not None:
@@ -161,14 +173,15 @@ class Storage:
         conn = self._conn_or_die()
         conn.execute(
             "INSERT INTO summaries"
-            " (url, score, tags_json, scorer_model, scorer_cost_usd, created_at)"
-            " VALUES (?, ?, ?, ?, ?, ?)"
+            " (url, score, tags_json, field, scorer_model, scorer_cost_usd, created_at)"
+            " VALUES (?, ?, ?, ?, ?, ?, ?)"
             " ON CONFLICT(url) DO UPDATE SET"
             "   score=excluded.score, tags_json=excluded.tags_json,"
+            "   field=excluded.field,"
             "   scorer_model=excluded.scorer_model,"
             "   scorer_cost_usd=excluded.scorer_cost_usd",
             (
-                url, score.score, json.dumps(score.tags),
+                url, score.score, json.dumps(score.tags), score.field,
                 score.model, score.cost_usd,
                 datetime.now(timezone.utc).isoformat(),
             ),
@@ -199,7 +212,7 @@ class Storage:
         cutoff = (datetime.now(timezone.utc) - timedelta(days=within_days)).isoformat()
         rows = conn.execute(
             "SELECT i.url, i.title, i.source, i.content, i.published_at,"
-            "       s.score, s.tags_json, s.scorer_model, s.scorer_cost_usd,"
+            "       s.score, s.tags_json, s.field, s.scorer_model, s.scorer_cost_usd,"
             "       s.innovation, s.approach, s.metrics, s.links, s.why_relevant,"
             "       s.summarizer_model, s.summarizer_cost_usd, s.surfaced_at"
             " FROM items i JOIN summaries s ON s.url = i.url"
@@ -215,7 +228,7 @@ class Storage:
         conn = self._conn_or_die()
         rows = conn.execute(
             "SELECT i.url, i.title, i.source, i.content, i.published_at,"
-            "       s.score, s.tags_json, s.scorer_model, s.scorer_cost_usd,"
+            "       s.score, s.tags_json, s.field, s.scorer_model, s.scorer_cost_usd,"
             "       s.innovation, s.approach, s.metrics, s.links, s.why_relevant,"
             "       s.summarizer_model, s.summarizer_cost_usd, s.surfaced_at"
             " FROM items i JOIN summaries s ON s.url = i.url"
@@ -235,7 +248,7 @@ class Storage:
         cutoff = (datetime.now(timezone.utc) - timedelta(days=within_days)).isoformat()
         rows = conn.execute(
             "SELECT i.url, i.title, i.source, i.content, i.published_at,"
-            "       s.score, s.tags_json, s.scorer_model, s.scorer_cost_usd,"
+            "       s.score, s.tags_json, s.field, s.scorer_model, s.scorer_cost_usd,"
             "       s.innovation, s.approach, s.metrics, s.links, s.why_relevant,"
             "       s.summarizer_model, s.summarizer_cost_usd, s.surfaced_at"
             " FROM items i JOIN summaries s ON s.url = i.url"
@@ -277,11 +290,13 @@ class Storage:
 
     @staticmethod
     def _row_to_analysis(row: sqlite3.Row) -> Analysis:
+        field = row["field"] if "field" in row.keys() and row["field"] else ""
         score = Score(
             score=row["score"],
             tags=json.loads(row["tags_json"]),
             model=row["scorer_model"],
             cost_usd=row["scorer_cost_usd"],
+            field=field,
         )
         summary = None
         if row["innovation"] is not None:

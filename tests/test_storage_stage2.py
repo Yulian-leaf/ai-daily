@@ -67,6 +67,49 @@ def test_save_score_and_summary_roundtrip(tmp_path: Path):
     s.close()
 
 
+def test_save_score_persists_field(tmp_path: Path):
+    s = Storage(tmp_path / "t.db")
+    s.init()
+    s.record_items([_item("https://a")])
+    s.save_score("https://a", Score(score=8, tags=["protein"], model="m1",
+                                    cost_usd=0.001, field="protein"))
+    analyses = s.get_top_summaries(min_score=7, limit=10, within_days=1)
+    assert analyses[0].score.field == "protein"
+    s.close()
+
+
+def test_init_migrates_adds_field_column(tmp_path: Path):
+    """A DB built before the field column existed must be migrated and
+    read back with an empty field (not crash)."""
+    import sqlite3
+    db = tmp_path / "t.db"
+    conn = sqlite3.connect(db)
+    conn.executescript("""
+        CREATE TABLE items (
+            url TEXT PRIMARY KEY, title TEXT NOT NULL, content TEXT NOT NULL,
+            source TEXT NOT NULL, published_at TEXT NOT NULL,
+            raw_json TEXT NOT NULL DEFAULT '{}', first_seen TEXT NOT NULL
+        );
+        CREATE TABLE summaries (
+            url TEXT PRIMARY KEY REFERENCES items(url),
+            score INTEGER NOT NULL, tags_json TEXT NOT NULL,
+            scorer_model TEXT NOT NULL, scorer_cost_usd REAL NOT NULL DEFAULT 0,
+            innovation TEXT, approach TEXT, metrics TEXT, links TEXT,
+            why_relevant TEXT, summarizer_model TEXT, summarizer_cost_usd REAL,
+            created_at TEXT NOT NULL, surfaced_at TEXT
+        );
+        INSERT INTO items VALUES ('https://a','t','c','s','2026-05-10T00:00:00+00:00','{}','2026-05-10T00:00:00+00:00');
+        INSERT INTO summaries (url, score, tags_json, scorer_model, scorer_cost_usd, created_at)
+          VALUES ('https://a', 9, '["x"]', 'm', 0.001, '2026-05-10T00:00:00+00:00');
+    """)
+    conn.commit()
+    conn.close()
+    s = Storage(db); s.init()
+    top = s.get_top_summaries(min_score=7, limit=10, within_days=365)
+    assert top[0].score.field == ""
+    s.close()
+
+
 def test_get_unscored_items_filters_by_first_seen_not_published_at(tmp_path: Path):
     """An item with old published_at but fresh first_seen MUST appear;
     an item with old first_seen MUST NOT appear, even if published_at is fresh.
