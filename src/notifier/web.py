@@ -35,6 +35,7 @@ def render_site(
     top_n: int,
     output_dir: Path = Path("site"),
     templates_dir: Path = Path("templates"),
+    subfields: list[dict[str, str]] | None = None,
 ) -> dict:
     """Render the daily digest page (today + archive grouped by date) to a
     single self-contained HTML file. After write, mark today's batch surfaced."""
@@ -56,6 +57,8 @@ def render_site(
         archive_total=len(archive),
         within_days=within_days,
         generated_at=datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
+        subfields=subfields or [],
+        field_labels={s["key"]: s["label"] for s in (subfields or [])},
     )
 
     output_dir = Path(output_dir)

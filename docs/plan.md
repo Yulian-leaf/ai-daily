@@ -16,8 +16,8 @@
 ### 分阶段步骤
 - **Phase 0 基线跑通**：克隆、venv、DeepSeek key、三命令 demo、`pytest` 72 测试基线、写 `docs/stages/00-基线.md`
 - **Phase 1 AI4S 主线**：重写 `config/sources.yaml`（arXiv 科学分类/GitHub topic/科学 RSS）与 https://github.com/feng-nengyu/ai-daily/tree/main/config/preferences.yaml（关键词+模型+subfields）；扩展 `src/config.py`；改 `prompts/score.txt` 输出 `field`（8 选 1）；改 `src/models.py`、`storage.py`（加 field 列+迁移）、`summarizer.py`、`labels.py`；补测试
-- **Phase 2 前端日报**：`templates/index.html.j2` 加「日报/周报」切换 + 8 个子领域 chips 筛选（data-field + 内联 JS）；`web.py` 传 subfields/field；补测试
-- **Phase 3 周报**：新增 `prompts/weekly.txt`、`src/weekly.py`、`templates/weekly.html.j2`；`storage.py` 加 `weekly_reports` 表；`main.py` 加 `weekly` 子命令；补 `test_weekly.py`
+- **Phase 2 子领域筛选**：`templates/index.html.j2` 加 8 个子领域 chips 筛选（data-field + 内联 JS）；`web.py` 传 subfields/field_labels；补测试
+- **Phase 3 周报 + 日报/周报切换**：新增 `prompts/weekly.txt`、`src/weekly.py`、`templates/weekly.html.j2`；`storage.py` 加 `weekly_reports` 表；`main.py` 加 `weekly` 子命令；前端加「日报/周报」切换导航（周报做完后一起上，避免返工）；补 `test_weekly.py`
 - **Phase 4 部署**：`daily.yml`（每日）+ 新增 `weekly.yml`（周一/四）双 workflow；建仓库、Secrets、Actions 权限、Pages（data→/docs）；线上验证
 - **Phase 5 收尾**：更新 `README.md`、`docs/stages/` 索引与逐文件代码讲解（考核）
 

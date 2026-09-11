@@ -217,3 +217,37 @@ def test_render_site_includes_favorites_machinery(tmp_path: Path):
     assert "toggleStar" in html
     assert "STAR_PREFIX" in html
     assert "ai-daily:star:" in html
+
+
+def test_render_site_renders_subfield_chips_and_field_badge(tmp_path: Path):
+    """With subfields passed in, the page must render the filter chips and
+    tag each card with its data-field + a friendly field badge."""
+    from datetime import datetime, timezone
+    from src.models import Item, Score, Summary
+    subfields = [
+        {"key": "protein", "label": "蛋白质/结构"},
+        {"key": "drug", "label": "药物发现"},
+    ]
+    s = Storage(tmp_path / "t.db"); s.init()
+    s.record_items([Item(url="https://x/p", title="P", content="c",
+                         published_at=datetime.now(timezone.utc),
+                         source="arxiv:arxiv-qbio")])
+    s.save_score("https://x/p", Score(score=9, tags=["protein"], model="m",
+                                      cost_usd=0.001, field="protein"))
+    s.save_summary("https://x/p", Summary(innovation="i", approach="a",
+                                          metrics="m", links="l",
+                                          why_relevant="w", model="m",
+                                          cost_usd=0.01))
+    out_dir = tmp_path / "site"
+    render_site(s, min_score=7, within_days=30, top_n=100,
+                output_dir=out_dir, subfields=subfields)
+    s.close()
+    html = (out_dir / "index.html").read_text(encoding="utf-8")
+    # chips nav + filter JS
+    assert 'id="field-chips"' in html
+    assert "filterField" in html
+    assert "蛋白质/结构" in html
+    assert "药物发现" in html
+    # card carries data-field + friendly field badge
+    assert 'data-field="protein"' in html
+    assert 'class="field"' in html

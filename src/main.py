@@ -73,6 +73,7 @@ async def run_render_cmd(
             within_days=within_days,
             top_n=10_000,  # all summarized items; threshold/within_days do the filtering
             output_dir=output_dir,
+            subfields=config.subfields,
         )
     finally:
         storage.close()

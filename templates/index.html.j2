@@ -202,6 +202,22 @@
       color: var(--muted); font-size: 12px;
     }
     .toolbar button:hover { background: var(--bg); color: var(--fg); }
+
+    /* subfield filter chips + field badge */
+    .field-btn {
+      display: inline-block; padding: 4px 10px; border-radius: 12px;
+      background: var(--bg); border: 1px solid var(--border); font-size: 13px;
+      color: var(--fg); cursor: pointer;
+    }
+    .field-btn:hover { background: #e7e5e4; }
+    .field-btn.active {
+      border-color: var(--accent); color: var(--accent);
+      font-weight: 600; background: #e0f2fe;
+    }
+    .field {
+      font-size: 12px; padding: 3px 8px; border-radius: 6px;
+      background: #ede9fe; color: #5b21b6; font-weight: 500; white-space: nowrap;
+    }
     @media (max-width: 600px) {
       .card-head { flex-direction: column; gap: 8px; padding-right: 44px; }
       .badges { align-self: flex-start; }
@@ -221,13 +237,16 @@
   <main>
     {% macro card(a) -%}
     {% set lbl = a.source|label %}
-    <article class="card" data-url="{{ a.url }}">
+    <article class="card" data-url="{{ a.url }}" data-field="{{ a.score.field or '' }}">
       <button class="star" aria-label="收藏" data-url="{{ a.url }}" onclick="toggleStar(this)">☆</button>
       <div class="card-head">
         <h2><a href="{{ a.url }}" target="_blank" rel="noopener">{{ a.title }}</a></h2>
         <div class="badges">
           <span class="score {{ 'high' if a.score.score >= 8 else 'mid' if a.score.score >= 6 else 'low' }}">{{ a.score.score }}</span>
           <span class="source cat-{{ lbl.category }}" title="{{ a.source }}">{{ lbl.short }}</span>
+          {% if a.score.field and field_labels.get(a.score.field) %}
+          <span class="field" title="子领域">{{ field_labels[a.score.field] }}</span>
+          {% endif %}
         </div>
       </div>
       {% if a.score.tags %}
@@ -261,6 +280,16 @@
       </div>
     </nav>
 
+    <nav class="toc subfields" id="subfield-nav">
+      <h2>子领域</h2>
+      <div class="chips" id="field-chips">
+        <button class="field-btn active" data-field="" onclick="filterField('')">全部</button>
+        {% for sf in subfields %}
+        <button class="field-btn" data-field="{{ sf.key }}" onclick="filterField('{{ sf.key }}')">{{ sf.label }}</button>
+        {% endfor %}
+      </div>
+    </nav>
+
     <section class="band favorites" id="favorites" style="display:none" data-band="favorites">
       <h2 class="band-title">⭐ 我的收藏 <span class="n" id="fav-count">0</span>
         <span class="toolbar">
@@ -280,6 +309,7 @@
       {% else %}
         <p class="empty">本批次无新条目。可能是同一天已经 render 过、或者新条目尚未通过 score ≥ 阈值。</p>
       {% endif %}
+      <p class="empty filter-empty" style="display:none">该子领域暂无匹配内容。</p>
     </section>
 
     <section class="band archive" data-band="archive">
@@ -296,6 +326,7 @@
       {% else %}
         <p class="empty">归档暂时为空。</p>
       {% endif %}
+      <p class="empty filter-empty" style="display:none">该子领域暂无匹配内容。</p>
     </section>
   </main>
 
@@ -338,6 +369,7 @@
       let n = 0;
       // Walk only non-favorites cards as the source-of-truth; clone matching ones.
       document.querySelectorAll('main > section.band:not(.favorites) article.card').forEach(card => {
+        if (card.style.display === 'none') return;  // respect active field filter
         if (starred.has(card.dataset.url)) {
           const clone = card.cloneNode(true);
           // Re-bind the star button in the clone so its onclick still works.
@@ -384,6 +416,37 @@
         btn.classList.toggle('active', btn.dataset.band === band);
       });
       if (band === 'favorites') refreshFavoritesSection();
+    }
+
+    // ---- subfield filter (chips) ----
+    let currentField = '';
+
+    function filterField(field) {
+      currentField = field || '';
+      document.querySelectorAll('#field-chips .field-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.field === currentField);
+      });
+      applyFieldFilter();
+      refreshFavoritesSection();
+    }
+
+    function applyFieldFilter() {
+      document.querySelectorAll('main article.card').forEach(card => {
+        const match = !currentField || card.dataset.field === currentField;
+        card.style.display = match ? '' : 'none';
+      });
+      document.querySelectorAll('details.date-group').forEach(d => {
+        const visible = Array.from(d.querySelectorAll('article.card')).some(c => c.style.display !== 'none');
+        d.style.display = visible ? '' : 'none';
+      });
+      ['today', 'archive'].forEach(band => {
+        const sec = document.getElementById(band);
+        if (!sec) return;
+        const cards = sec.querySelectorAll('article.card');
+        const visible = Array.from(cards).some(c => c.style.display !== 'none');
+        const msg = sec.querySelector('.filter-empty');
+        if (msg) msg.style.display = visible ? 'none' : '';
+      });
     }
 
     document.addEventListener('DOMContentLoaded', () => {
