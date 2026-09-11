@@ -224,8 +224,13 @@ class Storage:
         return [self._row_to_analysis(r) for r in rows]
 
     def get_today_summaries(self, min_score: int) -> list[Analysis]:
-        """Items with summary + score >= threshold that have NOT been surfaced yet."""
+        """Items with summary + score >= threshold that were surfaced today
+        (or not yet surfaced). Same-day re-render keeps them in 'today'; they
+        move to archive only when the date rolls over."""
         conn = self._conn_or_die()
+        today_start = datetime.now(timezone.utc).replace(
+            hour=0, minute=0, second=0, microsecond=0
+        ).isoformat()
         rows = conn.execute(
             "SELECT i.url, i.title, i.source, i.content, i.published_at,"
             "       s.score, s.tags_json, s.field, s.scorer_model, s.scorer_cost_usd,"
@@ -233,19 +238,23 @@ class Storage:
             "       s.summarizer_model, s.summarizer_cost_usd, s.surfaced_at"
             " FROM items i JOIN summaries s ON s.url = i.url"
             " WHERE s.score >= ? AND s.innovation IS NOT NULL"
-            "   AND s.surfaced_at IS NULL"
+            "   AND (s.surfaced_at IS NULL OR s.surfaced_at >= ?)"
             " ORDER BY s.score DESC, i.published_at DESC",
-            (min_score,),
+            (min_score, today_start),
         ).fetchall()
         return [self._row_to_analysis(r) for r in rows]
 
     def get_archive_summaries(
         self, min_score: int, within_days: int
     ) -> list[Analysis]:
-        """Items with summary + score >= threshold that have been surfaced
-        already and are still within the archive window (filtered by surfaced_at)."""
+        """Items with summary + score >= threshold that were surfaced on a
+        previous day and are still within the archive window."""
         conn = self._conn_or_die()
-        cutoff = (datetime.now(timezone.utc) - timedelta(days=within_days)).isoformat()
+        now = datetime.now(timezone.utc)
+        today_start = now.replace(
+            hour=0, minute=0, second=0, microsecond=0
+        ).isoformat()
+        cutoff = (now - timedelta(days=within_days)).isoformat()
         rows = conn.execute(
             "SELECT i.url, i.title, i.source, i.content, i.published_at,"
             "       s.score, s.tags_json, s.field, s.scorer_model, s.scorer_cost_usd,"
@@ -253,9 +262,10 @@ class Storage:
             "       s.summarizer_model, s.summarizer_cost_usd, s.surfaced_at"
             " FROM items i JOIN summaries s ON s.url = i.url"
             " WHERE s.score >= ? AND s.innovation IS NOT NULL"
-            "   AND s.surfaced_at IS NOT NULL AND s.surfaced_at >= ?"
+            "   AND s.surfaced_at IS NOT NULL AND s.surfaced_at < ?"
+            "   AND s.surfaced_at >= ?"
             " ORDER BY s.surfaced_at DESC, s.score DESC",
-            (min_score, cutoff),
+            (min_score, today_start, cutoff),
         ).fetchall()
         return [self._row_to_analysis(r) for r in rows]
 

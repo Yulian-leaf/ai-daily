@@ -49,15 +49,16 @@ def test_get_today_skips_score_only_rows(tmp_path: Path):
     s.close()
 
 
-def test_mark_surfaced_moves_items_to_archive(tmp_path: Path):
+def test_mark_surfaced_keeps_items_in_today_until_next_day(tmp_path: Path):
     s = Storage(tmp_path / "t.db"); s.init()
     _seed_two(s)
     n = s.mark_surfaced(["https://a", "https://b"])
     assert n == 2
 
-    assert s.get_today_summaries(min_score=7) == []
-    archive = s.get_archive_summaries(min_score=7, within_days=30)
-    assert {a.url for a in archive} == {"https://a", "https://b"}
+    # Surfaced today → still in "today" (date-based split).
+    assert {a.url for a in s.get_today_summaries(min_score=7)} == {"https://a", "https://b"}
+    # Not in archive yet: surfaced_at is today, not a previous day.
+    assert s.get_archive_summaries(min_score=7, within_days=30) == []
     s.close()
 
 
@@ -79,11 +80,12 @@ def test_mark_surfaced_empty_list(tmp_path: Path):
 def test_archive_filters_by_within_days(tmp_path: Path):
     s = Storage(tmp_path / "t.db"); s.init()
     _seed_two(s)
-    # Manually set surfaced_at: a fresh, b 30 days ago.
+    # Surface a yesterday (in window), b 30 days ago (outside window).
     conn = s._conn_or_die()
-    conn.execute("UPDATE summaries SET surfaced_at=? WHERE url=?",
-                 (datetime.now(timezone.utc).isoformat(), "https://a"))
+    yesterday = (datetime.now(timezone.utc) - timedelta(days=1)).isoformat()
     old = (datetime.now(timezone.utc) - timedelta(days=30)).isoformat()
+    conn.execute("UPDATE summaries SET surfaced_at=? WHERE url=?",
+                 (yesterday, "https://a"))
     conn.execute("UPDATE summaries SET surfaced_at=? WHERE url=?", (old, "https://b"))
     conn.commit()
 

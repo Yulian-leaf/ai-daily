@@ -93,25 +93,35 @@ def test_render_site_first_run_puts_summaries_in_today_band(tmp_path: Path):
     assert result["output"] == str(index)
 
 
-def test_render_site_second_run_same_day_moves_to_archive(tmp_path: Path):
+def test_render_site_keeps_today_same_day_moves_to_archive_next_day(tmp_path: Path):
+    from datetime import timedelta
     s = Storage(tmp_path / "t.db"); s.init()
     _seed(s)
     out_dir = tmp_path / "site"
-    # First run: items become surfaced.
+    # First run: items get surfaced (surfaced_at = today).
     r1 = render_site(s, min_score=7, within_days=30, top_n=100, output_dir=out_dir)
     assert r1["today"] == 2 and r1["archive"] == 0
 
-    # Second run (no new items in between).
+    # Same-day second run: still in "today" (date-based split), nothing new to mark.
     r2 = render_site(s, min_score=7, within_days=30, top_n=100, output_dir=out_dir)
+    assert r2["today"] == 2
+    assert r2["archive"] == 0
+    assert r2["marked_surfaced"] == 0
+
+    # Simulate the next day: backdate surfaced_at to yesterday.
+    conn = s._conn_or_die()
+    yesterday = (datetime.now(timezone.utc) - timedelta(days=1)).isoformat()
+    conn.execute("UPDATE summaries SET surfaced_at=?", (yesterday,))
+    conn.commit()
+
+    r3 = render_site(s, min_score=7, within_days=30, top_n=100, output_dir=out_dir)
     s.close()
-    assert r2["today"] == 0
-    assert r2["archive"] == 2
-    assert r2["marked_surfaced"] == 0  # nothing new to mark
+    assert r3["today"] == 0
+    assert r3["archive"] == 2
+    assert r3["marked_surfaced"] == 0
 
     html = (out_dir / "index.html").read_text(encoding="utf-8")
-    # Today band is empty
     assert "本批次无新条目" in html
-    # Items now appear in archive band (after the archive band marker)
     archive_band = html.index('class="band archive"')
     assert html.index("Foo Paper") > archive_band
     assert html.index("Bar Repo") > archive_band

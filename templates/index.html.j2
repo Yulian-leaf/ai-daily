@@ -53,6 +53,17 @@
     nav.toc a.today-chip { border-color: var(--today-accent); color: var(--today-accent); font-weight: 600; }
     nav.toc a.fav-chip { border-color: var(--fav-accent); color: var(--fav-accent); }
     nav.toc a .n { color: var(--muted); margin-left: 4px; font-weight: normal; }
+    nav.toc button.tab-btn {
+      display: inline-block; padding: 4px 10px; border-radius: 12px;
+      background: var(--bg); border: 1px solid var(--border); font-size: 13px;
+      color: var(--fg); cursor: pointer;
+    }
+    nav.toc button.tab-btn:hover { background: #e7e5e4; }
+    nav.toc button.tab-btn.active {
+      border-color: var(--accent); color: var(--accent);
+      font-weight: 600; background: #e0f2fe;
+    }
+    nav.toc button.tab-btn .n { color: var(--muted); margin-left: 4px; font-weight: normal; }
 
     /* bands */
     section.band { margin-bottom: 32px; }
@@ -244,24 +255,23 @@
     <nav class="toc">
       <h2>目录</h2>
       <div class="chips">
-        <a class="fav-chip" href="#favorites">⭐ 我的收藏 <span class="n" id="toc-fav-count">0</span></a>
-        <a class="today-chip" href="#today">今日新增 <span class="n">{{ today|length }}</span></a>
-        {% for date_str, group in archive_groups %}
-          <a href="#archive-{{ date_str }}" onclick="openArchive('{{ date_str }}')">{{ date_str }} <span class="n">{{ group|length }}</span></a>
-        {% endfor %}
+        <button class="tab-btn" data-band="favorites" onclick="switchTab('favorites')">⭐ 我的收藏 <span class="n" id="toc-fav-count">0</span></button>
+        <button class="tab-btn active" data-band="today" onclick="switchTab('today')">今日新增 <span class="n">{{ today|length }}</span></button>
+        <button class="tab-btn" data-band="archive" onclick="switchTab('archive')">归档 <span class="n">{{ archive_total }}</span></button>
       </div>
     </nav>
 
-    <section class="band favorites" id="favorites" style="display:none">
+    <section class="band favorites" id="favorites" style="display:none" data-band="favorites">
       <h2 class="band-title">⭐ 我的收藏 <span class="n" id="fav-count">0</span>
         <span class="toolbar">
           <button onclick="clearFavorites()" title="清空全部收藏">清空收藏</button>
         </span>
       </h2>
       <div class="cards" id="favorites-cards"></div>
+      <p class="empty" id="favorites-empty" style="display:none">还没有收藏，点卡片右上角的 ☆ 即可收藏。</p>
     </section>
 
-    <section class="band today" id="today">
+    <section class="band today" id="today" data-band="today">
       <h2 class="band-title">今日新增 <span class="n">({{ today|length }})</span></h2>
       {% if today %}
         <div class="cards">
@@ -272,7 +282,7 @@
       {% endif %}
     </section>
 
-    <section class="band archive">
+    <section class="band archive" data-band="archive">
       <h2 class="band-title">归档（最近 {{ within_days }} 天）</h2>
       {% if archive_groups %}
         {% for date_str, group in archive_groups %}
@@ -320,7 +330,6 @@
     }
 
     function refreshFavoritesSection() {
-      const section = document.getElementById('favorites');
       const container = document.getElementById('favorites-cards');
       const count = document.getElementById('fav-count');
       const tocCount = document.getElementById('toc-fav-count');
@@ -343,7 +352,8 @@
       });
       count.textContent = n;
       tocCount.textContent = n;
-      section.style.display = n > 0 ? '' : 'none';
+      const emptyMsg = document.getElementById('favorites-empty');
+      if (emptyMsg) emptyMsg.style.display = n > 0 ? 'none' : '';
     }
 
     function toggleStar(btn) {
@@ -366,9 +376,22 @@
       if (el && el.tagName === 'DETAILS') el.open = true;
     }
 
+    function switchTab(band) {
+      document.querySelectorAll('main > section.band').forEach(sec => {
+        sec.style.display = (sec.dataset.band === band) ? '' : 'none';
+      });
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.band === band);
+      });
+      if (band === 'favorites') refreshFavoritesSection();
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       refreshAllStarStates();
       refreshFavoritesSection();
+      const todaySection = document.getElementById('today');
+      const hasToday = todaySection && todaySection.querySelectorAll('article.card').length > 0;
+      switchTab(hasToday ? 'today' : 'archive');
     });
   </script>
 </body>
