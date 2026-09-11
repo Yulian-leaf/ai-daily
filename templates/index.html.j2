@@ -215,6 +215,7 @@
       font-weight: 600; background: #e0f2fe;
     }
     .field-btn .n { color: var(--muted); margin-left: 4px; font-weight: normal; }
+    .field-btn .n b { color: var(--fg); font-weight: 600; }
     .field {
       font-size: 12px; padding: 3px 8px; border-radius: 6px;
       background: #ede9fe; color: #5b21b6; font-weight: 500; white-space: nowrap;
@@ -284,9 +285,9 @@
     <nav class="toc subfields" id="subfield-nav">
       <h2>子领域</h2>
       <div class="chips" id="field-chips">
-        <button class="field-btn active" data-field="" onclick="filterField('')">全部 <span class="n">0</span></button>
+        <button class="field-btn active" data-field="" onclick="filterField('')">全部 <span class="n">今日 <b class="n-today">0</b> · 归档 <b class="n-archive">0</b></span></button>
         {% for sf in subfields %}
-        <button class="field-btn" data-field="{{ sf.key }}" onclick="filterField('{{ sf.key }}')">{{ sf.label }} <span class="n">0</span></button>
+        <button class="field-btn" data-field="{{ sf.key }}" onclick="filterField('{{ sf.key }}')">{{ sf.label }} <span class="n">今日 <b class="n-today">0</b> · 归档 <b class="n-archive">0</b></span></button>
         {% endfor %}
       </div>
     </nav>
@@ -452,20 +453,30 @@
       });
     }
 
-    // ---- per-field counts on the chips ----
+    // ---- per-field counts on the chips (today / archive separate) ----
     function refreshFieldCounts() {
-      const counts = {};
-      let total = 0;
-      document.querySelectorAll('main > section.band:not(.favorites) article.card').forEach(card => {
+      const today = {}, archive = {};
+      let todayTotal = 0, archiveTotal = 0;
+      const todaySec = document.getElementById('today');
+      const archiveSec = document.getElementById('archive');
+      if (todaySec) todaySec.querySelectorAll('article.card').forEach(card => {
         const f = card.dataset.field || '';
-        counts[f] = (counts[f] || 0) + 1;
-        total++;
+        today[f] = (today[f] || 0) + 1;
+        todayTotal++;
+      });
+      if (archiveSec) archiveSec.querySelectorAll('article.card').forEach(card => {
+        const f = card.dataset.field || '';
+        archive[f] = (archive[f] || 0) + 1;
+        archiveTotal++;
       });
       document.querySelectorAll('#field-chips .field-btn').forEach(btn => {
-        const span = btn.querySelector('.n');
-        if (!span) return;
         const f = btn.dataset.field;
-        span.textContent = f === '' ? total : (counts[f] || 0);
+        const t = f === '' ? todayTotal : (today[f] || 0);
+        const a = f === '' ? archiveTotal : (archive[f] || 0);
+        const elT = btn.querySelector('.n-today');
+        const elA = btn.querySelector('.n-archive');
+        if (elT) elT.textContent = t;
+        if (elA) elA.textContent = a;
       });
     }
 
