@@ -214,6 +214,7 @@
       border-color: var(--accent); color: var(--accent);
       font-weight: 600; background: #e0f2fe;
     }
+    .field-btn .n { color: var(--muted); margin-left: 4px; font-weight: normal; }
     .field {
       font-size: 12px; padding: 3px 8px; border-radius: 6px;
       background: #ede9fe; color: #5b21b6; font-weight: 500; white-space: nowrap;
@@ -283,9 +284,9 @@
     <nav class="toc subfields" id="subfield-nav">
       <h2>子领域</h2>
       <div class="chips" id="field-chips">
-        <button class="field-btn active" data-field="" onclick="filterField('')">全部</button>
+        <button class="field-btn active" data-field="" onclick="filterField('')">全部 <span class="n">0</span></button>
         {% for sf in subfields %}
-        <button class="field-btn" data-field="{{ sf.key }}" onclick="filterField('{{ sf.key }}')">{{ sf.label }}</button>
+        <button class="field-btn" data-field="{{ sf.key }}" onclick="filterField('{{ sf.key }}')">{{ sf.label }} <span class="n">0</span></button>
         {% endfor %}
       </div>
     </nav>
@@ -301,7 +302,7 @@
     </section>
 
     <section class="band today" id="today" data-band="today">
-      <h2 class="band-title">今日新增 <span class="n">({{ today|length }})</span></h2>
+      <h2 class="band-title">今日新增 <span class="n" id="today-count">({{ today|length }})</span></h2>
       {% if today %}
         <div class="cards">
           {% for a in today %}{{ card(a) }}{% endfor %}
@@ -312,8 +313,8 @@
       <p class="empty filter-empty" style="display:none">该子领域暂无匹配内容。</p>
     </section>
 
-    <section class="band archive" data-band="archive">
-      <h2 class="band-title">归档（最近 {{ within_days }} 天）</h2>
+    <section class="band archive" id="archive" data-band="archive">
+      <h2 class="band-title">归档（最近 {{ within_days }} 天）<span class="n" id="archive-count">({{ archive_total }})</span></h2>
       {% if archive_groups %}
         {% for date_str, group in archive_groups %}
           <details class="date-group" id="archive-{{ date_str }}"{% if loop.first %} open{% endif %}>
@@ -443,15 +444,35 @@
         const sec = document.getElementById(band);
         if (!sec) return;
         const cards = sec.querySelectorAll('article.card');
-        const visible = Array.from(cards).some(c => c.style.display !== 'none');
+        const visibleCount = Array.from(cards).filter(c => c.style.display !== 'none').length;
+        const countEl = document.getElementById(band + '-count');
+        if (countEl) countEl.textContent = '(' + visibleCount + ')';
         const msg = sec.querySelector('.filter-empty');
-        if (msg) msg.style.display = visible ? 'none' : '';
+        if (msg) msg.style.display = visibleCount > 0 ? 'none' : '';
+      });
+    }
+
+    // ---- per-field counts on the chips ----
+    function refreshFieldCounts() {
+      const counts = {};
+      let total = 0;
+      document.querySelectorAll('main > section.band:not(.favorites) article.card').forEach(card => {
+        const f = card.dataset.field || '';
+        counts[f] = (counts[f] || 0) + 1;
+        total++;
+      });
+      document.querySelectorAll('#field-chips .field-btn').forEach(btn => {
+        const span = btn.querySelector('.n');
+        if (!span) return;
+        const f = btn.dataset.field;
+        span.textContent = f === '' ? total : (counts[f] || 0);
       });
     }
 
     document.addEventListener('DOMContentLoaded', () => {
       refreshAllStarStates();
       refreshFavoritesSection();
+      refreshFieldCounts();
       const todaySection = document.getElementById('today');
       const hasToday = todaySection && todaySection.querySelectorAll('article.card').length > 0;
       switchTab(hasToday ? 'today' : 'archive');
