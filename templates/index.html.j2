@@ -283,11 +283,11 @@
     </nav>
 
     <nav class="toc subfields" id="subfield-nav">
-      <h2>子领域</h2>
+      <h2>子领域 <span class="n" id="field-count-label">（今日）</span></h2>
       <div class="chips" id="field-chips">
-        <button class="field-btn active" data-field="" onclick="filterField('')">全部 <span class="n">今日 <b class="n-today">0</b> · 归档 <b class="n-archive">0</b></span></button>
+        <button class="field-btn active" data-field="" onclick="filterField('')">全部 <span class="n"><b class="n-count">0</b></span></button>
         {% for sf in subfields %}
-        <button class="field-btn" data-field="{{ sf.key }}" onclick="filterField('{{ sf.key }}')">{{ sf.label }} <span class="n">今日 <b class="n-today">0</b> · 归档 <b class="n-archive">0</b></span></button>
+        <button class="field-btn" data-field="{{ sf.key }}" onclick="filterField('{{ sf.key }}')">{{ sf.label }} <span class="n"><b class="n-count">0</b></span></button>
         {% endfor %}
       </div>
     </nav>
@@ -335,6 +335,7 @@
   <script>
     // ---- favorites via localStorage ----
     const STAR_PREFIX = 'ai-daily:star:';
+    let currentBand = 'today';   // active tab; chip counts mirror this band
 
     function isStarred(url) {
       return localStorage.getItem(STAR_PREFIX + url) === '1';
@@ -417,7 +418,9 @@
       document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.band === band);
       });
+      currentBand = band;
       if (band === 'favorites') refreshFavoritesSection();
+      refreshFieldCounts();
     }
 
     // ---- subfield filter (chips) ----
@@ -453,37 +456,32 @@
       });
     }
 
-    // ---- per-field counts on the chips (today / archive separate) ----
+    // ---- per-field counts on the chips (mirror the active tab) ----
     function refreshFieldCounts() {
-      const today = {}, archive = {};
-      let todayTotal = 0, archiveTotal = 0;
-      const todaySec = document.getElementById('today');
-      const archiveSec = document.getElementById('archive');
-      if (todaySec) todaySec.querySelectorAll('article.card').forEach(card => {
+      const counts = {};
+      let total = 0;
+      const sec = document.getElementById(currentBand);
+      if (sec) sec.querySelectorAll('article.card').forEach(card => {
         const f = card.dataset.field || '';
-        today[f] = (today[f] || 0) + 1;
-        todayTotal++;
-      });
-      if (archiveSec) archiveSec.querySelectorAll('article.card').forEach(card => {
-        const f = card.dataset.field || '';
-        archive[f] = (archive[f] || 0) + 1;
-        archiveTotal++;
+        counts[f] = (counts[f] || 0) + 1;
+        total++;
       });
       document.querySelectorAll('#field-chips .field-btn').forEach(btn => {
+        const el = btn.querySelector('.n-count');
+        if (!el) return;
         const f = btn.dataset.field;
-        const t = f === '' ? todayTotal : (today[f] || 0);
-        const a = f === '' ? archiveTotal : (archive[f] || 0);
-        const elT = btn.querySelector('.n-today');
-        const elA = btn.querySelector('.n-archive');
-        if (elT) elT.textContent = t;
-        if (elA) elA.textContent = a;
+        el.textContent = f === '' ? total : (counts[f] || 0);
       });
+      const labelEl = document.getElementById('field-count-label');
+      if (labelEl) {
+        const label = currentBand === 'today' ? '今日' : currentBand === 'archive' ? '归档' : '收藏';
+        labelEl.textContent = '（' + label + '）';
+      }
     }
 
     document.addEventListener('DOMContentLoaded', () => {
       refreshAllStarStates();
       refreshFavoritesSection();
-      refreshFieldCounts();
       const todaySection = document.getElementById('today');
       const hasToday = todaySection && todaySection.querySelectorAll('article.card').length > 0;
       switchTab(hasToday ? 'today' : 'archive');
