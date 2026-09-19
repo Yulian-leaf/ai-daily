@@ -421,6 +421,31 @@ class Storage:
         ).fetchall()
         return [self._row_to_analysis(r) for r in rows]
 
+    def get_stats(self) -> dict:
+        """Site-wide counts for the poster footer: items / summarized /
+        surfaced totals plus per-field distribution."""
+        conn = self._conn_or_die()
+        items = conn.execute("SELECT COUNT(*) FROM items").fetchone()[0]
+        summarized = conn.execute(
+            "SELECT COUNT(*) FROM summaries"
+            " WHERE innovation IS NOT NULL AND innovation != ''"
+        ).fetchone()[0]
+        surfaced = conn.execute(
+            "SELECT COUNT(*) FROM summaries WHERE surfaced_at IS NOT NULL"
+        ).fetchone()[0]
+        by_field: dict[str, int] = {}
+        for r in conn.execute(
+            "SELECT field, COUNT(*) AS n FROM summaries"
+            " WHERE field IS NOT NULL AND field != '' GROUP BY field"
+        ).fetchall():
+            by_field[r["field"]] = r["n"]
+        return {
+            "items": items,
+            "summarized": summarized,
+            "surfaced": surfaced,
+            "by_field": by_field,
+        }
+
     # --- helpers ---
 
     @staticmethod

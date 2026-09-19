@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>AI4S Poster</title>
+  <style>
+    :root {
+      --fg: #1c1917; --muted: #57534e; --bg: #fafaf9; --card: #ffffff;
+      --accent: #0369a1; --border: #e7e5e4;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      width: 1080px; min-height: 1440px;
+    }
+    .poster { padding: 56px 64px; display: flex; flex-direction: column; min-height: 1440px; }
+    .brand { font-size: 16px; letter-spacing: 4px; color: var(--accent); font-weight: 700; }
+    h1.title { font-size: 44px; line-height: 1.25; margin: 14px 0 8px; }
+    .range { color: var(--muted); font-size: 18px; margin: 0; }
+    .overview {
+      font-size: 18px; line-height: 1.8; color: #292524;
+      background: #f0f9ff; border-left: 4px solid var(--accent);
+      padding: 18px 22px; border-radius: 8px; margin: 24px 0;
+    }
+    h2.sec {
+      font-size: 18px; letter-spacing: 2px; color: var(--muted);
+      margin: 12px 0 16px; text-transform: uppercase;
+    }
+    .hl {
+      display: flex; gap: 16px; align-items: flex-start;
+      background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+      padding: 18px 20px; margin-bottom: 14px;
+    }
+    .hl .field {
+      flex-shrink: 0; font-size: 14px; padding: 4px 10px; border-radius: 6px;
+      background: #ede9fe; color: #5b21b6; font-weight: 600; margin-top: 4px;
+    }
+    .hl .body h3 { margin: 0 0 4px; font-size: 22px; line-height: 1.35; }
+    .hl .body p { margin: 0; font-size: 16px; color: var(--muted); line-height: 1.6; }
+    .trend { font-size: 17px; line-height: 1.7; margin: 0; }
+    .stats { margin-top: auto; padding-top: 24px; border-top: 2px solid var(--border); }
+    .stats .nums { display: flex; gap: 48px; margin-bottom: 20px; }
+    .stats .num { font-size: 34px; font-weight: 700; color: var(--accent); }
+    .stats .num small { font-size: 15px; color: var(--muted); font-weight: 400; margin-left: 6px; }
+    .fields { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px 28px; }
+    .frow { font-size: 15px; color: var(--muted); display: flex; justify-content: space-between; }
+    .frow b { color: var(--fg); }
+    .footer { margin-top: 30px; font-size: 16px; color: var(--muted); }
+    .footer a { color: var(--accent); text-decoration: none; font-weight: 600; }
+  </style>
+</head>
+<body>
+<div class="poster">
+  <div class="brand">AI4S-DAILY</div>
+  {% if report %}
+  <h1 class="title">{{ report.title }}</h1>
+  <p class="range">{{ report.week_start }} ~ {{ report.week_end }} · {{ generated_at }}</p>
+  {% if report.overview %}<p class="overview">{{ report.overview }}</p>{% endif %}
+
+  {% if report.highlights %}
+  <h2 class="sec">Top 亮点</h2>
+  {% for h in report.highlights[:6] %}
+  <div class="hl">
+    {% if h.field and field_labels.get(h.field) %}<span class="field">{{ field_labels[h.field] }}</span>{% endif %}
+    <div class="body">
+      <h3>{{ h.title }}</h3>
+      {% if h.summary %}<p>{{ h.summary }}</p>{% endif %}
+    </div>
+  </div>
+  {% endfor %}
+  {% endif %}
+
+  {% if report.trend %}
+  <h2 class="sec">趋势</h2>
+  <p class="trend">{{ report.trend }}</p>
+  {% endif %}
+
+  {% else %}
+  <h1 class="title">暂无{{ period_label }}</h1>
+  {% endif %}
+
+  <div class="stats">
+    <div class="nums">
+      <div><span class="num">{{ stats["items"] }}</span><small>抓取条目</small></div>
+      <div><span class="num">{{ stats["summarized"] }}</span><small>总结</small></div>
+      <div><span class="num">{{ stats["surfaced"] }}</span><small>已上墙</small></div>
+    </div>
+    <div class="fields">
+      {% for sf in subfields %}
+      <div class="frow"><span>{{ sf.label }}</span><b>{{ stats["by_field"].get(sf.key, 0) }}</b></div>
+      {% endfor %}
+    </div>
+  </div>
+  <p class="footer">数据来源：AI4S-Daily · <a href="index.html">日报</a> · <a href="weekly.html">周报</a></p>
+</div>
+</body>
+</html>

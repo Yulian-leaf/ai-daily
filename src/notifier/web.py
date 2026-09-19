@@ -86,6 +86,10 @@ def render_site(
     }
 
 
+_PERIOD_FILE = {"weekly": "weekly.html", "biweekly": "biweekly.html"}
+_PERIOD_LABEL = {"weekly": "周报", "biweekly": "双周报告"}
+
+
 def render_weekly(
     storage: Storage,
     *,
@@ -94,7 +98,9 @@ def render_weekly(
     output_dir: Path = Path("site"),
     templates_dir: Path = Path("templates"),
 ) -> dict:
-    """Render the weekly digest page (latest report + archive) to weekly.html."""
+    """Render the weekly digest page (latest report + archive).
+
+    weekly -> weekly.html, biweekly -> biweekly.html (two separate pages)."""
     reports = storage.get_weekly_reports(period=period)
     latest = reports[0] if reports else None
     archive = reports[1:] if reports else []
@@ -109,11 +115,16 @@ def render_weekly(
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    period_label = _PERIOD_LABEL.get(period, "周报")
+    other_period = "biweekly" if period == "weekly" else "weekly"
+
     html = template.render(
         latest=latest,
         archive=archive,
         period=period,
-        period_label="周报" if period == "weekly" else "双周报告",
+        period_label=period_label,
+        other_label=_PERIOD_LABEL[other_period],
+        other_link=_PERIOD_FILE[other_period],
         subfields=subfields or [],
         field_labels={s["key"]: s["label"] for s in (subfields or [])},
         generated_at=datetime.now(_BEIJING_TZ).strftime(
@@ -121,6 +132,47 @@ def render_weekly(
         ),
     )
 
-    output_path = output_dir / "weekly.html"
+    output_path = output_dir / _PERIOD_FILE.get(period, "weekly.html")
     output_path.write_text(html, encoding="utf-8")
     return {"output": str(output_path), "reports": len(reports)}
+
+
+def render_poster(
+    storage: Storage,
+    *,
+    period: str = "weekly",
+    subfields: list[dict[str, str]] | None = None,
+    output_dir: Path = Path("site"),
+    templates_dir: Path = Path("templates"),
+) -> dict:
+    """Render the latest report as a shareable, fixed-size poster (poster.html)."""
+    latest = storage.get_latest_weekly(period)
+    stats = storage.get_stats()
+
+    env = Environment(
+        loader=FileSystemLoader(str(templates_dir)),
+        autoescape=select_autoescape(["html"]),
+    )
+    env.filters["label"] = label_for
+    template = env.get_template("poster.html.j2")
+
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    html = template.render(
+        report=latest,
+        period_label=_PERIOD_LABEL.get(period, "周报"),
+        stats=stats,
+        subfields=subfields or [],
+        field_labels={s["key"]: s["label"] for s in (subfields or [])},
+        generated_at=datetime.now(_BEIJING_TZ).strftime(
+            "%Y-%m-%d %H:%M (北京时间 UTC+8)"
+        ),
+    )
+
+    output_path = output_dir / "poster.html"
+    output_path.write_text(html, encoding="utf-8")
+    return {
+        "output": str(output_path),
+        "report": latest.title if latest else None,
+    }

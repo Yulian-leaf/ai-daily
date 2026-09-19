@@ -13,6 +13,7 @@ logger = logging.getLogger(__name__)
 # 窗口内条目不足该数量时跳过生成（避免产出空周报）。
 _MIN_ITEMS = 3
 _WINDOW_DAYS = {"weekly": 7, "biweekly": 14}
+_PROMPT_NAMES = {"weekly": "weekly", "biweekly": "biweekly"}
 
 
 def _one_line(text: str | None, limit: int = 80) -> str:
@@ -24,7 +25,7 @@ def _one_line(text: str | None, limit: int = 80) -> str:
 
 
 def _render_weekly_prompt(
-    items: list[Analysis], week_start: str, week_end: str,
+    items: list[Analysis], week_start: str, week_end: str, period: str = "weekly",
 ) -> str:
     lines = []
     for a in items:
@@ -33,15 +34,17 @@ def _render_weekly_prompt(
         lines.append(f"- [{field}] {a.title} —— {summary}（{a.url}）")
     body = "\n".join(lines) if lines else "（本期无条目）"
     range_label = f"{week_start[5:]} ~ {week_end[5:]}"  # MM-DD ~ MM-DD
-    return render(load_prompt("weekly"), {"items": body, "range": range_label})
+    prompt_name = _PROMPT_NAMES.get(period, "weekly")
+    return render(load_prompt(prompt_name), {"items": body, "range": range_label})
 
 
 async def _generate_weekly(
     items: list[Analysis], cfg: Config, week_start: str, week_end: str,
+    period: str = "weekly",
 ) -> WeeklyReport:
     data, _cost = await complete_json(
         model=cfg.models.summarizer,
-        prompt=_render_weekly_prompt(items, week_start, week_end),
+        prompt=_render_weekly_prompt(items, week_start, week_end, period),
         max_tokens=4000,
     )
     required = ("title", "overview", "highlights")
@@ -94,7 +97,7 @@ async def run_weekly(
         )
         return {"skipped": True, "items": len(items)}
 
-    report = await _generate_weekly(items, cfg, week_start, week_end)
+    report = await _generate_weekly(items, cfg, week_start, week_end, period)
     report.period = period
     report.week_start = week_start
     report.week_end = week_end

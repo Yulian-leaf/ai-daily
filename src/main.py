@@ -10,7 +10,7 @@ from src.config import load_config
 from src.dedup import dedup_by_url
 from src.fetchers import fetch_all
 from src.logging_setup import setup_logging
-from src.notifier.web import render_site, render_weekly
+from src.notifier.web import render_poster, render_site, render_weekly
 from src.storage import Storage
 from src.summarizer import run_summarize
 from src.weekly import run_weekly
@@ -104,6 +104,27 @@ async def run_weekly_cmd(
         storage.close()
 
 
+async def run_poster_cmd(
+    sources_path: Path = Path("config/sources.yaml"),
+    preferences_path: Path = Path("config/preferences.yaml"),
+    db_path: Path = Path("data/ai_daily.db"),
+    output_dir: Path = Path("site"),
+    period: str = "weekly",
+) -> dict:
+    config = load_config(sources_path=sources_path, preferences_path=preferences_path)
+    storage = Storage(db_path)
+    storage.init()
+    try:
+        return render_poster(
+            storage,
+            period=period,
+            subfields=config.subfields,
+            output_dir=output_dir,
+        )
+    finally:
+        storage.close()
+
+
 def _parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(prog="ai-daily")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -127,6 +148,13 @@ def _parse_args(argv: list[str]) -> argparse.Namespace:
     p_weekly.add_argument("--db", default="data/ai_daily.db")
     p_weekly.add_argument("--output-dir", default="site")
     p_weekly.add_argument("--period", default="weekly", choices=["weekly", "biweekly"])
+
+    p_poster = sub.add_parser("poster", help="Render the latest report as a shareable poster")
+    p_poster.add_argument("--sources", default="config/sources.yaml")
+    p_poster.add_argument("--preferences", default="config/preferences.yaml")
+    p_poster.add_argument("--db", default="data/ai_daily.db")
+    p_poster.add_argument("--output-dir", default="site")
+    p_poster.add_argument("--period", default="weekly", choices=["weekly", "biweekly"])
 
     return parser.parse_args(argv)
 
@@ -174,6 +202,16 @@ def main(argv: list[str] | None = None) -> int:
                 f"weekly done: items={result['items']}"
                 f" highlights={result['highlights']} output={result['output']}"
             )
+        return 0
+    if args.command == "poster":
+        result = asyncio.run(run_poster_cmd(
+            sources_path=Path(args.sources),
+            preferences_path=Path(args.preferences),
+            db_path=Path(args.db),
+            output_dir=Path(args.output_dir),
+            period=args.period,
+        ))
+        print(f"poster done: output={result['output']}")
         return 0
     raise SystemExit(f"unknown command: {args.command}")
 

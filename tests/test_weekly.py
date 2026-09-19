@@ -6,7 +6,7 @@ import pytest
 
 from src.config import Config, Models
 from src.models import Item, Score, Summary, WeeklyReport
-from src.notifier.web import render_weekly
+from src.notifier.web import render_poster, render_weekly
 from src.storage import Storage
 from src.weekly import run_weekly
 
@@ -128,3 +128,61 @@ def test_render_weekly_writes_html(tmp_path: Path):
     assert "蛋白质/结构" in html
     assert 'href="index.html"' in html
     assert result["reports"] == 1
+
+
+@pytest.mark.asyncio
+async def test_run_biweekly_uses_biweekly_prompt(tmp_path: Path, monkeypatch):
+    monkeypatch.setenv("DEEPSEEK_API_KEY", "k")
+    s = Storage(tmp_path / "t.db"); s.init()
+    _seed_surfaced(s, n=5)
+
+    captured = {}
+
+    async def fake(*, model, prompt, max_tokens, temperature=0.2):
+        captured["prompt"] = prompt
+        return ({"title": "AI4S 双周报告", "overview": "o",
+                 "highlights": [], "trend": "t", "outlook": "out"}, 0.01)
+
+    with patch("src.weekly.complete_json", new=AsyncMock(side_effect=fake)):
+        await run_weekly(s, _cfg(), period="biweekly")
+
+    assert "双周" in captured["prompt"]  # biweekly.txt is used, not weekly.txt
+    assert s.get_latest_weekly("biweekly").title == "AI4S 双周报告"
+    assert s.get_latest_weekly("weekly") is None
+    s.close()
+
+
+def test_get_stats(tmp_path: Path):
+    s = Storage(tmp_path / "t.db"); s.init()
+    _seed_surfaced(s, n=3)
+    stats = s.get_stats()
+    assert stats["items"] == 3
+    assert stats["summarized"] == 3
+    assert stats["surfaced"] == 3
+    assert stats["by_field"].get("protein") == 3
+    s.close()
+
+
+def test_render_poster_writes_html(tmp_path: Path):
+    s = Storage(tmp_path / "t.db"); s.init()
+    s.save_weekly_report(WeeklyReport(
+        period="weekly", week_start="2026-09-13", week_end="2026-09-19",
+        title="T", overview="o",
+        highlights=[{"field": "protein", "title": "t", "url": "u", "summary": "s"}],
+        trend="tr", outlook="out", generated_at="2026-09-19T00:00:00+00:00",
+    ))
+    _seed_surfaced(s, n=3)
+    out_dir = tmp_path / "site"
+    result = render_poster(
+        s, period="weekly",
+        subfields=[{"key": "protein", "label": "蛋白质/结构"}],
+        output_dir=out_dir,
+    )
+    s.close()
+    html = (out_dir / "poster.html").read_text(encoding="utf-8")
+    assert "T" in html
+    assert "蛋白质/结构" in html
+    assert "抓取条目" in html
+    # stats["items"] must render the int, not the dict.items() method repr.
+    assert 'class="num">3</span><small>抓取条目' in html
+    assert result["report"] == "T"
