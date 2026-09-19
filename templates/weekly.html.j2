@@ -41,7 +41,10 @@
       color: var(--muted); margin: 24px 0 12px; padding-bottom: 6px;
       border-bottom: 1px solid var(--border);
     }
-    .cards { display: flex; flex-direction: column; gap: 12px; }
+    .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 600px) {
+      .cards { grid-template-columns: 1fr; }
+    }
     article.card {
       background: var(--card); border: 1px solid var(--border);
       border-radius: 8px; padding: 16px 18px;
