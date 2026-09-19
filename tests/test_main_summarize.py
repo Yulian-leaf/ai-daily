@@ -12,6 +12,7 @@ from src.storage import Storage
 async def test_run_summarize_cmd_loads_config_and_calls_pipeline(
     tmp_path: Path, monkeypatch
 ):
+    """run_summarize_cmd 加载配置并调用流水线，产出摘要。"""
     monkeypatch.setenv("ANTHROPIC_API_KEY", "k")
     src = tmp_path / "sources.yaml"
     src.write_text("sources: []\n", encoding="utf-8")

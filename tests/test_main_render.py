@@ -9,6 +9,7 @@ from src.storage import Storage
 
 @pytest.mark.asyncio
 async def test_run_render_cmd_writes_html(tmp_path: Path):
+    """run_render_cmd 渲染并写出 index.html。"""
     src = tmp_path / "sources.yaml"
     src.write_text("sources: []\n", encoding="utf-8")
     prefs = tmp_path / "preferences.yaml"

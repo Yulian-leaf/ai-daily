@@ -11,6 +11,7 @@ from src.fetchers.github import fetch_github
 async def test_fetch_github_filters_by_pushed_recency_and_stars(
     httpx_mock, github_search_json
 ):
+    """按 push 时间和 star 数过滤 GitHub 仓库。"""
     httpx_mock.add_response(
         url=re.compile(r"https://api\.github\.com/search/repositories.*"),
         text=github_search_json,

@@ -4,6 +4,7 @@ from src.models import Item
 
 
 def test_item_construction_minimal():
+    """最小构造 Item，raw 默认空字典。"""
     item = Item(
         url="https://arxiv.org/abs/2401.00001",
         title="Sample Paper",
@@ -18,6 +19,7 @@ def test_item_construction_minimal():
 
 
 def test_item_with_raw_payload():
+    """带 raw 原始数据的 Item 能保留原样。"""
     raw = {"id": "2401.00001", "categories": ["cs.AI"]}
     item = Item(
         url="https://arxiv.org/abs/2401.00001",
@@ -31,6 +33,7 @@ def test_item_with_raw_payload():
 
 
 def test_item_equality_by_value():
+    """同字段的 Item 相等（dataclass 值相等）。"""
     a = Item(
         url="https://example.com/x",
         title="x",

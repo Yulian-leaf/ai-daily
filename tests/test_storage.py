@@ -16,6 +16,7 @@ def _item(url: str, source: str = "rss:test") -> Item:
 
 
 def test_init_creates_schema(tmp_path: Path):
+    """init 建库建表，重复调用幂等。"""
     db_path = tmp_path / "test.db"
     storage = Storage(db_path)
     storage.init()
@@ -26,6 +27,7 @@ def test_init_creates_schema(tmp_path: Path):
 
 
 def test_seen_urls_empty_initially(tmp_path: Path):
+    """空库 seen_urls 返回空集。"""
     storage = Storage(tmp_path / "test.db")
     storage.init()
     assert storage.seen_urls(["https://a", "https://b"]) == set()
@@ -33,6 +35,7 @@ def test_seen_urls_empty_initially(tmp_path: Path):
 
 
 def test_record_and_check_seen_urls(tmp_path: Path):
+    """入库后 seen_urls 能命中已存 URL。"""
     storage = Storage(tmp_path / "test.db")
     storage.init()
     storage.record_items([_item("https://a"), _item("https://b")])
@@ -42,6 +45,7 @@ def test_record_and_check_seen_urls(tmp_path: Path):
 
 
 def test_record_items_is_idempotent_on_duplicate_url(tmp_path: Path):
+    """重复 URL 幂等写入，不报错。"""
     storage = Storage(tmp_path / "test.db")
     storage.init()
     storage.record_items([_item("https://a")])
@@ -52,6 +56,7 @@ def test_record_items_is_idempotent_on_duplicate_url(tmp_path: Path):
 
 
 def test_record_items_preserves_first_seen_timestamp(tmp_path: Path):
+    """重复入库保留首次 first_seen。"""
     storage = Storage(tmp_path / "test.db")
     storage.init()
     storage.record_items([_item("https://a")])

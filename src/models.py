@@ -48,3 +48,17 @@ class Analysis:
     @property
     def total_cost_usd(self) -> float:
         return self.score.cost_usd + (self.summary.cost_usd if self.summary else 0.0)
+
+
+@dataclass
+class WeeklyReport:
+    """A generated weekly / biweekly digest (Phase 3)."""
+    period: str = "weekly"          # 'weekly' / 'biweekly'
+    week_start: str = ""            # 覆盖起始日 YYYY-MM-DD
+    week_end: str = ""              # 覆盖结束日 YYYY-MM-DD
+    title: str = ""
+    overview: str = ""
+    highlights: list[dict] = field(default_factory=list)  # [{field, title, url, summary}]
+    trend: str = ""
+    outlook: str = ""
+    generated_at: str = ""

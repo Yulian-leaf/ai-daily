@@ -19,6 +19,7 @@ def _item(url: str) -> Item:
 
 @pytest.mark.asyncio
 async def test_fetch_all_aggregates_results(monkeypatch):
+    """多源并发抓取结果聚合在一起。"""
     rss = AsyncMock(return_value=[_item("https://a"), _item("https://b")])
     arxiv = AsyncMock(return_value=[_item("https://c")])
     github = AsyncMock(return_value=[])
@@ -41,6 +42,7 @@ async def test_fetch_all_aggregates_results(monkeypatch):
 
 @pytest.mark.asyncio
 async def test_fetch_all_isolates_failing_fetcher(monkeypatch, caplog):
+    """单源失败被吞掉并打日志，不影响其它源。"""
     rss = AsyncMock(side_effect=RuntimeError("boom"))
     arxiv = AsyncMock(return_value=[_item("https://ok")])
     github = AsyncMock(return_value=[])
@@ -62,6 +64,7 @@ async def test_fetch_all_isolates_failing_fetcher(monkeypatch, caplog):
 
 @pytest.mark.asyncio
 async def test_fetch_all_skips_unknown_source_type(monkeypatch, caplog):
+    """未知 source type 跳过并打日志。"""
     sources = [{"name": "weird", "type": "smoke-signal"}]
     items = await fetch_all(sources, window_hours=36)
     assert items == []

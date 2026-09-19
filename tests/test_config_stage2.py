@@ -11,6 +11,7 @@ def _write(path: Path, content: str) -> Path:
 
 
 def test_loads_models_and_thresholds(tmp_path: Path):
+    """解析 models（scorer+summarizer）、score_threshold、top_n。"""
     src = _write(tmp_path / "sources.yaml", "sources: []\n")
     prefs = _write(tmp_path / "preferences.yaml", """
 keywords: [LLM]
@@ -29,6 +30,7 @@ top_n: 10
 
 
 def test_models_required_when_summarize_section_present(tmp_path: Path):
+    """配了 models 但缺 summarizer 时报 ConfigError。"""
     src = _write(tmp_path / "sources.yaml", "sources: []\n")
     prefs = _write(tmp_path / "preferences.yaml", """
 keywords: [LLM]
@@ -41,6 +43,7 @@ models:
 
 
 def test_defaults_when_models_absent(tmp_path: Path):
+    """不配 models 时 models=None，阈值/top_n 用默认值。"""
     src = _write(tmp_path / "sources.yaml", "sources: []\n")
     prefs = _write(tmp_path / "preferences.yaml", "keywords: []\n")
     cfg = load_config(sources_path=src, preferences_path=prefs)
@@ -50,6 +53,7 @@ def test_defaults_when_models_absent(tmp_path: Path):
 
 
 def test_invalid_thresholds(tmp_path: Path):
+    """score_threshold 越界（>10）报 ConfigError。"""
     src = _write(tmp_path / "sources.yaml", "sources: []\n")
     prefs = _write(tmp_path / "preferences.yaml", """
 keywords: []
@@ -60,6 +64,7 @@ score_threshold: 11
 
 
 def test_parses_subfields(tmp_path: Path):
+    """subfields 列表正确解析成 [{key,label}, ...]。"""
     src = _write(tmp_path / "sources.yaml", "sources: []\n")
     prefs = _write(tmp_path / "preferences.yaml", """
 keywords: []
@@ -77,6 +82,7 @@ subfields:
 
 
 def test_subfields_absent_defaults_to_empty(tmp_path: Path):
+    """不配 subfields 时默认空列表。"""
     src = _write(tmp_path / "sources.yaml", "sources: []\n")
     prefs = _write(tmp_path / "preferences.yaml", "keywords: []\n")
     cfg = load_config(sources_path=src, preferences_path=prefs)
@@ -84,6 +90,7 @@ def test_subfields_absent_defaults_to_empty(tmp_path: Path):
 
 
 def test_subfields_reject_bad_entry(tmp_path: Path):
+    """subfield 缺 label 等非法项报 ConfigError。"""
     src = _write(tmp_path / "sources.yaml", "sources: []\n")
     prefs = _write(tmp_path / "preferences.yaml", """
 keywords: []

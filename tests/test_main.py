@@ -20,6 +20,7 @@ def _item(url: str, source: str = "rss:test") -> Item:
 
 @pytest.mark.asyncio
 async def test_run_fetch_dedup_and_store(monkeypatch, tmp_path: Path):
+    """run_fetch：抓取→批内去重→入库，返回统计。"""
     sources_file = tmp_path / "sources.yaml"
     prefs_file = tmp_path / "preferences.yaml"
     db_file = tmp_path / "ai_daily.db"
@@ -49,6 +50,7 @@ async def test_run_fetch_dedup_and_store(monkeypatch, tmp_path: Path):
 
 @pytest.mark.asyncio
 async def test_run_fetch_skips_already_seen(monkeypatch, tmp_path: Path):
+    """第二次抓同样的 URL，全部被过滤不入库。"""
     sources_file = tmp_path / "sources.yaml"
     prefs_file = tmp_path / "preferences.yaml"
     db_file = tmp_path / "ai_daily.db"

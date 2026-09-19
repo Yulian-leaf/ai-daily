@@ -17,10 +17,12 @@ FIX = Path(__file__).parent / "fixtures"
 
 
 def test_parse_json_loose_plain():
+    """纯 JSON 字符串直接解析。"""
     assert parse_json_loose('{"a": 1}') == {"a": 1}
 
 
 def test_parse_json_loose_strips_fenced_codeblock():
+    """剥离 ``` 代码块围栏后再解析。"""
     raw = (FIX / "llm_score_response_dirty.txt").read_text(encoding="utf-8")
     out = parse_json_loose(raw)
     assert out["score"] == 8
@@ -28,10 +30,12 @@ def test_parse_json_loose_strips_fenced_codeblock():
 
 
 def test_parse_json_loose_fixes_trailing_comma():
+    """修复 JSON 尾逗号。"""
     assert parse_json_loose('{"a": 1, "b": [1, 2,]}') == {"a": 1, "b": [1, 2]}
 
 
 def test_parse_json_loose_raises_on_garbage():
+    """完全不是 JSON 时抛 LLMError。"""
     with pytest.raises(LLMError):
         parse_json_loose("not json at all")
 
@@ -46,6 +50,7 @@ def _make_mock_response(text: str, cost: float = 0.001):
 
 @pytest.mark.asyncio
 async def test_complete_json_parses_clean_response():
+    """完整流程：调 LLM、解析 JSON、返回数据+成本。"""
     body = (FIX / "llm_score_response.json").read_text(encoding="utf-8")
     with patch("src.llm.acompletion", new=AsyncMock(return_value=_make_mock_response(body, 0.002))):
         data, cost = await complete_json(
@@ -59,6 +64,7 @@ async def test_complete_json_parses_clean_response():
 
 @pytest.mark.asyncio
 async def test_complete_json_retries_on_bad_json_then_succeeds():
+    """首次返回坏 JSON，重试后成功，成本累加。"""
     bad = "this is not json"
     good = (FIX / "llm_score_response.json").read_text(encoding="utf-8")
     mock = AsyncMock(side_effect=[
@@ -78,6 +84,7 @@ async def test_complete_json_retries_on_bad_json_then_succeeds():
 
 @pytest.mark.asyncio
 async def test_complete_json_gives_up_after_one_retry():
+    """连续两次坏 JSON 后放弃并抛错。"""
     bad = "still not json"
     mock = AsyncMock(side_effect=[
         _make_mock_response(bad, 0.001),
@@ -94,6 +101,7 @@ async def test_complete_json_gives_up_after_one_retry():
 
 
 def test_check_api_keys_anthropic_present(monkeypatch):
+    """anthropic 模型 + key 存在 → 通过。"""
     monkeypatch.setenv("ANTHROPIC_API_KEY", "k")
     monkeypatch.delenv("OPENAI_API_KEY", raising=False)
     check_api_keys(Models(scorer="anthropic/claude-haiku-4-5",
@@ -101,6 +109,7 @@ def test_check_api_keys_anthropic_present(monkeypatch):
 
 
 def test_check_api_keys_missing(monkeypatch):
+    """缺 ANTHROPIC_API_KEY 时抛 LLMError。"""
     monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
     with pytest.raises(LLMError, match="ANTHROPIC_API_KEY"):
         check_api_keys(Models(scorer="anthropic/claude-haiku-4-5",
@@ -108,6 +117,7 @@ def test_check_api_keys_missing(monkeypatch):
 
 
 def test_check_api_keys_mixed_providers(monkeypatch):
+    """多 provider 混用，缺某个 key 报对应错误。"""
     monkeypatch.setenv("ANTHROPIC_API_KEY", "k")
     monkeypatch.delenv("DEEPSEEK_API_KEY", raising=False)
     with pytest.raises(LLMError, match="DEEPSEEK_API_KEY"):

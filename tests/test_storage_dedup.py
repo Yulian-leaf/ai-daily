@@ -29,6 +29,7 @@ def _seed_two(s: Storage):
 
 
 def test_get_today_returns_only_unsurfaced(tmp_path: Path):
+    """未上墙的摘要属于今日，按分数倒序。"""
     s = Storage(tmp_path / "t.db"); s.init()
     _seed_two(s)
     today = s.get_today_summaries(min_score=7)
@@ -39,6 +40,7 @@ def test_get_today_returns_only_unsurfaced(tmp_path: Path):
 
 
 def test_get_today_skips_score_only_rows(tmp_path: Path):
+    """只有分数没摘要的行不进今日。"""
     s = Storage(tmp_path / "t.db"); s.init()
     s.record_items([_item("https://scored-only")])
     s.save_score("https://scored-only",
@@ -50,6 +52,7 @@ def test_get_today_skips_score_only_rows(tmp_path: Path):
 
 
 def test_mark_surfaced_keeps_items_in_today_until_next_day(tmp_path: Path):
+    """上墙后当天仍在今日，不提前进归档。"""
     s = Storage(tmp_path / "t.db"); s.init()
     _seed_two(s)
     n = s.mark_surfaced(["https://a", "https://b"])
@@ -63,6 +66,7 @@ def test_mark_surfaced_keeps_items_in_today_until_next_day(tmp_path: Path):
 
 
 def test_mark_surfaced_is_idempotent(tmp_path: Path):
+    """mark_surfaced 幂等：已上墙的不再更新。"""
     s = Storage(tmp_path / "t.db"); s.init()
     _seed_two(s)
     assert s.mark_surfaced(["https://a"]) == 1
@@ -72,12 +76,14 @@ def test_mark_surfaced_is_idempotent(tmp_path: Path):
 
 
 def test_mark_surfaced_empty_list(tmp_path: Path):
+    """空列表返回 0。"""
     s = Storage(tmp_path / "t.db"); s.init()
     assert s.mark_surfaced([]) == 0
     s.close()
 
 
 def test_archive_filters_by_within_days(tmp_path: Path):
+    """归档按 within_days 窗口过滤。"""
     s = Storage(tmp_path / "t.db"); s.init()
     _seed_two(s)
     # Surface a yesterday (in window), b 30 days ago (outside window).

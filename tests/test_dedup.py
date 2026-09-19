@@ -17,6 +17,7 @@ def _item(url: str) -> Item:
 
 
 def test_dedup_by_url_removes_already_seen(tmp_path: Path):
+    """去掉库里已存在的 URL，只保留新条目。"""
     storage = Storage(tmp_path / "t.db")
     storage.init()
     storage.record_items([_item("https://a"), _item("https://b")])
@@ -27,6 +28,7 @@ def test_dedup_by_url_removes_already_seen(tmp_path: Path):
 
 
 def test_dedup_by_url_dedups_within_batch(tmp_path: Path):
+    """同一批里重复 URL 只保留第一个。"""
     storage = Storage(tmp_path / "t.db")
     storage.init()
     fresh = [_item("https://a"), _item("https://a"), _item("https://b")]
@@ -37,6 +39,7 @@ def test_dedup_by_url_dedups_within_batch(tmp_path: Path):
 
 
 def test_dedup_by_url_empty_input(tmp_path: Path):
+    """空输入返回空列表，不崩。"""
     storage = Storage(tmp_path / "t.db")
     storage.init()
     assert dedup_by_url([], storage) == []

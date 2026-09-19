@@ -10,9 +10,10 @@ from src.config import load_config
 from src.dedup import dedup_by_url
 from src.fetchers import fetch_all
 from src.logging_setup import setup_logging
-from src.notifier.web import render_site
+from src.notifier.web import render_site, render_weekly
 from src.storage import Storage
 from src.summarizer import run_summarize
+from src.weekly import run_weekly
 
 
 logger = logging.getLogger(__name__)
@@ -79,6 +80,30 @@ async def run_render_cmd(
         storage.close()
 
 
+async def run_weekly_cmd(
+    sources_path: Path = Path("config/sources.yaml"),
+    preferences_path: Path = Path("config/preferences.yaml"),
+    db_path: Path = Path("data/ai_daily.db"),
+    output_dir: Path = Path("site"),
+    period: str = "weekly",
+) -> dict:
+    config = load_config(sources_path=sources_path, preferences_path=preferences_path)
+    storage = Storage(db_path)
+    storage.init()
+    try:
+        result = await run_weekly(storage, config, period=period)
+        if not result.get("skipped"):
+            result.update(render_weekly(
+                storage,
+                period=period,
+                subfields=config.subfields,
+                output_dir=output_dir,
+            ))
+        return result
+    finally:
+        storage.close()
+
+
 def _parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(prog="ai-daily")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -95,6 +120,13 @@ def _parse_args(argv: list[str]) -> argparse.Namespace:
         if name == "render":
             p.add_argument("--output-dir", default="site")
             p.add_argument("--within-days", type=int, default=30)
+
+    p_weekly = sub.add_parser("weekly", help="Generate a weekly/biweekly report")
+    p_weekly.add_argument("--sources", default="config/sources.yaml")
+    p_weekly.add_argument("--preferences", default="config/preferences.yaml")
+    p_weekly.add_argument("--db", default="data/ai_daily.db")
+    p_weekly.add_argument("--output-dir", default="site")
+    p_weekly.add_argument("--period", default="weekly", choices=["weekly", "biweekly"])
 
     return parser.parse_args(argv)
 
@@ -126,6 +158,22 @@ def main(argv: list[str] | None = None) -> int:
             within_days=args.within_days,
         ))
         print(f"rendered={result['rendered']} output={result['output']}")
+        return 0
+    if args.command == "weekly":
+        result = asyncio.run(run_weekly_cmd(
+            sources_path=Path(args.sources),
+            preferences_path=Path(args.preferences),
+            db_path=Path(args.db),
+            output_dir=Path(args.output_dir),
+            period=args.period,
+        ))
+        if result.get("skipped"):
+            print(f"weekly skipped: only {result['items']} surfaced items in window")
+        else:
+            print(
+                f"weekly done: items={result['items']}"
+                f" highlights={result['highlights']} output={result['output']}"
+            )
         return 0
     raise SystemExit(f"unknown command: {args.command}")
 

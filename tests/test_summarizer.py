@@ -28,6 +28,7 @@ def _cfg(threshold: int = 7, top_n: int = 2) -> Config:
 
 @pytest.mark.asyncio
 async def test_run_summarize_scores_all_and_summarizes_top_n(tmp_path: Path, monkeypatch):
+    """全量打分，只总结过阈值且 top_n 的条目。"""
     monkeypatch.setenv("ANTHROPIC_API_KEY", "k")
     db = tmp_path / "t.db"
     s = Storage(db)
@@ -79,6 +80,7 @@ async def test_run_summarize_scores_all_and_summarizes_top_n(tmp_path: Path, mon
 
 @pytest.mark.asyncio
 async def test_run_summarize_skips_item_on_score_error(tmp_path: Path, monkeypatch):
+    """单条打分失败不中断整体。"""
     from src.llm import LLMError
     monkeypatch.setenv("ANTHROPIC_API_KEY", "k")
     s = Storage(tmp_path / "t.db")
@@ -103,6 +105,7 @@ async def test_run_summarize_skips_item_on_score_error(tmp_path: Path, monkeypat
 
 @pytest.mark.asyncio
 async def test_run_summarize_with_no_items_is_noop(tmp_path: Path, monkeypatch):
+    """无条目时零 LLM 调用。"""
     monkeypatch.setenv("ANTHROPIC_API_KEY", "k")
     s = Storage(tmp_path / "t.db")
     s.init()
@@ -112,6 +115,7 @@ async def test_run_summarize_with_no_items_is_noop(tmp_path: Path, monkeypatch):
         "scored": 0, "passed_threshold": 0, "summarized": 0,
         "score_errors": 0, "summary_errors": 0,
         "scorer_cost_usd": 0.0, "summarizer_cost_usd": 0.0,
+        "backlog": 0, "purged": 0, "already_today": 0,
     }
     assert m.await_count == 0
     s.close()
@@ -131,6 +135,7 @@ def _cfg_with_subfields() -> Config:
 
 @pytest.mark.asyncio
 async def test_run_summarize_parses_field(tmp_path: Path, monkeypatch):
+    """scorer 返回合法 field 时正确写入。"""
     monkeypatch.setenv("ANTHROPIC_API_KEY", "k")
     s = Storage(tmp_path / "t.db")
     s.init()
@@ -152,6 +157,7 @@ async def test_run_summarize_parses_field(tmp_path: Path, monkeypatch):
 
 @pytest.mark.asyncio
 async def test_run_summarize_field_out_of_range_falls_back(tmp_path: Path, monkeypatch):
+    """越界 field 回退为空字符串。"""
     monkeypatch.setenv("ANTHROPIC_API_KEY", "k")
     s = Storage(tmp_path / "t.db")
     s.init()
@@ -168,4 +174,86 @@ async def test_run_summarize_field_out_of_range_falls_back(tmp_path: Path, monke
 
     top = s.get_top_summaries(min_score=7, limit=10, within_days=1)
     assert top[0].score.field == ""
+    s.close()
+
+
+@pytest.mark.asyncio
+async def test_run_summarize_backfills_scored_unsummarized(tmp_path: Path, monkeypatch):
+    """已打分(过阈值)但没摘要的近期条目，应被补总结。"""
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "k")
+    s = Storage(tmp_path / "t.db")
+    s.init()
+    s.record_items([_item("https://a", title="TITLE-A")])
+    s.save_score("https://a", Score(score=9, tags=["x"], model="m", cost_usd=0.001))
+
+    async def fake(*, model, prompt, max_tokens, temperature=0.2):
+        # 没有未打分条目，只会被 summarizer 调用
+        return ({"innovation": "i", "approach": "a", "metrics": "m",
+                 "links": "l", "why_relevant": "w"}, 0.01)
+
+    with patch("src.summarizer.complete_json", new=AsyncMock(side_effect=fake)):
+        result = await run_summarize(s, _cfg(top_n=5))
+
+    assert result["backlog"] == 1
+    assert result["summarized"] == 1
+    top = s.get_top_summaries(min_score=7, limit=10, within_days=1)
+    assert len(top) == 1 and top[0].summary is not None
+    s.close()
+
+
+@pytest.mark.asyncio
+async def test_run_summarize_purges_stale_unsummarized(tmp_path: Path, monkeypatch):
+    """太久没写摘要的分数行应被清理，不再补总结。"""
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "k")
+    s = Storage(tmp_path / "t.db")
+    s.init()
+    s.record_items([_item("https://a", title="TITLE-A")])
+    s.save_score("https://a", Score(score=9, tags=["x"], model="m", cost_usd=0.001))
+    old = (datetime.now(timezone.utc) - timedelta(days=30)).isoformat()
+    conn = s._conn_or_die()
+    conn.execute("UPDATE summaries SET created_at=? WHERE url=?", (old, "https://a"))
+    conn.execute("UPDATE items SET first_seen=? WHERE url=?", (old, "https://a"))
+    conn.commit()
+
+    with patch("src.summarizer.complete_json", new=AsyncMock()) as m:
+        result = await run_summarize(s, _cfg(top_n=5))
+
+    assert result["purged"] == 1
+    assert result["backlog"] == 0
+    assert result["summarized"] == 0
+    assert m.await_count == 0
+    assert s.get_top_summaries(min_score=7, limit=10, within_days=1) == []
+    s.close()
+
+
+@pytest.mark.asyncio
+async def test_run_summarize_caps_daily_quota(tmp_path: Path, monkeypatch):
+    """同一天内多次 summarize，新写摘要总数最多只有 top_n 条。"""
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "k")
+    s = Storage(tmp_path / "t.db")
+    s.init()
+    s.record_items([
+        _item("https://a"), _item("https://b"),
+        _item("https://c"), _item("https://d"),
+    ])
+    for url in ["https://a", "https://b", "https://c", "https://d"]:
+        s.save_score(url, Score(score=9, tags=["x"], model="m", cost_usd=0.001))
+
+    async def fake(*, model, prompt, max_tokens, temperature=0.2):
+        return ({"innovation": "i", "approach": "a", "metrics": "m",
+                 "links": "l", "why_relevant": "w"}, 0.01)
+
+    with patch("src.summarizer.complete_json", new=AsyncMock(side_effect=fake)):
+        first = await run_summarize(s, _cfg(top_n=2))
+    assert first["summarized"] == 2
+    assert first["already_today"] == 0
+
+    with patch("src.summarizer.complete_json", new=AsyncMock(side_effect=fake)) as m:
+        second = await run_summarize(s, _cfg(top_n=2))
+
+    # 第二轮：当天已写 2 条，额度用尽，不再总结
+    assert second["already_today"] == 2
+    assert second["summarized"] == 0
+    assert m.await_count == 0
+    assert len(s.get_today_summaries(min_score=7)) == 2
     s.close()

@@ -1,6 +1,6 @@
 # tests/ 测试目录说明
 
-> 本目录是 ai-daily 的 pytest 测试套件，共 **90 个测试**（截至 Phase 1）。
+> 本目录是 ai-daily 的 pytest 测试套件，共 **97 个测试**（截至 Phase 2）。
 > 每个测试文件对应 `src/` 里的一个模块，用「文件名 ≈ 被测模块」的方式组织。
 >
 > 运行方式：
@@ -19,7 +19,7 @@
 | `test_config.py` | `src/config.py` | 5 | 配置加载基础（sources 校验、默认值、真实配置可加载） |
 | `test_config_stage2.py` | `src/config.py` | 7 | 模型/阈值解析 + **subfields 解析（Phase 1 新增 3 个）** |
 | `test_dedup.py` | `src/dedup.py` | 3 | URL 去重 |
-| `test_fetchers/test_arxiv.py` | `fetchers/arxiv.py` | 3 | arXiv 抓取、超时重试 |
+| `test_fetchers/test_arxiv.py` | `fetchers/arxiv.py` | 4 | arXiv 抓取、超时重试、速率限制 |
 | `test_fetchers/test_github.py` | `fetchers/github.py` | 1 | GitHub Topic 抓取过滤 |
 | `test_fetchers/test_hackernews.py` | `fetchers/hackernews.py` | 1 | HN 抓取过滤 |
 | `test_fetchers/test_orchestrator.py` | `fetchers/__init__.py` | 3 | 多源编排：聚合 + 单源失败隔离 |
@@ -31,12 +31,12 @@
 | `test_main_summarize.py` | `src/main.py` | 1 | `run_summarize_cmd` 调流水线 |
 | `test_models.py` | `src/models.py` | 3 | 数据类（Item/Score/Summary/Analysis） |
 | `test_notifier_labels.py` | `notifier/labels.py` | 8 | 来源 → 友好名+分类（**Phase 1 改 AI4S 源 + 新增 1 个**） |
-| `test_notifier_web.py` | `notifier/web.py` | 6 | HTML 渲染：今日/归档分栏、来源徽章（**Phase 1 改 1 个**） |
+| `test_notifier_web.py` | `notifier/web.py` | 8 | HTML 渲染：今日/归档分栏、来源徽章、chips、**最近更新时间（Phase 2 新增 2 个）** |
 | `test_prompts.py` | `src/prompts.py` | 5 | 提示词加载与占位符渲染 |
 | `test_storage.py` | `src/storage.py` | 5 | items 表：建表、去重、幂等写入 |
 | `test_storage_dedup.py` | `src/storage.py` | 7 | `surfaced_at` 今日/归档语义、迁移 |
-| `test_storage_stage2.py` | `src/storage.py` | 9 | 评分/总结读写、**field 列（Phase 1 新增 2 个）** |
-| `test_summarizer.py` | `src/summarizer.py` | 5 | 评分+总结流水线、**field 解析（Phase 1 新增 2 个）** |
+| `test_storage_stage2.py` | `src/storage.py` | 10 | 评分/总结读写、field 列、**summarized_at 迁移（Phase 2 新增 1 个）** |
+| `test_summarizer.py` | `src/summarizer.py` | 8 | 评分+总结流水线、field 解析、补总结+清理、**每日额度（Phase 2 新增 3 个）** |
 
 ---
 
@@ -66,8 +66,8 @@
 
 ### 抓取器 `src/fetchers/`
 
-**`test_fetchers/test_arxiv.py`（3）** — `fetch_arxiv`
-- 返回最近论文；超时自动重试一次；404 不重试。
+**`test_fetchers/test_arxiv.py`（4）** — `fetch_arxiv`
+- 返回最近论文；超时自动重试一次；404 不重试；**速率限制**（`_throttle` 连续请求间隔 ≥ 3 秒）。
 
 **`test_fetchers/test_github.py`（1）** — `fetch_github`
 - 按 `pushed_at` 时间窗口 + `min_stars` 过滤仓库。
@@ -126,13 +126,15 @@
 
 ### 渲染 `src/notifier/web.py`
 
-**`test_notifier_web.py`（6）**
+**`test_notifier_web.py`（8）**
 - `test_render_site_first_run_puts_summaries_in_today_band`：首次渲染，摘要进「今日新增」栏。
 - `test_render_site_keeps_today_same_day_moves_to_archive_next_day`：同日二次渲染仍在今日，跨天后移到归档。
 - `test_render_site_empty_db_writes_empty_states`：空库渲染空状态文案。
 - `test_render_site_source_badge_uses_friendly_label_and_category`：**Phase 1 改** `openai-blog`→`deepmind-blog`（验证来源徽章用友好名+分类）。
 - `test_render_site_archive_groups_by_surfaced_date`：归档按 surfaced 日期分组、倒序。
 - `test_render_site_includes_favorites_machinery`：包含收藏（本地 localStorage）机制。
+- `test_render_site_renders_subfield_chips_and_field_badge`：**Phase 2 新增** 渲染子领域 chips + 卡片 `data-field`/field 徽章。
+- `test_generated_at_is_last_render_time`：**Phase 2 新增** 页面显示「最近更新于」（最近一次 render 时刻）。
 
 ### 提示词 `src/prompts.py`
 
@@ -151,21 +153,27 @@
 - `get_archive_summaries` 按 `within_days` 窗口过滤（只含之前几天上墙的）。
 - 旧库（无 `surfaced_at` 列）迁移并回填。
 
-**`test_storage_stage2.py`（9）** — 评分/总结读写
+**`test_storage_stage2.py`（10）** — 评分/总结读写
 - items 表持久化完整内容；`seen_urls` 过滤；score+summary 回环；未评分条目过滤；外键约束报错；旧 `seen_urls` 表清理。
 - **Phase 1 新增 2 个（field）**：
   - `test_save_score_persists_field`：`Score.field` 写库后可读回。
   - `test_init_migrates_adds_field_column`：旧库（无 `field` 列）迁移后读回空字符串、不崩。
+- **Phase 2 新增 1 个（summarized_at）**：
+  - `test_init_migrates_adds_summarized_at`：旧库补列，已有摘要回填为过去、不计入今天额度；新写摘要计入今天。
 
 ### 评分+总结 `src/summarizer.py`
 
-**`test_summarizer.py`（5）**
+**`test_summarizer.py`（8）**
 - `test_run_summarize_scores_all_and_summarizes_top_n`：全量打分 + 只总结过阈值的 top_n（mock LLM）。
 - `test_run_summarize_skips_item_on_score_error`：单条打分失败不中断整体。
 - `test_run_summarize_with_no_items_is_noop`：无条目时零调用。
 - **Phase 1 新增 2 个（field 解析）**：
   - `test_run_summarize_parses_field`：scorer 返回合法 `field` 时正确写入。
   - `test_run_summarize_field_out_of_range_falls_back`：返回越界 field 时回退为 `""`。
+- **Phase 2 新增 3 个（补总结 + 清理 + 每日额度）**：
+  - `test_run_summarize_backfills_scored_unsummarized`：已打分过阈值但没摘要的近期条目会被补总结。
+  - `test_run_summarize_purges_stale_unsummarized`：太久没写摘要的分数行被清理、不再补总结。
+  - `test_run_summarize_caps_daily_quota`：同一天多次 summarize，新写摘要总数最多 `top_n` 条。
 
 ---
 
@@ -180,3 +188,9 @@
 - **新增 8 个测试**：`test_config_stage2.py` +3（subfields 解析）、`test_notifier_labels.py` +1（期刊源）、`test_storage_stage2.py` +2（field 存储/迁移）、`test_summarizer.py` +2（field 解析）。
 - **修改 5 个断言**：`test_notifier_labels.py`（3 处来源改 AI4S）、`test_notifier_web.py`（来源徽章改 DeepMind）。
 - 总量从 Phase 0 的 82 → Phase 1 的 90。
+
+## Phase 2 改动标记（补总结 + 陈旧清理 + 每日额度 + 北京时间）
+
+- **新增 5 个测试**：`test_summarizer.py` +3（`test_run_summarize_backfills_scored_unsummarized`、`test_run_summarize_purges_stale_unsummarized`、`test_run_summarize_caps_daily_quota`）、`test_storage_stage2.py` +1（`test_init_migrates_adds_summarized_at`）、`test_notifier_web.py` +1（`test_generated_at_is_last_render_time`）。
+- **修改 1 个断言**：`test_run_summarize_with_no_items_is_noop` 的 metrics 字典新增 `backlog` / `purged` / `already_today` 三个键。
+- 总量从 92 → 97。

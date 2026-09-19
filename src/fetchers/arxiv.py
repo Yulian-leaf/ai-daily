@@ -1,5 +1,6 @@
 import asyncio
 import logging
+import time
 from datetime import datetime, timedelta, timezone
 from typing import Any
 from urllib.parse import urlencode
@@ -17,6 +18,24 @@ logger = logging.getLogger(__name__)
 _API_URL = "https://export.arxiv.org/api/query"
 _TIMEOUT_SECONDS = 60.0  # arxiv export endpoint is sometimes slow
 _RETRY_DELAY_SECONDS = 5.0  # back off once on transient failures
+_ARXIV_INTERVAL_SECONDS = 3.0  # arXiv 官方要求请求间隔 ≥ 3 秒
+
+# 全局速率限制：4 个 arXiv 源经 asyncio.gather 并发跑，靠"预留时间槽"
+# 让请求串行、彼此间隔 _ARXIV_INTERVAL_SECONDS。预留发生在 await 之前，
+# 在 asyncio 单线程模型下是原子的（两次 await 之间不会切换协程）。
+_last_arxiv_slot = 0.0
+
+
+async def _throttle() -> None:
+    """Ensure consecutive arXiv requests are spaced ≥ _ARXIV_INTERVAL_SECONDS."""
+    global _last_arxiv_slot
+    now = time.monotonic()
+    target = _last_arxiv_slot + _ARXIV_INTERVAL_SECONDS
+    if target > now:
+        _last_arxiv_slot = target           # 预留槽位
+        await asyncio.sleep(target - now)   # 睡到槽位
+    else:
+        _last_arxiv_slot = now              # 无需等待，立即执行
 
 
 def _build_query(categories: list[str]) -> str:
@@ -51,6 +70,7 @@ async def fetch_arxiv(source: dict[str, Any], window_hours: int) -> list[Item]:
     async with httpx.AsyncClient(timeout=_TIMEOUT_SECONDS, headers=headers) as client:
         for attempt in range(2):
             try:
+                await _throttle()
                 response = await client.get(url)
                 response.raise_for_status()
                 body = response.text

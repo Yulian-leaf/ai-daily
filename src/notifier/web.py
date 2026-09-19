@@ -1,11 +1,14 @@
 from collections import defaultdict
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 from src.notifier.labels import label_for
 from src.storage import Storage
+
+# 北京时间（UTC+8，固定偏移；中国无夏令时）。
+_BEIJING_TZ = timezone(timedelta(hours=8))
 
 
 def _group_archive_by_date(archive: list) -> list[tuple[str, list]]:
@@ -51,18 +54,22 @@ def render_site(
     )
     env.filters["label"] = label_for
     template = env.get_template("index.html.j2")
+
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+
     html = template.render(
         today=today,
         archive_groups=archive_groups,
         archive_total=len(archive),
         within_days=within_days,
-        generated_at=datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
+        generated_at=datetime.now(_BEIJING_TZ).strftime(
+            "%Y-%m-%d %H:%M (北京时间 UTC+8)"
+        ),
         subfields=subfields or [],
         field_labels={s["key"]: s["label"] for s in (subfields or [])},
     )
 
-    output_dir = Path(output_dir)
-    output_dir.mkdir(parents=True, exist_ok=True)
     output_path = output_dir / "index.html"
     output_path.write_text(html, encoding="utf-8")
 
@@ -77,3 +84,43 @@ def render_site(
         # Back-compat key kept for older tests / callers.
         "rendered": len(today) + len(archive),
     }
+
+
+def render_weekly(
+    storage: Storage,
+    *,
+    period: str = "weekly",
+    subfields: list[dict[str, str]] | None = None,
+    output_dir: Path = Path("site"),
+    templates_dir: Path = Path("templates"),
+) -> dict:
+    """Render the weekly digest page (latest report + archive) to weekly.html."""
+    reports = storage.get_weekly_reports(period=period)
+    latest = reports[0] if reports else None
+    archive = reports[1:] if reports else []
+
+    env = Environment(
+        loader=FileSystemLoader(str(templates_dir)),
+        autoescape=select_autoescape(["html"]),
+    )
+    env.filters["label"] = label_for
+    template = env.get_template("weekly.html.j2")
+
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    html = template.render(
+        latest=latest,
+        archive=archive,
+        period=period,
+        period_label="周报" if period == "weekly" else "双周报告",
+        subfields=subfields or [],
+        field_labels={s["key"]: s["label"] for s in (subfields or [])},
+        generated_at=datetime.now(_BEIJING_TZ).strftime(
+            "%Y-%m-%d %H:%M (北京时间 UTC+8)"
+        ),
+    )
+
+    output_path = output_dir / "weekly.html"
+    output_path.write_text(html, encoding="utf-8")
+    return {"output": str(output_path), "reports": len(reports)}

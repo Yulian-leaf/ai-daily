@@ -6,6 +6,7 @@ from src.config import load_config, ConfigError
 
 
 def test_load_default_config(tmp_path: Path):
+    """加载最小合法配置，验证 sources/keywords/fetch_window 解析正确。"""
     sources = tmp_path / "sources.yaml"
     prefs = tmp_path / "preferences.yaml"
     sources.write_text(
@@ -29,6 +30,7 @@ def test_load_default_config(tmp_path: Path):
 
 
 def test_load_config_defaults_fetch_window(tmp_path: Path):
+    """不写 fetch_window_hours 时回退到默认 168 小时（7 天）。"""
     sources = tmp_path / "sources.yaml"
     prefs = tmp_path / "preferences.yaml"
     sources.write_text("sources: []\n", encoding="utf-8")
@@ -38,6 +40,7 @@ def test_load_config_defaults_fetch_window(tmp_path: Path):
 
 
 def test_load_config_missing_source_field_raises(tmp_path: Path):
+    """source 缺必填字段（type）时报 ConfigError。"""
     sources = tmp_path / "sources.yaml"
     prefs = tmp_path / "preferences.yaml"
     sources.write_text(
@@ -51,6 +54,7 @@ def test_load_config_missing_source_field_raises(tmp_path: Path):
 
 
 def test_load_config_rejects_bool_fetch_window(tmp_path: Path):
+    """fetch_window_hours 传布尔值要报错，防止类型写错。"""
     sources = tmp_path / "sources.yaml"
     prefs = tmp_path / "preferences.yaml"
     sources.write_text("sources: []\n", encoding="utf-8")
@@ -60,6 +64,7 @@ def test_load_config_rejects_bool_fetch_window(tmp_path: Path):
 
 
 def test_real_default_config_loads():
+    """仓库里真实的 config/*.yaml 能正常加载（冒烟测试）。"""
     # The committed config/*.yaml should load without errors.
     config = load_config(
         sources_path=Path("config/sources.yaml"),

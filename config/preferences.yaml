@@ -42,7 +42,7 @@ models:
   summarizer: deepseek/deepseek-chat   # 总结阶段：每天跑 10 次，用强模型保证质量
 
 # 评分阈值：score >= score_threshold 的内容才进入总结阶段。
-score_threshold: 7
+score_threshold: 6
 
 # 推送 top N（Stage 3 用）。
 top_n: 10

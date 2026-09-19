@@ -20,6 +20,7 @@ def _item(url: str, content: str = "body", title: str = "t", days_ago: int = 0) 
 
 
 def test_items_table_persists_full_content(tmp_path: Path):
+    """items 表持久化完整内容与 raw。"""
     s = Storage(tmp_path / "t.db")
     s.init()
     s.record_items([_item("https://a", content="long body about LLMs")])
@@ -31,6 +32,7 @@ def test_items_table_persists_full_content(tmp_path: Path):
 
 
 def test_seen_urls_still_filters_known(tmp_path: Path):
+    """seen_urls 过滤已知 URL。"""
     s = Storage(tmp_path / "t.db")
     s.init()
     s.record_items([_item("https://a")])
@@ -39,6 +41,7 @@ def test_seen_urls_still_filters_known(tmp_path: Path):
 
 
 def test_save_score_and_summary_roundtrip(tmp_path: Path):
+    """打分+总结写库后读回一致，成本累加正确。"""
     s = Storage(tmp_path / "t.db")
     s.init()
     s.record_items([_item("https://a")])
@@ -68,6 +71,7 @@ def test_save_score_and_summary_roundtrip(tmp_path: Path):
 
 
 def test_save_score_persists_field(tmp_path: Path):
+    """Score.field 写库后可读回。"""
     s = Storage(tmp_path / "t.db")
     s.init()
     s.record_items([_item("https://a")])
@@ -110,6 +114,52 @@ def test_init_migrates_adds_field_column(tmp_path: Path):
     s.close()
 
 
+def test_init_migrates_adds_summarized_at(tmp_path: Path):
+    """旧库没有 summarized_at 列时迁移补列；已有摘要回填过去时刻，
+    不计入今天的每日额度；新写摘要则记当前时刻。"""
+    import sqlite3
+    db = tmp_path / "t.db"
+    conn = sqlite3.connect(db)
+    conn.executescript("""
+        CREATE TABLE items (
+            url TEXT PRIMARY KEY, title TEXT NOT NULL, content TEXT NOT NULL,
+            source TEXT NOT NULL, published_at TEXT NOT NULL,
+            raw_json TEXT NOT NULL DEFAULT '{}', first_seen TEXT NOT NULL
+        );
+        CREATE TABLE summaries (
+            url TEXT PRIMARY KEY REFERENCES items(url),
+            score INTEGER NOT NULL, tags_json TEXT NOT NULL,
+            field TEXT NOT NULL DEFAULT '',
+            scorer_model TEXT NOT NULL, scorer_cost_usd REAL NOT NULL DEFAULT 0,
+            innovation TEXT, approach TEXT, metrics TEXT, links TEXT,
+            why_relevant TEXT, summarizer_model TEXT, summarizer_cost_usd REAL,
+            created_at TEXT NOT NULL, surfaced_at TEXT
+        );
+        INSERT INTO items VALUES ('https://a','t','c','s','2026-05-10T00:00:00+00:00','{}','2026-05-10T00:00:00+00:00');
+        INSERT INTO summaries (url, score, tags_json, field, scorer_model, scorer_cost_usd,
+                               innovation, created_at, surfaced_at)
+          VALUES ('https://a', 9, '["x"]', '', 'm', 0.001,
+                  'i', '2026-05-10T00:00:00+00:00', '2026-05-11T00:00:00+00:00');
+    """)
+    conn.commit()
+    conn.close()
+
+    s = Storage(db); s.init()
+    today = datetime.now(timezone.utc).replace(
+        hour=0, minute=0, second=0, microsecond=0
+    ).isoformat()
+    # 旧摘要回填为过去时刻 → 不计入今天
+    assert s.count_summarized_since(today) == 0
+    # 新写摘要 → 计入今天
+    s.save_summary(
+        "https://a",
+        Summary(innovation="x", approach="y", metrics="z", links="l",
+                why_relevant="r", model="m2", cost_usd=0.01),
+    )
+    assert s.count_summarized_since(today) == 1
+    s.close()
+
+
 def test_get_unscored_items_filters_by_first_seen_not_published_at(tmp_path: Path):
     """An item with old published_at but fresh first_seen MUST appear;
     an item with old first_seen MUST NOT appear, even if published_at is fresh.
@@ -139,6 +189,7 @@ def test_get_unscored_items_filters_by_first_seen_not_published_at(tmp_path: Pat
 
 
 def test_get_unscored_items_excludes_already_scored(tmp_path: Path):
+    """已打分的条目不进 unscored 列表。"""
     s = Storage(tmp_path / "t.db")
     s.init()
     s.record_items([_item("https://a"), _item("https://b")])
@@ -149,6 +200,7 @@ def test_get_unscored_items_excludes_already_scored(tmp_path: Path):
 
 
 def test_save_score_for_unknown_url_raises_fk_violation(tmp_path: Path):
+    """给不存在的 url 打分触发外键约束。"""
     import sqlite3
     s = Storage(tmp_path / "t.db")
     s.init()
@@ -158,6 +210,7 @@ def test_save_score_for_unknown_url_raises_fk_violation(tmp_path: Path):
 
 
 def test_init_drops_old_seen_urls_table(tmp_path: Path):
+    """旧 seen_urls 表被清理。"""
     db = tmp_path / "t.db"
     import sqlite3
     conn = sqlite3.connect(db)

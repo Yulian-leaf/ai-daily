@@ -38,6 +38,7 @@ def _seed(s: Storage):
 
 
 def test_render_site_first_run_puts_summaries_in_today_band(tmp_path: Path):
+    """首次渲染，摘要进「今日新增」栏。"""
     s = Storage(tmp_path / "t.db"); s.init()
     _seed(s)
     out_dir = tmp_path / "site"
@@ -94,6 +95,7 @@ def test_render_site_first_run_puts_summaries_in_today_band(tmp_path: Path):
 
 
 def test_render_site_keeps_today_same_day_moves_to_archive_next_day(tmp_path: Path):
+    """同日二次渲染仍在今日，跨天后移到归档。"""
     from datetime import timedelta
     s = Storage(tmp_path / "t.db"); s.init()
     _seed(s)
@@ -128,6 +130,7 @@ def test_render_site_keeps_today_same_day_moves_to_archive_next_day(tmp_path: Pa
 
 
 def test_render_site_empty_db_writes_empty_states(tmp_path: Path):
+    """空库渲染空状态文案。"""
     s = Storage(tmp_path / "t.db"); s.init()
     out_dir = tmp_path / "site"
     result = render_site(s, min_score=7, within_days=30, top_n=100, output_dir=out_dir)
@@ -140,6 +143,7 @@ def test_render_site_empty_db_writes_empty_states(tmp_path: Path):
 
 
 def test_render_site_source_badge_uses_friendly_label_and_category(tmp_path: Path):
+    """来源徽章用友好名 + 分类。"""
     """The rendered HTML must show the friendly label (not the raw source id)
     and tag the badge with a `cat-<category>` class for color-coding."""
     from datetime import datetime, timezone
@@ -164,6 +168,7 @@ def test_render_site_source_badge_uses_friendly_label_and_category(tmp_path: Pat
 
 
 def test_render_site_archive_groups_by_surfaced_date(tmp_path: Path):
+    """归档按 surfaced 日期分组、倒序。"""
     """Archive items get grouped by their surfaced_at date, most recent first,
     each inside its own <details> block with the date as summary."""
     from datetime import datetime, timezone, timedelta
@@ -251,3 +256,16 @@ def test_render_site_renders_subfield_chips_and_field_badge(tmp_path: Path):
     # card carries data-field + friendly field badge
     assert 'data-field="protein"' in html
     assert 'class="field"' in html
+
+
+def test_generated_at_is_last_render_time(tmp_path: Path):
+    """页面显示「最近更新于」（最近一次 render 时刻），且不再写首次时间标记文件。"""
+    s = Storage(tmp_path / "t.db"); s.init()
+    _seed(s)
+    out_dir = tmp_path / "site"
+
+    render_site(s, min_score=7, within_days=30, top_n=100, output_dir=out_dir)
+    html = (out_dir / "index.html").read_text(encoding="utf-8")
+    assert "最近更新于" in html
+    assert not (out_dir / ".first_generated_at").exists()
+    s.close()
