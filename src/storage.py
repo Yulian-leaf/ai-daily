@@ -48,6 +48,7 @@ CREATE TABLE IF NOT EXISTS weekly_reports (
     week_start TEXT NOT NULL,
     week_end TEXT NOT NULL,
     title TEXT NOT NULL,
+    slogan TEXT NOT NULL DEFAULT '',
     overview TEXT,
     highlights_json TEXT NOT NULL DEFAULT '[]',
     trend TEXT,
@@ -87,6 +88,8 @@ class Storage:
         self._migrate_add_field()
         # Daily-quota migration: add summaries.summarized_at if missing.
         self._migrate_add_summarized_at()
+        # Poster slogan migration: add weekly_reports.slogan if missing.
+        self._migrate_add_slogan()
         self._conn.commit()
 
     def _migrate_add_surfaced_at(self) -> None:
@@ -124,6 +127,15 @@ class Storage:
                 "ALTER TABLE summaries ADD COLUMN summarized_at TEXT;"
                 "UPDATE summaries SET summarized_at = COALESCE(surfaced_at, created_at)"
                 " WHERE innovation IS NOT NULL;"
+            )
+
+    def _migrate_add_slogan(self) -> None:
+        assert self._conn is not None
+        cols = self._conn.execute("PRAGMA table_info(weekly_reports)").fetchall()
+        col_names = {c[1] for c in cols}
+        if "slogan" not in col_names:
+            self._conn.execute(
+                "ALTER TABLE weekly_reports ADD COLUMN slogan TEXT NOT NULL DEFAULT ''"
             )
 
     def close(self) -> None:
@@ -377,17 +389,19 @@ class Storage:
         conn = self._conn_or_die()
         conn.execute(
             "INSERT INTO weekly_reports"
-            " (period, week_start, week_end, title, overview, highlights_json,"
+            " (period, week_start, week_end, title, slogan, overview, highlights_json,"
             "  trend, outlook, generated_at)"
-            " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
+            " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
             " ON CONFLICT(period, week_start) DO UPDATE SET"
             "   week_end=excluded.week_end, title=excluded.title,"
+            "   slogan=excluded.slogan,"
             "   overview=excluded.overview, highlights_json=excluded.highlights_json,"
             "   trend=excluded.trend, outlook=excluded.outlook,"
             "   generated_at=excluded.generated_at",
             (
                 report.period, report.week_start, report.week_end, report.title,
-                report.overview, json.dumps(report.highlights, ensure_ascii=False),
+                report.slogan, report.overview,
+                json.dumps(report.highlights, ensure_ascii=False),
                 report.trend, report.outlook, report.generated_at,
             ),
         )
@@ -503,6 +517,7 @@ class Storage:
             week_start=row["week_start"],
             week_end=row["week_end"],
             title=row["title"],
+            slogan=row["slogan"] if "slogan" in row.keys() else "",
             overview=row["overview"] or "",
             highlights=json.loads(row["highlights_json"] or "[]"),
             trend=row["trend"] or "",

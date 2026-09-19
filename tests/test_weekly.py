@@ -42,7 +42,7 @@ def test_save_and_get_weekly_report_roundtrip(tmp_path: Path):
     s = Storage(tmp_path / "t.db"); s.init()
     report = WeeklyReport(
         period="weekly", week_start="2026-09-13", week_end="2026-09-19",
-        title="T", overview="o",
+        title="T", slogan="金句", overview="o",
         highlights=[{"field": "protein", "title": "t", "url": "u", "summary": "s"}],
         trend="tr", outlook="out", generated_at="2026-09-19T00:00:00+00:00",
     )
@@ -50,6 +50,7 @@ def test_save_and_get_weekly_report_roundtrip(tmp_path: Path):
     got = s.get_weekly_reports("weekly")
     assert len(got) == 1
     assert got[0].title == "T"
+    assert got[0].slogan == "金句"
     assert got[0].highlights[0]["field"] == "protein"
 
     # idempotent upsert: same (period, week_start) overwrites, no duplicate.

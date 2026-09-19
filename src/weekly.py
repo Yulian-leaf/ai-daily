@@ -56,6 +56,7 @@ async def _generate_weekly(
         raise LLMError("weekly highlights must be a list")
     return WeeklyReport(
         title=str(data["title"]),
+        slogan=str(data.get("slogan", "")),
         overview=str(data.get("overview", "")),
         highlights=[dict(h) if isinstance(h, dict) else {} for h in highlights],
         trend=str(data.get("trend", "")),

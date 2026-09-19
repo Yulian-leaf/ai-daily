@@ -88,6 +88,10 @@ def render_site(
 
 _PERIOD_FILE = {"weekly": "weekly.html", "biweekly": "biweekly.html"}
 _PERIOD_LABEL = {"weekly": "周报", "biweekly": "双周报告"}
+_FIELD_ICONS = {
+    "protein": "🧬", "drug": "💊", "molsim": "⚛️", "materials": "🧪",
+    "climate": "🌍", "ai4math": "📐", "scifm": "🧠", "bioinfo": "🧫",
+}
 
 
 def render_weekly(
@@ -165,6 +169,11 @@ def render_poster(
         stats=stats,
         subfields=subfields or [],
         field_labels={s["key"]: s["label"] for s in (subfields or [])},
+        field_icons=_FIELD_ICONS,
+        field_max=max(
+            (stats["by_field"].get(s["key"], 0) for s in (subfields or [])),
+            default=1,
+        ),
         generated_at=datetime.now(_BEIJING_TZ).strftime(
             "%Y-%m-%d %H:%M (北京时间 UTC+8)"
         ),

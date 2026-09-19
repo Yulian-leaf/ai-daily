@@ -57,6 +57,7 @@ class WeeklyReport:
     week_start: str = ""            # 覆盖起始日 YYYY-MM-DD
     week_end: str = ""              # 覆盖结束日 YYYY-MM-DD
     title: str = ""
+    slogan: str = ""                # 一句话主题金句（海报头部大字展示）
     overview: str = ""
     highlights: list[dict] = field(default_factory=list)  # [{field, title, url, summary}]
     trend: str = ""

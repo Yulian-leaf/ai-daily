@@ -6,7 +6,7 @@
   <style>
     :root {
       --fg: #1c1917; --muted: #57534e; --bg: #fafaf9; --card: #ffffff;
-      --accent: #0369a1; --border: #e7e5e4;
+      --accent: #0369a1; --accent-2: #0ea5e9; --border: #e7e5e4;
     }
     * { box-sizing: border-box; }
     body {
@@ -15,57 +15,83 @@
         "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
       width: 1080px; min-height: 1440px;
     }
-    .poster { padding: 56px 64px; display: flex; flex-direction: column; min-height: 1440px; }
-    .brand { font-size: 16px; letter-spacing: 4px; color: var(--accent); font-weight: 700; }
-    h1.title { font-size: 44px; line-height: 1.25; margin: 14px 0 8px; }
-    .range { color: var(--muted); font-size: 18px; margin: 0; }
+    .poster { padding: 48px 56px; display: flex; flex-direction: column; min-height: 1440px; }
+
+    /* 渐变头图 */
+    .hero {
+      background: linear-gradient(135deg, #0c4a6e 0%, #0369a1 55%, #0ea5e9 100%);
+      color: #fff; padding: 44px 48px 40px; border-radius: 18px; margin-bottom: 24px;
+    }
+    .hero .brand { font-size: 15px; letter-spacing: 5px; color: #bae6fd; font-weight: 700; }
+    .hero h1.title { font-size: 42px; line-height: 1.25; margin: 12px 0 10px; color: #fff; }
+    .hero .slogan { font-size: 28px; font-weight: 600; margin: 0 0 12px; color: #f0f9ff; line-height: 1.4; }
+    .hero .range { color: #bae6fd; font-size: 17px; margin: 0; }
+
     .overview {
       font-size: 18px; line-height: 1.8; color: #292524;
       background: #f0f9ff; border-left: 4px solid var(--accent);
-      padding: 18px 22px; border-radius: 8px; margin: 24px 0;
+      padding: 18px 22px; border-radius: 8px; margin: 0 0 24px;
     }
     h2.sec {
       font-size: 18px; letter-spacing: 2px; color: var(--muted);
-      margin: 12px 0 16px; text-transform: uppercase;
+      margin: 8px 0 16px; text-transform: uppercase;
     }
     .highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .hl {
       display: flex; flex-direction: column; gap: 8px; align-items: flex-start;
-      background: var(--card); border: 1px solid var(--border); border-radius: 10px;
-      padding: 18px 20px;
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 18px 20px; box-shadow: 0 2px 6px rgba(2,6,23,0.04);
     }
     .hl .field {
-      font-size: 13px; padding: 3px 9px; border-radius: 6px;
-      background: #ede9fe; color: #5b21b6; font-weight: 600;
+      font-size: 13px; padding: 3px 10px; border-radius: 999px;
+      background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+      color: #5b21b6; font-weight: 600;
     }
     .hl h3 { margin: 0; font-size: 18px; line-height: 1.35; }
     .hl p { margin: 0; font-size: 15px; color: var(--muted); line-height: 1.55; }
     .trend { font-size: 17px; line-height: 1.7; margin: 0; }
+
     .stats { margin-top: auto; padding-top: 24px; border-top: 2px solid var(--border); }
-    .stats .nums { display: flex; gap: 48px; margin-bottom: 20px; }
+    .stats .nums { display: flex; gap: 48px; margin-bottom: 22px; }
     .stats .num { font-size: 34px; font-weight: 700; color: var(--accent); }
     .stats .num small { font-size: 15px; color: var(--muted); font-weight: 400; margin-left: 6px; }
-    .fields { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px 28px; }
-    .frow { font-size: 15px; color: var(--muted); display: flex; justify-content: space-between; }
-    .frow b { color: var(--fg); }
+
+    /* 子领域横向条形图 */
+    .fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 36px; }
+    .frow { display: grid; grid-template-columns: 150px 1fr 40px; align-items: center; gap: 12px; }
+    .flabel { font-size: 14px; color: var(--muted); white-space: nowrap; }
+    .fbar { height: 12px; background: #f1f5f9; border-radius: 6px; overflow: hidden; }
+    .fbar-fill {
+      height: 100%; border-radius: 6px;
+      background: linear-gradient(90deg, #0369a1, #0ea5e9);
+    }
+    .frow b { font-size: 14px; color: var(--fg); text-align: right; }
+
     .footer { margin-top: 30px; font-size: 16px; color: var(--muted); }
     .footer a { color: var(--accent); text-decoration: none; font-weight: 600; }
   </style>
 </head>
 <body>
 <div class="poster">
-  <div class="brand">AI4S-DAILY</div>
-  {% if report %}
-  <h1 class="title">{{ report.title }}</h1>
-  <p class="range">{{ report.week_start }} ~ {{ report.week_end }} · {{ generated_at }}</p>
-  {% if report.overview %}<p class="overview">{{ report.overview }}</p>{% endif %}
+  <div class="hero">
+    <div class="brand">AI4S-DAILY</div>
+    {% if report %}
+    <h1 class="title">{{ report.title }}</h1>
+    {% if report.slogan %}<p class="slogan">「{{ report.slogan }}」</p>{% endif %}
+    <p class="range">{{ report.week_start }} ~ {{ report.week_end }} · {{ generated_at }}</p>
+    {% else %}
+    <h1 class="title">暂无{{ period_label }}</h1>
+    {% endif %}
+  </div>
 
-  {% if report.highlights %}
+  {% if report and report.overview %}<p class="overview">{{ report.overview }}</p>{% endif %}
+
+  {% if report and report.highlights %}
   <h2 class="sec">Top 亮点</h2>
   <div class="highlights">
   {% for h in report.highlights[:6] %}
   <div class="hl">
-    {% if h.field and field_labels.get(h.field) %}<span class="field">{{ field_labels[h.field] }}</span>{% endif %}
+    {% if h.field and field_labels.get(h.field) %}<span class="field">{{ field_icons.get(h.field, '') }} {{ field_labels[h.field] }}</span>{% endif %}
     <h3>{{ h.title }}</h3>
     {% if h.summary %}<p>{{ h.summary }}</p>{% endif %}
   </div>
@@ -73,13 +99,9 @@
   </div>
   {% endif %}
 
-  {% if report.trend %}
+  {% if report and report.trend %}
   <h2 class="sec">趋势</h2>
   <p class="trend">{{ report.trend }}</p>
-  {% endif %}
-
-  {% else %}
-  <h1 class="title">暂无{{ period_label }}</h1>
   {% endif %}
 
   <div class="stats">
@@ -90,7 +112,11 @@
     </div>
     <div class="fields">
       {% for sf in subfields %}
-      <div class="frow"><span>{{ sf.label }}</span><b>{{ stats["by_field"].get(sf.key, 0) }}</b></div>
+      <div class="frow">
+        <span class="flabel">{{ field_icons.get(sf.key, '') }} {{ sf.label }}</span>
+        <div class="fbar"><div class="fbar-fill" style="width: {{ (stats['by_field'].get(sf.key, 0) / field_max * 100) | round | int }}%"></div></div>
+        <b>{{ stats["by_field"].get(sf.key, 0) }}</b>
+      </div>
       {% endfor %}
     </div>
   </div>
