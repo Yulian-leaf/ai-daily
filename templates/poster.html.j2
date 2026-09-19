@@ -28,17 +28,18 @@
       font-size: 18px; letter-spacing: 2px; color: var(--muted);
       margin: 12px 0 16px; text-transform: uppercase;
     }
+    .highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .hl {
-      display: flex; gap: 16px; align-items: flex-start;
+      display: flex; flex-direction: column; gap: 8px; align-items: flex-start;
       background: var(--card); border: 1px solid var(--border); border-radius: 10px;
-      padding: 18px 20px; margin-bottom: 14px;
+      padding: 18px 20px;
     }
     .hl .field {
-      flex-shrink: 0; font-size: 14px; padding: 4px 10px; border-radius: 6px;
-      background: #ede9fe; color: #5b21b6; font-weight: 600; margin-top: 4px;
+      font-size: 13px; padding: 3px 9px; border-radius: 6px;
+      background: #ede9fe; color: #5b21b6; font-weight: 600;
     }
-    .hl .body h3 { margin: 0 0 4px; font-size: 22px; line-height: 1.35; }
-    .hl .body p { margin: 0; font-size: 16px; color: var(--muted); line-height: 1.6; }
+    .hl h3 { margin: 0; font-size: 18px; line-height: 1.35; }
+    .hl p { margin: 0; font-size: 15px; color: var(--muted); line-height: 1.55; }
     .trend { font-size: 17px; line-height: 1.7; margin: 0; }
     .stats { margin-top: auto; padding-top: 24px; border-top: 2px solid var(--border); }
     .stats .nums { display: flex; gap: 48px; margin-bottom: 20px; }
@@ -61,15 +62,15 @@
 
   {% if report.highlights %}
   <h2 class="sec">Top 亮点</h2>
+  <div class="highlights">
   {% for h in report.highlights[:6] %}
   <div class="hl">
     {% if h.field and field_labels.get(h.field) %}<span class="field">{{ field_labels[h.field] }}</span>{% endif %}
-    <div class="body">
-      <h3>{{ h.title }}</h3>
-      {% if h.summary %}<p>{{ h.summary }}</p>{% endif %}
-    </div>
+    <h3>{{ h.title }}</h3>
+    {% if h.summary %}<p>{{ h.summary }}</p>{% endif %}
   </div>
   {% endfor %}
+  </div>
   {% endif %}
 
   {% if report.trend %}
