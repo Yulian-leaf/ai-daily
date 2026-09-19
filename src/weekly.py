@@ -12,8 +12,9 @@ logger = logging.getLogger(__name__)
 
 # 窗口内条目不足该数量时跳过生成（避免产出空周报）。
 _MIN_ITEMS = 3
-_WINDOW_DAYS = {"weekly": 7, "biweekly": 14}
 _PROMPT_NAMES = {"weekly": "weekly", "biweekly": "biweekly"}
+# 周报按北京时间自然周对齐（周一到周日）。
+_BEIJING_TZ = timezone(timedelta(hours=8))
 
 
 def _one_line(text: str | None, limit: int = 80) -> str:
@@ -82,14 +83,23 @@ async def run_weekly(
         )
     check_api_keys(cfg.models)
 
-    window_days = _WINDOW_DAYS.get(period, 7)
+    # 按北京时间自然周对齐：week_start = 本周一，week_end = 本周日；
+    # 双周报告再往前推一周（覆盖两个自然周）。
+    bj_now = datetime.now(_BEIJING_TZ)
+    bj_monday = bj_now.replace(
+        hour=0, minute=0, second=0, microsecond=0,
+    ) - timedelta(days=bj_now.weekday())
+    weeks = 1 if period == "weekly" else 2
+    start_dt = bj_monday - timedelta(days=7 * (weeks - 1))
+    end_dt = bj_monday + timedelta(days=6)
+
     now = datetime.now(timezone.utc)
-    start = now - timedelta(days=window_days)
-    week_start = start.date().isoformat()
-    week_end = now.date().isoformat()
+    week_start = start_dt.date().isoformat()
+    week_end = end_dt.date().isoformat()
 
     items = storage.get_surfaced_since(
-        start.isoformat(), min_score=cfg.score_threshold,
+        start_dt.astimezone(timezone.utc).isoformat(),
+        min_score=cfg.score_threshold,
     )
     if len(items) < _MIN_ITEMS:
         logger.info(
