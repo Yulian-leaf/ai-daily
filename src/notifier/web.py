@@ -141,10 +141,51 @@ def render_weekly(
     return {"output": str(output_path), "reports": len(reports)}
 
 
+def _clip(text: str | None, limit: int = 80) -> str:
+    """Collapse a long summary into a short one-liner for the poster."""
+    text = (text or "").strip().replace("\n", " ")
+    return text if len(text) <= limit else text[:limit].rstrip() + "…"
+
+
+def _select_poster_highlights(
+    items: list, subfields_keys: list[str],
+) -> list[dict]:
+    """Pick poster highlights deterministically: one highest-score item per
+    subfield, then top-2 by score from the remaining pool (<=10 total)."""
+    by_field: dict[str, list] = defaultdict(list)
+    for a in items:
+        by_field[a.score.field or ""].append(a)
+
+    picked: list = []
+    used: set[str] = set()
+    for key in subfields_keys:
+        if key in by_field:
+            best = max(by_field[key], key=lambda a: a.score.score)
+            picked.append(best)
+            used.add(best.url)
+
+    rest = [a for a in items if a.url not in used]
+    rest.sort(key=lambda a: a.score.score, reverse=True)
+    picked.extend(rest[:2])
+    picked.sort(key=lambda a: a.score.score, reverse=True)
+
+    return [
+        {
+            "field": a.score.field or "",
+            "title": a.title,
+            "url": a.url,
+            "summary": _clip(a.summary.innovation) if a.summary else "",
+            "score": f"{a.score.score:.1f}",
+        }
+        for a in picked
+    ]
+
+
 def render_poster(
     storage: Storage,
     *,
     period: str = "weekly",
+    min_score: int = 6,
     subfields: list[dict[str, str]] | None = None,
     output_dir: Path = Path("site"),
     templates_dir: Path = Path("templates"),
@@ -152,6 +193,13 @@ def render_poster(
     """Render the latest report as a shareable, fixed-size poster (poster.html)."""
     latest = storage.get_latest_weekly(period)
     stats = storage.get_stats()
+
+    poster_highlights: list[dict] = []
+    if latest:
+        items = storage.get_surfaced_since(latest.week_start, min_score=min_score)
+        poster_highlights = _select_poster_highlights(
+            items, [s["key"] for s in (subfields or [])],
+        )
 
     env = Environment(
         loader=FileSystemLoader(str(templates_dir)),
@@ -165,6 +213,7 @@ def render_poster(
 
     html = template.render(
         report=latest,
+        poster_highlights=poster_highlights,
         period_label=_PERIOD_LABEL.get(period, "周报"),
         stats=stats,
         subfields=subfields or [],

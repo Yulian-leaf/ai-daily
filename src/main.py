@@ -118,6 +118,7 @@ async def run_poster_cmd(
         return render_poster(
             storage,
             period=period,
+            min_score=config.score_threshold,
             subfields=config.subfields,
             output_dir=output_dir,
         )

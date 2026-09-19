@@ -186,4 +186,5 @@ def test_render_poster_writes_html(tmp_path: Path):
     assert "抓取条目" in html
     # stats["items"] must render the int, not the dict.items() method repr.
     assert 'class="num">3</span><small>抓取条目' in html
+    assert "9.0" in html  # poster highlight shows score with one decimal
     assert result["report"] == "T"

@@ -47,6 +47,8 @@
       background: linear-gradient(135deg, #ede9fe, #ddd6fe);
       color: #5b21b6; font-weight: 600;
     }
+    .hl-head { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+    .hl .score { font-size: 15px; font-weight: 700; color: var(--accent); }
     .hl h3 { margin: 0; font-size: 18px; line-height: 1.35; }
     .hl p { margin: 0; font-size: 15px; color: var(--muted); line-height: 1.55; }
     .trend { font-size: 17px; line-height: 1.7; margin: 0; }
@@ -86,12 +88,15 @@
 
   {% if report and report.overview %}<p class="overview">{{ report.overview }}</p>{% endif %}
 
-  {% if report and report.highlights %}
+  {% if poster_highlights %}
   <h2 class="sec">Top 亮点</h2>
   <div class="highlights">
-  {% for h in report.highlights[:6] %}
+  {% for h in poster_highlights %}
   <div class="hl">
-    {% if h.field and field_labels.get(h.field) %}<span class="field">{{ field_icons.get(h.field, '') }} {{ field_labels[h.field] }}</span>{% endif %}
+    <div class="hl-head">
+      {% if h.field and field_labels.get(h.field) %}<span class="field">{{ field_icons.get(h.field, '') }} {{ field_labels[h.field] }}</span>{% endif %}
+      <span class="score">{{ h.score }}</span>
+    </div>
     <h3>{{ h.title }}</h3>
     {% if h.summary %}<p>{{ h.summary }}</p>{% endif %}
   </div>
