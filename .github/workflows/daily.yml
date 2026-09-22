@@ -50,9 +50,8 @@ jobs:
 
       - name: Restore previous state from data branch
         run: |
-          mkdir -p data docs
+          mkdir -p data
           cp -r data-branch/data/. data/ 2>/dev/null || true
-          cp -r data-branch/docs/. docs/ 2>/dev/null || true
 
       - name: Run pipeline (fetch + summarize + render)
         env:
@@ -66,7 +65,7 @@ jobs:
         run: |
           python -m src.main fetch
           python -m src.main summarize
-          python -m src.main render --output-dir docs
+          python -m src.main render --output-dir site
 
       - name: Commit & push to data branch
         run: |
@@ -74,10 +73,13 @@ jobs:
           cd data-branch
           rm -rf data docs
           cp -r ../data ./data 2>/dev/null || true
-          cp -r ../docs ./docs 2>/dev/null || true
+          # 网站文件放到 data 分支根目录，供 GitHub Pages 发布
+          cp -r ../site/. ./ 2>/dev/null || true
+          # 自包含静态 HTML，无需 Jekyll 构建
+          touch .nojekyll
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
-          git add -A data docs
+          git add -A
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
