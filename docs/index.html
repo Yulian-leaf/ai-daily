@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 日报归档</title>
+  <style>
+    :root {
+      --bg: #fafaf9; --fg: #1c1917; --muted: #78716c; --border: #e7e5e4;
+      --card: #ffffff; --accent: #0369a1; --link: #0369a1;
+      --score-high: #15803d; --score-mid: #ca8a04; --score-low: #6b7280;
+      --today-accent: #0369a1; --fav-accent: #d97706;
+      /* source category palette */
+      --src-lab: #15803d; --src-framework: #7c3aed; --src-expert: #0369a1;
+      --src-media: #be185d; --src-github: #1f2937; --src-paper: #b45309;
+      --src-community: #ea580c; --src-other: #6b7280;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; padding: 0; background: var(--bg); color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.6;
+    }
+    header.page {
+      padding: 28px 24px 16px; border-bottom: 1px solid var(--border);
+      background: var(--card); position: sticky; top: 0; z-index: 20;
+    }
+    header.page h1 { margin: 0 0 6px; font-size: 24px; }
+    header.page .meta {
+      margin: 0; color: var(--muted); font-size: 13px;
+      display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+    }
+    header.page .meta strong { color: var(--fg); font-weight: 600; }
+    header.page .meta a.weekly-link { color: var(--accent); text-decoration: none; font-weight: 600; }
+    header.page .meta a.weekly-link:hover { text-decoration: underline; }
+    main { max-width: 880px; margin: 0 auto; padding: 24px; }
+
+    /* TOC */
+    nav.toc {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 14px 16px; margin-bottom: 28px;
+    }
+    nav.toc h2 {
+      margin: 0 0 10px; font-size: 13px; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--muted);
+    }
+    nav.toc .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    nav.toc a {
+      display: inline-block; padding: 4px 10px; border-radius: 12px;
+      background: var(--bg); border: 1px solid var(--border); font-size: 13px;
+      color: var(--fg); text-decoration: none;
+    }
+    nav.toc a:hover { background: #e7e5e4; }
+    nav.toc a.today-chip { border-color: var(--today-accent); color: var(--today-accent); font-weight: 600; }
+    nav.toc a.fav-chip { border-color: var(--fav-accent); color: var(--fav-accent); }
+    nav.toc a .n { color: var(--muted); margin-left: 4px; font-weight: normal; }
+    nav.toc button.tab-btn {
+      display: inline-block; padding: 4px 10px; border-radius: 12px;
+      background: var(--bg); border: 1px solid var(--border); font-size: 13px;
+      color: var(--fg); cursor: pointer;
+    }
+    nav.toc button.tab-btn:hover { background: #e7e5e4; }
+    nav.toc button.tab-btn.active {
+      border-color: var(--accent); color: var(--accent);
+      font-weight: 600; background: #e0f2fe;
+    }
+    nav.toc button.tab-btn .n { color: var(--muted); margin-left: 4px; font-weight: normal; }
+
+    /* bands */
+    section.band { margin-bottom: 32px; }
+    section.band > h2.band-title {
+      font-size: 14px; text-transform: uppercase; letter-spacing: 1px;
+      color: var(--muted); margin: 0 0 12px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 10px;
+    }
+    section.band.today > h2.band-title {
+      color: var(--today-accent); border-bottom-color: var(--today-accent);
+    }
+    section.band.favorites > h2.band-title {
+      color: var(--fav-accent); border-bottom-color: var(--fav-accent);
+    }
+    section.band .cards { display: flex; flex-direction: column; gap: 16px; }
+
+    /* per-date archive group */
+    details.date-group {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; margin-bottom: 12px;
+    }
+    details.date-group > summary {
+      cursor: pointer; padding: 12px 16px; font-weight: 600;
+      list-style: none; display: flex; align-items: center; gap: 8px;
+      user-select: none;
+    }
+    details.date-group > summary::-webkit-details-marker { display: none; }
+    details.date-group > summary::before {
+      content: "▶"; font-size: 11px; color: var(--muted);
+      transition: transform 0.2s;
+    }
+    details.date-group[open] > summary::before { transform: rotate(90deg); }
+    details.date-group > summary .n {
+      color: var(--muted); font-weight: normal; font-size: 13px; margin-left: auto;
+    }
+    details.date-group > .cards {
+      padding: 0 16px 16px;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+
+    /* card */
+    article.card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 20px; box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+      position: relative;
+    }
+    section.band.today article.card { border-left: 3px solid var(--today-accent); }
+    details.date-group article.card { box-shadow: none; }
+
+    button.star {
+      position: absolute; top: 12px; right: 12px;
+      width: 32px; height: 32px; border-radius: 50%;
+      border: 1px solid var(--border); background: var(--card);
+      cursor: pointer; font-size: 18px; line-height: 1;
+      color: var(--muted); transition: all 0.15s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    button.star:hover { color: var(--fav-accent); border-color: var(--fav-accent); }
+    button.star.starred {
+      color: var(--fav-accent); border-color: var(--fav-accent);
+      background: #fef3c7;
+    }
+
+    .card-head {
+      display: flex; align-items: flex-start; gap: 16px;
+      justify-content: space-between; margin-bottom: 12px;
+      padding-right: 44px;  /* leave room for star button */
+    }
+    .card-head h2 { margin: 0; font-size: 18px; line-height: 1.4; flex: 1; }
+    .card-head h2 a { color: var(--fg); text-decoration: none; }
+    .card-head h2 a:hover { color: var(--link); text-decoration: underline; }
+    .badges { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+    .score {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-width: 28px; height: 28px; padding: 0 8px;
+      border-radius: 14px; color: white; font-weight: 600; font-size: 13px;
+    }
+    .score.high { background: var(--score-high); }
+    .score.mid  { background: var(--score-mid); }
+    .score.low  { background: var(--score-low); }
+
+    /* source badge: larger, color-coded by category */
+    .source {
+      font-size: 13px; padding: 4px 10px; border-radius: 6px;
+      font-weight: 500; color: white; white-space: nowrap;
+    }
+    .source.cat-lab        { background: var(--src-lab); }
+    .source.cat-framework  { background: var(--src-framework); }
+    .source.cat-expert     { background: var(--src-expert); }
+    .source.cat-media      { background: var(--src-media); }
+    .source.cat-github     { background: var(--src-github); }
+    .source.cat-paper      { background: var(--src-paper); }
+    .source.cat-community  { background: var(--src-community); }
+    .source.cat-other      { background: var(--src-other); }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 12px; }
+    .tag {
+      font-size: 12px; padding: 2px 8px; background: #e0f2fe; color: #075985;
+      border-radius: 4px;
+    }
+    .innovation {
+      font-size: 16px; font-weight: 500; margin: 12px 0;
+      padding: 12px 16px; background: #fef3c7; border-left: 3px solid #ca8a04;
+    }
+    dl.details { margin: 12px 0; }
+    dl.details dt {
+      font-weight: 600; color: var(--muted); font-size: 12px;
+      text-transform: uppercase; letter-spacing: 0.5px; margin-top: 8px;
+    }
+    dl.details dd { margin: 4px 0 0 0; }
+    .card-foot {
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+      margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border);
+      font-size: 14px;
+    }
+    .card-foot .date { color: var(--muted); }
+    .card-foot .links { color: var(--muted); flex: 1; word-break: break-all; }
+    .card-foot .links a { color: var(--link); }
+    .cta {
+      margin-left: auto; padding: 6px 14px; background: var(--accent);
+      color: white; text-decoration: none; border-radius: 4px; font-size: 14px;
+    }
+    .cta:hover { background: #075985; }
+    .empty {
+      text-align: center; padding: 32px 24px; color: var(--muted);
+      background: var(--card); border: 1px dashed var(--border); border-radius: 8px;
+    }
+    .toolbar {
+      display: flex; gap: 12px; align-items: center;
+      font-size: 13px; margin-left: auto;
+    }
+    .toolbar button {
+      background: transparent; border: 1px solid var(--border);
+      padding: 4px 10px; border-radius: 4px; cursor: pointer;
+      color: var(--muted); font-size: 12px;
+    }
+    .toolbar button:hover { background: var(--bg); color: var(--fg); }
+
+    /* subfield filter chips + field badge */
+    .field-btn {
+      display: inline-block; padding: 4px 10px; border-radius: 12px;
+      background: var(--bg); border: 1px solid var(--border); font-size: 13px;
+      color: var(--fg); cursor: pointer;
+    }
+    .field-btn:hover { background: #e7e5e4; }
+    .field-btn.active {
+      border-color: var(--accent); color: var(--accent);
+      font-weight: 600; background: #e0f2fe;
+    }
+    .field-btn .n { color: var(--muted); margin-left: 4px; font-weight: normal; }
+    .field-btn .n b { color: var(--fg); font-weight: 600; }
+    .field {
+      font-size: 12px; padding: 3px 8px; border-radius: 6px;
+      background: #ede9fe; color: #5b21b6; font-weight: 500; white-space: nowrap;
+    }
+    @media (max-width: 600px) {
+      .card-head { flex-direction: column; gap: 8px; padding-right: 44px; }
+      .badges { align-self: flex-start; }
+      header.page h1 { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="page">
+    <h1>AI 日报归档</h1>
+    <p class="meta">
+      <a href="weekly.html" class="weekly-link">📊 周报 →</a> ·
+      <a href="poster.html" class="weekly-link">🖼 海报 →</a> ·
+      今日新增 <strong>10</strong> 条 ·
+      归档 <strong>0</strong> 条（0 天）·
+      最近更新于 2026-09-22 09:43 (北京时间 UTC+8)
+    </p>
+  </header>
+  <main>
+    
+
+    <nav class="toc">
+      <h2>目录</h2>
+      <div class="chips">
+        <button class="tab-btn" data-band="favorites" onclick="switchTab('favorites')">⭐ 我的收藏 <span class="n" id="toc-fav-count">0</span></button>
+        <button class="tab-btn active" data-band="today" onclick="switchTab('today')">今日新增 <span class="n">10</span></button>
+        <button class="tab-btn" data-band="archive" onclick="switchTab('archive')">归档 <span class="n">0</span></button>
+      </div>
+    </nav>
+
+    <nav class="toc subfields" id="subfield-nav">
+      <h2>子领域 <span class="n" id="field-count-label">（今日）</span></h2>
+      <div class="chips" id="field-chips">
+        <button class="field-btn active" data-field="" onclick="filterField('')">全部 <span class="n"><b class="n-count">0</b></span></button>
+        
+        <button class="field-btn" data-field="protein" onclick="filterField('protein')">蛋白质/结构 <span class="n"><b class="n-count">0</b></span></button>
+        
+        <button class="field-btn" data-field="drug" onclick="filterField('drug')">药物发现 <span class="n"><b class="n-count">0</b></span></button>
+        
+        <button class="field-btn" data-field="molsim" onclick="filterField('molsim')">分子模拟 <span class="n"><b class="n-count">0</b></span></button>
+        
+        <button class="field-btn" data-field="materials" onclick="filterField('materials')">材料科学 <span class="n"><b class="n-count">0</b></span></button>
+        
+        <button class="field-btn" data-field="climate" onclick="filterField('climate')">气候地球 <span class="n"><b class="n-count">0</b></span></button>
+        
+        <button class="field-btn" data-field="ai4math" onclick="filterField('ai4math')">AI4Math/PDE <span class="n"><b class="n-count">0</b></span></button>
+        
+        <button class="field-btn" data-field="scifm" onclick="filterField('scifm')">科学基础模型 <span class="n"><b class="n-count">0</b></span></button>
+        
+        <button class="field-btn" data-field="bioinfo" onclick="filterField('bioinfo')">生物信息 <span class="n"><b class="n-count">0</b></span></button>
+        
+      </div>
+    </nav>
+
+    <section class="band favorites" id="favorites" style="display:none" data-band="favorites">
+      <h2 class="band-title">⭐ 我的收藏 <span class="n" id="fav-count">0</span>
+        <span class="toolbar">
+          <button onclick="clearFavorites()" title="清空全部收藏">清空收藏</button>
+        </span>
+      </h2>
+      <div class="cards" id="favorites-cards"></div>
+      <p class="empty" id="favorites-empty" style="display:none">还没有收藏，点卡片右上角的 ☆ 即可收藏。</p>
+    </section>
+
+    <section class="band today" id="today" data-band="today">
+      <h2 class="band-title">今日新增 <span class="n" id="today-count">(10)</span></h2>
+      
+        <div class="cards">
+          
+    <article class="card" data-url="https://github.com/deepmodeling/deepmd-kit" data-field="molsim">
+      <button class="star" aria-label="收藏" data-url="https://github.com/deepmodeling/deepmd-kit" onclick="toggleStar(this)">☆</button>
+      <div class="card-head">
+        <h2><a href="https://github.com/deepmodeling/deepmd-kit" target="_blank" rel="noopener">deepmodeling/deepmd-kit</a></h2>
+        <div class="badges">
+          <span class="score high">8</span>
+          <span class="source cat-github" title="github:github-trending-moleculardynamics">GitHub · MD</span>
+          
+          <span class="field" title="子领域">分子模拟</span>
+          
+        </div>
+      </div>
+      
+      <div class="tags">
+        <span class="tag">molecular-dynamics</span><span class="tag">materials</span><span class="tag">code</span><span class="tag">foundation-model</span>
+      </div>
+      
+      <p class="innovation">把「分子动力学（MD，模拟原子运动的方法）」里最耗时的原子间相互作用势，换成深度学习模型来算，精度接近第一性原理（量子力学级计算）而速度快几个数量级，是 AI for Science 里被引用最多的工具之一。</p>
+      <dl class="details">
+        <dt>技术方案</dt><dd>核心思路是不再手写物理公式，而是用神经网络从量子化学计算出的数据里学出「势能面」——即给定一堆原子的位置，能量是多少、每个原子受多大力。它采用「描述符 + 神经网络」的架构：先把每个原子周围的局部环境编码成满足平移、旋转、置换不变性的特征，再让网络预测原子能量并求和得到总能量，力则由能量对位置的导数自动得到。相比传统 MD 用的经验势（如 Lennard-Jones，靠人工调参、精度有限），它精度可对标 DFT（密度泛函理论，一种量子力学近似算法）；相比直接跑 DFT 做 MD，它把单步能量与力的计算从小时/分钟级压到毫秒级。</dd>
+        <dt>关键数据</dt><dd>未披露具体数字（该条目仅为 GitHub 项目简介）。相对意义：DeepMD-kit 是 DeepModeling 社区的开源旗舰项目，已被广泛用于金属、半导体、水、合金等体系的百万原子级模拟，是「用机器学习势替代 DFT 做大规模 MD」这一路线的代表性实现。</dd>
+        <dt>为什么值得关注</dt><dd>对关心分子动力学、材料设计、药物发现和科学机器学习的读者，这是「AI 学势函数」方向最成熟的开源基础设施之一：想跑大规模、长时程的原子级模拟又不想付 DFT 的算力代价，可以直接拿它上手。</dd>
+      </dl>
+      <footer class="card-foot">
+        <span class="date">2026-09-21</span>
+        
+        
+        <a class="cta" href="https://github.com/deepmodeling/deepmd-kit" target="_blank" rel="noopener">阅读原文 →</a>
+      </footer>
+    </article>
+    <article class="card" data-url="https://www.microsoft.com/en-us/research/blog/improving-synthesis-prediction-of-small-molecules-at-scale-with-retrochimera/" data-field="drug">
+      <button class="star" aria-label="收藏" data-url="https://www.microsoft.com/en-us/research/blog/improving-synthesis-prediction-of-small-molecules-at-scale-with-retrochimera/" onclick="toggleStar(this)">☆</button>
+      <div class="card-head">
+        <h2><a href="https://www.microsoft.com/en-us/research/blog/improving-synthesis-prediction-of-small-molecules-at-scale-with-retrochimera/" target="_blank" rel="noopener">Improving synthesis prediction of small molecules at scale with RetroChimera</a></h2>
+        <div class="badges">
+          <span class="score high">8</span>
+          <span class="source cat-lab" title="rss:microsoft-research">MS Research</span>
+          
+          <span class="field" title="子领域">药物发现</span>
+          
+        </div>
+      </div>
+      
+      <div class="tags">
+        <span class="tag">drug-discovery</span><span class="tag">materials</span><span class="tag">foundation-model</span>
+      </div>
+      
+      <p class="innovation">微软研究院在《Nature》发文推出 RetroChimera，用预测模型加速小分子化学合成路线设计，让药物、材料、农业领域的定制分子从「能做但慢且贵」走向可规模化探索。</p>
+      <dl class="details">
+        <dt>技术方案</dt><dd>RetroChimera 做的是逆合成预测：给定一个目标小分子，反推可以用哪些反应物和反应步骤把它合成出来。相比传统逆合成工具通常只在单一或小规模数据集上训练、面对新反应类型容易失效，RetroChimera 强调「大规模」——用更大规模、更多样的化学反应数据训练，从而在更广的分子空间里给出可行合成路径。目标不是替代实验，而是帮研究者在动手做实验前先筛出值得尝试的路线，降低试错成本。</dd>
+        <dt>关键数据</dt><dd>未披露具体数字（如 top-k 准确率、覆盖的反应类型数、推理速度或训练规模）。其相对意义在于：论文登上《Nature》，且明确以「at scale（规模化）」为卖点，说明其价值主要体现在可处理的分子/反应空间范围，而非单点指标的小幅提升。</dd>
+        <dt>为什么值得关注</dt><dd>对关注 drug discovery（药物发现）、materials design（材料设计）和 scientific machine learning 的读者来说，合成可行性往往是 AI 生成分子之后的瓶颈环节；RetroChimera 这类逆合成模型直接决定「AI 设计出的分子能不能真的做出来」，是 AI for Science 从预测走向实验闭环的关键一环。</dd>
+      </dl>
+      <footer class="card-foot">
+        <span class="date">2026-09-21</span>
+        
+        
+        <a class="cta" href="https://www.microsoft.com/en-us/research/blog/improving-synthesis-prediction-of-small-molecules-at-scale-with-retrochimera/" target="_blank" rel="noopener">阅读原文 →</a>
+      </footer>
+    </article>
+    <article class="card" data-url="https://www.nature.com/articles/s41586-026-11160-9" data-field="drug">
+      <button class="star" aria-label="收藏" data-url="https://www.nature.com/articles/s41586-026-11160-9" onclick="toggleStar(this)">☆</button>
+      <div class="card-head">
+        <h2><a href="https://www.nature.com/articles/s41586-026-11160-9" target="_blank" rel="noopener">Chemist-aligned retrosynthesis by ensembling diverse inductive bias models</a></h2>
+        <div class="badges">
+          <span class="score high">8</span>
+          <span class="source cat-paper" title="rss:nature">Nature</span>
+          
+          <span class="field" title="子领域">药物发现</span>
+          
+        </div>
+      </div>
+      
+      <div class="tags">
+        <span class="tag">drug-discovery</span><span class="tag">foundation-model</span><span class="tag">code</span>
+      </div>
+      
+      <p class="innovation">把多个「归纳偏好」不同的逆合成模型集成起来，让 AI 的拆解路线更贴近化学家的真实思路，而不是只追求单模型分数。</p>
+      <dl class="details">
+        <dt>技术方案</dt><dd>逆合成（retrosynthesis）指从目标分子反推可用原料的合成路线。作者没有只训练一个最强模型，而是训练一组归纳偏好各异的模型——例如有的偏向局部官能团变换、有的偏向全局骨架拆分——再把这些模型的预测集成起来排序。关键设计是让集成结果与化学家人工判断的路线对齐，而不是单纯拟合反应数据库里的单步反应。相比过去依赖单一架构或单一数据分布的做法，这种「多样性集成」减少了模型在陌生反应类型上的系统性偏差。</dd>
+        <dt>关键数据</dt><dd>未披露具体数值（摘要页未给出准确率、Top-k 命中率或 benchmark 分数）。其相对意义在于：论文标题强调「chemist-aligned（与化学家对齐）」，说明评价维度从传统单步反应预测准确率，转向整条路线的化学合理性与可执行性。</dd>
+        <dt>为什么值得关注</dt><dd>逆合成是 drug discovery（药物发现）和分子设计中的关键一环，直接决定候选分子能否被实际合成出来。对关注 AI for Science、科学机器学习与化学/材料设计的读者，这条提供了「用模型多样性而非单点最优来对齐领域专家判断」的可迁移思路。</dd>
+      </dl>
+      <footer class="card-foot">
+        <span class="date">2026-09-21</span>
+        
+        
+        <a class="cta" href="https://www.nature.com/articles/s41586-026-11160-9" target="_blank" rel="noopener">阅读原文 →</a>
+      </footer>
+    </article>
+    <article class="card" data-url="https://arxiv.org/abs/2609.23208v1" data-field="molsim">
+      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2609.23208v1" onclick="toggleStar(this)">☆</button>
+      <div class="card-head">
+        <h2><a href="https://arxiv.org/abs/2609.23208v1" target="_blank" rel="noopener">Diff-NekRS: A Scalable Differentiable Framework for Multi-Timestep Solver-in-the-Loop Training</a></h2>
+        <div class="badges">
+          <span class="score high">8</span>
+          <span class="source cat-paper" title="arxiv:arxiv-physchem">arXiv · 物化</span>
+          
+          <span class="field" title="子领域">分子模拟</span>
+          
+        </div>
+      </div>
+      
+      <div class="tags">
+        <span class="tag">pde</span><span class="tag">scientific machine-learning</span><span class="tag">code</span><span class="tag">molecular-dynamics</span>
+      </div>
+      
+      <p class="innovation">把可微分训练直接嵌进 GPU 加速的 NekRS 流体求解器，让神经网络修正项能跨多个时间步做「求解器在环」训练，并在千级 MPI 进程下验证了梯度的正确性与可扩展性。</p>
+      <dl class="details">
+        <dt>技术方案</dt><dd>核心是在 NekRS（GPU 加速的不可压缩流体求解器）里嵌入可训练的神经网络修正项，用来弥补粗网格模拟的误差。难点在于生产级求解器通常不提供反向传播所需的导数，作者手工实现了精确的离散伴随（adjoint，即反向求导）来微分完整时间步，再用 LibTorch 提供神经网络的向量-雅可比积和参数梯度。这样就能做多时间步的自回归 rollout 训练，而不是只优化单步。与过去只做单步或无法穿透求解器的做法不同，它把求解器前向轨迹和神经网络梯度真正打通，并用泰勒展开和中心有限差分测试验证了梯度。</dd>
+        <dt>关键数据</dt><dd>在 2D 圆柱绕流和三维 Taylor-Green 涡两个算例、5 种时间跨度、12 到 1020 个 MPI 进程上验证梯度。1020 进程时，开启优化器的训练更新仍保持 54.5%-78.0%（2Dcyl）和 80.7%-81.9%（3DTGV）的弱扩展效率。200 步自回归推理中，M=50 模型相比未修正的粗网格 P=2 基线，三种子中位数终端相对 L2 速度误差分别降低 59.2%（2Dcyl）和 12.1%（3DTGV）；相比对应 P=7 高阶配置，在相同模拟时间下仍保持 5.38 倍和 2.49 倍的实际加速。</dd>
+        <dt>为什么值得关注</dt><dd>这条直接对应 scientific machine learning 与 PDE（偏微分方程）求解方向：它解决的是「物理求解器 + 神经网络」混合方法里长期存在的可微分训练难题，对气候建模、流体仿真等需要长时间 rollout 的场景有参考价值，也展示了 AI 修正项在保持精度同时换取计算加速的量化证据。</dd>
+      </dl>
+      <footer class="card-foot">
+        <span class="date">2026-09-19</span>
+        
+        
+        <a class="cta" href="https://arxiv.org/abs/2609.23208v1" target="_blank" rel="noopener">阅读原文 →</a>
+      </footer>
+    </article>
+    <article class="card" data-url="https://arxiv.org/abs/2609.23149v1" data-field="climate">
+      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2609.23149v1" onclick="toggleStar(this)">☆</button>
+      <div class="card-head">
+        <h2><a href="https://arxiv.org/abs/2609.23149v1" target="_blank" rel="noopener">ClimTip-GML: A global bias-corrected and downscaled dataset for assessing impacts of climate tipping events</a></h2>
+        <div class="badges">
+          <span class="score high">8</span>
+          <span class="source cat-paper" title="arxiv:arxiv-climate">arXiv · 地球</span>
+          
+          <span class="field" title="子领域">气候地球</span>
+          
+        </div>
+      </div>
+      
+      <div class="tags">
+        <span class="tag">climate</span><span class="tag">dataset</span><span class="tag">downscaling</span><span class="tag">generative-ml</span>
+      </div>
+      
+      <p class="innovation">首个面向气候临界事件（如亚马逊雨林退化、大西洋经向翻转环流崩溃）的全球偏差校正与降尺度数据集，覆盖8个关键变量、0.25°分辨率，可直接用于影响评估。</p>
+      <dl class="details">
+        <dt>技术方案</dt><dd>研究团队用生成式机器学习（GML，即用AI学习数据分布并生成新样本）在再分析数据上训练，对三个全球气候模式（CESM1-CAM5、HadGEM3-GC31-MM、MPI-ESM1-2-HR）的输出做偏差校正和降尺度。关键设计是让校正后的结果在空间、时间以及全部8个变量之间保持物理一致，而不是逐变量单独处理。数据集包含百年尺度的工业化前、历史以及+2°C升温情景，其中部分情景还包含AMOC或亚马逊雨林发生临界转变的设定。</dd>
+        <dt>关键数据</dt><dd>空间分辨率0.25°，覆盖3个GCM、8个变量、100年模拟时长；验证显示偏差大幅降低，小尺度空间变率、多变量相关性以及对外部强迫和临界事件的长期响应一致性均有改善。具体偏差降低百分比未披露。</dd>
+        <dt>为什么值得关注</dt><dd>对关心气候建模、AI for Science和科学机器学习的读者来说，这条展示了生成式ML如何把粗糙的GCM输出变成高分辨率、物理一致的数据集，直接服务于气候临界事件的影响评估，是AI4S在气候领域落地的典型样本。</dd>
+      </dl>
+      <footer class="card-foot">
+        <span class="date">2026-09-19</span>
+        
+        
+        <a class="cta" href="https://arxiv.org/abs/2609.23149v1" target="_blank" rel="noopener">阅读原文 →</a>
+      </footer>
+    </article>
+    <article class="card" data-url="https://arxiv.org/abs/2609.23134v1" data-field="molsim">
+      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2609.23134v1" onclick="toggleStar(this)">☆</button>
+      <div class="card-head">
+        <h2><a href="https://arxiv.org/abs/2609.23134v1" target="_blank" rel="noopener">ECENet: An Edge Cluster Expansion Line-Graph Neural Network</a></h2>
+        <div class="badges">
+          <span class="score high">8</span>
+          <span class="source cat-paper" title="arxiv:arxiv-physchem">arXiv · 物化</span>
+          
+          <span class="field" title="子领域">分子模拟</span>
+          
+        </div>
+      </div>
+      
+      <div class="tags">
+        <span class="tag">materials</span><span class="tag">molecular-dynamics</span><span class="tag">foundation-model</span><span class="tag">code</span>
+      </div>
+      
+      <p class="innovation">把等变图神经网络的表示中心从「原子」搬到「原子间的边」上，用更便宜的 O(2) 对称性替代 O(3)，在保持精度的同时压低计算成本，为机器学习原子间势（MLIP，用神经网络拟合原子间受力与能量）提供了一条新的效率路线。</p>
+      <dl class="details">
+        <dt>技术方案</dt><dd>作者提出 edge cluster expansion（ECE，边簇展开），把传统原子簇展开的展开中心从单个原子换成原子对之间的「边」，再据此搭建线图神经网络 ECENet。ECENet 的特征是 O(2)-等变的，即只对绕键轴的旋转保持等变，而不是像主流模型那样要求完整的 O(3) 旋转等变；O(2) 操作更便宜、约束更少，因此计算开销更低。模型还通过 latent Ewald summation（隐式埃瓦尔德求和，一种处理长程静电相互作用的方法）引入长程静电，使其能预测分子偶极矩和液态水的红外光谱。</dd>
+        <dt>关键数据</dt><dd>在 MD22（分子动力学基准数据集）上达到当前最优水平；在 SPICE-MACE-OFF 数据集上训练后位于精度-成本帕累托前沿（即同等精度下成本更低，或同等成本下精度更高）。长程静电加持下可准确预测分子偶极矩与液态水红外光谱。具体推理速度、参数量、训练成本等数字未披露。</dd>
+        <dt>为什么值得关注</dt><dd>对关心分子动力学、材料设计、药物发现和科学机器学习的读者来说，MLIP 的精度与速度直接决定模拟能跑多大体系、多长时间；这条把等变表示从原子搬到边上并降阶到 O(2)，是「用更少算力换同等精度」的路线，可能影响后续势函数模型的架构选择。</dd>
+      </dl>
+      <footer class="card-foot">
+        <span class="date">2026-09-19</span>
+        
+        
+        <a class="cta" href="https://arxiv.org/abs/2609.23134v1" target="_blank" rel="noopener">阅读原文 →</a>
+      </footer>
+    </article>
+    <article class="card" data-url="https://arxiv.org/abs/2609.23105v1" data-field="molsim">
+      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2609.23105v1" onclick="toggleStar(this)">☆</button>
+      <div class="card-head">
+        <h2><a href="https://arxiv.org/abs/2609.23105v1" target="_blank" rel="noopener">Equivariant Neural Prediction of the Stokes Resistance Tensors for Arbitrary Microparticle Shapes</a></h2>
+        <div class="badges">
+          <span class="score high">8</span>
+          <span class="source cat-paper" title="arxiv:arxiv-physchem">arXiv · 物化</span>
+          
+          <span class="field" title="子领域">分子模拟</span>
+          
+        </div>
+      </div>
+      
+      <div class="tags">
+        <span class="tag">molecular-dynamics</span><span class="tag">materials</span><span class="tag">equivariant</span><span class="tag">code</span>
+      </div>
+      
+      <p class="innovation">用 SO(3) 等变神经网络直接预测微粒子的完整 6x6 Stokes 阻力张量（而非压缩成单个标量），精度达 1.4%/2.7%，速度比传统数值求解器快 4-5 个数量级。</p>
+      <dl class="details">
+        <dt>技术方案</dt><dd>把粒子表面用球谐函数（球面形状的频谱表示）描述，输入一个对旋转等变的神经网络，直接输出阻力矩阵中的平移块 A 和旋转块 C，且输出天然对称正定、等变精度到浮点级别。训练集为 1.1×10^5 个从近球形到极粗糙的随机形状，标签由正则化 Stokeslet 求解器生成，另留 18,000 个密封测试形状。与过去把阻力压缩成单个标量（丢掉方向依赖和旋转响应）的经验关联式不同，它保留了完整的各向异性张量信息。</dd>
+        <dt>关键数据</dt><dd>两个张量块的平均相对误差分别为 1.4% 和 2.7%；单形状推理比生成标签的 Stokeslet 求解器快 4-5 个数量级。球谐截断到 15 阶时，平移和旋转阻力中位变化仅 0.14% 和 0.38%。在 1.16×10^6 次取向采样事件中，代理模型揭示出最大 11° 的横向漂移、46° 的旋转失配，以及形状诱导扩散展宽：平移 30%、旋转 2.4 倍——这些在标量或椭球近似下全为零。传统关联式给出的取向平均标量摩擦精度为 1.7-2.8%（中位）和 2.2-3.2%（均值），代理模型在复现该标量到约 1% 的同时还能给出完整各向异性张量。</dd>
+        <dt>为什么值得关注</dt><dd>对做科学机器学习、PDE（偏微分方程）代理模型和分子/胶体动力学的读者，这是一个「等变网络替代传统数值求解器」的干净案例：既展示了几何深度学习如何嵌入物理对称性，也直接服务于大气尘埃输运、微塑料归趋和胶体布朗动力学等 AI for Science 场景。</dd>
+      </dl>
+      <footer class="card-foot">
+        <span class="date">2026-09-19</span>
+        
+        
+        <a class="cta" href="https://arxiv.org/abs/2609.23105v1" target="_blank" rel="noopener">阅读原文 →</a>
+      </footer>
+    </article>
+    <article class="card" data-url="https://arxiv.org/abs/2609.22663v1" data-field="molsim">
+      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2609.22663v1" onclick="toggleStar(this)">☆</button>
+      <div class="card-head">
+        <h2><a href="https://arxiv.org/abs/2609.22663v1" target="_blank" rel="noopener">SPIBER: Reconstructing Free Energy Landscapes from Short, Unconverged Trajectories with Generative Flow Networks</a></h2>
+        <div class="badges">
+          <span class="score high">8</span>
+          <span class="source cat-paper" title="arxiv:arxiv-physchem">arXiv · 物化</span>
+          
+          <span class="field" title="子领域">分子模拟</span>
+          
+        </div>
+      </div>
+      
+      <div class="tags">
+        <span class="tag">molecular-dynamics</span><span class="tag">foundation-model</span><span class="tag">code</span>
+      </div>
+      
+      <p class="innovation">把「找慢变量」和「算自由能」合成一套流程，只用多段互不连通的短模拟轨迹，就能把亚稳态之间的自由能差算到约 1 个热能单位以内，且不需要轨迹收敛或补跑分子动力学。</p>
+      <dl class="details">
+        <dt>技术方案</dt><dd>先用 SPIB（状态预测信息瓶颈，一种深度学习降维方法）从轨迹中提取少数几个「慢变量」——即决定体系长期行为的关键坐标，最多 4 维。作者发现这种压缩会限制已采样区域内的条件熵变化，于是可以用更容易算的「条件平均势能」来近似自由能差。再把这些能量定义成目标分布，交给 GFlowNets（生成流网络，一种按能量而非出现频率采样的生成模型）去采样，从而绕开「短轨迹里各状态出现次数不代表其真实稳定性」这个老问题。相比直方图重加权等传统方法（在单温度、无偏采样下无法修正状态间布居失衡），它不依赖收敛的布居数，也不用额外跑模拟。</dd>
+        <dt>关键数据</dt><dd>在三个体系上验证：径向双势阱中的单粒子、丙氨酸二肽（alanine dipeptide）、九残基肽 AIB9。恢复的亚稳态间自由能差与参考值相差在 1 个热能单位（kT）以内；潜变量维度最多 4 维；无需收敛的态布居，也无需额外分子动力学模拟。</dd>
+        <dt>为什么值得关注</dt><dd>对做分子动力学、自由能计算和药物发现的读者来说，它针对的是「短轨迹不收敛、状态间布居不可信」这一常见痛点，提供了一条不补跑模拟就能估自由能的路子，属于科学机器学习与 MD 交叉的实用方向。</dd>
+      </dl>
+      <footer class="card-foot">
+        <span class="date">2026-09-19</span>
+        
+        
+        <a class="cta" href="https://arxiv.org/abs/2609.22663v1" target="_blank" rel="noopener">阅读原文 →</a>
+      </footer>
+    </article>
+    <article class="card" data-url="https://github.com/kxz18/PepMimic" data-field="drug">
+      <button class="star" aria-label="收藏" data-url="https://github.com/kxz18/PepMimic" onclick="toggleStar(this)">☆</button>
+      <div class="card-head">
+        <h2><a href="https://github.com/kxz18/PepMimic" target="_blank" rel="noopener">kxz18/PepMimic</a></h2>
+        <div class="badges">
+          <span class="score high">8</span>
+          <span class="source cat-github" title="github:github-trending-drugdiscovery">GitHub · drug</span>
+          
+          <span class="field" title="子领域">药物发现</span>
+          
+        </div>
+      </div>
+      
+      <div class="tags">
+        <span class="tag">drug-discovery</span><span class="tag">protein</span><span class="tag">code</span>
+      </div>
+      
+      <p class="innovation">把「多肽设计」从零开始生成，改成模仿天然蛋白结合界面的形状来设计多肽，论文已被 Nature Biomedical Engineering 接收，代码同步开源。</p>
+      <dl class="details">
+        <dt>技术方案</dt><dd>PepMimic 的核心思路是「界面模仿」：先看目标蛋白上某段天然结合界面长什么样，再设计一条短肽去复刻这个界面的关键接触残基和空间构象，而不是像过去那样从随机序列出发做大规模筛选或纯序列生成。这样做的好处是把「能不能结合」这个最难的问题，转化为「能不能模仿一个已知能结合的界面」这个更容易约束的问题，设计空间更小、命中率更高。仓库是该论文的官方实现，包含模型与设计流程代码。</dd>
+        <dt>关键数据</dt><dd>未披露（该条目仅为论文被接收与代码开源的信息，摘要中未给出亲和力、成功率等具体数字；其意义在于方法被 Nature Biomedical Engineering 接收，说明界面模仿路线获得了同行评审认可）。</dd>
+        <dt>为什么值得关注</dt><dd>多肽药物是 drug discovery 里介于小分子和抗体之间的一块空白，而这条把 protein structure prediction 的思路反过来用于「按结构造分子」，对做 AI 制药、蛋白设计、分子生成的读者是直接可复用的方法参考。</dd>
+      </dl>
+      <footer class="card-foot">
+        <span class="date">2026-09-17</span>
+        
+        
+        <a class="cta" href="https://github.com/kxz18/PepMimic" target="_blank" rel="noopener">阅读原文 →</a>
+      </footer>
+    </article>
+    <article class="card" data-url="https://github.com/SciML/LinearSolve.jl" data-field="scifm">
+      <button class="star" aria-label="收藏" data-url="https://github.com/SciML/LinearSolve.jl" onclick="toggleStar(this)">☆</button>
+      <div class="card-head">
+        <h2><a href="https://github.com/SciML/LinearSolve.jl" target="_blank" rel="noopener">SciML/LinearSolve.jl</a></h2>
+        <div class="badges">
+          <span class="score mid">7</span>
+          <span class="source cat-github" title="github:github-trending-scientific-ml">GitHub · SciML</span>
+          
+          <span class="field" title="子领域">科学基础模型</span>
+          
+        </div>
+      </div>
+      
+      <div class="tags">
+        <span class="tag">scientific machine learning</span><span class="tag">pde</span><span class="tag">code</span>
+      </div>
+      
+      <p class="innovation">把 Julia 生态里各种线性求解器（分解法、Krylov 迭代法）统一到一个接口下，换算法、加预条件子只需改一行，省去重写代码的麻烦。</p>
+      <dl class="details">
+        <dt>技术方案</dt><dd>LinearSolve.jl 定义了一套公共 API，用户用同一个 solve 调用就能在直接分解（LU、Cholesky 等）和迭代法（Krylov 类，如 GMRES、CG）之间切换，并可挂接预条件子。它把这些求解器包成统一抽象层，而不是让用户直接调用底层库各自的接口。相比过去每个求解器一套调用方式、换方法要改大量代码，它把「选算法」变成可配置项，方便做基准对比和自动调参。</dd>
+        <dt>关键数据</dt><dd>未披露具体加速数字或 benchmark 分数；其价值在于接口统一带来的工程效率，而非单点性能提升。</dd>
+        <dt>为什么值得关注</dt><dd>线性求解是科学计算的核心步骤，PDE（偏微分方程）数值解、分子动力学、材料模拟、气候建模都依赖它；对做 scientific machine learning 的读者，统一接口意味着换求解器、试预条件子更快，便于把求解器嵌入可微分或代理模型流程。</dd>
+      </dl>
+      <footer class="card-foot">
+        <span class="date">2026-09-21</span>
+        
+        
+        <a class="cta" href="https://github.com/SciML/LinearSolve.jl" target="_blank" rel="noopener">阅读原文 →</a>
+      </footer>
+    </article>
+        </div>
+      
+      <p class="empty filter-empty" style="display:none">该子领域暂无匹配内容。</p>
+    </section>
+
+    <section class="band archive" id="archive" data-band="archive">
+      <h2 class="band-title">归档（最近 30 天）<span class="n" id="archive-count">(0)</span></h2>
+      
+        <p class="empty">归档暂时为空。</p>
+      
+      <p class="empty filter-empty" style="display:none">该子领域暂无匹配内容。</p>
+    </section>
+  </main>
+
+  <script>
+    // ---- favorites via localStorage ----
+    const STAR_PREFIX = 'ai-daily:star:';
+    let currentBand = 'today';   // active tab; chip counts mirror this band
+
+    function isStarred(url) {
+      return localStorage.getItem(STAR_PREFIX + url) === '1';
+    }
+
+    function setStarred(url, on) {
+      if (on) localStorage.setItem(STAR_PREFIX + url, '1');
+      else    localStorage.removeItem(STAR_PREFIX + url);
+    }
+
+    function getStarredUrls() {
+      const out = new Set();
+      for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        if (k && k.startsWith(STAR_PREFIX)) out.add(k.slice(STAR_PREFIX.length));
+      }
+      return out;
+    }
+
+    function refreshAllStarStates() {
+      document.querySelectorAll('button.star').forEach(b => {
+        const on = isStarred(b.dataset.url);
+        b.textContent = on ? '★' : '☆';
+        b.classList.toggle('starred', on);
+      });
+    }
+
+    function refreshFavoritesSection() {
+      const container = document.getElementById('favorites-cards');
+      const count = document.getElementById('fav-count');
+      const tocCount = document.getElementById('toc-fav-count');
+      container.innerHTML = '';
+      const starred = getStarredUrls();
+      let n = 0;
+      // Walk only non-favorites cards as the source-of-truth; clone matching ones.
+      document.querySelectorAll('main > section.band:not(.favorites) article.card').forEach(card => {
+        if (card.style.display === 'none') return;  // respect active field filter
+        if (starred.has(card.dataset.url)) {
+          const clone = card.cloneNode(true);
+          // Re-bind the star button in the clone so its onclick still works.
+          const cloneStar = clone.querySelector('.star');
+          if (cloneStar) {
+            cloneStar.textContent = '★';
+            cloneStar.classList.add('starred');
+          }
+          container.appendChild(clone);
+          n++;
+        }
+      });
+      count.textContent = n;
+      tocCount.textContent = n;
+      const emptyMsg = document.getElementById('favorites-empty');
+      if (emptyMsg) emptyMsg.style.display = n > 0 ? 'none' : '';
+    }
+
+    function toggleStar(btn) {
+      const url = btn.dataset.url;
+      setStarred(url, !isStarred(url));
+      refreshAllStarStates();
+      refreshFavoritesSection();
+    }
+
+    function clearFavorites() {
+      if (!confirm('清空所有收藏？此操作只清你这台设备的浏览器，不影响别人。')) return;
+      const starred = Array.from(getStarredUrls());
+      starred.forEach(u => setStarred(u, false));
+      refreshAllStarStates();
+      refreshFavoritesSection();
+    }
+
+    function openArchive(dateStr) {
+      const el = document.getElementById('archive-' + dateStr);
+      if (el && el.tagName === 'DETAILS') el.open = true;
+    }
+
+    function switchTab(band) {
+      document.querySelectorAll('main > section.band').forEach(sec => {
+        sec.style.display = (sec.dataset.band === band) ? '' : 'none';
+      });
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.band === band);
+      });
+      currentBand = band;
+      if (band === 'favorites') refreshFavoritesSection();
+      refreshFieldCounts();
+    }
+
+    // ---- subfield filter (chips) ----
+    let currentField = '';
+
+    function filterField(field) {
+      currentField = field || '';
+      document.querySelectorAll('#field-chips .field-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.field === currentField);
+      });
+      applyFieldFilter();
+      refreshFavoritesSection();
+    }
+
+    function applyFieldFilter() {
+      document.querySelectorAll('main article.card').forEach(card => {
+        const match = !currentField || card.dataset.field === currentField;
+        card.style.display = match ? '' : 'none';
+      });
+      document.querySelectorAll('details.date-group').forEach(d => {
+        const visible = Array.from(d.querySelectorAll('article.card')).some(c => c.style.display !== 'none');
+        d.style.display = visible ? '' : 'none';
+      });
+      ['today', 'archive'].forEach(band => {
+        const sec = document.getElementById(band);
+        if (!sec) return;
+        const cards = sec.querySelectorAll('article.card');
+        const visibleCount = Array.from(cards).filter(c => c.style.display !== 'none').length;
+        const countEl = document.getElementById(band + '-count');
+        if (countEl) countEl.textContent = '(' + visibleCount + ')';
+        const msg = sec.querySelector('.filter-empty');
+        if (msg) msg.style.display = visibleCount > 0 ? 'none' : '';
+      });
+    }
+
+    // ---- per-field counts on the chips (mirror the active tab) ----
+    function refreshFieldCounts() {
+      const counts = {};
+      let total = 0;
+      const sec = document.getElementById(currentBand);
+      if (sec) sec.querySelectorAll('article.card').forEach(card => {
+        const f = card.dataset.field || '';
+        counts[f] = (counts[f] || 0) + 1;
+        total++;
+      });
+      document.querySelectorAll('#field-chips .field-btn').forEach(btn => {
+        const el = btn.querySelector('.n-count');
+        if (!el) return;
+        const f = btn.dataset.field;
+        el.textContent = f === '' ? total : (counts[f] || 0);
+      });
+      const labelEl = document.getElementById('field-count-label');
+      if (labelEl) {
+        const label = currentBand === 'today' ? '今日' : currentBand === 'archive' ? '归档' : '收藏';
+        labelEl.textContent = '（' + label + '）';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      refreshAllStarStates();
+      refreshFavoritesSection();
+      const todaySection = document.getElementById('today');
+      const hasToday = todaySection && todaySection.querySelectorAll('article.card').length > 0;
+      switchTab(hasToday ? 'today' : 'archive');
+    });
+  </script>
+</body>
+</html>
