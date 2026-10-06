@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>AI4S Poster</title>
+  <style>
+    :root {
+      --fg: #1c1917; --muted: #57534e; --bg: #fafaf9; --card: #ffffff;
+      --accent: #0369a1; --accent-2: #0ea5e9; --border: #e7e5e4;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0 auto; background: var(--bg); color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      width: 1080px; min-height: 1440px;
+    }
+    .poster { padding: 48px 56px; display: flex; flex-direction: column; min-height: 1440px; }
+
+    /* 渐变头图 */
+    .hero {
+      background: linear-gradient(135deg, #0c4a6e 0%, #0369a1 55%, #0ea5e9 100%);
+      color: #fff; padding: 44px 48px 40px; border-radius: 18px; margin-bottom: 24px;
+    }
+    .hero .brand { font-size: 15px; letter-spacing: 5px; color: #bae6fd; font-weight: 700; }
+    .hero h1.title { font-size: 42px; line-height: 1.25; margin: 12px 0 10px; color: #fff; }
+    .hero .slogan { font-size: 28px; font-weight: 600; margin: 0 0 12px; color: #f0f9ff; line-height: 1.4; }
+    .hero .range { color: #bae6fd; font-size: 17px; margin: 0; }
+
+    .overview {
+      font-size: 18px; line-height: 1.8; color: #292524;
+      background: #f0f9ff; border-left: 4px solid var(--accent);
+      padding: 18px 22px; border-radius: 8px; margin: 0 0 24px;
+    }
+    h2.sec {
+      font-size: 18px; letter-spacing: 2px; color: var(--muted);
+      margin: 8px 0 16px; text-transform: uppercase;
+    }
+    .highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .hl {
+      display: flex; flex-direction: column; gap: 8px; align-items: flex-start;
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 18px 20px; box-shadow: 0 2px 6px rgba(2,6,23,0.04);
+    }
+    .hl .field {
+      font-size: 13px; padding: 3px 10px; border-radius: 999px;
+      background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+      color: #5b21b6; font-weight: 600;
+    }
+    .hl-head { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+    .hl .score { font-size: 15px; font-weight: 700; color: var(--accent); }
+    .hl h3 { margin: 0; font-size: 18px; line-height: 1.35; }
+    .hl p { margin: 0; font-size: 15px; color: var(--muted); line-height: 1.55; }
+    .trend { font-size: 17px; line-height: 1.7; margin: 0; }
+
+    .stats { margin-top: auto; padding-top: 24px; border-top: 2px solid var(--border); }
+    .stats .nums { display: flex; gap: 48px; margin-bottom: 22px; }
+    .stats .num { font-size: 34px; font-weight: 700; color: var(--accent); }
+    .stats .num small { font-size: 15px; color: var(--muted); font-weight: 400; margin-left: 6px; }
+
+    /* 子领域横向条形图 */
+    .fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 36px; }
+    .frow { display: grid; grid-template-columns: 150px 1fr 40px; align-items: center; gap: 12px; }
+    .flabel { font-size: 14px; color: var(--muted); white-space: nowrap; }
+    .fbar { height: 12px; background: #f1f5f9; border-radius: 6px; overflow: hidden; }
+    .fbar-fill {
+      height: 100%; border-radius: 6px;
+      background: linear-gradient(90deg, #0369a1, #0ea5e9);
+    }
+    .frow b { font-size: 14px; color: var(--fg); text-align: right; }
+
+    .footer { margin-top: 30px; font-size: 16px; color: var(--muted); }
+    .footer a { color: var(--accent); text-decoration: none; font-weight: 600; }
+  </style>
+</head>
+<body>
+<div class="poster">
+  <div class="hero">
+    <div class="brand">AI4S-DAILY</div>
+    
+    <h1 class="title">AI4S 周报 · 10-05 ~ 10-11</h1>
+    <p class="slogan">「从算得更快到算得更准更省」</p>
+    <p class="range">2026-10-05 ~ 2026-10-11 · 2026-10-06 11:45 (北京时间 UTC+8)</p>
+    
+  </div>
+
+  <p class="overview">本期 AI4S 的主线是「效率与可信度并重」：一边是三角注意力核、百万原子机器学习势、超表面逆设计等把算力瓶颈往下压的工作，另一边是气候、RNA 动力学、随机 PDE 等新基准把评测从「跑得动」推向「物理可信、能外推、带不确定性」。生成式方法继续向科学结构问题渗透，从电子密度、分子晶体到冷冻电镜颗粒，都在用生成先验替代逐点回归或分步拟合。同时，多个工作开始把「物理约束」和「几何/频谱结构」写进模型内部，而不是只当作后处理。整体看，本期是方法收敛与基准补课并行的一期。</p>
+
+  
+  <h2 class="sec">Top 亮点</h2>
+  <div class="highlights">
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">🧬 蛋白质/结构</span>
+      <span class="score">8.0</span>
+    </div>
+    <h3>TurboPairFormer: Fast and Stable Protein Folding Model Training with an Optimized Triangle Attention Kernel</h3>
+    <p>针对 AlphaFold3 类模型中最耗算力的三角注意力（triangular attention）模块，做出了一套在 NVIDIA Hopper GPU 上又…</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">⚛️ 分子模拟</span>
+      <span class="score">8.0</span>
+    </div>
+    <h3>Inferring physical fields in coupled systems with unknown parameters from incomplete observations using physics-constrained attentive neural operators</h3>
+    <p>在只知道一个物理场、且系统参数未知的情况下，同时重建多个耦合场并反推出参数，把「稀疏观测+未知参数」这个双重难题放进一个物理约束的神经算子框架里解决。</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">🧪 材料科学</span>
+      <span class="score">8.0</span>
+    </div>
+    <h3>Deep learning enables large-scale inverse design of free-form metasurfaces</h3>
+    <p>用物理定制的深度学习代理模型，把超表面（亚波长光学元件）逆设计的电磁仿真速度提升四个数量级以上，首次实现毫米级、16亿自由度的自由形态全息超表面设计。</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">🌍 气候地球</span>
+      <span class="score">8.0</span>
+    </div>
+    <h3>ClimateBench v2.0: Probabilistic Climate Model Benchmarking</h3>
+    <p>首个把「物理可信度 + 概率化观测打分 + 分布外泛化」三层评测统一到同一套气候模型基准里的协议，物理模型、纯数据模型和混合模型同台比较，并首次把 2015 年…</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">📐 AI4Math/PDE</span>
+      <span class="score">8.0</span>
+    </div>
+    <h3>S$^{2}$-PINN: Stochastic Separable Physics-Informed Neural Networks</h3>
+    <p>把随机偏微分方程的不确定性量化（UQ）拆成「空间字典×时间特征×随机基」的可分离结构，用低秩张量耦合，参数更少却比九个基线在均值、方差和校准上更准。</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">🧠 科学基础模型</span>
+      <span class="score">8.0</span>
+    </div>
+    <h3>SPEAR: A Spectral-Disentangled MoE Neural Operator with Knowledge-Guided Expert Aggregation for Large-Scale PDE Pretraining</h3>
+    <p>把「频谱解耦」和「专家混合（MoE，多专家分工的模型结构）」结合，做 PDE（偏微分方程）基础模型预训练，并用知识引导的专家合并把专家数砍掉一半而精度不降。</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">🧪 材料科学</span>
+      <span class="score">8.0</span>
+    </div>
+    <h3>Molecular Crystal Structure Prediction from Conditional Flow on the Unit Cells</h3>
+    <p>把分子晶体结构预测拆成「先预测晶格不变量、再反推晶胞、最后在约束内做分子堆积」三步，在 84 个单组分体系上复现了 83 个实验结构，命中率约 99%。</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">🧪 材料科学</span>
+      <span class="score">8.0</span>
+    </div>
+    <h3>Distilling universal machine-learning potentials for moiré lattices across one million atoms</h3>
+    <p>把通用原子间势（机器学习势，用AI拟合原子间相互作用）蒸馏成能在单张GPU上跑100万原子的版本，首次让超大扭转角莫尔材料（多层二维材料堆叠出的周期图案）的从头…</p>
+  </div>
+  
+  </div>
+  
+
+  
+  <h2 class="sec">趋势</h2>
+  <p class="trend">与上一期相比，本期最明显的变化是「基准补课」集中出现：气候、RNA 动力学、随机 PDE 都推出了带物理约束或不确定性量化的新评测协议，说明社区开始从刷指标转向比可信度。另一个新方向是生成式先验直接对接原始实验数据，如冷冻电镜颗粒、GC-MS 谱图，跳过传统中间重建步骤。此外，效率优化从模型层下沉到内核层和势函数蒸馏层，百万原子和 16 亿自由度级别的规模化设计开始出现。</p>
+  
+
+  <div class="stats">
+    <div class="nums">
+      <div><span class="num">2550</span><small>抓取条目</small></div>
+      <div><span class="num">150</span><small>总结</small></div>
+      <div><span class="num">150</span><small>已上墙</small></div>
+    </div>
+    <div class="fields">
+      
+      <div class="frow">
+        <span class="flabel">🧬 蛋白质/结构</span>
+        <div class="fbar"><div class="fbar-fill" style="width: 10%"></div></div>
+        <b>37</b>
+      </div>
+      
+      <div class="frow">
+        <span class="flabel">💊 药物发现</span>
+        <div class="fbar"><div class="fbar-fill" style="width: 9%"></div></div>
+        <b>35</b>
+      </div>
+      
+      <div class="frow">
+        <span class="flabel">⚛️ 分子模拟</span>
+        <div class="fbar"><div class="fbar-fill" style="width: 40%"></div></div>
+        <b>154</b>
+      </div>
+      
+      <div class="frow">
+        <span class="flabel">🧪 材料科学</span>
+        <div class="fbar"><div class="fbar-fill" style="width: 66%"></div></div>
+        <b>256</b>
+      </div>
+      
+      <div class="frow">
+        <span class="flabel">🌍 气候地球</span>
+        <div class="fbar"><div class="fbar-fill" style="width: 22%"></div></div>
+        <b>85</b>
+      </div>
+      
+      <div class="frow">
+        <span class="flabel">📐 AI4Math/PDE</span>
+        <div class="fbar"><div class="fbar-fill" style="width: 23%"></div></div>
+        <b>87</b>
+      </div>
+      
+      <div class="frow">
+        <span class="flabel">🧠 科学基础模型</span>
+        <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
+        <b>385</b>
+      </div>
+      
+      <div class="frow">
+        <span class="flabel">🧫 生物信息</span>
+        <div class="fbar"><div class="fbar-fill" style="width: 28%"></div></div>
+        <b>106</b>
+      </div>
+      
+    </div>
+  </div>
+  <p class="footer">数据来源：AI4S-Daily · <a href="index.html">日报</a> · <a href="weekly.html">周报</a></p>
+</div>
+</body>
+</html>

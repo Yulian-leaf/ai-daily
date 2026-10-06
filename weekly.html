@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI4S 周报</title>
+  <style>
+    :root {
+      --bg: #fafaf9; --fg: #1c1917; --muted: #78716c; --border: #e7e5e4;
+      --card: #ffffff; --accent: #0369a1; --link: #0369a1;
+      --today-accent: #0369a1; --fav-accent: #d97706;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; padding: 0; background: var(--bg); color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.7;
+    }
+    header.page {
+      padding: 28px 24px 16px; border-bottom: 1px solid var(--border);
+      background: var(--card); position: sticky; top: 0; z-index: 20;
+    }
+    header.page h1 { margin: 0 0 6px; font-size: 24px; }
+    header.page .meta {
+      margin: 0; color: var(--muted); font-size: 13px;
+      display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+    }
+    header.page .meta a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    header.page .meta a:hover { text-decoration: underline; }
+    main { max-width: 1200px; margin: 0 auto; padding: 24px; }
+    section { margin-bottom: 32px; }
+
+    .r-title { font-size: 20px; margin: 0 0 4px; }
+    .r-range { color: var(--muted); font-size: 13px; margin: 0 0 16px; }
+    .r-overview {
+      padding: 14px 16px; background: #f0f9ff; border-left: 3px solid var(--accent);
+      border-radius: 6px; margin: 0 0 20px;
+    }
+    h3.sub { font-size: 14px; text-transform: uppercase; letter-spacing: 1px;
+      color: var(--muted); margin: 24px 0 12px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 600px) {
+      .cards { grid-template-columns: 1fr; }
+    }
+    article.card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 16px 18px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    article.card .field {
+      display: inline-block; font-size: 12px; padding: 2px 8px; border-radius: 4px;
+      background: #ede9fe; color: #5b21b6; font-weight: 500; margin-bottom: 8px;
+    }
+    article.card h2 { margin: 0 0 6px; font-size: 17px; line-height: 1.4; }
+    article.card h2 a { color: var(--fg); text-decoration: none; }
+    article.card h2 a:hover { color: var(--link); text-decoration: underline; }
+    article.card p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    details.date-group {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; margin-bottom: 12px;
+    }
+    details.date-group > summary {
+      cursor: pointer; padding: 12px 16px; font-weight: 600;
+      list-style: none; user-select: none;
+    }
+    details.date-group > summary::-webkit-details-marker { display: none; }
+    details.date-group > summary::before {
+      content: "▶"; font-size: 11px; color: var(--muted); margin-right: 8px;
+      transition: transform 0.2s;
+    }
+    details.date-group[open] > summary::before { transform: rotate(90deg); }
+    details.date-group > .body { padding: 0 16px 16px; color: var(--muted); font-size: 14px; }
+    .empty {
+      text-align: center; padding: 32px 24px; color: var(--muted);
+      background: var(--card); border: 1px dashed var(--border); border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header class="page">
+    <h1>AI4S 周报</h1>
+    <p class="meta">
+      <a href="index.html">← 日报</a> ·
+      <a href="biweekly.html">双周报告 →</a> ·
+      <a href="poster.html">🖼 海报 →</a> ·
+      生成于 2026-10-06 11:45 (北京时间 UTC+8)
+    </p>
+  </header>
+  <main>
+    
+    <section class="latest">
+      <h2 class="r-title">AI4S 周报 · 10-05 ~ 10-11</h2>
+      <p class="r-range">2026-10-05 ~ 2026-10-11</p>
+      <p class="r-overview">本期 AI4S 的主线是「效率与可信度并重」：一边是三角注意力核、百万原子机器学习势、超表面逆设计等把算力瓶颈往下压的工作，另一边是气候、RNA 动力学、随机 PDE 等新基准把评测从「跑得动」推向「物理可信、能外推、带不确定性」。生成式方法继续向科学结构问题渗透，从电子密度、分子晶体到冷冻电镜颗粒，都在用生成先验替代逐点回归或分步拟合。同时，多个工作开始把「物理约束」和「几何/频谱结构」写进模型内部，而不是只当作后处理。整体看，本期是方法收敛与基准补课并行的一期。</p>
+
+      
+      <h3 class="sub">本期亮点</h3>
+      <div class="cards">
+        
+        <article class="card">
+          <span class="field">蛋白质/结构</span>
+          <h2><a href="https://arxiv.org/abs/2610.05854v1" target="_blank" rel="noopener">TurboPairFormer: Fast and Stable Protein Folding Model Training with an Optimized Triangle Attention Kernel</a></h2>
+          <p>针对 AlphaFold3 类模型中最耗算力的三角注意力模块，在 NVIDIA Hopper GPU 上做了优化内核，让训练更快更稳。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">蛋白质/结构</span>
+          <h2><a href="https://arxiv.org/abs/2610.01358v2" target="_blank" rel="noopener">Fold'EM: Direct atomic structure inference from Cryo-EM particles</a></h2>
+          <p>把蛋白质生成模型先验直接喂给冷冻电镜原始颗粒图像，跳过密度图重建和原子模型拟合两步，少量颗粒即可定出原子结构。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2610.03712v1" target="_blank" rel="noopener">RNADyn: A Benchmark for Generating and Understanding RNA Dynamics</a></h2>
+          <p>首个标准化 RNA 分子动力学基准，含 2585 条质控后的 100 纳秒全原子轨迹，并用统一模型同时做轨迹生成和动力学特征提取。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2610.05723v1" target="_blank" rel="noopener">Inferring physical fields in coupled systems with unknown parameters from incomplete observations using physics-constrained attentive neural operators</a></h2>
+          <p>在只知道一个物理场且系统参数未知时，同时重建多个耦合场并反推参数，把稀疏观测与未知参数双重难题放进物理约束神经算子框架。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">材料科学</span>
+          <h2><a href="https://arxiv.org/abs/2610.05021v1" target="_blank" rel="noopener">Deep learning enables large-scale inverse design of free-form metasurfaces</a></h2>
+          <p>用物理定制深度学习代理模型把超表面逆设计的电磁仿真提速四个数量级以上，首次实现毫米级、16 亿自由度的自由形态全息超表面设计。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">材料科学</span>
+          <h2><a href="https://arxiv.org/abs/2610.04115v1" target="_blank" rel="noopener">Distilling universal machine-learning potentials for moiré lattices across one million atoms</a></h2>
+          <p>把通用机器学习势蒸馏成单张 GPU 可跑 100 万原子的版本，首次让超大扭转角莫尔材料的从头计算成为可能。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">气候地球</span>
+          <h2><a href="https://arxiv.org/abs/2610.04558v1" target="_blank" rel="noopener">ClimateBench v2.0: Probabilistic Climate Model Benchmarking</a></h2>
+          <p>首个把物理可信度、概率化观测打分和分布外泛化三层评测统一的气候模型基准，物理模型、纯数据模型和混合模型同台比较。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">气候地球</span>
+          <h2><a href="https://arxiv.org/abs/2610.03106v1" target="_blank" rel="noopener">S2S-JEPA: Predicting the Predictable at Subseasonal-to-Seasonal Timescales</a></h2>
+          <p>把 JEPA 只在抽象空间预测的思路搬到 2 周到 2 个月的次季节预报，在公认的可预报性荒漠时段追平甚至超过欧洲中期天气预报中心。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">AI4Math/PDE</span>
+          <h2><a href="https://arxiv.org/abs/2610.03303v1" target="_blank" rel="noopener">S$^{2}$-PINN: Stochastic Separable Physics-Informed Neural Networks</a></h2>
+          <p>把随机偏微分方程的不确定性量化拆成空间字典、时间特征和随机基的可分离结构，参数更少却在均值、方差和校准上优于九个基线。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">科学基础模型</span>
+          <h2><a href="https://arxiv.org/abs/2610.03265v1" target="_blank" rel="noopener">SPEAR: A Spectral-Disentangled MoE Neural Operator with Knowledge-Guided Expert Aggregation for Large-Scale PDE Pretraining</a></h2>
+          <p>把频谱解耦和专家混合结合做 PDE 基础模型预训练，并用知识引导的专家合并把专家数砍掉一半而精度不降。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">生物信息</span>
+          <h2><a href="https://arxiv.org/abs/2610.03066v1" target="_blank" rel="noopener">Explainable Molecular Structure Inference from GC--MS with Diffusion Models and LLM Reranking</a></h2>
+          <p>把离散图扩散模型和 LLM 二次推理串成两阶段流程，首次让 GC-MS 在没有参考谱库匹配的情况下直接推断分子结构。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">药物发现</span>
+          <h2><a href="https://arxiv.org/abs/2610.03160v1" target="_blank" rel="noopener">Multimodal reasoning for broadly neutralizing antibody discovery from label-free human B cell repertoires across virus families</a></h2>
+          <p>用多模态推理、持续元学习和湿实验闭环，从人天然 B 细胞库直接筛出广谱中和抗体，无需抗原分选即可跨病毒家族泛化。</p>
+        </article>
+        
+      </div>
+      
+
+      
+      <h3 class="sub">趋势观察</h3>
+      <p>与上一期相比，本期最明显的变化是「基准补课」集中出现：气候、RNA 动力学、随机 PDE 都推出了带物理约束或不确定性量化的新评测协议，说明社区开始从刷指标转向比可信度。另一个新方向是生成式先验直接对接原始实验数据，如冷冻电镜颗粒、GC-MS 谱图，跳过传统中间重建步骤。此外，效率优化从模型层下沉到内核层和势函数蒸馏层，百万原子和 16 亿自由度级别的规模化设计开始出现。</p>
+      
+      
+      <h3 class="sub">下周展望</h3>
+      <p>下期值得关注这些新基准是否被后续工作真正采用，以及生成式方法在冷冻电镜和谱图推断上的复现与扩展；同时留意三角注意力内核、百万原子势等效率工作能否开源并迁移到更多模型。</p>
+      
+    </section>
+    
+
+    
+  </main>
+</body>
+</html>
