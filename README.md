@@ -157,7 +157,20 @@ python -m src.main render --output-dir site --within-days 30
 #   rendered=N output=site
 ```
 
-`render` 的 `--output-dir` 默认 `site`，`--within-days` 默认 `30`（控制归档窗口）。GitHub Actions 里会传 `--output-dir docs` 以匹配 GitHub Pages。
+`render` 的 `--output-dir` 默认 `site`，`--within-days` 默认 `30`（控制归档窗口）。GitHub Actions 里也是 `--output-dir site`，跑完再把 `site/` 整个拷到 `data` 分支根目录发布。
+
+日报页头部的「周报 / 海报」链接指向 `weekly.html` / `poster.html`，所以 `daily` workflow 除了 `fetch`/`summarize`/`render` 之外还会跑：
+
+```bash
+# 生成本周周报（条目不足 3 条时跳过），输出 site/weekly.html
+python -m src.main weekly --period weekly
+# 生成双周报告，输出 site/biweekly.html
+python -m src.main weekly --period biweekly
+# 把最新一期周报渲染成分享海报，输出 site/poster.html
+python -m src.main poster
+```
+
+这三步在 workflow 里都是 `continue-on-error`：周报要额外调一次 LLM，失败时只是当次不更新周报/海报，上一次的文件仍留在 `data` 分支上，不会拖垮当天日报的发布。但如果 `site/` 里连 `weekly.html` / `poster.html` 都不存在，发布前的校验步骤会直接失败——因为那样推上去的日报点「周报 / 海报」就是 404。
 
 ### 跑测试
 

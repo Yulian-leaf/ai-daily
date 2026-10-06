@@ -67,6 +67,52 @@ jobs:
           python -m src.main summarize
           python -m src.main render --output-dir site
 
+      # 日报页头部的「周报 / 海报」链接指向 site/weekly.html 和 site/poster.html，
+      # 这两个页面必须由 CI 一起生成，否则 data 分支上不存在对应文件，Pages 上点进去就是 404。
+      # 两个步骤都 continue-on-error：周报要额外调用一次 LLM，不能让它拖垮当天日报的发布
+      # （失败时只是本次不更新周报/海报，上一次的文件仍留在 data 分支上）。
+      - name: Generate weekly / biweekly report pages
+        continue-on-error: true
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          MOONSHOT_API_KEY: ${{ secrets.MOONSHOT_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python -m src.main weekly --period weekly --output-dir site
+          python -m src.main weekly --period biweekly --output-dir site
+
+      - name: Render poster page
+        continue-on-error: true
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          MOONSHOT_API_KEY: ${{ secrets.MOONSHOT_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python -m src.main poster --period weekly --output-dir site
+
+      - name: Verify generated pages
+        run: |
+          set -e
+          missing=""
+          for f in index.html weekly.html poster.html; do
+            if [ ! -f "site/$f" ]; then missing="$missing site/$f"; fi
+          done
+          ls -la site
+          if [ -n "$missing" ]; then
+            echo "ERROR: missing generated page(s):$missing"
+            echo "日报头部链接会 404。请检查上面 weekly / poster 步骤的日志和 LLM API key。"
+            exit 1
+          fi
+          echo "All expected pages present."
+
       - name: Commit & push to data branch
         run: |
           set -e
