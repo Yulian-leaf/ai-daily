@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="weekly.html">周报 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-06 11:45 (北京时间 UTC+8)
+      生成于 2026-10-06 14:45 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 双周报告 · 09-28 ~ 10-11</h2>
       <p class="r-range">2026-09-28 ~ 2026-10-11</p>
-      <p class="r-overview">这两周 AI4S 的主旋律从「单点模型刷榜」转向「可复用基础设施」：等变算子后端、推理引擎、基准协议、数据元信息、开源框架密集出现，说明领域开始为规模化落地补课。第一周（09-28 ~ 10-04）以材料与分子模拟的生成式方法为主，晶体生成、MLIP、量子输运、自由能面等条目密集，偏「把物理塞进模型」；第二周（10-05 ~ 10-11）明显转向效率与评测：三角注意力内核、百万原子蒸馏、1 公里区域天气、概率化气候基准、RNA 动力学基准、观测模式基准等，偏「把模型塞进真实工作流」。蛋白质方向两周持续高产，但重心从结构预测转向设计、无序区、抗体发现与冷冻电镜直推。气候与地球方向在第二周集中爆发，出现可微动力核心、次季节预报、6 小时极端降水临近预报等成体系工作。整体看，AI4S 正从「模型能力展示」进入「工程化与可信度建设」阶段。</p>
+      <p class="r-overview">这两周 AI4S 的主旋律是「从模型创新转向工程化落地」：大量工作不再追求新架构，而是解决推理效率、数据质量、评测标准和物理约束的工程化问题。第一周（09-28 ~ 10-04）以材料与分子模拟为主，晶体生成、MLIP 加速、量子化学精度提升等条目密集出现，偏向「把物理算得更快更准」；第二周（10-05 ~ 10-11）蛋白质与气候地球方向明显升温，冷冻电镜直接推断原子结构、广谱抗体发现、1 公里区域天气预报等条目集中出现，偏向「把 AI 用到真实科学场景」。跨两周看，一个共同趋势是「评测与基准」成为独立议题：ClimateBench v2.0、RNADyn、PDE-OBS、HetCat26 等基准密集发布，说明领域开始从「刷榜」转向「定义什么算好」。另一个趋势是「推理阶段干预」取代「重训练」：不重训、不蒸馏、只换推理引擎或加引导层的工作显著增多。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -104,73 +104,73 @@
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2610.01358v2" target="_blank" rel="noopener">Fold'EM: Direct atomic structure inference from Cryo-EM particles</a></h2>
-          <p>把蛋白质生成模型先验直接喂给冷冻电镜原始颗粒图像，跳过密度图重建与原子模型拟合两步，少量颗粒即可定出原子结构。</p>
+          <p>把蛋白质生成模型先验直接喂给冷冻电镜原始颗粒图像，跳过密度图重建和原子模型拟合两步，少量颗粒即可定出原子结构。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2610.03160v1" target="_blank" rel="noopener">Multimodal reasoning for broadly neutralizing antibody discovery from label-free human B cell repertoires across virus families</a></h2>
-          <p>多模态推理+持续元学习+湿实验闭环，从人天然 B 细胞库直接筛出广谱中和抗体，无需抗原分选即可跨病毒家族泛化。</p>
+          <p>用多模态推理+持续元学习+湿实验闭环，从人天然 B 细胞库直接筛出广谱中和抗体，无需抗原分选即可跨病毒家族泛化。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.01663v1" target="_blank" rel="noopener">pCoMole: Pareto-Constrained Molecule Editing with Discrete Flows</a></h2>
-          <p>把多目标优化、硬性生化约束与变长序列编辑放进同一离散生成框架，设计出的绿色荧光蛋白变体在活细胞中仍发光。</p>
+          <p>把多目标优化、硬性生化约束和变长序列编辑放进同一离散生成框架，设计出的绿色荧光蛋白变体在活细胞中真的还发光。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://github.com/plainerman/DiffDock-Pocket" target="_blank" rel="noopener">plainerman/DiffDock-Pocket</a></h2>
-          <p>把扩散对接从整蛋白盲对接推进到口袋级，并首次在对接中同时建模蛋白侧链柔性。</p>
+          <p>把扩散生成模型从整蛋白盲对接推进到口袋级对接，并首次在对接中同时建模蛋白侧链柔性，直接对应药物设计场景。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.01036v1" target="_blank" rel="noopener">Train for Accuracy, Execute at Scale: Architecture-Preserving Inference for Equivariant Atomistic Foundation Models</a></h2>
-          <p>不重训、不蒸馏、不改权重，只换推理引擎就让等变原子势在单张 A100 上从 2.4 万原子扩到 1124 万原子，推理提速 3.1-5 倍。</p>
+          <p>不重训、不蒸馏、不改权重，只换推理引擎就让等变原子势模型在单张 A100 上从 2.4 万原子扩到 1124 万原子，推理提速 3.1-5 倍。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.03712v1" target="_blank" rel="noopener">RNADyn: A Benchmark for Generating and Understanding RNA Dynamics</a></h2>
-          <p>首个标准化 RNA 分子动力学基准，含 2585 条质控后的 100 纳秒全原子轨迹，并配套统一模型同时做轨迹生成与动力学特征提取。</p>
+          <p>首个标准化 RNA 分子动力学基准，含 2585 条质控后的 100 纳秒全原子轨迹，并配套统一模型同时做轨迹生成和动力学特征提取。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.05021v1" target="_blank" rel="noopener">Deep learning enables large-scale inverse design of free-form metasurfaces</a></h2>
-          <p>物理定制代理模型把超表面逆设计的电磁仿真提速四个数量级以上，首次实现毫米级、16 亿自由度的自由形态全息超表面设计。</p>
+          <p>用物理定制深度学习代理模型把超表面逆设计的电磁仿真速度提升四个数量级以上，首次实现毫米级、16 亿自由度的自由形态全息超表面设计。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.04115v1" target="_blank" rel="noopener">Distilling universal machine-learning potentials for moiré lattices across one million atoms</a></h2>
-          <p>把通用机器学习势蒸馏成单张 GPU 可跑 100 万原子的版本，首次让超大扭转角莫尔材料的从头模拟变得可行。</p>
+          <p>把通用原子间势蒸馏成能在单张 GPU 上跑 100 万原子的版本，首次让超大扭转角莫尔材料的从头算精度模拟成为可能。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">气候地球</span>
+          <h2><a href="https://arxiv.org/abs/2610.04558v1" target="_blank" rel="noopener">ClimateBench v2.0: Probabilistic Climate Model Benchmarking</a></h2>
+          <p>首个把物理可信度、概率化观测打分和分布外泛化三层评测统一到同一套气候模型基准里的协议，物理模型、纯数据模型和混合模型同台比较。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.01835v1" target="_blank" rel="noopener">Varda-single-1.0: deterministic data-driven weather forecasting at 1 km resolution over Switzerland's complex topography</a></h2>
-          <p>首个针对阿尔卑斯复杂地形、把区域天气预报做到 1 公里网格的纯数据驱动系统，在 MeteoSwiss 官方业务基准上打平甚至反超。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.03106v1" target="_blank" rel="noopener">S2S-JEPA: Predicting the Predictable at Subseasonal-to-Seasonal Timescales</a></h2>
-          <p>把 JEPA「只在抽象空间预测」的思路搬到 2 周到 2 个月的次季节预报，在可预报性荒漠时段追平甚至超过 ECMWF 基准。</p>
+          <p>首个针对阿尔卑斯复杂地形、把区域天气预报做到 1 公里网格的纯数据驱动系统，在瑞士气象局官方业务预报基准上打平甚至反超。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2609.36521v1" target="_blank" rel="noopener">PDE-OBS: Controlled Evaluation Across Observation Patterns</a></h2>
-          <p>首个把观测方式当成独立变量来评测的 PDE 基准平台，同一套物理数据换不同测量布局，模型表现差异第一次被系统量化。</p>
+          <p>首个把观测方式当成独立变量来评测的 PDE 基准平台：同一套物理数据，换不同测量布局，模型表现会差多少，第一次被系统量化。</p>
         </article>
         
         <article class="card">
           <span class="field">科学基础模型</span>
           <h2><a href="https://arxiv.org/abs/2610.03265v1" target="_blank" rel="noopener">SPEAR: A Spectral-Disentangled MoE Neural Operator with Knowledge-Guided Expert Aggregation for Large-Scale PDE Pretraining</a></h2>
-          <p>把频谱解耦与专家混合结合做 PDE 基础模型预训练，用知识引导的专家合并把专家数砍掉一半而精度不降。</p>
+          <p>把频谱解耦和专家混合结合做 PDE 基础模型预训练，并用知识引导的专家合并把专家数砍掉一半而精度不降。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>跨周对比看，材料与分子模拟在第一周（09-28 ~ 10-04）是绝对主力，晶体生成、MLIP、量子输运、自由能面等条目合计超过 20 条；第二周（10-05 ~ 10-11）材料条目数量下降约三成，但转向更工程化的方向：超表面逆设计、百万原子蒸馏、相识别、MOF 组装几何度量。蛋白质两周持续高产，第一周偏结构预测与逆折叠（SPINET、OFoldNA、Dropout-LayerNorm 修正），第二周明显转向设计、无序区、抗体发现、密码子优化与冷冻电镜直推，说明「预测」正让位于「设计」。气候地球是第二周最明显的升温方向：第一周仅有零星条目，第二周集中出现 1 公里区域预报、次季节 JEPA、6 小时极端降水临近预报、可微非静力动力核心、气溶胶凝并隐空间 ODE 等，从 2 条增至 8 条以上。AI4Math/PDE 方向从「提新算子」转向「建评测与稳定性」：PDE-OBS、Sim+Real、KAN 自由边界、NEXT 稳定性架构等，基准与诊断类工作占比上升。科学基础模型（scifm）两周条目不多但方向清晰：SPEAR、SINO、异构科学接口基础模型、ALF 主动学习框架，共同指向「跨问题共享算子库+可复用数据闭环」。新浮现的方向是「推理期干预」：不重训、不蒸馏，只在推理阶段加约束或换引擎（DiffDock-Pocket、Budgeted Quotient-Residual Guidance、Train for Accuracy Execute at Scale、Robust Biomolecular Complex Design），这类工作两周合计超过 6 条，是值得注意的方法论转向。</p>
+      <p>跨周对比看，蛋白质方向从第一周的 8 条增至第二周的 12 条，且第二周出现冷冻电镜直接推断、广谱抗体发现等更贴近真实实验场景的工作，说明该领域正从「预测结构」转向「解决实验痛点」。气候地球方向从第一周的 6 条增至第二周的 9 条，ClimateBench v2.0 和 1 公里区域预报等基准与业务化工作集中出现，热度明显上升。材料方向两周均保持 15 条以上高位，但重心从第一周的「生成模型架构创新」（GEODE、SALA、GLASS）转向第二周的「工程化落地」（超表面逆设计、百万原子蒸馏、CP2K 原生集成），说明该领域开始消化前期模型红利。分子模拟方向从第一周的 18 条降至第二周的 12 条，但 RNADyn、BranchIP 等基准与效率工作质量较高，属于「量减质升」。AI4Math/PDE 方向两周均稳定在 8-10 条，PDE-OBS 和 S2-PINN 等评测与不确定性量化工作成为新焦点。科学基础模型方向从第一周的 4 条降至第二周的 2 条，但 SPEAR 和异构科学接口基础模型等条目显示该方向正在从「通用大模型」转向「领域专用基础模型」。新浮现方向是「推理阶段干预」：不重训、不蒸馏、只换推理引擎或加引导层的工作从第一周的 2 条增至第二周的 5 条，成为跨领域共性趋势。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下两周重点跟踪三条线：一是推理期干预方法能否从个案走向通用协议，尤其是等变模型与扩散模型的免重训加速/约束；二是气候与地球方向的区域高分辨率与次季节预报是否会形成统一基准，PDE-OBS 式的「观测模式」变量可能被引入天气评测；三是蛋白质设计闭环（抗体、无序区、密码子）与湿实验验证的结合密度是否继续上升。</p>
+      <p>下两周值得重点跟踪「推理阶段干预」在蛋白质与材料方向的落地效果，以及 ClimateBench v2.0 发布后是否引发气候模型评测的连锁反应。同时关注冷冻电镜直接推断与广谱抗体发现能否从概念验证走向湿实验规模化验证。</p>
       
     </section>
     

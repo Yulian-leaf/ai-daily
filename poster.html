@@ -79,12 +79,12 @@
     <div class="brand">AI4S-DAILY</div>
     
     <h1 class="title">AI4S 周报 · 10-05 ~ 10-11</h1>
-    <p class="slogan">「从算得更快到算得更准更省」</p>
-    <p class="range">2026-10-05 ~ 2026-10-11 · 2026-10-06 11:45 (北京时间 UTC+8)</p>
+    <p class="slogan">「算得更快，也测得更准」</p>
+    <p class="range">2026-10-05 ~ 2026-10-11 · 2026-10-06 14:45 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期 AI4S 的主线是「效率与可信度并重」：一边是三角注意力核、百万原子机器学习势、超表面逆设计等把算力瓶颈往下压的工作，另一边是气候、RNA 动力学、随机 PDE 等新基准把评测从「跑得动」推向「物理可信、能外推、带不确定性」。生成式方法继续向科学结构问题渗透，从电子密度、分子晶体到冷冻电镜颗粒，都在用生成先验替代逐点回归或分步拟合。同时，多个工作开始把「物理约束」和「几何/频谱结构」写进模型内部，而不是只当作后处理。整体看，本期是方法收敛与基准补课并行的一期。</p>
+  <p class="overview">本期 AI4S 的主旋律是「把评测和效率同时做扎实」：气候领域出现首个统一物理可信度、概率化打分与分布外泛化的基准 ClimateBench v2.0，RNA 动力学也有了首个标准化基准 RNADyn，说明社区开始从「刷单一指标」转向「可比较、可复现」。与此同时，蛋白质折叠训练、超表面逆设计、百万原子莫尔势等多条线都在算力效率上给出数量级改进，AI 正把原本做不动的规模变成可做。生成式方法继续向物理约束靠拢：等变流匹配预测电子密度、条件流预测分子晶体、可逆扰动加速 Langevin 采样，都在用生成模型直接产出满足物理约束的解。整体看，本期是「基准补课 + 效率跃迁 + 物理约束生成」三线并进的一期。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -167,12 +167,12 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期最明显的变化是「基准补课」集中出现：气候、RNA 动力学、随机 PDE 都推出了带物理约束或不确定性量化的新评测协议，说明社区开始从刷指标转向比可信度。另一个新方向是生成式先验直接对接原始实验数据，如冷冻电镜颗粒、GC-MS 谱图，跳过传统中间重建步骤。此外，效率优化从模型层下沉到内核层和势函数蒸馏层，百万原子和 16 亿自由度级别的规模化设计开始出现。</p>
+  <p class="trend">与上一期相比，最明显的变化是「基准建设」集中落地：气候有 ClimateBench v2.0，RNA 动力学有 RNADyn，评测维度从单一精度扩展到物理可信度、概率校准与分布外泛化。另一条新线索是「生成模型直接产出物理量」——等变流匹配预测电子密度、条件流预测分子晶体、可逆扰动加速 Langevin 采样，都在把生成过程当作求解器用。此外，效率优化从模型层下沉到内核层（三角注意力内核、百万原子势蒸馏），说明规模瓶颈正被逐层拆解。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">2550</span><small>抓取条目</small></div>
+      <div><span class="num">2627</span><small>抓取条目</small></div>
       <div><span class="num">150</span><small>总结</small></div>
       <div><span class="num">150</span><small>已上墙</small></div>
     </div>
@@ -180,50 +180,50 @@
       
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 10%"></div></div>
-        <b>37</b>
-      </div>
-      
-      <div class="frow">
-        <span class="flabel">💊 药物发现</span>
         <div class="fbar"><div class="fbar-fill" style="width: 9%"></div></div>
         <b>35</b>
       </div>
       
       <div class="frow">
+        <span class="flabel">💊 药物发现</span>
+        <div class="fbar"><div class="fbar-fill" style="width: 8%"></div></div>
+        <b>32</b>
+      </div>
+      
+      <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 40%"></div></div>
-        <b>154</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 38%"></div></div>
+        <b>148</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 66%"></div></div>
-        <b>256</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 65%"></div></div>
+        <b>254</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 22%"></div></div>
-        <b>85</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 19%"></div></div>
+        <b>75</b>
       </div>
       
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 23%"></div></div>
-        <b>87</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 22%"></div></div>
+        <b>86</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>385</b>
+        <b>388</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 28%"></div></div>
-        <b>106</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 27%"></div></div>
+        <b>103</b>
       </div>
       
     </div>
