@@ -79,12 +79,12 @@
     <div class="brand">AI4S-DAILY</div>
     
     <h1 class="title">AI4S 周报 · 10-05 ~ 10-11</h1>
-    <p class="slogan">「物理约束进模型，实验次数降下来」</p>
-    <p class="range">2026-10-05 ~ 2026-10-11 · 2026-10-07 10:11 (北京时间 UTC+8)</p>
+    <p class="slogan">「物理不丢，AI 只算该算的」</p>
+    <p class="range">2026-10-05 ~ 2026-10-11 · 2026-10-07 14:21 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期 AI4S 的主旋律是「把物理先验和生成式建模缝在一起」：神经算子、等变流匹配、JEPA 隐空间预测等被系统性地搬进 PDE、原子体系、气候和材料生成任务，目标不再是重建原始数据，而是在低维或隐空间里做可控预测。与此同时，多个工作把「实验/计算成本」当作一等目标——从 O(d) 降到 O(log d) 的混合物筛选、力评估次数降到 40.2% 的优化器改写、10 万倍加速的高熵陶瓷筛选，量化收益普遍落在 1~5 个数量级。蛋白质方向继续向「少标注、可生成、可闭环」推进，线性适应度子空间、隐语言自回归生成和冷冻电镜直接定结构三条路线并行。材料与分子模拟则集中解决「可合成性」和「一致性」：氧化态、晶格不变量、键合/非键合参数统一学习，都在把生成结果往真实物理约束上拉。</p>
+  <p class="overview">本期最鲜明的共同点是「分工」：AI 不再大包大揽地端到端替代物理求解，而是只承担最贵的那一步——预测低维子空间、预测隐空间表示、预测晶格不变量、预测电子密度，剩下的仍交给物理求解器或约束。分子模拟方向集中出现「一致力场」「可逆扰动加速采样」「优化器自改写」等把物理一致性写进学习目标的工作；材料方向则把氧化态、矫顽力、几何姿态等真实可合成性约束显式建模。评测侧也在补课：气候有了统一概率化基准 ClimateBench v2.0，RNA 有了首个标准动力学基准 RNADyn。整体看，本期是「AI 做代理、物理做裁判」的一期。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -176,12 +176,12 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期最明显的变化是「隐空间预测」从视觉/语言正式渗透进科学建模：Atom-JEPA 和 S2S-JEPA 分别在原子体系和次季节预报上验证了「只在抽象空间预测、不重建原始数据」的可行性，这与前几期以重建或回归为主的范式形成对照。第二个新方向是「把优化器/求解器本身当作可学习对象」：语言模型改写分子几何优化器、神经算子只预测降阶子空间，都表明 AI 的角色正从替代物理求解转向加速和改造物理求解流程。第三个变化是材料生成开始系统性地引入物理硬约束——氧化态、晶格不变量、几何感知的旋转误差——而不再只追求电荷中性或角度误差这类弱条件。</p>
+  <p class="trend">与上一期相比，端到端「AI 替代求解器」的叙事明显退潮，取而代之的是「AI 只做代理、物理做裁判」的混合架构：神经算子预测子空间、JEPA 在隐空间预测、等变流匹配预测电子密度、生成模型预测晶格不变量，物理约束与求解器被保留在回路中。分子模拟方向从「拟合能量」转向「一致性与采样效率」——键合/非键合参数联合学习、可逆 Stratonovich 扰动加速 Langevin 收敛、语言模型改写几何优化器，都是在不牺牲物理正确性的前提下压缩算力。材料方向则集中把真实可合成性约束（氧化态、矫顽力、积木几何姿态）显式写进生成与筛选流程。评测侧出现补课潮：气候与 RNA 动力学各自迎来统一基准，说明领域开始从「刷点」转向「可比」。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">2779</span><small>抓取条目</small></div>
+      <div><span class="num">2781</span><small>抓取条目</small></div>
       <div><span class="num">160</span><small>总结</small></div>
       <div><span class="num">160</span><small>已上墙</small></div>
     </div>
@@ -189,50 +189,50 @@
       
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 9%"></div></div>
-        <b>35</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 10%"></div></div>
+        <b>33</b>
       </div>
       
       <div class="frow">
         <span class="flabel">💊 药物发现</span>
         <div class="fbar"><div class="fbar-fill" style="width: 9%"></div></div>
-        <b>33</b>
+        <b>31</b>
       </div>
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 41%"></div></div>
-        <b>156</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 43%"></div></div>
+        <b>145</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 67%"></div></div>
-        <b>255</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 65%"></div></div>
+        <b>222</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 22%"></div></div>
-        <b>85</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 23%"></div></div>
+        <b>79</b>
       </div>
       
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 25%"></div></div>
-        <b>96</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 26%"></div></div>
+        <b>90</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>380</b>
+        <b>340</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 27%"></div></div>
-        <b>101</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 29%"></div></div>
+        <b>97</b>
       </div>
       
     </div>
