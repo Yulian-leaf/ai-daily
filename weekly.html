@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-07 14:20 (北京时间 UTC+8)
+      生成于 2026-10-07 16:31 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,82 +95,82 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 10-05 ~ 10-11</h2>
       <p class="r-range">2026-10-05 ~ 2026-10-11</p>
-      <p class="r-overview">本期最鲜明的共同点是「分工」：AI 不再大包大揽地端到端替代物理求解，而是只承担最贵的那一步——预测低维子空间、预测隐空间表示、预测晶格不变量、预测电子密度，剩下的仍交给物理求解器或约束。分子模拟方向集中出现「一致力场」「可逆扰动加速采样」「优化器自改写」等把物理一致性写进学习目标的工作；材料方向则把氧化态、矫顽力、几何姿态等真实可合成性约束显式建模。评测侧也在补课：气候有了统一概率化基准 ClimateBench v2.0，RNA 有了首个标准动力学基准 RNADyn。整体看，本期是「AI 做代理、物理做裁判」的一期。</p>
+      <p class="r-overview">本期 AI4S 的主旋律是「把物理约束重新装回生成与预测模型」：神经算子被用来预测降阶子空间、等变流匹配直接生成电子密度、氧化态被显式写进晶体生成，说明纯数据驱动正在向「物理可解释 + 可合成」收敛。与此同时，JEPA 式隐空间预测从视觉蔓延到原子体系与次季节预报，成为跨领域的新范式。在效率侧，语言模型开始改写优化器、蒸馏百万原子势、把超表面逆设计提速四个数量级，AI 不再只是替代计算，而是在重写计算流程本身。</p>
 
       
       <h3 class="sub">本期亮点</h3>
       <div class="cards">
         
         <article class="card">
-          <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2610.08693v1" target="_blank" rel="noopener">Neural-Operator-Predicted Time-Dependent Reduced Subspaces for Projection-Based Simulation of Nonlinear PDEs</a></h2>
-          <p>神经算子只预测随时间变化的低维子空间，方程仍由投影求解器演化，兼顾速度与物理一致性。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2610.03303v1" target="_blank" rel="noopener">S$^{2}$-PINN: Stochastic Separable Physics-Informed Neural Networks</a></h2>
-          <p>把随机 PDE 的不确定性量化拆成空间字典×时间特征×随机基的低秩结构，参数更少却在均值、方差和校准上优于九个基线。</p>
-        </article>
-        
-        <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2610.07607v1" target="_blank" rel="noopener">Linear Fitness Subspace in Protein Language Models Enables Sample-Efficient Directed Evolution</a></h2>
-          <p>提出线性适应度子空间假设：只有少数表示方向决定适应度，据此在极少标注样本下做定向进化。</p>
+          <p>提出「线性适应度子空间」假设：蛋白质语言模型表示中只有少数与实验相关的方向决定适应度，据此在极少标注样本下高效做定向进化。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2610.01358v2" target="_blank" rel="noopener">Fold'EM: Direct atomic structure inference from Cryo-EM particles</a></h2>
-          <p>把蛋白质生成模型先验直接喂给冷冻电镜原始颗粒图像，跳过密度图重建与原子拟合两步。</p>
+          <p>把蛋白质生成模型先验直接喂给冷冻电镜原始颗粒图像，跳过密度图重建和原子模型拟合两步，少量颗粒图像即可定出原子结构。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.08495v1" target="_blank" rel="noopener">Information-Dense Synthesis for Molecular Discovery</a></h2>
-          <p>用「合成混合物—整池测试—反解活性归属」替代逐个分子测试，理论上把找最优所需实验次数从 O(d) 降到 O(log d)。</p>
+          <p>把「逐个设计-合成-测试分子」换成「合成复杂混合物、整池测试、再反解活性归属」，理论上把在 d 个候选分子中找最优所需的实验次数从 O(d) 降到 O(log d)。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.06227v1" target="_blank" rel="noopener">APOD: reasoning-guided agentic population ordinary differential equation discovery for pharmacological digital twins</a></h2>
-          <p>语言模型智能体从稀疏带噪人群数据中自动推导 ODE，构建带个体差异的药理学数字孪生。</p>
+          <p>用语言模型智能体自动从稀疏、带噪的人群数据里推出常微分方程，构建带个体差异的药理学数字孪生，把过去靠专家手工建模的慢活变成自动流程。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.08400v1" target="_blank" rel="noopener">Atom-JEPA: Joint-Embedding Predictive Architecture for 3D Atomistic Systems</a></h2>
-          <p>把 JEPA 隐空间预测范式首次系统性搬到 3D 原子体系，用纯无标注结构数据预训练。</p>
+          <p>把在语言和视觉领域大获成功的 JEPA 首次系统性地搬到 3D 原子体系上，用纯无标注结构数据预训练，在分子性质预测上验证了隐空间预测范式的可迁移性。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.08020v1" target="_blank" rel="noopener">Learning consistent molecular mechanics force fields from first principles</a></h2>
-          <p>首次把键合与非键合参数放进同一框架从第一性原理数据一致学出，不再依赖人工经验非键合参数。</p>
+          <h2><a href="https://arxiv.org/abs/2610.06577v1" target="_blank" rel="noopener">Optimizing the Optimizer: Language Models Discover Faster Molecular Relaxation</a></h2>
+          <p>让语言模型自己改写分子几何优化器，在不用任何 DFT 梯度的前提下，把最优开源优化器 Sella 的力评估次数最多降到 40.2%。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.08296v1" target="_blank" rel="noopener">OxiGen: Oxidation-State-Aware Crystal Generation</a></h2>
-          <p>把氧化态显式写进晶体生成模型，让生成的无机材料在电荷配比上更接近真实可合成晶体。</p>
+          <p>把「氧化态」显式写进晶体生成模型，让 AI 造出的无机材料在电荷配比上更接近真实可合成的晶体，而不只是勉强电荷中性。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.06467v1" target="_blank" rel="noopener">Quantum spectral thermodynamics and active learning enable million-scale exploration of high-entropy ceramics</a></h2>
-          <p>量子谱热力学加主动学习，在 770 万种高熵陶瓷配方中做第一性原理级筛选，速度提升 10 万倍，并量化出约 12 at.% 的溶质阈值。</p>
+          <p>把「量子谱热力学」和主动学习结合，在 770 万种高熵陶瓷配方里做第一性原理级别的筛选，速度提升 10 万倍，并首次量化出约 12 at.% 的溶质阈值。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.06509v1" target="_blank" rel="noopener">Xaurora: Generative Weather Forecasting with Denoising Stochastic Interpolants from a Foundation Model Prior</a></h2>
-          <p>把确定性预报大模型 Aurora 改造成随机集合预报模型 Xaurora，少量微调即接近更大版本 Aurora 的全球集合预报水平。</p>
+          <p>把已有的确定性天气预报大模型 Aurora 改造成能生成「集合预报」的随机模型 Xaurora，用少量微调就接近甚至比肩更大版本 Aurora 的全球集合预报水平。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.04558v1" target="_blank" rel="noopener">ClimateBench v2.0: Probabilistic Climate Model Benchmarking</a></h2>
-          <p>首个把物理可信度、概率化观测打分与分布外泛化统一到同一协议的气候基准，物理、纯数据与混合模型同台比较。</p>
+          <h2><a href="https://arxiv.org/abs/2610.03106v1" target="_blank" rel="noopener">S2S-JEPA: Predicting the Predictable at Subseasonal-to-Seasonal Timescales</a></h2>
+          <p>把计算机视觉里「只在抽象空间预测、丢掉不可预测细节」的 JEPA 思路搬到 2 周到 2 个月的次季节预报，在公认的「可预报性荒漠」时段追平甚至超过欧洲中期天气预报中心。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">AI4Math/PDE</span>
+          <h2><a href="https://arxiv.org/abs/2610.08693v1" target="_blank" rel="noopener">Neural-Operator-Predicted Time-Dependent Reduced Subspaces for Projection-Based Simulation of Nonlinear PDEs</a></h2>
+          <p>把神经算子和投影降阶模型结合：网络只预测随时间变化的低维子空间，物理方程仍由求解器演化，兼顾速度与物理一致性。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">科学基础模型</span>
+          <h2><a href="https://arxiv.org/abs/2610.03265v1" target="_blank" rel="noopener">SPEAR: A Spectral-Disentangled MoE Neural Operator with Knowledge-Guided Expert Aggregation for Large-Scale PDE Pretraining</a></h2>
+          <p>把「频谱解耦」和「专家混合」结合做 PDE 基础模型预训练，并用知识引导的专家合并把专家数砍掉一半而精度不降。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，端到端「AI 替代求解器」的叙事明显退潮，取而代之的是「AI 只做代理、物理做裁判」的混合架构：神经算子预测子空间、JEPA 在隐空间预测、等变流匹配预测电子密度、生成模型预测晶格不变量，物理约束与求解器被保留在回路中。分子模拟方向从「拟合能量」转向「一致性与采样效率」——键合/非键合参数联合学习、可逆 Stratonovich 扰动加速 Langevin 收敛、语言模型改写几何优化器，都是在不牺牲物理正确性的前提下压缩算力。材料方向则集中把真实可合成性约束（氧化态、矫顽力、积木几何姿态）显式写进生成与筛选流程。评测侧出现补课潮：气候与 RNA 动力学各自迎来统一基准，说明领域开始从「刷点」转向「可比」。</p>
+      <p>与上一期相比，本期最明显的变化是「隐空间预测」从视觉和语言正式进入科学计算：Atom-JEPA 和 S2S-JEPA 分别在原子体系和次季节预报上验证了 JEPA 范式的可迁移性，说明「只在抽象空间预测、丢掉不可预测细节」正在成为跨领域的方法论共识。另一个新方向是「AI 改写计算流程本身」——语言模型不再只是预测分子或天气，而是直接改写优化器、蒸馏百万原子势、把超表面逆设计提速四个数量级，AI 开始从「替代计算」走向「重写计算」。此外，氧化态、矫顽力、可预报性等物理约束被显式写进生成模型和评测协议，纯数据驱动的边界正在被物理先验重新划定。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注两点：一是这些「AI 代理 + 物理裁判」的混合架构能否在同一个基准上被公平比较，尤其是 ClimateBench v2.0 与 RNADyn 这类新基准会暴露哪些此前被掩盖的失败模式；二是氧化态、矫顽力、几何姿态等真实约束被写进生成模型后，合成验证的命中率是否真的随之上升。</p>
+      <p>下期值得关注 JEPA 式隐空间预测能否在分子动力学和材料生成上给出可复现的定量增益，以及语言模型改写科学计算流程（优化器、求解器、实验设计）是否会从个案走向通用框架。</p>
       
     </section>
     

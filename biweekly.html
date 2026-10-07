@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="weekly.html">周报 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-07 14:20 (北京时间 UTC+8)
+      生成于 2026-10-07 16:31 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 双周报告 · 09-28 ~ 10-11</h2>
       <p class="r-range">2026-09-28 ~ 2026-10-11</p>
-      <p class="r-overview">这两周 AI4S 的主旋律是「物理与生成模型的深度咬合」：一边把物理约束、对称性、氧化态、结构函数等硬知识写进生成与预测模型，一边用神经算子、机器学习势、代理模型把第一性原理计算推到百万原子、毫米级、百万配方量级。第一周（09-28 ~ 10-04）偏「基础设施与评测」——大量基准（RNADyn、HetCat26、PDE-OBS、ClimateBench v2.0）、等变算子后端（e3j）、推理引擎（Train for Accuracy, Execute at Scale）和量子-经典接口（Skala 进 CP2K、PyCDFT）集中出现，像是在为下一阶段铺路。第二周（10-05 ~ 10-11）明显转向「系统级整合与闭环」——JEPA 从视觉搬到原子与次季节预报、语言模型智能体自动发现 ODE 与优化器、主动学习+量子谱热力学扫 770 万配方、湿实验闭环筛广谱中和抗体，模型开始自己拆解流程、自己挑样本、自己改优化器。跨两周看，分子模拟与材料仍是最大票仓，但蛋白质方向从「结构预测」明显滑向「功能/适应度/设计闭环」，气候则从「预报精度」转向「概率化与可预报性边界」。</p>
+      <p class="r-overview">这两周 AI4S 的主旋律是「物理约束与生成模型的合流」：一边是把对称性、氧化态、结构函数、已知方程残差等硬物理写进生成器与算子，一边是把语言模型、强化学习、主动学习推到实验闭环里做决策。第一周（09-28 ~ 10-04）偏重「基础设施与评测」——RNADyn、ClimateBench v2.0、PDE-OBS、HetCat26、ALF 等基准与框架密集出现，材料与分子模拟条目占比最高；第二周（10-05 ~ 10-11）明显转向「系统级落地」——Xaurora 集合预报、Varda 1 公里区域预报、百万原子莫尔势、770 万配方高熵陶瓷筛选、抗体湿实验闭环，规模与工程化色彩更浓。跨两周看，等变/对称性生成、JEPA 式隐空间预测、神经算子+降阶/谱方法三条技术线持续升温，而纯「通用大模型刷榜」式工作降温，评测开始区分观测方式、外推等级与实验条件。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -104,61 +104,61 @@
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2610.07607v1" target="_blank" rel="noopener">Linear Fitness Subspace in Protein Language Models Enables Sample-Efficient Directed Evolution</a></h2>
-          <p>提出「线性适应度子空间」假设：蛋白语言模型表示中只有少数与实验相关的方向决定适应度，极少标注样本即可高效定向进化。</p>
+          <p>提出线性适应度子空间假设：蛋白语言模型表示中只有少数实验相关方向决定适应度，极少标注即可高效定向进化。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
-          <h2><a href="https://arxiv.org/abs/2610.01358v2" target="_blank" rel="noopener">Fold'EM: Direct atomic structure inference from Cryo-EM particles</a></h2>
-          <p>把蛋白质生成模型先验直接喂给冷冻电镜原始颗粒图像，跳过密度图重建与原子模型拟合两步，少量颗粒即可定出原子结构。</p>
+          <h2><a href="https://arxiv.org/abs/2610.01358v1" target="_blank" rel="noopener">Fold'EM: Direct atomic structure inference from Cryo-EM particles</a></h2>
+          <p>把蛋白质生成模型先验直接喂给冷冻电镜原始颗粒，跳过密度图重建与原子拟合两步，少量颗粒即可定原子结构。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.08495v1" target="_blank" rel="noopener">Information-Dense Synthesis for Molecular Discovery</a></h2>
-          <p>把逐个设计-合成-测试换成合成复杂混合物、整池测试、再反解活性归属，理论上把找最优分子的实验次数从 O(d) 降到 O(log d)。</p>
+          <p>用「合成复杂混合物—整池测试—反解活性归属」替代逐个分子合成测试，理论上把找最优所需实验次数从 O(d) 降到 O(log d)。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.06227v1" target="_blank" rel="noopener">APOD: reasoning-guided agentic population ordinary differential equation discovery for pharmacological digital twins</a></h2>
-          <p>用语言模型智能体从稀疏带噪人群数据中自动推出常微分方程，构建带个体差异的药理学数字孪生，替代专家手工建模。</p>
+          <p>语言模型智能体从稀疏带噪人群数据自动推导 ODE，构建带个体差异的药理学数字孪生，替代专家手工建模。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.08400v1" target="_blank" rel="noopener">Atom-JEPA: Joint-Embedding Predictive Architecture for 3D Atomistic Systems</a></h2>
-          <p>把 JEPA 隐空间预测范式首次系统性搬到 3D 原子体系，用纯无标注结构数据预训练，在分子性质任务上验证可迁移性。</p>
+          <p>首次把 JEPA 隐空间预测架构系统性搬到 3D 原子体系，用纯无标注结构预训练，在分子性质任务上验证可行性。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.06577v1" target="_blank" rel="noopener">Optimizing the Optimizer: Language Models Discover Faster Molecular Relaxation</a></h2>
-          <p>让语言模型自己改写分子几何优化器，在不用任何 DFT 梯度的前提下把 Sella 的力评估次数最多降到 40.2%。</p>
+          <p>让语言模型改写分子几何优化器，不用任何 DFT 梯度就把 Sella 的力评估次数最多降到 40.2%。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.06467v1" target="_blank" rel="noopener">Quantum spectral thermodynamics and active learning enable million-scale exploration of high-entropy ceramics</a></h2>
-          <p>量子谱热力学+主动学习在 770 万种高熵陶瓷配方中做第一性原理级筛选，速度提升 10 万倍，并首次量化出约 12 at.% 的溶质阈值。</p>
+          <p>量子谱热力学加主动学习，在 770 万种高熵陶瓷配方中做第一性原理级筛选，速度提升 10 万倍，量化出约 12 at.% 溶质阈值。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.04193v1" target="_blank" rel="noopener">Molecular Crystal Structure Prediction from Conditional Flow on the Unit Cells</a></h2>
-          <p>把分子晶体结构预测拆成预测晶格不变量、反推晶胞、约束内分子堆积三步，在 84 个单组分体系上复现 83 个实验结构，命中率约 99%。</p>
+          <h2><a href="https://arxiv.org/abs/2610.04115v1" target="_blank" rel="noopener">Distilling universal machine-learning potentials for moiré lattices across one million atoms</a></h2>
+          <p>把通用机器学习势蒸馏到单张 GPU 可跑 100 万原子，首次让超大扭转角莫尔材料的从头算级模拟可行。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.06509v1" target="_blank" rel="noopener">Xaurora: Generative Weather Forecasting with Denoising Stochastic Interpolants from a Foundation Model Prior</a></h2>
-          <p>把确定性天气预报大模型 Aurora 改造成能生成集合预报的随机模型 Xaurora，少量微调即接近甚至比肩更大版本 Aurora 的全球集合预报水平。</p>
+          <p>把确定性预报大模型 Aurora 改造成随机集合预报模型 Xaurora，少量微调即接近更大版本 Aurora 的全球集合预报水平。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.03106v1" target="_blank" rel="noopener">S2S-JEPA: Predicting the Predictable at Subseasonal-to-Seasonal Timescales</a></h2>
-          <p>把 JEPA「只在抽象空间预测、丢掉不可预测细节」的思路搬到 2 周到 2 个月的次季节预报，在「可预报性荒漠」时段追平甚至超过 ECMWF。</p>
+          <h2><a href="https://arxiv.org/abs/2610.04558v1" target="_blank" rel="noopener">ClimateBench v2.0: Probabilistic Climate Model Benchmarking</a></h2>
+          <p>首个把物理可信度、概率化观测打分与分布外泛化三层评测统一的气候模型基准，物理、纯数据与混合模型同台比较。</p>
         </article>
         
         <article class="card">
@@ -170,7 +170,7 @@
         <article class="card">
           <span class="field">科学基础模型</span>
           <h2><a href="https://arxiv.org/abs/2610.03265v1" target="_blank" rel="noopener">SPEAR: A Spectral-Disentangled MoE Neural Operator with Knowledge-Guided Expert Aggregation for Large-Scale PDE Pretraining</a></h2>
-          <p>把频谱解耦与专家混合结合做 PDE 基础模型预训练，用知识引导的专家合并把专家数砍掉一半而精度不降。</p>
+          <p>频谱解耦加专家混合做 PDE 基础模型预训练，知识引导的专家合并把专家数砍半而精度不降。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>跨两周对比，最明显的是「评测与基础设施」在第一周集中爆发、第二周转为「系统整合与闭环」。第一周出现 RNADyn（首个 RNA MD 基准，2585 条 100 ns 轨迹）、HetCat26（首个异相催化 MLIP 可迁移性基准）、PDE-OBS（首个把观测方式当独立变量的 PDE 基准）、ClimateBench v2.0（首个统一物理可信度+概率打分+分布外泛化的气候基准）、e3j（首个 GPU/TPU 双后端等变算子库）、PyCDFT（首个可脚本化 CDFT 解析工具），以及 Train for Accuracy, Execute at Scale（不重训把 MACE 从 2.4 万原子扩到 1124 万原子）——典型的「先把尺子和引擎造好」。第二周则密集出现闭环系统：APOD 用智能体自动发现 ODE、Optimizing the Optimizer 让语言模型改写优化器、Autocata 用一句话驱动催化剂筛选、多模态推理+湿实验闭环筛广谱中和抗体、主动学习扫 770 万高熵陶瓷配方。子领域热度上，molsim 与 materials 仍是最大票仓（合计约占收录条目一半），protein 从「结构预测」明显滑向「功能/适应度/设计」（LFS、StructEvo、StabilityArc、IDiom、SPINET、水印），drug 从「对接与生成」转向「实验经济学与数字孪生」（Information-Dense Synthesis、APOD、pCoMole 湿实验验证）。新浮现方向有三条：一是 JEPA 式隐空间预测跨域迁移（Atom-JEPA、S2S-JEPA 同期出现）；二是「物理该在哪一阶段介入」成为可实验变量（Where Should Physics Enter a Molecular Crystal Generator、When Known Physics Helps Neural PDE Models、Sim+Real）；三是推理期干预替代重训（Budgeted Quotient-Residual Guidance、Robust Biomolecular Complex Design、Correcting the Dropout-LayerNorm Expectation Gap）。相对降温的是纯「又一个生成模型刷 SOTA」类工作，以及单纯的结构预测精度竞赛。</p>
+      <p>跨周对比看，材料（materials）与分子模拟（molsim）是这两周绝对主力，合计条目超过总量一半，且第二周从「单点方法」转向「规模化系统」：第一周多为生成器与势函数的架构改进（GEODE、SALA、GLASS、E3J），第二周则出现百万原子莫尔势、770 万配方筛选、16 亿自由度超表面逆设计等工程级结果。蛋白质（protein）热度持续高位但重心迁移：第一周集中在结构预测与逆折叠（OFoldNA、SPINET、Dropout-LayerNorm 修正），第二周转向定向进化、抗体发现与冷冻电镜直接推断（LFS、StructEvo、Fold'EM、多模态抗体），湿实验闭环条目从 0 增至 3 条以上。气候（climate）明显升温：第一周以基准与动力核心为主（ClimateBench v2.0、Suêtes、MW-Nowcast），第二周出现 Xaurora、Varda 1 公里、S2S-JEPA 等业务化预报系统，集合/概率预报成为新焦点。AI4Math/PDE 保持稳定输出，但主题从「新算子架构」转向「物理残差与观测方式」（PDE-OBS、Residual Constraints、S2S 之外的 Sim+Real），说明评测与约束正取代纯架构创新。科学基础模型（scifm）条目偏少但质量集中，SPEAR、SINO、ALF 分别代表 PDE 预训练、尺度不变算子与主动学习框架三条线。相对降温的是纯药物分子生成（drug 条目从第一周的 pCoMole、DiffDock-Pocket 等转向第二周的信息密集合成与 APOD，生成式对接类明显减少），以及通用 MLIP 刷榜类工作，被 HetCat26、外推等级 γ 等「可信度评测」取代。新浮现方向：JEPA 式隐空间预测同时出现在原子体系（Atom-JEPA）与次季节预报（S2S-JEPA），跨领域方法迁移成为可辨识信号。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下两周值得重点跟踪三条线：一是 JEPA/隐空间预测范式在原子、气候、蛋白上的跨域复制能否形成统一预训练配方；二是「推理期干预+主动学习+湿实验闭环」这套低成本组合能否在药物与材料上给出可复现的命中率数字；三是第一周铺下的基准（RNADyn、HetCat26、PDE-OBS、ClimateBench v2.0）是否被后续工作当作标准评测入口，从而把「各自刷榜」推向「同台可比」。</p>
+      <p>下两周重点跟踪三条线：一是 JEPA/隐空间预测能否从原子与气候扩展到更多物理域并给出可复现的规模律；二是湿实验闭环（抗体、GFP 变体、信息密集合成）能否从概念验证走向可量化命中率对比；三是等变生成模型的「对称性—稳定性—新颖率」三角权衡是否会出现统一评测协议。</p>
       
     </section>
     
