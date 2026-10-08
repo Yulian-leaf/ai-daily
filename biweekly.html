@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="weekly.html">周报 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-08 10:36 (北京时间 UTC+8)
+      生成于 2026-10-08 14:32 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 双周报告 · 09-28 ~ 10-11</h2>
       <p class="r-range">2026-09-28 ~ 2026-10-11</p>
-      <p class="r-overview">这两周 AI4S 的主旋律是「把物理约束和评测标准同时做进模型里」。第一周（09-28 ~ 10-04）以方法学补课为主：等变算子的推理加速、结构保持的神经算子、可迁移的机器学习势、以及一批晶体生成与蛋白质设计的工程化改进，重点在把已有范式做扎实。第二周（10-05 ~ 10-11）明显转向「统一基准 + 物理对齐」：PoreML 公开 3.3 TB 多相流数据集、ClimateBench v2.0 把物理可信度与概率打分合并、Physics-Aligned 电子基态学习把训练目标对齐 KS-DFT 方程、OxiGen 把氧化态写进晶体生成。跨两周看，材料与分子模拟仍是最大板块，但气候方向从「造模型」转向「造基准与集合预报」，蛋白质方向从「单点预测」转向「多组分复合物与柔性设计」。一个共同信号是：单纯堆参数的时代在退潮，谁能把物理方程、实验条件和不确定性显式写进模型，谁就更可能被复现和采用。</p>
+      <p class="r-overview">这两周 AI4S 的主旋律是「评测与物理约束的基础设施化」：一边是大量基准、数据集和开源框架集中落地（PoreML 的 3.3 TB 多相流数据、RNADyn 的 2585 条 RNA 轨迹、ClimateBench v2.0、HetCat26、PDE-OBS），另一边是把物理方程、对称性、氧化态、置信度指标直接写进模型内部，而不是事后打补丁。第一周（09-28 ~ 10-04）明显偏「方法百花齐放」——神经算子、流匹配、JEPA、强化学习在 PDE、晶体、蛋白质上密集试水，条目数在 molsim 和 materials 上最集中。第二周（10-05 ~ 10-11）则明显转向「收敛与对齐」：气候方向从单点预报转向概率化基准与业务级区域系统（Varda 1 km、Xaurora、ClimateBench v2.0），蛋白质方向从生成新结构转向评测、水印、训练效率与湿实验闭环，材料方向从「能不能生成」转向「生成得对不对、能不能合成」。一个贯穿两周的信号是：AI4S 的竞争焦点正从模型架构转向数据、基准和物理一致性这三件「不性感但决定上限」的事。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -104,73 +104,73 @@
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.10314v1" target="_blank" rel="noopener">PoreML: A Data-Driven Framework for Learning Multiphase Flow in Porous Media</a></h2>
-          <p>首个把多孔介质多相流的数据生成、模型训练与评测统一起来的开源框架，并公开 3.3 TB 时序数据集，填补该领域长期缺乏统一基准的空白。</p>
+          <p>首个统一多孔介质多相流数据生成、训练与评测的开源框架，公开 3.3 TB 时序数据集，填补该领域长期缺乏统一基准的空白。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.08296v1" target="_blank" rel="noopener">OxiGen: Oxidation-State-Aware Crystal Generation</a></h2>
-          <p>把「氧化态」显式写进晶体生成模型，让 AI 造出的无机材料在电荷配比上更接近真实可合成的晶体，而不只是勉强电荷中性。</p>
+          <h2><a href="https://arxiv.org/abs/2610.06467v1" target="_blank" rel="noopener">Quantum spectral thermodynamics and active learning enable million-scale exploration of high-entropy ceramics</a></h2>
+          <p>量子谱热力学加主动学习，在 770 万种高熵陶瓷配方中做第一性原理级筛选，速度提升 10 万倍，并首次量化出约 12 at.% 的溶质阈值。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.10298v1" target="_blank" rel="noopener">Physics-Aligned Electronic Ground-State Learning Improves Generalization</a></h2>
-          <p>把机器学习原子间势的学习目标对齐到密度泛函理论（KS-DFT）的物理方程上，让模型在分布外泛化时误差大幅下降。</p>
+          <p>把 MLIP 的学习目标对齐到 KS-DFT 物理方程，分布外泛化误差大幅下降，为药物和材料设计提供更可靠的势函数。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.08400v1" target="_blank" rel="noopener">Atom-JEPA: Joint-Embedding Predictive Architecture for 3D Atomistic Systems</a></h2>
-          <p>把在语言和视觉领域大获成功的 JEPA 首次系统性地搬到 3D 原子体系上，用纯无标注结构数据预训练。</p>
+          <p>把 JEPA 隐空间预测架构首次系统性搬到 3D 原子体系，用纯无标注结构数据预训练，在分子性质预测上验证可行性。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2610.09548v1" target="_blank" rel="noopener">De novo design of monoclonal and bispecific antibodies with OFAntibody</a></h2>
-          <p>把生成式抗体设计从「单个抗原-抗体界面」推进到「多组分复合物」，同一分子可同时识别两个不同靶点。</p>
+          <p>把生成式抗体设计从单抗原-抗体界面推进到多组分复合物，同一分子可同时识别两个靶点，为双特异性抗体从头设计提供统一框架。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
-          <h2><a href="https://arxiv.org/abs/2610.07607v1" target="_blank" rel="noopener">Linear Fitness Subspace in Protein Language Models Enables Sample-Efficient Directed Evolution</a></h2>
-          <p>提出「线性适应度子空间」假设：蛋白质语言模型的表示变化中只有少数方向决定适应度，据此可在极少标注样本下高效做定向进化。</p>
+          <h2><a href="https://www.nature.com/articles/s41586-026-10965-y" target="_blank" rel="noopener">Function-preserving watermarking of AI-generated proteins</a></h2>
+          <p>首次给 AI 生成的蛋白质序列和结构打上隐形水印，在不改变功能的前提下实现来源追溯，为生物安全提供概念验证工具。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.04558v1" target="_blank" rel="noopener">ClimateBench v2.0: Probabilistic Climate Model Benchmarking</a></h2>
-          <p>首个把「物理可信度 + 概率化观测打分 + 分布外泛化」三层评测统一到同一套气候模型基准里的协议，物理模型、纯数据模型和混合模型同台比较。</p>
+          <p>首个把物理可信度、概率化观测打分与分布外泛化三层评测统一的气候模型基准，物理模型、纯数据模型和混合模型首次同台比较。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.06509v1" target="_blank" rel="noopener">Xaurora: Generative Weather Forecasting with Denoising Stochastic Interpolants from a Foundation Model Prior</a></h2>
-          <p>把已有的确定性天气预报大模型 Aurora 改造成能生成「集合预报」的随机模型 Xaurora，用少量微调就接近甚至比肩更大版本 Aurora 的全球集合预报水平。</p>
+          <h2><a href="https://arxiv.org/abs/2610.01835v1" target="_blank" rel="noopener">Varda-single-1.0: deterministic data-driven weather forecasting at 1 km resolution over Switzerland's complex topography</a></h2>
+          <p>首个针对阿尔卑斯复杂地形、把区域天气预报做到 1 公里网格的纯数据驱动系统，在瑞士气象局官方业务基准上打平甚至反超。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.08693v1" target="_blank" rel="noopener">Neural-Operator-Predicted Time-Dependent Reduced Subspaces for Projection-Based Simulation of Nonlinear PDEs</a></h2>
-          <p>把神经算子和投影降阶模型结合：网络只预测随时间变化的低维子空间，物理方程仍由求解器演化，兼顾速度与物理一致性。</p>
+          <p>神经算子只预测随时间变化的低维子空间，物理方程仍由求解器演化，兼顾速度与物理一致性。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2610.03303v1" target="_blank" rel="noopener">S$^{2}$-PINN: Stochastic Separable Physics-Informed Neural Networks</a></h2>
-          <p>把随机偏微分方程的不确定性量化拆成「空间字典×时间特征×随机基」的可分离结构，参数更少却比九个基线在均值、方差和校准上更准。</p>
+          <h2><a href="https://arxiv.org/abs/2609.36521v1" target="_blank" rel="noopener">PDE-OBS: Controlled Evaluation Across Observation Patterns</a></h2>
+          <p>首个把观测方式当成独立变量来评测的 PDE 基准平台，同一套物理数据换不同测量布局，模型表现差异首次被系统量化。</p>
         </article>
         
         <article class="card">
           <span class="field">科学基础模型</span>
           <h2><a href="https://arxiv.org/abs/2610.03265v1" target="_blank" rel="noopener">SPEAR: A Spectral-Disentangled MoE Neural Operator with Knowledge-Guided Expert Aggregation for Large-Scale PDE Pretraining</a></h2>
-          <p>把「频谱解耦」和「专家混合」结合做 PDE 基础模型预训练，并用知识引导的专家合并把专家数砍掉一半而精度不降。</p>
+          <p>把频谱解耦与专家混合结合做 PDE 基础模型预训练，用知识引导的专家合并把专家数砍掉一半而精度不降。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.08495v1" target="_blank" rel="noopener">Information-Dense Synthesis for Molecular Discovery</a></h2>
-          <p>把「逐个设计-合成-测试分子」换成「合成复杂混合物、整池测试、再反解活性归属」，理论上把在 d 个候选分子中找最优所需的实验次数从 O(d) 降到 O(log d)。</p>
+          <p>把逐个设计-合成-测试换成合成复杂混合物、整池测试、再反解活性归属，理论上把找最优分子的实验次数从 O(d) 降到 O(log d)。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>跨两周对比，最明显的是「基准与数据集」类工作从零星出现变成成批出现：第一周只有 RNADyn、PDE-OBS、HetCat26 等少数几条，第二周集中冒出 PoreML（3.3 TB 多相流）、ClimateBench v2.0、SciExam for ENSO 等，说明社区开始为「可复现比较」补基础设施。材料方向热度持续最高，两周合计约 20 条，但重心从「生成新结构」转向「物理约束与可合成性」（OxiGen 的氧化态、GEODE 的对称性、SALA 的对称性流匹配）。分子模拟方向从「更快」转向「更对齐物理」（Physics-Aligned、Atom-JEPA、一致力场），并出现推理引擎级加速（1124 万原子）这类工程化路线。气候方向第一周偏区域高分辨率与可微动力核心，第二周明显转向概率集合预报与基准（Xaurora、ClimateBench v2.0、EC-EarthFlow），「确定性预报」正在被「概率化 + 可评测」取代。蛋白质方向从单结构预测转向多组分、柔性、无序区域与湿实验闭环（OFAntibody、SPINET、IDiom、广谱中和抗体）。相对降温的是纯「又一个生成模型」式的晶体/分子生成，以及缺少物理或实验校验的纯代理模型。新浮现的方向是「物理该在哪个阶段介入」的系统性研究（Where Should Physics Enter、Physics-Aligned、Sim+Real 联合训练）。</p>
+      <p>跨周对比看，materials 和 molsim 是这两周绝对的热度中心，合计条目超过 40 条，且第二周在「生成质量与可合成性」上明显收敛：第一周还在比谁生成的晶体更新颖（GEODE、SALA、GLASS），第二周就转向氧化态感知（OxiGen）、对称性模板、物理介入时机（Where Should Physics Enter）和实验结构复现率（84 个体系命中 83 个）。climate 方向热度上升最快，从第一周以方法探索为主（S2S-JEPA、可微动力核心、气溶胶神经 ODE），到第二周集中出现基准与业务级系统（ClimateBench v2.0、Varda 1 km、Xaurora、SciExam for ENSO），说明该领域正从「能不能做」进入「怎么公平比、怎么上业务」。protein 方向则从生成新分子转向工程化与安全：第一周密集出现折叠训练加速（TurboPairFormer）、隐语言生成、密码子优化，第二周转向水印、Dropout-LayerNorm 修正、湿实验闭环和评测基准。ai4math 保持稳定输出，但重心从「新算子架构」转向「评测与稳定性」（PDE-OBS、NEXT 刚性稳定、KAN 自由边界）。新浮现的方向有两个：一是「物理介入时机」的系统性研究（Where Should Physics Enter、Sim+Real 联合训练），二是「科学智能体自主建模」的评测（SciExam for ENSO、Autocata、APOD），后者可能成为下一阶段 scifm 与 drug 的交叉热点。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下两周值得重点跟踪两条线：一是「物理对齐 + 统一基准」能否从单点论文变成可复用的评测协议，尤其是 PoreML、ClimateBench v2.0 是否被后续工作直接采用；二是蛋白质与药物方向的多组分、柔性、湿实验闭环设计（OFAntibody、SPINET、pCoMole）能否给出可重复的实验命中率数字。</p>
+      <p>下两周值得重点跟踪两条线：一是气候与地球方向的概率化基准和区域业务系统能否形成可复现的评测共识（ClimateBench v2.0、Varda、Xaurora 的后续对比）；二是「科学智能体自主建模」类工作（SciExam for ENSO、Autocata、APOD）是否从概念验证走向可量化的任务级评测，这决定 AI4S 能否从工具链升级为自主发现闭环。</p>
       
     </section>
     
