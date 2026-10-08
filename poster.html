@@ -79,12 +79,12 @@
     <div class="brand">AI4S-DAILY</div>
     
     <h1 class="title">AI4S 周报 · 10-05 ~ 10-11</h1>
-    <p class="slogan">「物理约束与生成式模型双向奔赴」</p>
-    <p class="range">2026-10-05 ~ 2026-10-11 · 2026-10-08 14:32 (北京时间 UTC+8)</p>
+    <p class="slogan">「从生成分子到生成物理场」</p>
+    <p class="range">2026-10-05 ~ 2026-10-11 · 2026-10-08 16:48 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期 AI4S 的主旋律是「物理对齐」与「生成式建模」的深度融合：一边把机器学习的学习目标直接对齐到 DFT、PDE、力场等物理方程上以提升泛化，一边用流匹配、扩散、JEPA 等生成式架构替代传统确定性回归。数据与基准建设明显提速，多孔介质多相流、RNA 动力学、气候模型评测等领域首次出现统一基准或大规模公开数据集。蛋白质方向从单界面设计走向多组分复合物与天然库筛选，材料方向则把氧化态、矫顽力、几何姿态等物理先验显式写进生成模型。整体看，AI4S 正从「拟合数据」转向「拟合物理+可控生成」。</p>
+  <p class="overview">本期 AI4S 的重心明显从「预测一个数」转向「生成一个场」：气候、材料、分子模拟领域大量工作采用流匹配、扩散、JEPA 等生成式框架，直接产出概率化、多变量、时空一致的物理对象。与此同时，评测与基准建设集中爆发——多孔介质多相流、RNA 动力学、气候模型、ENSO 智能体建模都出现了统一基准或公开数据集，填补长期空白。物理约束的嵌入方式也在升级：不再只是把方程塞进损失函数，而是把氧化态、键合/非键合参数、晶格不变量、RC 电路结构等先验写进模型架构本身。效率侧，三角注意力核、通用势蒸馏、神经算子降阶等把百万原子、毫米级超表面、CPU 端天气预报等原本不可行的规模拉进现实。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -176,12 +176,12 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期最明显的变化是「物理先验的显式注入」从口号变成可操作的设计选择：氧化态、矫顽力、几何姿态、KS-DFT 方程、RC 电路结构等被直接写进模型架构或损失函数。同时，生成式建模范式继续扩张，流匹配、扩散、JEPA 在气候、材料、分子模拟中密集出现，且开始强调长时段推理稳定性与概率校准。基准与数据集建设也明显加速，PoreML、RNADyn、ClimateBench v2.0 等填补了各自领域长期缺乏统一评测的空白。</p>
+  <p class="trend">与上一期相比，生成式建模从「生成分子/结构」扩展到「生成物理场」：气候领域出现流匹配替代 EC-Earth3、条件流匹配生成城市三维微气候场、Xaurora 把确定性预报大模型改造成集合预报；材料领域出现等变流匹配预测电子密度、条件流生成晶胞。评测基准集中涌现是另一条主线——PoreML 公开 3.3 TB 多相流数据集、RNADyn 给出首个 RNA 动力学基准、ClimateBench v2.0 统一三层评测、SciExam for ENSO 让智能体在无标准答案任务中自主建模，说明领域正从「刷单点指标」转向「建可复现的公共赛道」。物理先验的嵌入方式也从损失项升级为架构级：氧化态写进晶体生成、键合与非键合参数同框架学习、晶格不变量先于分子堆积、RC 电路结构塞进建筑能耗网络。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">2975</span><small>抓取条目</small></div>
+      <div><span class="num">2977</span><small>抓取条目</small></div>
       <div><span class="num">170</span><small>总结</small></div>
       <div><span class="num">170</span><small>已上墙</small></div>
     </div>
@@ -207,14 +207,14 @@
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 69%"></div></div>
-        <b>223</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 70%"></div></div>
+        <b>224</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
         <div class="fbar"><div class="fbar-fill" style="width: 26%"></div></div>
-        <b>84</b>
+        <b>85</b>
       </div>
       
       <div class="frow">
