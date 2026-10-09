@@ -79,12 +79,12 @@
     <div class="brand">AI4S-DAILY</div>
     
     <h1 class="title">AI4S 周报 · 10-05 ~ 10-11</h1>
-    <p class="slogan">「从一对一映射，到多解、可迁移、可微分」</p>
-    <p class="range">2026-10-05 ~ 2026-10-11 · 2026-10-09 14:34 (北京时间 UTC+8)</p>
+    <p class="slogan">「从一对一映射到多解、多场、多尺度」</p>
+    <p class="range">2026-10-05 ~ 2026-10-11 · 2026-10-09 16:51 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期 AI4S 的主旋律是「打破一对一假设」：材料领域用生成模型学习同一输入对应多个正确解的分叉现象，分子模拟把「一个蛋白训一个模型」升级为可跨蛋白迁移的语言模型，气候领域则用可微分、模块化的地球系统模型把米级湍流到全球气候打通。与此同时，评测与基准建设明显加速——多孔介质多相流、RNA 动力学、气候模型概率化评测都首次有了统一基准。物理约束与生成式建模的结合成为跨领域共识：从电子密度、晶体氧化态到城市微气候场，生成模型正在替代逐点回归。工具链层面，JAX 生态的自动稀疏微分、三角注意力优化核等基础设施开始补齐，为大规模科学模型训练降本。</p>
+  <p class="overview">本期 AI4S 的主旋律是「打破一对一假设」：Bi-FORK 首次用生成模型学习高维物理系统的分叉现象，承认同一输入可以对应多个同样正确的解；OxiGen、Equivariant Flow Matching 等把氧化态、电子密度等物理约束显式写进生成模型。气候方向集中出现「用生成式模型替代或增强物理模式」的工作，从 EC-EarthFlow 到 Xaurora、S2S-JEPA，覆盖日尺度到次季节尺度。分子模拟则从「一个蛋白训一个模型」走向可迁移、可跨体系的语言模型与通用势，MD-LLM-2、Atom-JEPA、通用莫尔势蒸馏是代表。评测与基础设施同步补齐：PoreML、RNADyn、ClimateBench v2.0、SciExam for ENSO 都在为各自领域建立统一基准。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -176,12 +176,12 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期最明显的变化是「多解建模」开始取代「一对一回归」成为多个子领域的共同目标：材料的分叉生成、气候的集合预报、药物的混合物池测试，都在放弃单一确定性答案。其次，评测基准集中涌现——多孔介质多相流、RNA 动力学、气候模型概率化评测、ENSO 智能体建模评测，说明领域正从「刷单点指标」转向「统一可比的系统评测」。第三，JAX 生态的基础设施（自动稀疏微分、可微分地球系统模型）开始补齐，为大规模科学模型的可微训练铺路。</p>
+  <p class="trend">与上一期相比，本期最明显的变化是「多解生成」取代「单点回归」成为多个子领域的共同选择：Bi-FORK 处理分叉、OxiGen 处理氧化态、Equivariant Flow Matching 处理电子密度、EC-EarthFlow 与 Xaurora 处理气候集合预报，都在放弃确定性一对一映射。第二个变化是评测与基础设施集中补齐：PoreML（3.3 TB 多孔介质数据）、RNADyn（2585 条 RNA 轨迹）、ClimateBench v2.0、SciExam for ENSO 同期出现，说明社区开始从「刷单点指标」转向「建可复现基准」。第三个变化是 JEPA 思路跨领域扩散，从视觉进入原子体系（Atom-JEPA）和次季节气候（S2S-JEPA）。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">3121</span><small>抓取条目</small></div>
+      <div><span class="num">3124</span><small>抓取条目</small></div>
       <div><span class="num">180</span><small>总结</small></div>
       <div><span class="num">180</span><small>已上墙</small></div>
     </div>
@@ -220,7 +220,7 @@
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
         <div class="fbar"><div class="fbar-fill" style="width: 25%"></div></div>
-        <b>85</b>
+        <b>84</b>
       </div>
       
       <div class="frow">
@@ -232,7 +232,7 @@
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
         <div class="fbar"><div class="fbar-fill" style="width: 31%"></div></div>
-        <b>103</b>
+        <b>104</b>
       </div>
       
     </div>
