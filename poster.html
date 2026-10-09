@@ -79,12 +79,12 @@
     <div class="brand">AI4S-DAILY</div>
     
     <h1 class="title">AI4S 周报 · 10-05 ~ 10-11</h1>
-    <p class="slogan">「从一对一映射，到多解与可迁移」</p>
-    <p class="range">2026-10-05 ~ 2026-10-11 · 2026-10-09 10:51 (北京时间 UTC+8)</p>
+    <p class="slogan">「从一对一映射，到多解、可迁移、可微分」</p>
+    <p class="range">2026-10-05 ~ 2026-10-11 · 2026-10-09 14:34 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期 AI4S 的主旋律是「打破一对一假设」：生成模型开始学习同一输入对应多个正确解的分叉现象，分子动力学模型从单蛋白专用走向跨蛋白可迁移，气候与天气模型则从确定性预测转向概率化集合预报。与此同时，物理约束被更深入地写进学习目标——从对齐 KS-DFT 方程到把 RC 电路结构塞进网络，泛化与可信度成为共同关切。评测与基准建设明显加速，气候、RNA 动力学、药物靶点等方向都出现了统一协议或开源框架。整体看，这一期的工作更强调「物理一致性 + 概率化 + 可迁移」，而非单纯刷点。</p>
+  <p class="overview">本期 AI4S 的主旋律是「打破一对一假设」：材料领域用生成模型学习同一输入对应多个正确解的分叉现象，分子模拟把「一个蛋白训一个模型」升级为可跨蛋白迁移的语言模型，气候领域则用可微分、模块化的地球系统模型把米级湍流到全球气候打通。与此同时，评测与基准建设明显加速——多孔介质多相流、RNA 动力学、气候模型概率化评测都首次有了统一基准。物理约束与生成式建模的结合成为跨领域共识：从电子密度、晶体氧化态到城市微气候场，生成模型正在替代逐点回归。工具链层面，JAX 生态的自动稀疏微分、三角注意力优化核等基础设施开始补齐，为大规模科学模型训练降本。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -176,12 +176,12 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期最明显的变化是「多解与可迁移」取代「单点精度」成为核心议题：Bi-FORK 明确挑战一对一映射，MD-LLM-2 和 Atom-JEPA 把分子模拟推向跨体系迁移，Xaurora、EC-EarthFlow 等则把气候预报从确定性转向概率化集合。另一个新方向是「物理结构内嵌」——NeuralBES 把 RC 电路塞进网络、Physics-Aligned 把 KS-DFT 方程写进损失、OxiGen 把氧化态显式建模，物理约束正从软正则变成架构级设计。此外，评测与基准建设集中爆发，ClimateBench v2.0、RNADyn、SciExam for ENSO、DrugTargetWorld 等覆盖气候、分子、药物多个方向，社区开始从「各做各的任务」转向「统一协议下同台比较」。</p>
+  <p class="trend">与上一期相比，本期最明显的变化是「多解建模」开始取代「一对一回归」成为多个子领域的共同目标：材料的分叉生成、气候的集合预报、药物的混合物池测试，都在放弃单一确定性答案。其次，评测基准集中涌现——多孔介质多相流、RNA 动力学、气候模型概率化评测、ENSO 智能体建模评测，说明领域正从「刷单点指标」转向「统一可比的系统评测」。第三，JAX 生态的基础设施（自动稀疏微分、可微分地球系统模型）开始补齐，为大规模科学模型的可微训练铺路。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">3117</span><small>抓取条目</small></div>
+      <div><span class="num">3121</span><small>抓取条目</small></div>
       <div><span class="num">180</span><small>总结</small></div>
       <div><span class="num">180</span><small>已上墙</small></div>
     </div>
@@ -207,7 +207,7 @@
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 71%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 70%"></div></div>
         <b>235</b>
       </div>
       
@@ -219,14 +219,14 @@
       
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 26%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 25%"></div></div>
         <b>85</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>332</b>
+        <b>336</b>
       </div>
       
       <div class="frow">

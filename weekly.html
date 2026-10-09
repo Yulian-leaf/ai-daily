@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-09 10:51 (北京时间 UTC+8)
+      生成于 2026-10-09 14:33 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 10-05 ~ 10-11</h2>
       <p class="r-range">2026-10-05 ~ 2026-10-11</p>
-      <p class="r-overview">本期 AI4S 的主旋律是「打破一对一假设」：生成模型开始学习同一输入对应多个正确解的分叉现象，分子动力学模型从单蛋白专用走向跨蛋白可迁移，气候与天气模型则从确定性预测转向概率化集合预报。与此同时，物理约束被更深入地写进学习目标——从对齐 KS-DFT 方程到把 RC 电路结构塞进网络，泛化与可信度成为共同关切。评测与基准建设明显加速，气候、RNA 动力学、药物靶点等方向都出现了统一协议或开源框架。整体看，这一期的工作更强调「物理一致性 + 概率化 + 可迁移」，而非单纯刷点。</p>
+      <p class="r-overview">本期 AI4S 的主旋律是「打破一对一假设」：材料领域用生成模型学习同一输入对应多个正确解的分叉现象，分子模拟把「一个蛋白训一个模型」升级为可跨蛋白迁移的语言模型，气候领域则用可微分、模块化的地球系统模型把米级湍流到全球气候打通。与此同时，评测与基准建设明显加速——多孔介质多相流、RNA 动力学、气候模型概率化评测都首次有了统一基准。物理约束与生成式建模的结合成为跨领域共识：从电子密度、晶体氧化态到城市微气候场，生成模型正在替代逐点回归。工具链层面，JAX 生态的自动稀疏微分、三角注意力优化核等基础设施开始补齐，为大规模科学模型训练降本。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -128,49 +128,49 @@
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.10879v1" target="_blank" rel="noopener">MD-LLM-2: A Transferable Language Model of Molecular Dynamics with Physical Conditioning and Explicit Path Probabilities</a></h2>
-          <p>把蛋白质分子动力学从「一个蛋白训一个模型」升级为可跨蛋白迁移的语言模型，可按温度和序列条件生成轨迹，并给出每条轨迹的显式概率。</p>
+          <p>把蛋白质分子动力学从「一个蛋白训一个模型」升级为可跨蛋白迁移的语言模型，能按温度和序列条件生成轨迹，并给每条轨迹算出显式概率。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.10298v1" target="_blank" rel="noopener">Physics-Aligned Electronic Ground-State Learning Improves Generalization</a></h2>
-          <p>把机器学习原子间势的学习目标对齐到 KS-DFT 的物理方程上，让模型在分布外泛化时误差大幅下降。</p>
+          <h2><a href="https://arxiv.org/abs/2610.08400v1" target="_blank" rel="noopener">Atom-JEPA: Joint-Embedding Predictive Architecture for 3D Atomistic Systems</a></h2>
+          <p>把在语言和视觉领域大获成功的 JEPA 首次系统性搬到 3D 原子体系上，用纯无标注结构数据预训练。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2610.09548v1" target="_blank" rel="noopener">De novo design of monoclonal and bispecific antibodies with OFAntibody</a></h2>
-          <p>把生成式抗体设计从单个抗原-抗体界面推进到多组分复合物，同一分子可同时识别两个不同靶点，为双特异性抗体从头设计提供统一框架。</p>
+          <p>把生成式抗体设计从单个抗原-抗体界面推进到多组分复合物，同一分子可同时识别两个不同靶点，为双特异性抗体的从头设计提供统一框架。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
-          <h2><a href="https://arxiv.org/abs/2610.07607v1" target="_blank" rel="noopener">Linear Fitness Subspace in Protein Language Models Enables Sample-Efficient Directed Evolution</a></h2>
-          <p>提出线性适应度子空间假设：蛋白质语言模型表示变化中只有少数与实验相关的方向决定适应度，据此可在极少标注样本下高效做定向进化。</p>
+          <h2><a href="https://arxiv.org/abs/2610.05854v1" target="_blank" rel="noopener">TurboPairFormer: Fast and Stable Protein Folding Model Training with an Optimized Triangle Attention Kernel</a></h2>
+          <p>针对 AlphaFold3 类模型中最耗算力的三角注意力模块，做出了一套在 NVIDIA Hopper GPU 上又快又稳的训练核。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.08495v1" target="_blank" rel="noopener">Information-Dense Synthesis for Molecular Discovery</a></h2>
-          <p>把逐个设计-合成-测试换成合成复杂混合物、整池测试、再反解活性归属，理论上把在 d 个候选分子中找最优所需的实验次数从 O(d) 降到 O(log d)。</p>
+          <p>把逐个设计-合成-测试分子换成合成复杂混合物、整池测试、再反解活性归属，理论上把在 d 个候选分子中找最优所需的实验次数从 O(d) 降到 O(log d)。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.06227v1" target="_blank" rel="noopener">APOD: reasoning-guided agentic population ordinary differential equation discovery for pharmacological digital twins</a></h2>
-          <p>用语言模型智能体自动从稀疏、带噪人群数据中推出常微分方程，构建带个体差异的药理学数字孪生，把过去靠专家手工建模的慢活变成自动化流程。</p>
+          <p>用语言模型智能体自动从稀疏、带噪的人群数据里推出常微分方程，构建带个体差异的药理学数字孪生，把过去靠专家手工建模的慢活变成自动化流程。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.08693v1" target="_blank" rel="noopener">Neural-Operator-Predicted Time-Dependent Reduced Subspaces for Projection-Based Simulation of Nonlinear PDEs</a></h2>
-          <p>把神经算子与投影降阶模型结合：网络只预测随时间变化的低维子空间，物理方程仍由求解器演化，兼顾速度与物理一致性。</p>
+          <p>把神经算子和投影降阶模型结合：网络只预测随时间变化的低维子空间，物理方程仍由求解器演化，兼顾速度与物理一致性。</p>
         </article>
         
         <article class="card">
           <span class="field">科学基础模型</span>
           <h2><a href="https://arxiv.org/abs/2610.03265v1" target="_blank" rel="noopener">SPEAR: A Spectral-Disentangled MoE Neural Operator with Knowledge-Guided Expert Aggregation for Large-Scale PDE Pretraining</a></h2>
-          <p>把频谱解耦与专家混合结合做 PDE 基础模型预训练，并用知识引导的专家合并把专家数砍掉一半而精度不降。</p>
+          <p>把频谱解耦和专家混合结合做 PDE 基础模型预训练，并用知识引导的专家合并把专家数砍掉一半而精度不降。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期最明显的变化是「多解与可迁移」取代「单点精度」成为核心议题：Bi-FORK 明确挑战一对一映射，MD-LLM-2 和 Atom-JEPA 把分子模拟推向跨体系迁移，Xaurora、EC-EarthFlow 等则把气候预报从确定性转向概率化集合。另一个新方向是「物理结构内嵌」——NeuralBES 把 RC 电路塞进网络、Physics-Aligned 把 KS-DFT 方程写进损失、OxiGen 把氧化态显式建模，物理约束正从软正则变成架构级设计。此外，评测与基准建设集中爆发，ClimateBench v2.0、RNADyn、SciExam for ENSO、DrugTargetWorld 等覆盖气候、分子、药物多个方向，社区开始从「各做各的任务」转向「统一协议下同台比较」。</p>
+      <p>与上一期相比，本期最明显的变化是「多解建模」开始取代「一对一回归」成为多个子领域的共同目标：材料的分叉生成、气候的集合预报、药物的混合物池测试，都在放弃单一确定性答案。其次，评测基准集中涌现——多孔介质多相流、RNA 动力学、气候模型概率化评测、ENSO 智能体建模评测，说明领域正从「刷单点指标」转向「统一可比的系统评测」。第三，JAX 生态的基础设施（自动稀疏微分、可微分地球系统模型）开始补齐，为大规模科学模型的可微训练铺路。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注生成式模型在「多解物理系统」中的进一步落地，以及气候与分子模拟领域概率化基准的首次横向对比结果；同时，AI 智能体自主建模（如 SciExam for ENSO 类任务）能否从评测走向真实科研闭环，将是判断 AI4S 成熟度的关键信号。</p>
+      <p>下期值得关注生成式模型在「多解/分叉」场景下的评测标准是否会跟进，以及 JAX 可微分科学模型与自动稀疏微分工具能否在真实大规模任务中验证其降本效果。</p>
       
     </section>
     
