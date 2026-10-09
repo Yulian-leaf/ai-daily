@@ -79,12 +79,12 @@
     <div class="brand">AI4S-DAILY</div>
     
     <h1 class="title">AI4S 周报 · 10-05 ~ 10-11</h1>
-    <p class="slogan">「从生成分子到生成物理场」</p>
-    <p class="range">2026-10-05 ~ 2026-10-11 · 2026-10-08 16:48 (北京时间 UTC+8)</p>
+    <p class="slogan">「从一对一映射，到多解与可迁移」</p>
+    <p class="range">2026-10-05 ~ 2026-10-11 · 2026-10-09 10:51 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期 AI4S 的重心明显从「预测一个数」转向「生成一个场」：气候、材料、分子模拟领域大量工作采用流匹配、扩散、JEPA 等生成式框架，直接产出概率化、多变量、时空一致的物理对象。与此同时，评测与基准建设集中爆发——多孔介质多相流、RNA 动力学、气候模型、ENSO 智能体建模都出现了统一基准或公开数据集，填补长期空白。物理约束的嵌入方式也在升级：不再只是把方程塞进损失函数，而是把氧化态、键合/非键合参数、晶格不变量、RC 电路结构等先验写进模型架构本身。效率侧，三角注意力核、通用势蒸馏、神经算子降阶等把百万原子、毫米级超表面、CPU 端天气预报等原本不可行的规模拉进现实。</p>
+  <p class="overview">本期 AI4S 的主旋律是「打破一对一假设」：生成模型开始学习同一输入对应多个正确解的分叉现象，分子动力学模型从单蛋白专用走向跨蛋白可迁移，气候与天气模型则从确定性预测转向概率化集合预报。与此同时，物理约束被更深入地写进学习目标——从对齐 KS-DFT 方程到把 RC 电路结构塞进网络，泛化与可信度成为共同关切。评测与基准建设明显加速，气候、RNA 动力学、药物靶点等方向都出现了统一协议或开源框架。整体看，这一期的工作更强调「物理一致性 + 概率化 + 可迁移」，而非单纯刷点。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -113,8 +113,8 @@
       <span class="field">⚛️ 分子模拟</span>
       <span class="score">8.0</span>
     </div>
-    <h3>Physics-Aligned Electronic Ground-State Learning Improves Generalization</h3>
-    <p>把机器学习原子间势（MLIP，用于加速分子模拟的模型）的学习目标对齐到密度泛函理论（KS-DFT）的物理方程上，让模型在分布外泛化时误差大幅下降，为药物和材料设…</p>
+    <h3>MD-LLM-2: A Transferable Language Model of Molecular Dynamics with Physical Conditioning and Explicit Path Probabilities</h3>
+    <p>把蛋白质分子动力学（MD，模拟原子运动）从「一个蛋白训一个模型」升级为可跨蛋白迁移的语言模型，还能按温度和序列条件生成轨迹，并给每条轨迹算出显式概率。</p>
   </div>
   
   <div class="hl">
@@ -122,8 +122,8 @@
       <span class="field">🧪 材料科学</span>
       <span class="score">8.0</span>
     </div>
-    <h3>PoreML: A Data-Driven Framework for Learning Multiphase Flow in Porous Media</h3>
-    <p>首个把多孔介质多相流的数据生成、模型训练与评测统一起来的开源框架，并公开 3.3 TB 时序数据集，填补该领域长期缺乏统一基准的空白。</p>
+    <h3>Bi-FORK: Generative Modeling of High-Dimensional Bifurcating Systems</h3>
+    <p>首次用生成模型系统学习高维物理系统中的「分叉」现象——同一输入对应多个同样正确的解，打破了以往AI代理模型「一对一映射」的假设。</p>
   </div>
   
   <div class="hl">
@@ -131,8 +131,8 @@
       <span class="field">🌍 气候地球</span>
       <span class="score">8.0</span>
     </div>
-    <h3>Learning joint probabilistic weather forecasts from station observations alone</h3>
-    <p>仅用地面气象站观测就能学出多变量联合概率天气预报，模型仅约2.8万参数、可在CPU上训练和预测，绕开了数值天气预报（NWP）和再分析数据。</p>
+    <h3>legoESM: a modular, differentiable, multiscale, AI-ready Earth system model built with AI agents</h3>
+    <p>用 AI 编程智能体把几十年气候模式代码重写成 JAX 版「乐高式」地球系统模型，从米级湍流到全球气候、从天气到气候一套代码打通，且端到端可微分。</p>
   </div>
   
   <div class="hl">
@@ -155,11 +155,11 @@
   
   <div class="hl">
     <div class="hl-head">
-      <span class="field">🌍 气候地球</span>
+      <span class="field">🧪 材料科学</span>
       <span class="score">8.0</span>
     </div>
-    <h3>EC-EarthFlow: Probabilistic emulation of daily transient global climate model simulations with flow matching</h3>
-    <p>用生成式流匹配模型替代物理气候模型 EC-Earth3，在只输入温度一个变量的情况下，以远低于物理模型的计算成本复现日尺度全球温度演变，并保持长时段推理稳定。</p>
+    <h3>PoreML: A Data-Driven Framework for Learning Multiphase Flow in Porous Media</h3>
+    <p>首个把多孔介质多相流的数据生成、模型训练与评测统一起来的开源框架，并公开 3.3 TB 时序数据集，填补该领域长期缺乏统一基准的空白。</p>
   </div>
   
   <div class="hl">
@@ -167,8 +167,8 @@
       <span class="field">⚛️ 分子模拟</span>
       <span class="score">8.0</span>
     </div>
-    <h3>Atom-JEPA: Joint-Embedding Predictive Architecture for 3D Atomistic Systems</h3>
-    <p>把在语言和视觉领域大获成功的 JEPA（联合嵌入预测架构，即在隐空间做预测而非重建原始数据）首次系统性地搬到 3D 原子体系上，用纯无标注结构数据预训练，在分子…</p>
+    <h3>Physics-Aligned Electronic Ground-State Learning Improves Generalization</h3>
+    <p>把机器学习原子间势（MLIP，用于加速分子模拟的模型）的学习目标对齐到密度泛函理论（KS-DFT）的物理方程上，让模型在分布外泛化时误差大幅下降，为药物和材料设…</p>
   </div>
   
   </div>
@@ -176,63 +176,63 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，生成式建模从「生成分子/结构」扩展到「生成物理场」：气候领域出现流匹配替代 EC-Earth3、条件流匹配生成城市三维微气候场、Xaurora 把确定性预报大模型改造成集合预报；材料领域出现等变流匹配预测电子密度、条件流生成晶胞。评测基准集中涌现是另一条主线——PoreML 公开 3.3 TB 多相流数据集、RNADyn 给出首个 RNA 动力学基准、ClimateBench v2.0 统一三层评测、SciExam for ENSO 让智能体在无标准答案任务中自主建模，说明领域正从「刷单点指标」转向「建可复现的公共赛道」。物理先验的嵌入方式也从损失项升级为架构级：氧化态写进晶体生成、键合与非键合参数同框架学习、晶格不变量先于分子堆积、RC 电路结构塞进建筑能耗网络。</p>
+  <p class="trend">与上一期相比，本期最明显的变化是「多解与可迁移」取代「单点精度」成为核心议题：Bi-FORK 明确挑战一对一映射，MD-LLM-2 和 Atom-JEPA 把分子模拟推向跨体系迁移，Xaurora、EC-EarthFlow 等则把气候预报从确定性转向概率化集合。另一个新方向是「物理结构内嵌」——NeuralBES 把 RC 电路塞进网络、Physics-Aligned 把 KS-DFT 方程写进损失、OxiGen 把氧化态显式建模，物理约束正从软正则变成架构级设计。此外，评测与基准建设集中爆发，ClimateBench v2.0、RNADyn、SciExam for ENSO、DrugTargetWorld 等覆盖气候、分子、药物多个方向，社区开始从「各做各的任务」转向「统一协议下同台比较」。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">2977</span><small>抓取条目</small></div>
-      <div><span class="num">170</span><small>总结</small></div>
-      <div><span class="num">170</span><small>已上墙</small></div>
+      <div><span class="num">3117</span><small>抓取条目</small></div>
+      <div><span class="num">180</span><small>总结</small></div>
+      <div><span class="num">180</span><small>已上墙</small></div>
     </div>
     <div class="fields">
       
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 11%"></div></div>
-        <b>34</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 10%"></div></div>
+        <b>32</b>
       </div>
       
       <div class="frow">
         <span class="flabel">💊 药物发现</span>
         <div class="fbar"><div class="fbar-fill" style="width: 7%"></div></div>
-        <b>24</b>
+        <b>22</b>
       </div>
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 44%"></div></div>
-        <b>143</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 41%"></div></div>
+        <b>137</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 70%"></div></div>
-        <b>224</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 71%"></div></div>
+        <b>235</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
+        <div class="fbar"><div class="fbar-fill" style="width: 25%"></div></div>
+        <b>84</b>
+      </div>
+      
+      <div class="frow">
+        <span class="flabel">📐 AI4Math/PDE</span>
         <div class="fbar"><div class="fbar-fill" style="width: 26%"></div></div>
         <b>85</b>
       </div>
       
       <div class="frow">
-        <span class="flabel">📐 AI4Math/PDE</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 24%"></div></div>
-        <b>78</b>
-      </div>
-      
-      <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>322</b>
+        <b>332</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 30%"></div></div>
-        <b>95</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 31%"></div></div>
+        <b>103</b>
       </div>
       
     </div>
