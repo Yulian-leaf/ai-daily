@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-10 14:15 (北京时间 UTC+8)
+      生成于 2026-10-10 16:23 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 10-05 ~ 10-11</h2>
       <p class="r-range">2026-10-05 ~ 2026-10-11</p>
-      <p class="r-overview">本期 AI4S 的主旋律是「打破一对一假设」：材料领域首次用生成模型学习高维分叉系统，同一输入对应多个同样正确的解；分子模拟把「一个蛋白训一个模型」升级为可跨蛋白迁移、带显式概率的语言模型。气候方向出现用 AI 编程智能体重写的可微分地球系统模型 legoESM，以及仅用地面站观测、2.8 万参数即可在 CPU 上训练的概率天气预报。评测与基准建设明显加速：ClimateBench v2.0、RNADyn、PoreML 分别把气候、RNA 动力学、多孔介质多相流纳入统一比较框架。工具链层面，JAX 生态迎来首个自动稀疏微分工具包 asdex，PINN 与神经算子继续向模块化、可扩展演进。</p>
+      <p class="r-overview">本期 AI4S 的主旋律是「打破一对一假设」：材料领域用生成模型学习同一输入对应多个正确解的分叉现象，分子模拟把「一个蛋白训一个模型」升级为可跨蛋白迁移的语言模型，气候领域则把几十年物理模式代码重写成端到端可微分的 JAX 地球系统模型。与此同时，评测与基准建设明显加速——多孔介质多相流、RNA 动力学、气候模型概率化评测都首次有了统一基准。方法层面，JEPA 式隐空间预测、流匹配、神经算子与物理约束的结合在蛋白质、气候、PDE 求解中反复出现。整体看，本期工作更强调物理一致性、可迁移性与可复现评测，而非单纯刷点。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -104,7 +104,7 @@
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.12449v1" target="_blank" rel="noopener">Bi-FORK: Generative Modeling of High-Dimensional Bifurcating Systems</a></h2>
-          <p>首次用生成模型系统学习高维物理系统中的「分叉」现象——同一输入对应多个同样正确的解，打破了以往AI代理模型「一对一映射」的假设。</p>
+          <p>首次用生成模型系统学习高维物理系统中的分叉现象，同一输入可对应多个同样正确的解，打破 AI 代理模型「一对一映射」的默认假设。</p>
         </article>
         
         <article class="card">
@@ -116,61 +116,61 @@
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.11883v1" target="_blank" rel="noopener">legoESM: a modular, differentiable, multiscale, AI-ready Earth system model built with AI agents</a></h2>
-          <p>用 AI 编程智能体把几十年气候模式代码重写成 JAX 版「乐高式」地球系统模型，从米级湍流到全球气候、从天气到气候一套代码打通，且端到端可微分。</p>
+          <p>用 AI 编程智能体把几十年气候模式代码重写成 JAX 版「乐高式」地球系统模型，从米级湍流到全球气候一套代码打通，且端到端可微分。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.09898v1" target="_blank" rel="noopener">Learning joint probabilistic weather forecasts from station observations alone</a></h2>
-          <p>仅用地面气象站观测就能学出多变量联合概率天气预报，模型仅约2.8万参数、可在CPU上训练和预测，绕开了数值天气预报（NWP）和再分析数据。</p>
+          <h2><a href="https://arxiv.org/abs/2610.04558v1" target="_blank" rel="noopener">ClimateBench v2.0: Probabilistic Climate Model Benchmarking</a></h2>
+          <p>首个把物理可信度、概率化观测打分与分布外泛化三层评测统一到同一套气候模型基准里的协议，物理模型、纯数据模型和混合模型同台比较。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.10879v1" target="_blank" rel="noopener">MD-LLM-2: A Transferable Language Model of Molecular Dynamics with Physical Conditioning and Explicit Path Probabilities</a></h2>
-          <p>把蛋白质分子动力学（MD，模拟原子运动）从「一个蛋白训一个模型」升级为可跨蛋白迁移的语言模型，还能按温度和序列条件生成轨迹，并给每条轨迹算出显式概率。</p>
+          <p>把蛋白质分子动力学从「一个蛋白训一个模型」升级为可跨蛋白迁移的语言模型，还能按温度和序列条件生成轨迹，并给每条轨迹算出显式概率。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.10298v1" target="_blank" rel="noopener">Physics-Aligned Electronic Ground-State Learning Improves Generalization</a></h2>
-          <p>把机器学习原子间势（MLIP，用于加速分子模拟的模型）的学习目标对齐到密度泛函理论（KS-DFT）的物理方程上，让模型在分布外泛化时误差大幅下降，为药物和材料设…</p>
+          <h2><a href="https://arxiv.org/abs/2610.08400v1" target="_blank" rel="noopener">Atom-JEPA: Joint-Embedding Predictive Architecture for 3D Atomistic Systems</a></h2>
+          <p>把在语言和视觉领域大获成功的 JEPA 首次系统性地搬到 3D 原子体系上，用纯无标注结构数据预训练。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2610.09548v1" target="_blank" rel="noopener">De novo design of monoclonal and bispecific antibodies with OFAntibody</a></h2>
-          <p>把生成式抗体设计从「单个抗原-抗体界面」推进到「多组分复合物」，同一分子可同时识别两个不同靶点，为双特异性抗体（能同时结合两个靶点的抗体）的从头设计提供了统一框…</p>
+          <p>把生成式抗体设计从「单个抗原-抗体界面」推进到「多组分复合物」，同一分子可同时识别两个不同靶点，为双特异性抗体的从头设计提供统一框架。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2610.07607v1" target="_blank" rel="noopener">Linear Fitness Subspace in Protein Language Models Enables Sample-Efficient Directed Evolution</a></h2>
-          <p>提出「线性适应度子空间（LFS）」假设：蛋白质语言模型的表示变化中，只有少数与特定实验相关的方向决定适应度，据此可在极少标注样本下高效做定向进化。</p>
+          <p>提出「线性适应度子空间」假设：蛋白质语言模型的表示变化中只有少数与特定实验相关的方向决定适应度，据此可在极少标注样本下高效做定向进化。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.08495v1" target="_blank" rel="noopener">Information-Dense Synthesis for Molecular Discovery</a></h2>
-          <p>把「逐个设计-合成-测试分子」换成「合成复杂混合物、整池测试、再反解活性归属」，理论上把在 d 个候选分子中找最优所需的实验次数从 O(d) 降到 O(log…</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">药物发现</span>
-          <h2><a href="https://arxiv.org/abs/2610.06227v1" target="_blank" rel="noopener">APOD: reasoning-guided agentic population ordinary differential equation discovery for pharmacological digital twins</a></h2>
-          <p>用语言模型智能体自动从稀疏、带噪的人群数据里「推」出常微分方程（ODE，描述系统随时间变化的方程），构建带个体差异的药理学数字孪生，把过去靠专家手工建模的慢活变…</p>
+          <p>把「逐个设计-合成-测试分子」换成「合成复杂混合物、整池测试、再反解活性归属」，理论上把在 d 个候选分子中找最优所需的实验次数从 O(d) 降到 O(log d)。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.08693v1" target="_blank" rel="noopener">Neural-Operator-Predicted Time-Dependent Reduced Subspaces for Projection-Based Simulation of Nonlinear PDEs</a></h2>
-          <p>把神经算子（学习 PDE 解算子的网络）和投影降阶模型（把高维方程压到低维求解）结合：网络只预测随时间变化的低维子空间，物理方程仍由求解器演化，兼顾速度与物理一…</p>
+          <p>把神经算子和投影降阶模型结合：网络只预测随时间变化的低维子空间，物理方程仍由求解器演化，兼顾速度与物理一致性。</p>
         </article>
         
         <article class="card">
           <span class="field">科学基础模型</span>
           <h2><a href="https://arxiv.org/abs/2610.03265v1" target="_blank" rel="noopener">SPEAR: A Spectral-Disentangled MoE Neural Operator with Knowledge-Guided Expert Aggregation for Large-Scale PDE Pretraining</a></h2>
-          <p>把「频谱解耦」和「专家混合（MoE，多专家分工的模型结构）」结合，做 PDE（偏微分方程）基础模型预训练，并用知识引导的专家合并把专家数砍掉一半而精度不降。</p>
+          <p>把「频谱解耦」和「专家混合」结合做 PDE 基础模型预训练，并用知识引导的专家合并把专家数砍掉一半而精度不降。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">生物信息</span>
+          <h2><a href="https://arxiv.org/abs/2610.12281v1" target="_blank" rel="noopener">Unlocking the Regulatory Genome by ARGUS: An Evidence-Constrained Agentic Framework for Interpreting Single Nucleotide Variants</a></h2>
+          <p>把「大模型解读非编码变异」从随口编故事，改成由 458 个 DNABERT 转录因子结合模型驱动、LLM 只负责规划与验证的智能体流程，并在真实数据上给出可追溯证据。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期最明显的变化是「多解与概率化」从气候、天气蔓延到材料与分子模拟：Bi-FORK 明确挑战一对一代理模型，MD-LLM-2 给每条轨迹算显式概率，EC-EarthFlow、Xaurora、Seq-Flow 则把流匹配与随机插值做成气候预报的默认选项。第二个新方向是「AI 智能体参与科研基础设施本身」：legoESM 用智能体重写地球系统模型，SciExam for ENSO 让智能体在无标准答案任务里自主建模，Prior or Feedback 则首次拆解 LLM 科学智能体微调神经算子时到底靠先验还是靠反馈。第三，评测基准密集落地，ClimateBench v2.0、RNADyn、PoreML 分别把气候、RNA 动力学、多孔介质多相流纳入统一比较框架，AI4S 正从「刷单点指标」转向「建可复现的公共赛道」。</p>
+      <p>与上一期相比，本期最明显的变化是「多解生成」和「跨体系迁移」成为主线：材料领域开始用生成模型处理分叉现象，分子模拟从单蛋白模型转向可迁移的动力学语言模型，气候领域则出现端到端可微分的模块化地球系统模型。另一个新方向是评测基准的集中建设——多孔介质多相流、RNA 动力学、气候模型概率化评测都在本期首次给出统一协议，说明社区正从「各做各的模型」转向「同台可比」。此外，JEPA 式隐空间预测从视觉/语言扩散到原子体系与次季节预报，流匹配在气候、RNA、电子密度等任务中反复出现。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注生成式模型在「多解物理系统」上的评测标准是否会跟进，以及 AI 智能体自主建模（如 ENSO 类任务）能否从评测走向可复现的真实科研产出。</p>
+      <p>下期值得关注生成式模型在「多解物理系统」中的进一步落地，以及新发布的统一基准能否被社区快速采用并暴露出现有方法的真实短板。</p>
       
     </section>
     
