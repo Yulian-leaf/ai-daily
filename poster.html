@@ -79,12 +79,12 @@
     <div class="brand">AI4S-DAILY</div>
     
     <h1 class="title">AI4S 周报 · 10-05 ~ 10-11</h1>
-    <p class="slogan">「从一对一映射，到多解、可微、可迁移」</p>
-    <p class="range">2026-10-05 ~ 2026-10-11 · 2026-10-10 10:11 (北京时间 UTC+8)</p>
+    <p class="slogan">「从一对一映射，到多解、可迁移、可微分」</p>
+    <p class="range">2026-10-05 ~ 2026-10-11 · 2026-10-10 14:15 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期最鲜明的变化是 AI 代理模型开始放弃「一个输入对应一个输出」的默认假设：Bi-FORK 用生成模型学习高维物理系统的分叉多解，MD-LLM-2 把分子动力学从单蛋白模型升级为可跨蛋白迁移、带显式概率的语言模型。气候方向集中出现「可微分 + 模块化 + 概率化」的基础设施型工作，legoESM 用 AI 编程智能体把几十年气候模式代码重写为端到端可微的 JAX 地球系统模型，ClimateBench v2.0 则首次把物理可信度、概率化打分与分布外泛化统一进同一套基准。材料与分子模拟继续向「物理约束写进生成过程」推进，OxiGen 把氧化态显式建模，Physics-Aligned Ground-State Learning 把学习目标对齐到 KS-DFT 方程。与此同时，评测与基准建设明显加速：PoreML 公开 3.3 TB 多相流数据集，RNADyn 给出首个标准化 RNA 动力学基准，SciExam for ENSO 开始考察 AI 智能体能否在无标准答案的真实科研任务中自主建模。</p>
+  <p class="overview">本期 AI4S 的主旋律是「打破一对一假设」：材料领域首次用生成模型学习高维分叉系统，同一输入对应多个同样正确的解；分子模拟把「一个蛋白训一个模型」升级为可跨蛋白迁移、带显式概率的语言模型。气候方向出现用 AI 编程智能体重写的可微分地球系统模型 legoESM，以及仅用地面站观测、2.8 万参数即可在 CPU 上训练的概率天气预报。评测与基准建设明显加速：ClimateBench v2.0、RNADyn、PoreML 分别把气候、RNA 动力学、多孔介质多相流纳入统一比较框架。工具链层面，JAX 生态迎来首个自动稀疏微分工具包 asdex，PINN 与神经算子继续向模块化、可扩展演进。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -185,7 +185,7 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期最明显的新方向是「多解与概率化」：Bi-FORK 明确挑战代理模型的一对一映射假设，MD-LLM-2、EC-EarthFlow、Xaurora、Seq-Flow 等一批工作把生成式建模从「能预测」推进到「能给出分布和显式概率」。第二个变化是基础设施与基准的集中落地：legoESM、asdex、underPINN、PoreML、RNADyn、ClimateBench v2.0 覆盖了从可微分地球系统模型、自动稀疏微分工具到多相流、RNA 动力学、气候评测的数据与代码底座。第三，AI 智能体开始进入「无标准答案」的真实科研流程，SciExam for ENSO 让智能体从观测数据自主构建厄尔尼诺随机模型，Prior or Feedback 则用受控干预拆解 LLM 科学智能体微调神经算子时到底依赖先验还是实验反馈。</p>
+  <p class="trend">与上一期相比，本期最明显的变化是「多解与概率化」从气候、天气蔓延到材料与分子模拟：Bi-FORK 明确挑战一对一代理模型，MD-LLM-2 给每条轨迹算显式概率，EC-EarthFlow、Xaurora、Seq-Flow 则把流匹配与随机插值做成气候预报的默认选项。第二个新方向是「AI 智能体参与科研基础设施本身」：legoESM 用智能体重写地球系统模型，SciExam for ENSO 让智能体在无标准答案任务里自主建模，Prior or Feedback 则首次拆解 LLM 科学智能体微调神经算子时到底靠先验还是靠反馈。第三，评测基准密集落地，ClimateBench v2.0、RNADyn、PoreML 分别把气候、RNA 动力学、多孔介质多相流纳入统一比较框架，AI4S 正从「刷单点指标」转向「建可复现的公共赛道」。</p>
   
 
   <div class="stats">
@@ -222,7 +222,7 @@
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 24%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 25%"></div></div>
         <b>83</b>
       </div>
       
@@ -235,7 +235,7 @@
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>339</b>
+        <b>337</b>
       </div>
       
       <div class="frow">
