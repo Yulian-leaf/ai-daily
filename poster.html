@@ -80,11 +80,11 @@
     
     <h1 class="title">AI4S 周报 · 10-05 ~ 10-11</h1>
     <p class="slogan">「从一对一映射，到多解与可迁移」</p>
-    <p class="range">2026-10-05 ~ 2026-10-11 · 2026-10-11 14:15 (北京时间 UTC+8)</p>
+    <p class="range">2026-10-05 ~ 2026-10-11 · 2026-10-11 16:40 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期最鲜明的变化是 AI 代理模型开始放弃「一对一映射」的默认假设：Bi-FORK 用生成模型学习同一输入对应多个正确解的分叉现象，MD-LLM-2 把分子动力学从「一个蛋白一个模型」升级为可跨蛋白迁移的条件语言模型。与此同时，物理约束与生成式建模的结合继续加深——从电子密度、晶体氧化态到城市微气候场，生成模型被要求同时满足物理方程与概率校准。评测与基准建设集中爆发：ClimateBench v2.0、RNADyn、PoreML、酶反应统一基准等，把过去各自为战的子领域拉进同一套可比协议。工程侧则出现明显的「降本」取向：稀疏微分、三角注意力内核、百万原子势蒸馏、优化器自改写，目标都是把已有方法的算力开销压下来。</p>
+  <p class="overview">本期最鲜明的变化是 AI 代理模型开始放弃「一个输入对应一个输出」的默认假设：Bi-FORK 用生成模型学习高维物理系统的分叉多解，MD-LLM-2 把分子动力学从单蛋白模型升级为可跨蛋白迁移的条件语言模型。与此同时，气候与地球系统方向集中出现「可微分 + 模块化 + 概率化」的重写浪潮，legoESM 用 AI 编程智能体把几十年气候模式代码重构成 JAX 版乐高式模型，ClimateBench v2.0 则首次把物理可信度、概率化打分与分布外泛化统一进同一套基准。材料与分子模拟方向继续向「物理约束写进生成过程」推进：OxiGen 把氧化态显式建模，Physics-Aligned Ground-State Learning 把学习目标对齐到 KS-DFT 方程，等变流匹配直接预测电子密度。数据与基准建设也在加速，PoreML 公开 3.3 TB 多孔介质多相流数据集，RNADyn 给出首个标准化 RNA 分子动力学基准，填补了长期缺乏统一评测的空白。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -185,12 +185,12 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期出现三个新方向：一是「多解建模」开始进入 AI4S 主流视野，Bi-FORK 明确挑战代理模型的一对一映射假设，MD-LLM-2 则用显式路径概率把轨迹生成变成可采样的分布问题；二是「AI 智能体做科研」从概念验证走向可评测，SciExam for ENSO 让智能体在无标准答案的真实任务里自主建模，Prior or Feedback 用受控干预拆解 LLM 科学智能体的决策依据；三是「降本工程」集中爆发，稀疏微分、三角注意力内核、百万原子势蒸馏、优化器自改写等工作都在把已有方法的算力开销压下一个量级。</p>
+  <p class="trend">与上一期相比，本期最明显的新方向是「多解与可迁移」：Bi-FORK 明确挑战一对一映射假设，MD-LLM-2 和 Atom-JEPA 则把分子模拟从单体系专用模型推向跨体系预训练。另一个变化是气候与地球系统方向集中出现「用 AI 智能体重写科学代码」的实践，legoESM 和 SciExam for ENSO 分别从工程重构和自主建模两个角度切入。此外，基准与数据集建设明显提速，PoreML、RNADyn、ClimateBench v2.0、Enzymatic Reaction Benchmark 在同一周内集中发布，说明社区正从单点方法创新转向可复现的公共评测基础设施。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">3145</span><small>抓取条目</small></div>
+      <div><span class="num">3153</span><small>抓取条目</small></div>
       <div><span class="num">200</span><small>总结</small></div>
       <div><span class="num">200</span><small>已上墙</small></div>
     </div>
@@ -210,37 +210,37 @@
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 41%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 40%"></div></div>
         <b>136</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 70%"></div></div>
-        <b>234</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 69%"></div></div>
+        <b>233</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 25%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 24%"></div></div>
         <b>83</b>
       </div>
       
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
         <div class="fbar"><div class="fbar-fill" style="width: 25%"></div></div>
-        <b>84</b>
+        <b>85</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>333</b>
+        <b>339</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 31%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 30%"></div></div>
         <b>102</b>
       </div>
       
