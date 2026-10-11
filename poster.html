@@ -79,12 +79,12 @@
     <div class="brand">AI4S-DAILY</div>
     
     <h1 class="title">AI4S 周报 · 10-05 ~ 10-11</h1>
-    <p class="slogan">「从一对一映射，到多解、可微与统一基准」</p>
-    <p class="range">2026-10-05 ~ 2026-10-11 · 2026-10-11 09:40 (北京时间 UTC+8)</p>
+    <p class="slogan">「从一对一映射，到多解与可迁移」</p>
+    <p class="range">2026-10-05 ~ 2026-10-11 · 2026-10-11 14:15 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期最鲜明的变化是 AI 代理模型开始放弃「一对一映射」的默认假设：Bi-FORK 用生成模型学习同一输入对应多个正确解的分叉现象，MD-LLM-2 把分子动力学从「一蛋白一模型」升级为可迁移、可给轨迹算显式概率的语言模型。与此同时，气候与地球系统方向密集出现「可微分 + 模块化 + 统一基准」的基础设施型工作，legoESM 用 AI 编程智能体把几十年气候模式代码重写为端到端可微的 JAX 版本，ClimateBench v2.0 首次把物理可信度、概率化打分与分布外泛化三层评测统一。材料与分子模拟则继续在「物理约束写进模型」上加码：OxiGen 把氧化态显式建模，Physics-Aligned Ground-State Learning 把学习目标对齐到 KS-DFT 方程，PoreML 与 RNADyn 分别补上多孔介质多相流和 RNA 动力学的统一数据与评测空白。整体看，本期不是单点刷榜，而是数据、基准、可微工具链与物理先验四条线同时补齐。</p>
+  <p class="overview">本期最鲜明的变化是 AI 代理模型开始放弃「一对一映射」的默认假设：Bi-FORK 用生成模型学习同一输入对应多个正确解的分叉现象，MD-LLM-2 把分子动力学从「一个蛋白一个模型」升级为可跨蛋白迁移的条件语言模型。与此同时，物理约束与生成式建模的结合继续加深——从电子密度、晶体氧化态到城市微气候场，生成模型被要求同时满足物理方程与概率校准。评测与基准建设集中爆发：ClimateBench v2.0、RNADyn、PoreML、酶反应统一基准等，把过去各自为战的子领域拉进同一套可比协议。工程侧则出现明显的「降本」取向：稀疏微分、三角注意力内核、百万原子势蒸馏、优化器自改写，目标都是把已有方法的算力开销压下来。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -185,7 +185,7 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，最明显的新方向是「放弃一对一映射」：Bi-FORK 明确把多解分叉当作学习目标，MD-LLM-2 给轨迹配上显式概率，Seq-Flow 用上一次的预测分布作为下一次起点，说明生成式建模正从「拟合唯一答案」转向「刻画解空间与不确定性」。第二条线是基础设施化：legoESM、PoreML、RNADyn、ClimateBench v2.0、DrugTargetWorld、underPINN、asdex 集中出现，覆盖可微地球系统模型、多孔介质多相流数据、RNA 动力学基准、气候评测协议、药物靶点虚拟库、模块化 PINN 框架和 JAX 自动稀疏微分，AI4S 的竞争重心正从单模型指标转向数据、基准与工具链。第三条线是物理先验的显式注入：氧化态、KS-DFT 方程、RC 电路结构、局部接触推理、模式选择性电子-声子耦合，都被直接写进模型结构或损失函数，而非留给网络自行发现。</p>
+  <p class="trend">与上一期相比，本期出现三个新方向：一是「多解建模」开始进入 AI4S 主流视野，Bi-FORK 明确挑战代理模型的一对一映射假设，MD-LLM-2 则用显式路径概率把轨迹生成变成可采样的分布问题；二是「AI 智能体做科研」从概念验证走向可评测，SciExam for ENSO 让智能体在无标准答案的真实任务里自主建模，Prior or Feedback 用受控干预拆解 LLM 科学智能体的决策依据；三是「降本工程」集中爆发，稀疏微分、三角注意力内核、百万原子势蒸馏、优化器自改写等工作都在把已有方法的算力开销压下一个量级。</p>
   
 
   <div class="stats">
@@ -199,7 +199,7 @@
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
         <div class="fbar"><div class="fbar-fill" style="width: 9%"></div></div>
-        <b>31</b>
+        <b>30</b>
       </div>
       
       <div class="frow">
@@ -210,19 +210,19 @@
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 40%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 41%"></div></div>
         <b>136</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 69%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 70%"></div></div>
         <b>234</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 24%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 25%"></div></div>
         <b>83</b>
       </div>
       
@@ -235,12 +235,12 @@
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>339</b>
+        <b>333</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 30%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 31%"></div></div>
         <b>102</b>
       </div>
       
