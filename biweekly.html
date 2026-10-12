@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="weekly.html">周报 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-12 14:22 (北京时间 UTC+8)
+      生成于 2026-10-12 17:03 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 双周报告 · 10-05 ~ 10-18</h2>
       <p class="r-range">2026-10-05 ~ 2026-10-18</p>
-      <p class="r-overview">这两周 AI4S 的主旋律是「把物理约束和可迁移性写进模型结构」：分子模拟领域集中出现把电子密度、KS-DFT 方程、键合/非键合参数一致性作为学习目标的工作，材料领域则从「生成更多候选」转向「生成可合成、可验证的候选」（氧化态、相集识别、基准质疑）。第一周（10-05 ~ 10-11）以生成式建模和基础模型预训练为主，气候与材料方向密集出现流匹配、扩散、JEPA 类方法；第二周（10-12 ~ 10-18）明显转向「评测、基准与物理一致性」，出现 ClimateBench v2.0、RNADyn、酶反应统一基准、GNoME 数据重复性质疑等一批校准性工作。蛋白质方向两周持续高热，从自然语言生成全原子结构、双特异性抗体设计到冷冻电镜直接推断原子结构，接口层不断外扩。整体看，AI4S 正从「单任务刷点」过渡到「跨体系可迁移 + 可验证物理量」的双重考核。</p>
+      <p class="r-overview">这两周 AI4S 的主旋律是「把物理约束和可迁移性写进模型结构」：分子模拟领域集中出现把电子密度、KS-DFT 方程、键合/非键合参数一致性、振动性质检验纳入学习目标的工作，材料领域则从「生成更多候选」转向「生成更可合成、更可验证的候选」。第一周（10-05 ~ 10-11）以生成式建模和基础模型预训练为主，气候、材料、蛋白质三线并进，出现 legoESM、Xaurora、OxiGen、Atom-JEPA 等一批「重写底层表示」的尝试；第二周（10-12 ~ 10-18）明显转向评测、基准与物理一致性检验，ClimateBench v2.0、RNADyn、酶反应统一基准、GNoME 重复性质疑、uMLIP 高温弹性评测等集中出现，说明社区开始给前一阶段的生成能力「对账」。跨周看，蛋白质设计从单界面走向多组分复合物与推理时算力分配，分子模拟从「一个体系一个模型」走向跨蛋白、跨方法的可迁移表示，AI4Math 则从纯 PINN 求解扩展到降阶、稀疏微分与算子可解释性。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -110,31 +110,31 @@
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2610.09548v1" target="_blank" rel="noopener">De novo design of monoclonal and bispecific antibodies with OFAntibody</a></h2>
-          <p>把生成式抗体设计从单抗原-抗体界面推进到多组分复合物，同一分子可同时识别两个不同靶点。</p>
+          <p>把生成式抗体设计从单个抗原-抗体界面推进到多组分复合物，同一分子可同时识别两个不同靶点。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.08495v1" target="_blank" rel="noopener">Information-Dense Synthesis for Molecular Discovery</a></h2>
-          <p>把逐个设计-合成-测试换成整池合成测试再反解活性归属，理论上把找最优所需实验次数从 O(d) 降到 O(log d)。</p>
+          <p>把逐个设计-合成-测试换成整池测试再反解活性归属，理论上把找最优所需实验次数从 O(d) 降到 O(log d)。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.06227v1" target="_blank" rel="noopener">APOD: reasoning-guided agentic population ordinary differential equation discovery for pharmacological digital twins</a></h2>
-          <p>用语言模型智能体从稀疏带噪人群数据中自动推出 ODE，构建带个体差异的药理学数字孪生。</p>
+          <p>用语言模型智能体从稀疏带噪人群数据中自动推出常微分方程，构建带个体差异的药理学数字孪生。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.13649v1" target="_blank" rel="noopener">Electron-Density-Informed Molecular Property Prediction Using Surrogate Functionals</a></h2>
-          <p>把电子密度当输入并强制满足代理泛函最小值条件，QM9 的 7 个广延性质中 6 个超过现有最好水平。</p>
+          <p>把电子密度当输入并强制满足代理泛函最小值条件，QM9 七个广延性质中六个超过现有最好水平。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.10879v1" target="_blank" rel="noopener">MD-LLM-2: A Transferable Language Model of Molecular Dynamics with Physical Conditioning and Explicit Path Probabilities</a></h2>
-          <p>把蛋白质 MD 从一蛋白一模型升级为可跨蛋白迁移的语言模型，还能按温度和序列条件生成轨迹并给出显式概率。</p>
+          <p>把蛋白质分子动力学从「一个蛋白训一个模型」升级为可跨蛋白迁移的语言模型，并能按温度和序列条件生成轨迹。</p>
         </article>
         
         <article class="card">
@@ -146,19 +146,19 @@
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.06467v1" target="_blank" rel="noopener">Quantum spectral thermodynamics and active learning enable million-scale exploration of high-entropy ceramics</a></h2>
-          <p>把量子谱热力学和主动学习结合，在 770 万种高熵陶瓷配方里做第一性原理级筛选，速度提升 10 万倍。</p>
+          <p>把量子谱热力学和主动学习结合，在 770 万种高熵陶瓷配方中做第一性原理级筛选，速度提升 10 万倍。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">气候地球</span>
+          <h2><a href="https://arxiv.org/abs/2610.11883v1" target="_blank" rel="noopener">legoESM: a modular, differentiable, multiscale, AI-ready Earth system model built with AI agents</a></h2>
+          <p>用 AI 编程智能体把几十年气候模式代码重写成 JAX 版乐高式地球系统模型，从米级湍流到全球气候端到端可微分。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.04558v1" target="_blank" rel="noopener">ClimateBench v2.0: Probabilistic Climate Model Benchmarking</a></h2>
           <p>首个把物理可信度、概率化观测打分和分布外泛化三层评测统一到同一套气候模型基准里的协议。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.11883v1" target="_blank" rel="noopener">legoESM: a modular, differentiable, multiscale, AI-ready Earth system model built with AI agents</a></h2>
-          <p>用 AI 编程智能体把几十年气候模式代码重写成 JAX 版乐高式地球系统模型，从米级湍流到全球气候一套代码打通且端到端可微分。</p>
         </article>
         
         <article class="card">
@@ -169,8 +169,8 @@
         
         <article class="card">
           <span class="field">科学基础模型</span>
-          <h2><a href="https://arxiv.org/abs/2610.03265v1" target="_blank" rel="noopener">SPEAR: A Spectral-Disentangled MoE Neural Operator with Knowledge-Guided Expert Aggregation for Large-Scale PDE Pretraining</a></h2>
-          <p>把频谱解耦和专家混合结合做 PDE 基础模型预训练，用知识引导的专家合并把专家数砍掉一半而精度不降。</p>
+          <h2><a href="https://arxiv.org/abs/2610.12336v1" target="_blank" rel="noopener">asdex: Automatic Sparse Differentiation in JAX</a></h2>
+          <p>JAX 生态首个独立的自动稀疏微分工具包，把稀疏雅可比/海塞矩阵求导开销从随维度增长变成随稀疏结构增长。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>跨周对比看，molsim 是这两周最密集的方向，两周合计超过 20 条，且第二周明显从「生成/预训练」转向「物理一致性」：第一周以 Atom-JEPA、MD-LLM-2、Drude 力场等表示学习与力场学习为主，第二周则集中出现电子密度代理泛函、KS-DFT 对齐、键合/非键合参数一致学习、振动性质系统评测等校准性工作。materials 方向热度上升且性质变化明显：第一周偏生成（OxiGen、分子晶体流匹配、超表面逆设计），第二周转向验证与基准（GNoME 数据重复性质疑、uMLIP 高温弹性基准、无序相自由能累积量），从「造更多」转向「造得可信」。climate 两周持续高产，第一周以概率预报和流匹配替代物理模式为主（EC-EarthFlow、Xaurora、S2S-JEPA），第二周转向基准与智能体评测（ClimateBench v2.0、SciExam for ENSO、公里级区域对齐），评测层明显补课。protein 两周均保持高位，第一周偏生成接口（自然语言生成结构、隐语言自回归、密码子优化），第二周偏实验闭环与工程效率（双特异性抗体、广谱中和抗体、TurboPairFormer 三角注意力内核、冷冻电镜直接推断）。ai4math 与 scifm 相对平稳，但第二周出现 underPINN、asdex 自动稀疏微分、SLICE 等工具与推断类工作，工程化倾向增强。新浮现方向：一是「推理时算力分配」作为设计变量（纳米抗体骨架/表位动态分配、Seq-Flow 自滚动误差控制）；二是「AI 智能体做科研流程本身」被系统评测（SciExam for ENSO、Prior or Feedback 拆解 LLM 决策依据）。</p>
+      <p>跨周对比看，分子模拟是这两周最密集的方向，从第一周的力场一致性、JEPA 预训练、优化器改写，到第二周的电子密度泛函、酸解离常数工作流、振动性质检验、粗粒化结合自由能评测，条目数从约 8 条增至约 12 条，且重心从「造新模型」转向「验证模型物理是否可信」。材料领域热度持平但方向反转：第一周以 OxiGen、分子晶体预测、超表面逆设计等生成/设计为主，第二周出现 GNoME 重复性质疑、uMLIP 高温弹性评测、无序相自由能级数等基准与理论工作，说明「生成能力」开始被「可验证性」约束。气候领域第一周以 legoESM、Xaurora、EC-EarthFlow 等模型重写为主，第二周转向 ClimateBench v2.0、SciExam for ENSO、公里级区域对齐等评测与落地，热度从「造模型」转向「比模型」。蛋白质领域两周都活跃，但第一周偏单点方法（TurboPairFormer、隐语言生成、密码子优化），第二周明显转向多组分与可迁移（OFAntibody 双特异性、自然语言生成全原子结构、推理时算力分配），设计对象从单界面扩展到复合物和条件分配。AI4Math 从第一周的 PINN 变体（S²-PINN、underPINN、Lagrangian PINN）扩展到第二周的降阶子空间、稀疏微分、Koopman 核方法，方向从「解方程」转向「压缩与解释算子」。新浮现的方向是「推理时算力分配」和「物理一致性评测」：前者以纳米抗体设计的 inference-time steering 为代表，后者以 ClimateBench v2.0、RNADyn、酶反应基准为代表。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下两周值得重点跟踪两条线：一是物理一致性学习目标能否从分子模拟外溢到材料和气候，形成跨领域的「可验证物理量」评测共识；二是 AI 智能体自主建模与实验闭环（APOD、ARGUS、SciExam 类）在真实湿实验或业务预报中的复现率与失败模式。</p>
+      <p>下两周值得重点跟踪两条线：一是分子模拟与材料领域「物理一致性评测」是否会形成统一基准，尤其是电子密度、振动性质、高温弹性这几类检验能否收敛成社区标准；二是蛋白质设计从单界面走向多组分复合物后，双特异性抗体和自然语言接口的湿实验验证结果，以及推理时算力分配能否在更多设计任务上复现。</p>
       
     </section>
     
