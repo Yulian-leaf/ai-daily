@@ -78,13 +78,13 @@
   <div class="hero">
     <div class="brand">AI4S-DAILY</div>
     
-    <h1 class="title">AI4S 周报 · 10-05 ~ 10-11</h1>
-    <p class="slogan">「从一对一映射，到多解与可迁移」</p>
-    <p class="range">2026-10-05 ~ 2026-10-11 · 2026-10-11 16:40 (北京时间 UTC+8)</p>
+    <h1 class="title">AI4S 周报 · 10-12 ~ 10-18</h1>
+    <p class="slogan">「从生成到验证，AI4S 补上可信度这一课」</p>
+    <p class="range">2026-10-12 ~ 2026-10-18 · 2026-10-12 10:11 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期最鲜明的变化是 AI 代理模型开始放弃「一个输入对应一个输出」的默认假设：Bi-FORK 用生成模型学习高维物理系统的分叉多解，MD-LLM-2 把分子动力学从单蛋白模型升级为可跨蛋白迁移的条件语言模型。与此同时，气候与地球系统方向集中出现「可微分 + 模块化 + 概率化」的重写浪潮，legoESM 用 AI 编程智能体把几十年气候模式代码重构成 JAX 版乐高式模型，ClimateBench v2.0 则首次把物理可信度、概率化打分与分布外泛化统一进同一套基准。材料与分子模拟方向继续向「物理约束写进生成过程」推进：OxiGen 把氧化态显式建模，Physics-Aligned Ground-State Learning 把学习目标对齐到 KS-DFT 方程，等变流匹配直接预测电子密度。数据与基准建设也在加速，PoreML 公开 3.3 TB 多孔介质多相流数据集，RNADyn 给出首个标准化 RNA 分子动力学基准，填补了长期缺乏统一评测的空白。</p>
+  <p class="overview">本期最鲜明的信号是「验证」开始与「生成」并重：一边是自然语言直接生成全原子蛋白质、推理时动态分配算力设计纳米抗体，另一边是用晶体不变量证明 GNoME 的 220 万种新材料存在大量重复，给「AI 造材料」的宣称划出必要条件。分子模拟方向集中解决精度与成本的平衡问题——电子密度代理泛函在 QM9 的 7 个广延性质中 6 个刷新最好水平，AutoDrude 把可极化力场成本压到固定电荷模拟的 1.20 倍，MLFF 振动频率误差约 3 cm⁻¹。工具与统计层面，PaddleCFD 把流体代理模型、方程发现与外形优化整合进国产框架，SLICE 则为「能模拟但写不出概率」的模型提供了始终有效的置信区间。整体看，本期工作更强调可外推、可解释、可复现，而非单纯刷榜。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -95,17 +95,8 @@
       <span class="field">🧬 蛋白质/结构</span>
       <span class="score">8.0</span>
     </div>
-    <h3>De novo design of monoclonal and bispecific antibodies with OFAntibody</h3>
-    <p>把生成式抗体设计从「单个抗原-抗体界面」推进到「多组分复合物」，同一分子可同时识别两个不同靶点，为双特异性抗体（能同时结合两个靶点的抗体）的从头设计提供了统一框…</p>
-  </div>
-  
-  <div class="hl">
-    <div class="hl-head">
-      <span class="field">💊 药物发现</span>
-      <span class="score">8.0</span>
-    </div>
-    <h3>Information-Dense Synthesis for Molecular Discovery</h3>
-    <p>把「逐个设计-合成-测试分子」换成「合成复杂混合物、整池测试、再反解活性归属」，理论上把在 d 个候选分子中找最优所需的实验次数从 O(d) 降到 O(log…</p>
+    <h3>Designing Protein Structures from Natural Language</h3>
+    <p>首个用自然语言直接生成全原子蛋白质结构的模型，把「文字描述」变成蛋白质设计的新接口，类似文生图但对象是蛋白质。</p>
   </div>
   
   <div class="hl">
@@ -113,26 +104,8 @@
       <span class="field">⚛️ 分子模拟</span>
       <span class="score">8.0</span>
     </div>
-    <h3>MD-LLM-2: A Transferable Language Model of Molecular Dynamics with Physical Conditioning and Explicit Path Probabilities</h3>
-    <p>把蛋白质分子动力学（MD，模拟原子运动）从「一个蛋白训一个模型」升级为可跨蛋白迁移的语言模型，还能按温度和序列条件生成轨迹，并给每条轨迹算出显式概率。</p>
-  </div>
-  
-  <div class="hl">
-    <div class="hl-head">
-      <span class="field">🧪 材料科学</span>
-      <span class="score">8.0</span>
-    </div>
-    <h3>Bi-FORK: Generative Modeling of High-Dimensional Bifurcating Systems</h3>
-    <p>首次用生成模型系统学习高维物理系统中的「分叉」现象——同一输入对应多个同样正确的解，打破了以往AI代理模型「一对一映射」的假设。</p>
-  </div>
-  
-  <div class="hl">
-    <div class="hl-head">
-      <span class="field">🌍 气候地球</span>
-      <span class="score">8.0</span>
-    </div>
-    <h3>legoESM: a modular, differentiable, multiscale, AI-ready Earth system model built with AI agents</h3>
-    <p>用 AI 编程智能体把几十年气候模式代码重写成 JAX 版「乐高式」地球系统模型，从米级湍流到全球气候、从天气到气候一套代码打通，且端到端可微分。</p>
+    <h3>Electron-Density-Informed Molecular Property Prediction Using Surrogate Functionals</h3>
+    <p>把「电子密度」当作输入喂给机器学习模型，同时强制它满足一个代理泛函的最小值条件，在 QM9 的 7 个广延性质中有 6 个超过现有最好水平，并能外推到更大的分子…</p>
   </div>
   
   <div class="hl">
@@ -140,26 +113,17 @@
       <span class="field">📐 AI4Math/PDE</span>
       <span class="score">8.0</span>
     </div>
-    <h3>Neural-Operator-Predicted Time-Dependent Reduced Subspaces for Projection-Based Simulation of Nonlinear PDEs</h3>
-    <p>把神经算子（学习 PDE 解算子的网络）和投影降阶模型（把高维方程压到低维求解）结合：网络只预测随时间变化的低维子空间，物理方程仍由求解器演化，兼顾速度与物理一…</p>
+    <h3>Low-Rank Kolmogorov-Arnold Generator Flows for Interpretable Operator Learning</h3>
+    <p>把「神经算子」学到的物理规律压缩成低秩符号，既能外推到训练分布之外，又能自动吐出可读的闭式方程，不用再手工解读。</p>
   </div>
   
   <div class="hl">
     <div class="hl-head">
-      <span class="field">🧠 科学基础模型</span>
+      <span class="field">🧬 蛋白质/结构</span>
       <span class="score">8.0</span>
     </div>
-    <h3>SPEAR: A Spectral-Disentangled MoE Neural Operator with Knowledge-Guided Expert Aggregation for Large-Scale PDE Pretraining</h3>
-    <p>把「频谱解耦」和「专家混合（MoE，多专家分工的模型结构）」结合，做 PDE（偏微分方程）基础模型预训练，并用知识引导的专家合并把专家数砍掉一半而精度不降。</p>
-  </div>
-  
-  <div class="hl">
-    <div class="hl-head">
-      <span class="field">🧪 材料科学</span>
-      <span class="score">8.0</span>
-    </div>
-    <h3>PoreML: A Data-Driven Framework for Learning Multiphase Flow in Porous Media</h3>
-    <p>首个把多孔介质多相流的数据生成、模型训练与评测统一起来的开源框架，并公开 3.3 TB 时序数据集，填补该领域长期缺乏统一基准的空白。</p>
+    <h3>Inference-Time Steering Across Scaffolds and Epitopes for Sample-Efficient De Novo Nanobody Design</h3>
+    <p>把「生成条件选择」重新定义为推理时的算力分配问题，让模型在多个纳米抗体骨架和靶点表位之间动态分配计算预算，而不是一开始就押注单一配置。</p>
   </div>
   
   <div class="hl">
@@ -167,17 +131,26 @@
       <span class="field">⚛️ 分子模拟</span>
       <span class="score">8.0</span>
     </div>
-    <h3>Physics-Aligned Electronic Ground-State Learning Improves Generalization</h3>
-    <p>把机器学习原子间势（MLIP，用于加速分子模拟的模型）的学习目标对齐到密度泛函理论（KS-DFT）的物理方程上，让模型在分布外泛化时误差大幅下降，为药物和材料设…</p>
+    <h3>Quantitative modeling of acid-base equilibria</h3>
+    <p>首次把机器学习势函数、加速采样和核量子效应修正串成一套可复用的工作流，从第一性原理可靠算出水中多种物质的酸解离常数，并验证了跨体系的可迁移性。</p>
   </div>
   
   <div class="hl">
     <div class="hl-head">
-      <span class="field">🧫 生物信息</span>
+      <span class="field">🧪 材料科学</span>
       <span class="score">7.0</span>
     </div>
-    <h3>Unlocking the Regulatory Genome by ARGUS: An Evidence-Constrained Agentic Framework for Interpreting Single Nucleotide Variants</h3>
-    <p>把「大模型解读非编码变异」从随口编故事，改成由 458 个 DNABERT 转录因子结合模型驱动、LLM 只负责规划与验证的智能体流程，并在真实数据上给出可追溯…</p>
+    <h3>Necessary conditions for benchmarking next-generation AI in materials discovery</h3>
+    <p>给「AI 造材料」泼冷水：用晶体不变量证明，号称发现 220 万种新材料的 GNoME 数据集里存在大量重复，并提出下一代 AI 宣称「发现新材料」前必须满足的…</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">🧠 科学基础模型</span>
+      <span class="score">7.0</span>
+    </div>
+    <h3>PaddlePaddle/PaddleCFD</h3>
+    <p>把深度学习做流体力学代理模型、方程发现、外形优化和流动控制策略的工具整合进国产深度学习框架 PaddlePaddle，为 CFD（计算流体力学）提供一个统一的开…</p>
   </div>
   
   </div>
@@ -185,21 +158,21 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期最明显的新方向是「多解与可迁移」：Bi-FORK 明确挑战一对一映射假设，MD-LLM-2 和 Atom-JEPA 则把分子模拟从单体系专用模型推向跨体系预训练。另一个变化是气候与地球系统方向集中出现「用 AI 智能体重写科学代码」的实践，legoESM 和 SciExam for ENSO 分别从工程重构和自主建模两个角度切入。此外，基准与数据集建设明显提速，PoreML、RNADyn、ClimateBench v2.0、Enzymatic Reaction Benchmark 在同一周内集中发布，说明社区正从单点方法创新转向可复现的公共评测基础设施。</p>
+  <p class="trend">与上一期相比，本期从「能不能生成」转向「生成得对不对、算得准不准」：材料方向首次用数学不变量对大规模 AI 发现结果做去重与基准约束，分子模拟方向则集中补齐振动、酸解离、极化等此前被能量与结构指标掩盖的物理量精度。另一个新动向是推理时算力分配（纳米抗体设计）与免似然统计推断（SLICE）进入 AI4S 工具箱，说明社区开始把「不确定性」和「计算预算」当作一等公民。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">3153</span><small>抓取条目</small></div>
-      <div><span class="num">200</span><small>总结</small></div>
-      <div><span class="num">200</span><small>已上墙</small></div>
+      <div><span class="num">3268</span><small>抓取条目</small></div>
+      <div><span class="num">210</span><small>总结</small></div>
+      <div><span class="num">210</span><small>已上墙</small></div>
     </div>
     <div class="fields">
       
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 9%"></div></div>
-        <b>30</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 10%"></div></div>
+        <b>33</b>
       </div>
       
       <div class="frow">
@@ -210,20 +183,20 @@
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 40%"></div></div>
-        <b>136</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 42%"></div></div>
+        <b>143</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 69%"></div></div>
-        <b>233</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 72%"></div></div>
+        <b>246</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 24%"></div></div>
-        <b>83</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 26%"></div></div>
+        <b>90</b>
       </div>
       
       <div class="frow">
@@ -235,7 +208,7 @@
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>339</b>
+        <b>343</b>
       </div>
       
       <div class="frow">

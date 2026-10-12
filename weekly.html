@@ -87,90 +87,78 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-11 16:39 (北京时间 UTC+8)
+      生成于 2026-10-12 10:11 (北京时间 UTC+8)
     </p>
   </header>
   <main>
     
     <section class="latest">
-      <h2 class="r-title">AI4S 周报 · 10-05 ~ 10-11</h2>
-      <p class="r-range">2026-10-05 ~ 2026-10-11</p>
-      <p class="r-overview">本期最鲜明的变化是 AI 代理模型开始放弃「一个输入对应一个输出」的默认假设：Bi-FORK 用生成模型学习高维物理系统的分叉多解，MD-LLM-2 把分子动力学从单蛋白模型升级为可跨蛋白迁移的条件语言模型。与此同时，气候与地球系统方向集中出现「可微分 + 模块化 + 概率化」的重写浪潮，legoESM 用 AI 编程智能体把几十年气候模式代码重构成 JAX 版乐高式模型，ClimateBench v2.0 则首次把物理可信度、概率化打分与分布外泛化统一进同一套基准。材料与分子模拟方向继续向「物理约束写进生成过程」推进：OxiGen 把氧化态显式建模，Physics-Aligned Ground-State Learning 把学习目标对齐到 KS-DFT 方程，等变流匹配直接预测电子密度。数据与基准建设也在加速，PoreML 公开 3.3 TB 多孔介质多相流数据集，RNADyn 给出首个标准化 RNA 分子动力学基准，填补了长期缺乏统一评测的空白。</p>
+      <h2 class="r-title">AI4S 周报 · 10-12 ~ 10-18</h2>
+      <p class="r-range">2026-10-12 ~ 2026-10-18</p>
+      <p class="r-overview">本期最鲜明的信号是「验证」开始与「生成」并重：一边是自然语言直接生成全原子蛋白质、推理时动态分配算力设计纳米抗体，另一边是用晶体不变量证明 GNoME 的 220 万种新材料存在大量重复，给「AI 造材料」的宣称划出必要条件。分子模拟方向集中解决精度与成本的平衡问题——电子密度代理泛函在 QM9 的 7 个广延性质中 6 个刷新最好水平，AutoDrude 把可极化力场成本压到固定电荷模拟的 1.20 倍，MLFF 振动频率误差约 3 cm⁻¹。工具与统计层面，PaddleCFD 把流体代理模型、方程发现与外形优化整合进国产框架，SLICE 则为「能模拟但写不出概率」的模型提供了始终有效的置信区间。整体看，本期工作更强调可外推、可解释、可复现，而非单纯刷榜。</p>
 
       
       <h3 class="sub">本期亮点</h3>
       <div class="cards">
         
         <article class="card">
-          <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.12449v1" target="_blank" rel="noopener">Bi-FORK: Generative Modeling of High-Dimensional Bifurcating Systems</a></h2>
-          <p>首次用生成模型系统学习高维物理系统中的分叉现象，打破 AI 代理模型一对一映射的假设。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.11883v1" target="_blank" rel="noopener">legoESM: a modular, differentiable, multiscale, AI-ready Earth system model built with AI agents</a></h2>
-          <p>用 AI 编程智能体把几十年气候模式代码重写成 JAX 版乐高式地球系统模型，从米级湍流到全球气候端到端可微分。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.10879v1" target="_blank" rel="noopener">MD-LLM-2: A Transferable Language Model of Molecular Dynamics with Physical Conditioning and Explicit Path Probabilities</a></h2>
-          <p>把蛋白质分子动力学从「一个蛋白训一个模型」升级为可跨蛋白迁移的语言模型，并给出每条轨迹的显式概率。</p>
+          <span class="field">蛋白质/结构</span>
+          <h2><a href="https://arxiv.org/abs/2610.13917v1" target="_blank" rel="noopener">Designing Protein Structures from Natural Language</a></h2>
+          <p>首个用自然语言直接生成全原子蛋白质结构的模型，把「文字描述」变成蛋白质设计的新接口，类似文生图但对象是蛋白质。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
-          <h2><a href="https://arxiv.org/abs/2610.09548v1" target="_blank" rel="noopener">De novo design of monoclonal and bispecific antibodies with OFAntibody</a></h2>
-          <p>把生成式抗体设计从单个抗原-抗体界面推进到多组分复合物，同一分子可同时识别两个不同靶点。</p>
+          <h2><a href="https://arxiv.org/abs/2610.13844v1" target="_blank" rel="noopener">Inference-Time Steering Across Scaffolds and Epitopes for Sample-Efficient De Novo Nanobody Design</a></h2>
+          <p>把「生成条件选择」重新定义为推理时的算力分配问题，让模型在多个纳米抗体骨架和靶点表位之间动态分配计算预算，而不是一开始就押注单一配置。</p>
         </article>
         
         <article class="card">
-          <span class="field">药物发现</span>
-          <h2><a href="https://arxiv.org/abs/2610.08495v1" target="_blank" rel="noopener">Information-Dense Synthesis for Molecular Discovery</a></h2>
-          <p>把逐个设计-合成-测试换成合成复杂混合物整池测试再反解活性归属，理论上把实验次数从 O(d) 降到 O(log d)。</p>
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2610.13649v1" target="_blank" rel="noopener">Electron-Density-Informed Molecular Property Prediction Using Surrogate Functionals</a></h2>
+          <p>把「电子密度」当作输入喂给机器学习模型，同时强制它满足一个代理泛函的最小值条件，在 QM9 的 7 个广延性质中有 6 个超过现有最好水平，并能外推到更大的分子。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2610.13265v1" target="_blank" rel="noopener">Quantitative modeling of acid-base equilibria</a></h2>
+          <p>首次把机器学习势函数、加速采样和核量子效应修正串成一套可复用的工作流，从第一性原理可靠算出水中多种物质的酸解离常数，并验证了跨体系的可迁移性。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2610.12799v1" target="_blank" rel="noopener">Drude, Where's My Charge? End-to-End Learning of Polarizable Drude Force Fields for Polymer Electrolytes</a></h2>
+          <p>提出 AutoDrude：直接从 DFT 数据端到端学习可极化 Drude 力场，无需经验调参，计算成本仅为固定电荷模拟的 1.20 倍，却能复现极化效应。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2610.13902v1" target="_blank" rel="noopener">Accuracy of Vibrational Properties of Machine-Learning Force Fields for Molecular Crystal Transformations</a></h2>
+          <p>首次系统检验机器学习力场能否准确描述分子晶体的振动性质，而不只是能量和结构；结果显示振动频率误差仅约 3 cm⁻¹。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">材料科学</span>
+          <h2><a href="https://arxiv.org/abs/2610.13885v1" target="_blank" rel="noopener">Necessary conditions for benchmarking next-generation AI in materials discovery</a></h2>
+          <p>给「AI 造材料」泼冷水：用晶体不变量证明，号称发现 220 万种新材料的 GNoME 数据集里存在大量重复，并提出下一代 AI 宣称「发现新材料」前必须满足的必要条件。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2610.08693v1" target="_blank" rel="noopener">Neural-Operator-Predicted Time-Dependent Reduced Subspaces for Projection-Based Simulation of Nonlinear PDEs</a></h2>
-          <p>神经算子只预测随时间变化的低维子空间，物理方程仍由求解器演化，兼顾速度与物理一致性。</p>
+          <h2><a href="https://arxiv.org/abs/2610.13028v1" target="_blank" rel="noopener">Low-Rank Kolmogorov-Arnold Generator Flows for Interpretable Operator Learning</a></h2>
+          <p>把「神经算子」学到的物理规律压缩成低秩符号，既能外推到训练分布之外，又能自动吐出可读的闭式方程，不用再手工解读。</p>
         </article>
         
         <article class="card">
           <span class="field">科学基础模型</span>
-          <h2><a href="https://arxiv.org/abs/2610.03265v1" target="_blank" rel="noopener">SPEAR: A Spectral-Disentangled MoE Neural Operator with Knowledge-Guided Expert Aggregation for Large-Scale PDE Pretraining</a></h2>
-          <p>把频谱解耦与专家混合结合做 PDE 基础模型预训练，用知识引导的专家合并把专家数砍掉一半而精度不降。</p>
+          <h2><a href="https://github.com/PaddlePaddle/PaddleCFD" target="_blank" rel="noopener">PaddlePaddle/PaddleCFD</a></h2>
+          <p>把深度学习做流体力学代理模型、方程发现、外形优化和流动控制策略的工具整合进国产深度学习框架 PaddlePaddle，为 CFD 提供一个统一的开源入口。</p>
         </article>
         
         <article class="card">
-          <span class="field">生物信息</span>
-          <h2><a href="https://arxiv.org/abs/2610.12281v1" target="_blank" rel="noopener">Unlocking the Regulatory Genome by ARGUS: An Evidence-Constrained Agentic Framework for Interpreting Single Nucleotide Variants</a></h2>
-          <p>把大模型解读非编码变异改成由 458 个 DNABERT 转录因子结合模型驱动、LLM 只负责规划与验证的智能体流程。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.08296v1" target="_blank" rel="noopener">OxiGen: Oxidation-State-Aware Crystal Generation</a></h2>
-          <p>把氧化态显式写进晶体生成模型，让 AI 造出的无机材料在电荷配比上更接近真实可合成的晶体。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.04558v1" target="_blank" rel="noopener">ClimateBench v2.0: Probabilistic Climate Model Benchmarking</a></h2>
-          <p>首个把物理可信度、概率化观测打分与分布外泛化三层评测统一到同一套气候模型基准里的协议。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.08400v1" target="_blank" rel="noopener">Atom-JEPA: Joint-Embedding Predictive Architecture for 3D Atomistic Systems</a></h2>
-          <p>把 JEPA 联合嵌入预测架构首次系统性搬到 3D 原子体系上，用纯无标注结构数据预训练。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">蛋白质/结构</span>
-          <h2><a href="https://arxiv.org/abs/2610.07607v1" target="_blank" rel="noopener">Linear Fitness Subspace in Protein Language Models Enables Sample-Efficient Directed Evolution</a></h2>
-          <p>提出线性适应度子空间假设：蛋白质语言模型表示中只有少数方向决定适应度，可在极少标注样本下高效做定向进化。</p>
+          <span class="field">科学基础模型</span>
+          <h2><a href="https://arxiv.org/abs/2610.13855v1" target="_blank" rel="noopener">SLICE: Sequential Likelihood-Free Inference via Conformal E-Values</a></h2>
+          <p>为「能模拟但写不出概率公式」的科学模型，提供了一套可随时监控、始终有效的参数置信区间方法，并用神经网络近似最优打分，兼顾严格性与实用性。</p>
         </article>
         
       </div>
@@ -178,15 +166,25 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期最明显的新方向是「多解与可迁移」：Bi-FORK 明确挑战一对一映射假设，MD-LLM-2 和 Atom-JEPA 则把分子模拟从单体系专用模型推向跨体系预训练。另一个变化是气候与地球系统方向集中出现「用 AI 智能体重写科学代码」的实践，legoESM 和 SciExam for ENSO 分别从工程重构和自主建模两个角度切入。此外，基准与数据集建设明显提速，PoreML、RNADyn、ClimateBench v2.0、Enzymatic Reaction Benchmark 在同一周内集中发布，说明社区正从单点方法创新转向可复现的公共评测基础设施。</p>
+      <p>与上一期相比，本期从「能不能生成」转向「生成得对不对、算得准不准」：材料方向首次用数学不变量对大规模 AI 发现结果做去重与基准约束，分子模拟方向则集中补齐振动、酸解离、极化等此前被能量与结构指标掩盖的物理量精度。另一个新动向是推理时算力分配（纳米抗体设计）与免似然统计推断（SLICE）进入 AI4S 工具箱，说明社区开始把「不确定性」和「计算预算」当作一等公民。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注生成模型在分叉多解系统上的下游验证，以及 AI 智能体重写科学代码这一范式能否从气候扩展到其他计算科学领域。</p>
+      <p>下期值得关注 GNoME 类数据集去重后剩余的新材料数量，以及电子密度代理泛函、AutoDrude 这类方法能否从 QM9、聚合物电解质推广到更复杂的凝聚相体系。</p>
       
     </section>
     
 
+    
+    <section class="archive">
+      <h3 class="sub">历史周报</h3>
+      
+      <details class="date-group">
+        <summary>2026-10-05 ~ 2026-10-11 · AI4S 周报 · 10-05 ~ 10-11</summary>
+        <div class="body"><p>本期最鲜明的变化是 AI 代理模型开始放弃「一个输入对应一个输出」的默认假设：Bi-FORK 用生成模型学习高维物理系统的分叉多解，MD-LLM-2 把分子动力学从单蛋白模型升级为可跨蛋白迁移的条件语言模型。与此同时，气候与地球系统方向集中出现「可微分 + 模块化 + 概率化」的重写浪潮，legoESM 用 AI 编程智能体把几十年气候模式代码重构成 JAX 版乐高式模型，ClimateBench v2.0 则首次把物理可信度、概率化打分与分布外泛化统一进同一套基准。材料与分子模拟方向继续向「物理约束写进生成过程」推进：OxiGen 把氧化态显式建模，Physics-Aligned Ground-State Learning 把学习目标对齐到 KS-DFT 方程，等变流匹配直接预测电子密度。数据与基准建设也在加速，PoreML 公开 3.3 TB 多孔介质多相流数据集，RNADyn 给出首个标准化 RNA 分子动力学基准，填补了长期缺乏统一评测的空白。</p></div>
+      </details>
+      
+    </section>
     
   </main>
 </body>
