@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-13 11:25 (北京时间 UTC+8)
+      生成于 2026-10-13 15:00 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 10-12 ~ 10-18</h2>
       <p class="r-range">2026-10-12 ~ 2026-10-18</p>
-      <p class="r-overview">本期最鲜明的信号是「可信度」被摆上台面：材料领域用晶体不变量证明 GNoME 的 220 万种新材料存在大量重复，气候基础模型被曝出跨灾害捷径学习、准确率从 0.81 掉到 0.57-0.64，说明 AI4S 正从「能生成」转向「能验证」。与此同时，物理约束的嵌入方式在升级——不等式约束进入高斯过程 PDE 求解器、电子密度被当作输入并强制满足代理泛函最小值、拉格朗日网络恢复不可约三体相互作用，物理不再只是后处理。生成侧则出现接口层面的变化：自然语言直接生成全原子蛋白质结构、推理时动态分配算力做纳米抗体设计，把「一次押注」改成「按需分配」。分子模拟继续向第一性原理精度靠拢，酸解离常数工作流与可极化 Drude 力场都在缩小与 DFT 的差距。</p>
+      <p class="r-overview">本期最鲜明的信号是「验证」与「约束」开始与「生成」并重：一边是自然语言直接生成蛋白质、RNA 逆设计、纳米抗体推理时算力分配等生成侧新接口，一边是材料数据集重复性审查、地理空间基础模型捷径学习、MLFF 振动性质系统检验等对既有结论的严格复核。方法层面，物理约束被更早地嵌入模型内部——不等式约束进入高斯过程 PDE 求解器、电子密度作为输入并强制满足代理泛函极值、拉格朗日网络恢复不可约三体作用。工程与工具侧，国产框架 PaddleCFD 把流体代理建模、方程发现与外形优化整合为统一入口，降低了 CFD+AI 的使用门槛。整体看，本期工作更强调「可外推、可解释、可复用」，而非单纯刷新单一指标。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -104,73 +104,73 @@
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2610.13917v1" target="_blank" rel="noopener">Designing Protein Structures from Natural Language</a></h2>
-          <p>首个用自然语言直接生成全原子蛋白质结构的模型，把「文字描述」变成蛋白质设计的新接口，类似文生图但对象是蛋白质。</p>
+          <p>首个用自然语言直接生成全原子蛋白质结构的模型，把文字描述变成蛋白质设计的新接口。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2610.13844v1" target="_blank" rel="noopener">Inference-Time Steering Across Scaffolds and Epitopes for Sample-Efficient De Novo Nanobody Design</a></h2>
-          <p>把「生成条件选择」重新定义为推理时的算力分配问题，让模型在多个纳米抗体骨架和靶点表位之间动态分配计算预算，而不是一开始就押注单一配置。</p>
+          <p>把生成条件选择重新定义为推理时的算力分配问题，在多个纳米抗体骨架与靶点表位间动态分配计算预算。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.13639v1" target="_blank" rel="noopener">RetroTAC: Learning Route-Derived Synthetic Accessibility for PROTACs</a></h2>
-          <p>把「合成难度」从静态复杂度打分改成基于逆合成路线的可解释评分，并用机器学习代理模型秒级预测，让大规模 PROTAC 虚拟库筛选第一次能兼顾速度与可解释性。</p>
+          <p>把合成难度从静态复杂度打分改为基于逆合成路线的可解释评分，用代理模型秒级预测，支撑大规模 PROTAC 虚拟库筛选。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.13006v1" target="_blank" rel="noopener">TopoLIA: Topology-Inspired Latent Interaction Attention for Drug Discovery</a></h2>
-          <p>把「拓扑学」同时塞进数据表示和注意力机制：用持久谱刻画蛋白质-配体三维复合物的多尺度几何，用紧凑隐空间替代传统注意力，让信息交换既知道「换多少」也知道「怎么变换」。</p>
+          <p>用持久谱刻画蛋白质-配体复合物多尺度几何，并以紧凑隐空间替代传统注意力，兼顾信息交换的幅度与变换方式。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.13649v1" target="_blank" rel="noopener">Electron-Density-Informed Molecular Property Prediction Using Surrogate Functionals</a></h2>
-          <p>把「电子密度」当作输入喂给机器学习模型，同时强制它满足一个代理泛函的最小值条件，在 QM9 的 7 个广延性质中有 6 个超过现有最好水平，并能外推到更大的分子。</p>
+          <p>把电子密度作为输入并强制满足代理泛函最小值条件，在 QM9 的 7 个广延性质中 6 个超过现有最好水平，且可外推到更大分子。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.13265v1" target="_blank" rel="noopener">Quantitative modeling of acid-base equilibria</a></h2>
-          <p>首次把机器学习势函数、加速采样和核量子效应修正串成一套可复用的工作流，从第一性原理可靠算出水中多种物质的酸解离常数，并验证了跨体系的可迁移性。</p>
+          <p>首次把机器学习势函数、加速采样与核量子效应修正串成可复用工作流，从第一性原理可靠算出水中多种物质的酸解离常数并验证跨体系可迁移性。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.13885v1" target="_blank" rel="noopener">Necessary conditions for benchmarking next-generation AI in materials discovery</a></h2>
-          <p>给「AI 造材料」泼冷水：用晶体不变量证明，号称发现 220 万种新材料的 GNoME 数据集里存在大量重复，并提出下一代 AI 宣称「发现新材料」前必须满足的必要条件。</p>
+          <p>用晶体不变量证明 GNoME 数据集中存在大量重复，并提出下一代 AI 宣称发现新材料前必须满足的基准条件。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.13420v1" target="_blank" rel="noopener">Predicting Nanofabrication Variance: A Conditional Diffusion Model</a></h2>
-          <p>首次用条件扩散模型预测聚焦离子束刻蚀的「结果分布」而非单一确定结果，把纳米加工从确定性预测推进到概率性建模，直接服务于制造感知的设计优化。</p>
+          <p>首次用条件扩散模型预测聚焦离子束刻蚀的结果分布而非单一确定结果，把纳米加工推进到概率性建模。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.13766v1" target="_blank" rel="noopener">Shortcut Learning in Geospatial Foundation Model Embeddings for Cross-Disaster Damage Assessment</a></h2>
-          <p>揭示地理空间基础模型在灾害评估中存在「捷径学习」：换一场没见过的灾害，准确率从约 0.81 骤降到 0.57-0.64，并证明简单的特征变换能改善跨灾害泛化。</p>
+          <p>揭示地理空间基础模型存在捷径学习：换一场未见过灾害，准确率从约 0.81 降至 0.57-0.64，简单特征变换可改善跨灾害泛化。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.13028v1" target="_blank" rel="noopener">Low-Rank Kolmogorov-Arnold Generator Flows for Interpretable Operator Learning</a></h2>
-          <p>把「神经算子」学到的物理规律压缩成低秩符号，既能外推到训练分布之外，又能自动吐出可读的闭式方程，不用再手工解读。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2610.13804v1" target="_blank" rel="noopener">Constrained Probabilistic Numerics: Gaussian Process Solvers for Linear PDEs under Linear Inequality Constraints</a></h2>
-          <p>把「不等式约束」（如非负、单调、无套利）从求解后的修补步骤，变成高斯过程 PDE 求解器里的条件信息，让概率型 PDE 解天然满足物理/金融上的硬性限制。</p>
+          <p>把神经算子学到的物理规律压缩成低秩符号，既能外推到训练分布之外，又能自动输出可读的闭式方程。</p>
         </article>
         
         <article class="card">
           <span class="field">科学基础模型</span>
           <h2><a href="https://arxiv.org/abs/2610.13855v1" target="_blank" rel="noopener">SLICE: Sequential Likelihood-Free Inference via Conformal E-Values</a></h2>
-          <p>为「能模拟但写不出概率公式」的科学模型，提供了一套可随时监控、始终有效的参数置信区间方法，并用神经网络近似最优打分，兼顾严格性与实用性。</p>
+          <p>为能模拟但写不出概率公式的科学模型提供可随时监控、始终有效的参数置信区间方法，并用神经网络近似最优打分。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">科学基础模型</span>
+          <h2><a href="https://github.com/PaddlePaddle/PaddleCFD" target="_blank" rel="noopener">PaddlePaddle/PaddleCFD</a></h2>
+          <p>把流体力学代理建模、方程发现、外形优化与流动控制策略整合进国产框架 PaddlePaddle，为 CFD 提供统一开源入口。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期出现两条明显的新走向：一是「验证与基准」从配角变主角，材料与气候两篇工作分别从数据集重复和跨域泛化两个角度，对已有 AI4S 成果的可信度提出可量化的质疑，这在以往周报中较少见；二是「物理约束的嵌入位置」继续前移，从损失函数正则化走向求解器内部的条件信息（不等式约束 PDE）和输入表示本身（电子密度、拉格朗日量），约束不再只是训练时的软性偏好。此外，推理时算力分配（纳米抗体设计）和自然语言作为设计接口（蛋白质生成）共同指向一个趋势：AI4S 的交互层正在从「调参」转向「调度与描述」。</p>
+      <p>与上一期相比，本期从「能不能生成」转向「生成得对不对、能不能信」：材料领域出现对 GNoME 数据集的重复性审查，气候领域量化了地理空间基础模型的捷径学习，分子模拟领域系统检验了 MLFF 的振动性质误差（约 3 cm⁻¹）。同时，物理约束的嵌入位置前移——不等式约束、电子密度泛函极值、拉格朗日三体作用恢复，都从后处理修补变成模型内部条件。推理时算力分配（纳米抗体设计）与概率性结果分布预测（纳米加工）成为新的方法范式。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注两件事：一是被点名的 GNoME 类数据集重复问题是否会引发材料领域对「AI 发现新材料」宣称标准的公开回应或新基准；二是推理时算力分配与自然语言接口这两类方法能否从单点工作扩展成可复用的通用范式。</p>
+      <p>下期值得关注：约束/验证机制能否从单点案例扩展为跨领域通用基准，以及推理时算力分配、概率性分布预测这两类范式是否会在蛋白质与材料设计中形成可复用的工程模板。</p>
       
     </section>
     
