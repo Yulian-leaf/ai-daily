@@ -79,12 +79,12 @@
     <div class="brand">AI4S-DAILY</div>
     
     <h1 class="title">AI4S 周报 · 10-12 ~ 10-18</h1>
-    <p class="slogan">「从生成到可信，AI4S 补上物理与评测这一课」</p>
-    <p class="range">2026-10-12 ~ 2026-10-18 · 2026-10-14 13:15 (北京时间 UTC+8)</p>
+    <p class="slogan">「从生成到可信：AI4S 补上物理与工程这一课」</p>
+    <p class="range">2026-10-12 ~ 2026-10-18 · 2026-10-14 15:27 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期 AI4S 的主旋律是「把物理约束和评测标准补回来」：材料领域用晶体不变量证明 GNoME 的 220 万种新材料存在大量重复，给「AI 造材料」的宣称立下必要条件；分子模拟与 PDE 方向则把电子密度、不等式约束、不可约三体相互作用等硬物理塞进模型结构，而非事后修补。蛋白质与药物方向继续把「生成接口」推向自然语言和推理时算力分配，RNA 逆设计首次用多目标强化学习同时优化 6 项指标。气候地球领域出现两条清晰路线对比——直接学高分辨率演化优于粗分辨率+降尺度，同时地理空间基础模型的「捷径学习」被量化揭示。工具链层面，PINN、CFD、N 体模拟器纷纷从论文代码走向可微分、可复现的工程化开源项目。</p>
+  <p class="overview">本期最鲜明的信号是「可信度」取代「生成能力」成为主线：材料领域用晶体不变量证明 GNoME 的 220 万种「新材料」存在大量重复，地理空间基础模型在跨灾害评估中准确率从 0.81 掉到 0.57-0.64，都是对既有宣称的直接检验。与此同时，物理约束被更彻底地写进模型结构——不等式约束进入高斯过程 PDE 求解器、凸性约束进入超弹性代理模型、代理泛函最小值条件进入电子密度预测。海洋模拟给出了路线级结论：直接学高分辨率演化优于「粗分辨率+降尺度」，中尺度涡旋信号只有前者保得住。工具链层面，PINN、CFD、N 体模拟、地震成像都在从论文代码走向可复用工程件。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -176,12 +176,12 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期最明显的变化是「评测与约束」从配角变成主角：材料领域开始用数学不变量审计 AI 的发现宣称，气候领域量化了基础模型的捷径学习，分子模拟则把电子密度、不等式约束、不可约三体相互作用等硬物理写进模型结构而非事后修补。另一个新方向是「推理时算力分配」——纳米抗体设计把条件选择重新定义为推理时的计算预算分配，RNA 逆设计用在线强化学习同时优化 6 项指标，生成模型正从「一次前向」走向「多步决策」。工具链层面，PINN、CFD、N 体模拟器集中开源，AI4S 的工程化基础设施在加速补齐。</p>
+  <p class="trend">与上一期相比，风向从「能不能生成」转向「生成得对不对、可不可信」。三个新变化：一是基准与证伪类工作集中出现，材料与地理空间两个方向都出现了对既有大规模宣称的直接检验；二是物理约束的嵌入位置从损失函数前移到模型结构与求解器内部（不等式约束、凸性、泛函最小值条件）；三是海洋模拟给出了路线级结论，直接学高分辨率演化优于粗分辨率加降尺度，这可能影响后续 AI 气候建模的默认范式。工具链侧，PINN、CFD、N 体模拟、地震成像同时出现工程化封装，说明该领域开始积累可复用基础设施。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">3489</span><small>抓取条目</small></div>
+      <div><span class="num">3494</span><small>抓取条目</small></div>
       <div><span class="num">230</span><small>总结</small></div>
       <div><span class="num">230</span><small>已上墙</small></div>
     </div>
@@ -201,37 +201,37 @@
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 47%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 46%"></div></div>
         <b>120</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 79%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 78%"></div></div>
         <b>204</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 34%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 33%"></div></div>
         <b>87</b>
       </div>
       
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 22%"></div></div>
-        <b>57</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 21%"></div></div>
+        <b>56</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>257</b>
+        <b>261</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 34%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 33%"></div></div>
         <b>87</b>
       </div>
       

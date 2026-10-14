@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="weekly.html">周报 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-14 13:15 (北京时间 UTC+8)
+      生成于 2026-10-14 15:27 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 双周报告 · 10-05 ~ 10-18</h2>
       <p class="r-range">2026-10-05 ~ 2026-10-18</p>
-      <p class="r-overview">这两周 AI4S 的主旋律是「把物理约束和可迁移性写进模型结构」，而不是靠更大数据堆精度：分子模拟领域集中出现把电子密度、KS-DFT 方程、键合/非键合参数一致性、拉格朗日三体相互作用等物理量直接作为学习目标或约束的工作，材料领域则把氧化态、分叉多解、晶粒几何、磁序本征模等先验显式建模。蛋白质方向的重心从「单靶点结构预测」转向「自然语言接口、多组分复合物、跨骨架推理时算力分配」等更工程化的设计问题。气候地球领域出现两条并行路线：一条是把几十年 Fortran 气候模式用 AI 智能体重写成可微分 JAX（legoESM、Fortran→JAX 翻译评测），另一条是概率化/集合化预报（Xaurora、EC-EarthFlow、S2S-JEPA）与基准建设（ClimateBench v2.0）。第一周偏「单点方法创新」（如 Atom-JEPA、OxiGen、LFS 假设、APOD），第二周明显转向「系统级与评测级工作」：legoESM、PoreML、RNADyn、ClimateBench v2.0、SciExam for ENSO、GNoME 重复性质疑等，说明社区开始从「能不能做」转向「怎么统一比较、怎么保证可复现与可外推」。</p>
+      <p class="r-overview">这两周 AI4S 的主旋律是「把物理约束和可迁移性写进模型结构」，而不是靠更大数据堆精度：分子模拟领域集中出现把电子密度、KS-DFT 方程、键合/非键合参数一致性、拉格朗日三体相互作用等物理先验直接嵌入学习目标的工作，材料领域则把氧化态、分叉多解、几何感知姿态等真实约束显式建模。蛋白质方向的重心从「单靶点结构预测」转向「自然语言接口、多靶点抗体、跨骨架推理时算力分配」等更工程化的设计问题。气候地球领域两周内从「模型架构创新」快速转向「基准与评测」：ClimateBench v2.0、SciExam for ENSO、灾害评估捷径学习、LLM 翻译 Fortran 到 JAX 等条目密集出现。第一周（10-05 ~ 10-11）以方法创新为主，molsim 与 materials 占据多数；第二周（10-12 ~ 10-18）明显转向「评测、基准、工程化工具链与可复现性」，scifm 与 climate 的基准/工具类条目占比上升，同时出现对 GNoME 数据集重复问题的质疑，说明社区开始给前两年的乐观叙事做体检。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -116,19 +116,19 @@
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.08495v1" target="_blank" rel="noopener">Information-Dense Synthesis for Molecular Discovery</a></h2>
-          <p>把逐个设计-合成-测试换成整池合成与反解活性归属，理论上把找最优分子的实验次数从 O(d) 降到 O(log d)。</p>
+          <p>把逐个设计-合成-测试换成整池合成与反解归属，理论上把找最优分子的实验次数从 O(d) 降到 O(log d)。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.06227v1" target="_blank" rel="noopener">APOD: reasoning-guided agentic population ordinary differential equation discovery for pharmacological digital twins</a></h2>
-          <p>用语言模型智能体从稀疏带噪人群数据中自动推导 ODE，构建带个体差异的药理学数字孪生。</p>
+          <p>用语言模型智能体从稀疏带噪人群数据中自动推出 ODE，构建带个体差异的药理学数字孪生。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.13649v1" target="_blank" rel="noopener">Electron-Density-Informed Molecular Property Prediction Using Surrogate Functionals</a></h2>
-          <p>把电子密度作为输入并强制满足代理泛函最小值条件，QM9 七个广延性质中六个超过现有最好水平。</p>
+          <p>把电子密度当输入并强制满足代理泛函最小值条件，QM9 七个广延性质中六个超过现有最好水平。</p>
         </article>
         
         <article class="card">
@@ -146,25 +146,25 @@
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.13885v1" target="_blank" rel="noopener">Necessary conditions for benchmarking next-generation AI in materials discovery</a></h2>
-          <p>用晶体不变量证明 GNoME 的 220 万种新材料中存在大量重复，并提出下一代 AI 宣称发现新材料前必须满足的条件。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.11883v1" target="_blank" rel="noopener">legoESM: a modular, differentiable, multiscale, AI-ready Earth system model built with AI agents</a></h2>
-          <p>用 AI 编程智能体把几十年气候模式代码重写成 JAX 版乐高式地球系统模型，从米级湍流到全球气候端到端可微分。</p>
+          <p>用晶体不变量证明 GNoME 数据集中存在大量重复，并提出下一代 AI 宣称发现新材料前必须满足的条件。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.04558v1" target="_blank" rel="noopener">ClimateBench v2.0: Probabilistic Climate Model Benchmarking</a></h2>
-          <p>首个把物理可信度、概率化观测打分与分布外泛化三层评测统一到同一套气候模型基准的协议。</p>
+          <p>首个把物理可信度、概率化观测打分与分布外泛化三层评测统一的气候模型基准，物理与数据模型同台比较。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">气候地球</span>
+          <h2><a href="https://arxiv.org/abs/2610.11883v1" target="_blank" rel="noopener">legoESM: a modular, differentiable, multiscale, AI-ready Earth system model built with AI agents</a></h2>
+          <p>用 AI 编程智能体把几十年气候模式代码重写成 JAX 版乐高式地球系统模型，端到端可微分。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.13028v1" target="_blank" rel="noopener">Low-Rank Kolmogorov-Arnold Generator Flows for Interpretable Operator Learning</a></h2>
-          <p>把神经算子学到的物理规律压缩成低秩符号，既能外推到训练分布之外，又能自动吐出可读闭式方程。</p>
+          <p>把神经算子学到的物理规律压缩成低秩符号，既能外推又能自动吐出可读的闭式方程。</p>
         </article>
         
         <article class="card">
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>跨周对比看，molsim 是这两周最密集的方向，从第一周的力场一致性、JEPA 预训练、优化器改写，到第二周的电子密度代理泛函、酸解离常数工作流、可极化 Drude 力场、三体相互作用恢复，条目数从约 8 条增至约 12 条，且主题从「表示学习」明显转向「物理量对齐」。materials 同样升温，第一周偏生成模型（OxiGen、分子晶体流匹配），第二周转向评测与质疑（GNoME 重复性、uMLIP 高温弹性基准、Martini 3 结合自由能评测），说明领域开始自我校准。climate 从第一周的预报模型创新（Xaurora、EC-EarthFlow、S2S-JEPA）转向第二周的系统级工程与基准（legoESM、Fortran→JAX 翻译、ClimateBench v2.0、SciExam for ENSO），「AI 智能体写气候模式」成为新浮现方向。protein 热度维持高位但重心迁移：第一周偏表示与适应度（LFS、隐语言自回归、密码子优化），第二周偏设计接口与工程效率（自然语言生成结构、双特异性抗体、TurboPairFormer 三角注意力内核）。相对降温的是纯 ai4math/PDE 求解条目，从第一周的多条（S²-PINN、约束概率数值、神经特征映射）缩减到第二周以工具链（underPINN、asdex）为主，方法创新密度下降。scifm 则从零散工具（PINNeAPPle、PaddleCFD）转向更系统的推理与采样框架（SLICE、β-Flow、LLM 用先验还是反馈）。</p>
+      <p>跨周对比看，molsim 与 materials 是这两周最密集的两个方向，合计约占全部条目的四成，但内部结构在变化：第一周 molsim 以「新模型/新架构」为主（Atom-JEPA、MD-LLM-2、NucleoNet、Drude 力场），第二周明显转向「物理一致性检验与评测」（MLFF 振动性质精度、Martini 3 结合自由能系统评估、uMLIP 高温弹性基准），从造模型转向验模型。climate 是热度上升最明显的领域：第一周以架构创新为主（EC-EarthFlow、Xaurora、S2S-JEPA），第二周集中出现 ClimateBench v2.0、SciExam for ENSO、灾害评估捷径学习、LLM 翻译 Fortran 到 JAX、公里级区域预报复用全球大模型等基准与工程条目，两周内 climate 条目从约 6 条增至约 12 条，且第二周过半是评测/工具类。protein 方向第一周偏生成与设计（OFAntibody、隐语言自回归生成、密码子优化），第二周转向推理时算力分配、自然语言接口与训练效率（TurboPairFormer 三角注意力内核），工程化色彩增强。scifm 从第一周的 PINN 工具链与 PDE 预训练，扩展到第二周的自动稀疏微分（asdex）、序列化无似然推断（SLICE）、扩散/流后验采样统一框架（β-Flow），工具链与推断理论并进。新浮现的方向有两个：一是「AI 造材料的可信度审计」，以 GNoME 重复性质疑为代表，可能带动一批数据集去重与基准重估工作；二是「AI 智能体做科研的元研究」，如 Prior or Feedback 拆解 LLM 智能体微调决策依据、SciExam for ENSO 评测智能体自主建模能力，说明社区开始系统研究 AI 科学家本身的行为而非只看结果。相对降温的是纯「又一个更强的预测模型」类工作，drug 方向两周条目数量稳定但缺少方法论层面的新范式，更多是把已有生成/强化学习框架套到新任务（PROTAC、RNA 逆设计、拓扑注意力）。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下两周值得重点跟踪两条线：一是「AI 智能体重写科学代码」能否从气候扩展到分子模拟与材料计算，并给出可复现的性能对比；二是物理约束型模型（电子密度、KS-DFT 对齐、分叉生成）在分布外泛化上的量化收益能否被独立基准（如 ClimateBench v2.0、RNADyn、PoreML）验证。</p>
+      <p>下两周值得重点跟踪两条线：一是材料与分子模拟领域的「可信度审计」是否会从单点质疑扩散为系统性数据集重估与基准重建；二是气候与 scifm 的评测/工具链建设能否沉淀为社区通用标准，尤其是 ClimateBench v2.0 与 SciExam 类无标准答案评测的后续采用情况。</p>
       
     </section>
     

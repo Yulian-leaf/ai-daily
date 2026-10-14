@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-14 13:15 (北京时间 UTC+8)
+      生成于 2026-10-14 15:27 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 10-12 ~ 10-18</h2>
       <p class="r-range">2026-10-12 ~ 2026-10-18</p>
-      <p class="r-overview">本期 AI4S 的主旋律是「把物理约束和评测标准补回来」：材料领域用晶体不变量证明 GNoME 的 220 万种新材料存在大量重复，给「AI 造材料」的宣称立下必要条件；分子模拟与 PDE 方向则把电子密度、不等式约束、不可约三体相互作用等硬物理塞进模型结构，而非事后修补。蛋白质与药物方向继续把「生成接口」推向自然语言和推理时算力分配，RNA 逆设计首次用多目标强化学习同时优化 6 项指标。气候地球领域出现两条清晰路线对比——直接学高分辨率演化优于粗分辨率+降尺度，同时地理空间基础模型的「捷径学习」被量化揭示。工具链层面，PINN、CFD、N 体模拟器纷纷从论文代码走向可微分、可复现的工程化开源项目。</p>
+      <p class="r-overview">本期最鲜明的信号是「可信度」取代「生成能力」成为主线：材料领域用晶体不变量证明 GNoME 的 220 万种「新材料」存在大量重复，地理空间基础模型在跨灾害评估中准确率从 0.81 掉到 0.57-0.64，都是对既有宣称的直接检验。与此同时，物理约束被更彻底地写进模型结构——不等式约束进入高斯过程 PDE 求解器、凸性约束进入超弹性代理模型、代理泛函最小值条件进入电子密度预测。海洋模拟给出了路线级结论：直接学高分辨率演化优于「粗分辨率+降尺度」，中尺度涡旋信号只有前者保得住。工具链层面，PINN、CFD、N 体模拟、地震成像都在从论文代码走向可复用工程件。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -104,73 +104,73 @@
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2610.13917v1" target="_blank" rel="noopener">Designing Protein Structures from Natural Language</a></h2>
-          <p>首个用自然语言直接生成全原子蛋白质结构的模型，把「文字描述」变成蛋白质设计的新接口。</p>
+          <p>首个用自然语言直接生成全原子蛋白质结构的模型，把文字描述变成蛋白质设计的新接口。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2610.13844v1" target="_blank" rel="noopener">Inference-Time Steering Across Scaffolds and Epitopes for Sample-Efficient De Novo Nanobody Design</a></h2>
-          <p>把「生成条件选择」重新定义为推理时的算力分配问题，让模型在多个纳米抗体骨架和靶点表位之间动态分配计算预算。</p>
+          <p>把生成条件选择重新定义为推理时的算力分配问题，让模型在多个纳米抗体骨架与靶点表位间动态分配计算预算。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.13639v1" target="_blank" rel="noopener">RetroTAC: Learning Route-Derived Synthetic Accessibility for PROTACs</a></h2>
-          <p>把「合成难度」从静态复杂度打分改成基于逆合成路线的可解释评分，并用机器学习代理模型秒级预测，兼顾速度与可解释性。</p>
+          <p>把合成难度从静态复杂度打分改成基于逆合成路线的可解释评分，用代理模型秒级预测，兼顾速度与可解释性。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.13006v1" target="_blank" rel="noopener">TopoLIA: Topology-Inspired Latent Interaction Attention for Drug Discovery</a></h2>
-          <p>把拓扑学同时塞进数据表示和注意力机制，用持久谱刻画蛋白质-配体三维复合物的多尺度几何。</p>
+          <p>用持久谱刻画蛋白-配体复合物的多尺度几何，并用紧凑隐空间替代传统注意力，同时决定信息交换的「量」与「变换方式」。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.13649v1" target="_blank" rel="noopener">Electron-Density-Informed Molecular Property Prediction Using Surrogate Functionals</a></h2>
-          <p>把「电子密度」当作输入喂给机器学习模型，同时强制它满足一个代理泛函的最小值条件，在 QM9 的 7 个广延性质中有 6 个超过现有最好水平。</p>
+          <p>把电子密度当输入并强制满足代理泛函最小值条件，QM9 的 7 个广延性质中 6 个超过现有最好水平，且能外推到更大分子。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.13265v1" target="_blank" rel="noopener">Quantitative modeling of acid-base equilibria</a></h2>
-          <p>首次把机器学习势函数、加速采样和核量子效应修正串成一套可复用的工作流，从第一性原理可靠算出水中多种物质的酸解离常数。</p>
+          <p>首次把机器学习势函数、加速采样与核量子效应修正串成可复用工作流，从第一性原理可靠算出水中多种物质的酸解离常数。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.13885v1" target="_blank" rel="noopener">Necessary conditions for benchmarking next-generation AI in materials discovery</a></h2>
-          <p>用晶体不变量证明 GNoME 数据集里存在大量重复，并提出下一代 AI 宣称「发现新材料」前必须满足的必要条件。</p>
+          <p>用晶体不变量证明 GNoME 号称的 220 万种新材料中存在大量重复，并提出下一代 AI 宣称「发现新材料」前必须满足的条件。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.12965v1" target="_blank" rel="noopener">High-Throughput Discovery of Chiral Carbon-Boron Semimetals with Weyl Topology and Phonon-Mediated Superconductivity</a></h2>
-          <p>用高通量计算从近千个碳硼候选结构中筛出6种稳定的手性拓扑半金属，其中一种同时具备超导性，超导转变温度达31.1 K。</p>
+          <h2><a href="https://arxiv.org/abs/2610.12801v1" target="_blank" rel="noopener">Polyconvex neural-network surrogates with learned paired directional features for anisotropic hyperelastic homogenization</a></h2>
+          <p>把物理约束直接写进网络结构，让各向异性超弹性等效响应代理模型在数据之外也不失效，并给出「保证 vs 精度」的量化对比。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.14645v1" target="_blank" rel="noopener">Learning native eddy-resolving ocean dynamics outperforms coarse emulation and downscaling</a></h2>
-          <p>首次系统对比「粗分辨率演化+降尺度」与「直接学高分辨率演化」两条AI海洋模拟路线，证明后者才能保住中尺度涡旋信号。</p>
+          <p>首次系统对比「粗分辨率演化+降尺度」与「直接学高分辨率演化」，证明只有后者能保住中尺度涡旋信号。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.13766v1" target="_blank" rel="noopener">Shortcut Learning in Geospatial Foundation Model Embeddings for Cross-Disaster Damage Assessment</a></h2>
-          <p>揭示地理空间基础模型在灾害评估中存在「捷径学习」：换一场没见过的灾害，准确率从约0.81骤降到0.57-0.64。</p>
+          <p>揭示地理空间基础模型存在捷径学习：换一场没见过的灾害，准确率从约 0.81 骤降到 0.57-0.64。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.13028v1" target="_blank" rel="noopener">Low-Rank Kolmogorov-Arnold Generator Flows for Interpretable Operator Learning</a></h2>
-          <p>把「神经算子」学到的物理规律压缩成低秩符号，既能外推到训练分布之外，又能自动吐出可读的闭式方程。</p>
+          <p>把神经算子学到的物理规律压缩成低秩符号，既能外推到训练分布之外，又能自动吐出可读的闭式方程。</p>
         </article>
         
         <article class="card">
           <span class="field">科学基础模型</span>
           <h2><a href="https://arxiv.org/abs/2610.13855v1" target="_blank" rel="noopener">SLICE: Sequential Likelihood-Free Inference via Conformal E-Values</a></h2>
-          <p>为「能模拟但写不出概率公式」的科学模型，提供了一套可随时监控、始终有效的参数置信区间方法。</p>
+          <p>为「能模拟但写不出概率公式」的科学模型提供可随时监控、始终有效的参数置信区间，并用神经网络近似最优打分。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期最明显的变化是「评测与约束」从配角变成主角：材料领域开始用数学不变量审计 AI 的发现宣称，气候领域量化了基础模型的捷径学习，分子模拟则把电子密度、不等式约束、不可约三体相互作用等硬物理写进模型结构而非事后修补。另一个新方向是「推理时算力分配」——纳米抗体设计把条件选择重新定义为推理时的计算预算分配，RNA 逆设计用在线强化学习同时优化 6 项指标，生成模型正从「一次前向」走向「多步决策」。工具链层面，PINN、CFD、N 体模拟器集中开源，AI4S 的工程化基础设施在加速补齐。</p>
+      <p>与上一期相比，风向从「能不能生成」转向「生成得对不对、可不可信」。三个新变化：一是基准与证伪类工作集中出现，材料与地理空间两个方向都出现了对既有大规模宣称的直接检验；二是物理约束的嵌入位置从损失函数前移到模型结构与求解器内部（不等式约束、凸性、泛函最小值条件）；三是海洋模拟给出了路线级结论，直接学高分辨率演化优于粗分辨率加降尺度，这可能影响后续 AI 气候建模的默认范式。工具链侧，PINN、CFD、N 体模拟、地震成像同时出现工程化封装，说明该领域开始积累可复用基础设施。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注：材料领域「必要条件」提出后，是否会有团队用晶体不变量重新审计其他 AI 材料数据集；以及推理时算力分配、多目标强化学习这类「生成后决策」范式能否从蛋白质、RNA 扩展到分子与材料设计。</p>
+      <p>下期值得关注两点：一是被证伪压力倒逼出的新材料基准与去重方法会如何落地，二是物理约束内嵌类模型能否从单点验证走向跨体系可迁移。</p>
       
     </section>
     
