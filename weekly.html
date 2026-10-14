@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-13 17:17 (北京时间 UTC+8)
+      生成于 2026-10-14 09:43 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 10-12 ~ 10-18</h2>
       <p class="r-range">2026-10-12 ~ 2026-10-18</p>
-      <p class="r-overview">本期 AI4S 的主旋律是「把物理约束和可验证性塞回模型里」：从电子密度、拉格朗日量到不等式约束，研究者不再满足于拟合数据，而是要求模型满足守恒律、最小作用量原理或硬性物理边界。与此同时，蛋白质与 RNA 设计开始从「生成一个结构」转向「推理时动态分配算力」和「多目标在线优化」，把设计问题重新定义为资源分配问题。材料领域则出现明显的「泼冷水」与「补短板」倾向：一边用晶体不变量证明 GNoME 数据集存在大量重复，一边用条件扩散模型预测纳米加工的方差而非均值。整体看，本期工作更强调外推能力、可解释性和跨体系迁移，而非单纯刷榜。</p>
+      <p class="r-overview">本期最鲜明的信号是「可信度」被摆上台面：材料领域用晶体不变量证明 GNoME 的 220 万种新材料存在大量重复，地理空间基础模型在跨灾害评估中准确率从 0.81 掉到 0.57-0.64，说明「捷径学习」仍是通病。与此同时，物理约束正从损失函数搬进网络结构和求解器内部——多凸神经网络代理、高斯过程不等式约束 PDE 求解器、拉格朗日网络恢复三体相互作用，都在让模型在数据之外也不失效。分子模拟继续向「第一性原理精度 + 工程可用性」推进：可极化 Drude 力场端到端学习、酸解离常数工作流、振动性质系统检验，把 MLFF 的适用边界一条条量出来。蛋白质与药物方向则从「能不能生成」转向「怎么生成得可控、可合成、可筛选」，自然语言生成全原子结构、推理时算力分配、逆合成路线打分是三条代表性路径。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -116,7 +116,7 @@
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.13639v1" target="_blank" rel="noopener">RetroTAC: Learning Route-Derived Synthetic Accessibility for PROTACs</a></h2>
-          <p>把「合成难度」从静态复杂度打分改成基于逆合成路线的可解释评分，并用机器学习代理模型秒级预测，让大规模 PROTAC 虚拟库筛选第一次能兼顾速度与可解释性。</p>
+          <p>把「合成难度」从静态复杂度打分改成基于逆合成路线的可解释评分，并用机器学习代理模型秒级预测，让大规模 PROTAC 虚拟库筛选第一次能兼顾速度与可合成性。</p>
         </article>
         
         <article class="card">
@@ -151,8 +151,14 @@
         
         <article class="card">
           <span class="field">气候地球</span>
+          <h2><a href="https://arxiv.org/abs/2610.14645v1" target="_blank" rel="noopener">Learning native eddy-resolving ocean dynamics outperforms coarse emulation and downscaling</a></h2>
+          <p>首次系统对比「粗分辨率演化+降尺度」与「直接学高分辨率演化」两条 AI 海洋模拟路线，证明后者才能保住中尺度涡旋信号，为 AI 海洋建模指明方向。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.13766v1" target="_blank" rel="noopener">Shortcut Learning in Geospatial Foundation Model Embeddings for Cross-Disaster Damage Assessment</a></h2>
-          <p>揭示地理空间基础模型在灾害评估中存在「捷径学习」：换一场没见过的灾害，准确率从约0.81骤降到0.57-0.64，并证明简单的特征变换能改善跨灾害泛化。</p>
+          <p>揭示地理空间基础模型在灾害评估中存在「捷径学习」：换一场没见过的灾害，准确率从约 0.81 骤降到 0.57-0.64，并证明简单的特征变换能改善跨灾害泛化。</p>
         </article>
         
         <article class="card">
@@ -162,15 +168,9 @@
         </article>
         
         <article class="card">
-          <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2610.13804v1" target="_blank" rel="noopener">Constrained Probabilistic Numerics: Gaussian Process Solvers for Linear PDEs under Linear Inequality Constraints</a></h2>
-          <p>把「不等式约束」（如非负、单调、无套利）从求解后的修补步骤，变成高斯过程 PDE 求解器里的条件信息，让概率型 PDE 解天然满足物理/金融上的硬性限制。</p>
-        </article>
-        
-        <article class="card">
           <span class="field">科学基础模型</span>
-          <h2><a href="https://arxiv.org/abs/2610.13855v1" target="_blank" rel="noopener">SLICE: Sequential Likelihood-Free Inference via Conformal E-Values</a></h2>
-          <p>为「能模拟但写不出概率公式」的科学模型，提供了一套可随时监控、始终有效的参数置信区间方法，并用神经网络近似最优打分，兼顾严格性与实用性。</p>
+          <h2><a href="https://arxiv.org/abs/2610.10398v1" target="_blank" rel="noopener">Cross-Domain Pretraining for Steady-State Neural CFD Surrogates</a></h2>
+          <p>首次系统验证：把不同几何、边界条件和精度的流体仿真数据混在一起做预训练，能让神经 CFD 代理模型在新场景下误差降低 2-3 倍，且只需 1/8 的样本量。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期最明显的变化是「物理约束」从软正则变成硬条件：电子密度代理泛函、拉格朗日神经网络、不等式约束高斯过程求解器，都在把守恒律和边界条件写进模型内部，而不是靠损失函数惩罚。另一个新方向是「推理时算力分配」——纳米抗体设计不再一次性押注单一骨架，而是动态分配计算预算，这与蛋白质语言模型生成全原子结构形成互补。材料领域则出现「先验证再宣称」的反思潮，GNoME 数据集的重复性问题可能推动社区建立更严格的发现基准。</p>
+      <p>与上一期相比，本期出现三个明显转向：一是「评测与证伪」成为独立议题，材料领域的 GNoME 重复性质疑和气候领域的跨灾害捷径学习，都是对既有 AI4S 成果的逆向检验，而非新模型发布；二是物理约束的嵌入位置从损失函数前移到网络结构与求解器内部，多凸神经网络代理、高斯过程不等式约束 PDE、拉格朗日网络三体相互作用恢复都属此类；三是分子模拟开始系统性地「量边界」，振动性质误差约 3 cm⁻¹、酸解离常数跨体系可迁移、可极化力场成本仅 1.20 倍，说明 MLFF 正从演示走向可验收。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注：自然语言生成蛋白质结构能否与推理时算力分配结合，形成「描述-预算-结构」的端到端设计闭环；以及材料发现领域是否会因 GNoME 重复性问题而出现新的基准数据集或验证协议。</p>
+      <p>下期值得关注两条线：一是被证伪或质疑的数据集与基准（如 GNoME）是否会催生新的材料发现评测标准；二是推理时算力分配、跨域预训练这类「不重训模型、只改推理与数据配比」的方法，能否在蛋白质设计与 CFD 代理之外继续扩散。</p>
       
     </section>
     
