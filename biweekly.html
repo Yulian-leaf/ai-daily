@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="weekly.html">周报 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-15 13:02 (北京时间 UTC+8)
+      生成于 2026-10-15 15:18 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 双周报告 · 10-05 ~ 10-18</h2>
       <p class="r-range">2026-10-05 ~ 2026-10-18</p>
-      <p class="r-overview">这两周 AI4S 的主旋律是「从预测走向生成与设计」：蛋白质领域连续出现金属蛋白酶、半胱氨酸蛋白酶的从头设计，材料领域把氧化态、分叉解、晶格不变量写进生成模型，气候领域则把深对流、集合预报、海洋中尺度涡旋整体交给神经网络。第一周（10-05 ~ 10-11）偏「打地基」——大量基准、数据集与工具链（RNADyn、PoreML、ClimateBench v2.0、PINNeAPPle、asdex）集中发布，重点在把评测和工程化补齐。第二周（10-12 ~ 10-18）明显转向「上强度」——从头设计酶、双特异性抗体、百万原子莫尔势、公里级区域预报、770 万配方筛选等系统级成果密集出现，同时开始出现对 AI 宣称的冷静校验（GNoME 重复结构、地理空间基础模型的捷径学习）。整体看，AI4S 正从「单点精度竞赛」转向「可编程、可外推、可工程化」的系统能力比拼。</p>
+      <p class="r-overview">这两周 AI4S 的主线是「从拟合走向生成与设计」：蛋白质领域连续出现金属蛋白酶、半胱氨酸蛋白酶的从头设计，材料领域出现氧化态感知晶体生成与电子密度生成模型，气候领域则把深对流、海洋涡旋、次季节预报整体交给神经网络。第一周（10-05 ~ 10-11）偏重「工具与基准」——PoreML、RNADyn、ClimateBench v2.0、PINNeAPPle 等一批数据集、基准和工程框架集中落地；第二周（10-12 ~ 10-18）明显转向「端到端系统」——legoESM 用 AI 智能体重写地球系统模型、Xaurora 把确定性天气大模型改造成集合预报、AtomWorld-Mirror 用世界模型把原子模拟加速 10^3~10^4 倍。跨周看，气候与材料两条线从「单点模型」升级为「可微分、可组合的系统」；分子模拟则从「训一个模型」转向「跨体系可迁移 + 物理约束对齐」。一个反复出现的信号是：评测方式本身开始被当作科学问题（极端高温评测、GNoME 去重、捷径学习），说明这个领域正在从刷榜转向较真。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -104,31 +104,37 @@
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://www.nature.com/articles/s41586-026-11167-2" target="_blank" rel="noopener">Computational design of metalloproteases</a></h2>
-          <p>用 RFdiffusion 从零设计出含锌活性位点的金属蛋白酶，把造酶从改造天然酶推进到可编程的从头设计，且活性很高。</p>
+          <p>用 RFdiffusion 从零设计出含锌活性位点的金属蛋白酶，把造酶从改造天然酶推进到可编程的从头设计。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://www.nature.com/articles/s41586-026-11143-w" target="_blank" rel="noopener">De novo design of cysteine proteases</a></h2>
-          <p>首次从头设计出半胱氨酸蛋白酶，切割位置由序列决定，意味着酶功能可以像写代码一样被定制。</p>
+          <p>首次从头设计出半胱氨酸蛋白酶，切割位置由序列决定，酶功能可以像写代码一样被定制。</p>
         </article>
         
         <article class="card">
-          <span class="field">药物发现</span>
-          <h2><a href="https://arxiv.org/abs/2610.08495v1" target="_blank" rel="noopener">Information-Dense Synthesis for Molecular Discovery</a></h2>
-          <p>把逐个设计-合成-测试换成合成复杂混合物、整池测试、再反解活性归属，理论上把找最优所需实验次数从 O(d) 降到 O(log d)。</p>
+          <span class="field">材料科学</span>
+          <h2><a href="https://arxiv.org/abs/2610.19919v1" target="_blank" rel="noopener">Beyond DFT electronic band structures via dual-space orbital learning</a></h2>
+          <p>用便宜的 PBE 计算加轨道信息直接预测 HSE06 能带，近 6000 种三维材料上平均误差仅 0.17 eV。</p>
         </article>
         
         <article class="card">
-          <span class="field">药物发现</span>
-          <h2><a href="https://arxiv.org/abs/2610.06227v1" target="_blank" rel="noopener">APOD: reasoning-guided agentic population ordinary differential equation discovery for pharmacological digital twins</a></h2>
-          <p>用语言模型智能体自动从稀疏带噪人群数据里推出常微分方程，构建带个体差异的药理学数字孪生，把专家手工建模变成自动流程。</p>
+          <span class="field">材料科学</span>
+          <h2><a href="https://arxiv.org/abs/2610.08296v1" target="_blank" rel="noopener">OxiGen: Oxidation-State-Aware Crystal Generation</a></h2>
+          <p>把氧化态显式写进晶体生成模型，让 AI 造出的无机材料在电荷配比上更接近真实可合成的晶体。</p>
         </article>
         
         <article class="card">
-          <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.20436v1" target="_blank" rel="noopener">LAO+: Focused, Multi-Replica Accelerated Orthogonal Sampling for Robust Binding Free Energy Predictions</a></h2>
-          <p>把配体解绑自由能计算中最慢的口袋重新进水一步单独加速，配合多副本采样，在 63 纳秒采样下把结合自由能误差压到 0.83 kcal/mol。</p>
+          <span class="field">气候地球</span>
+          <h2><a href="https://arxiv.org/abs/2610.20405v1" target="_blank" rel="noopener">Improved Precipitation Variability in the Community Atmosphere Model through Implementation of a Neural-Network Deep Convection Scheme</a></h2>
+          <p>首次把 CAM6 深对流方案整体换成神经网络，稳定跑过十年且不破坏能量与水分守恒，同时修好小雨与极端降水偏差。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">气候地球</span>
+          <h2><a href="https://arxiv.org/abs/2610.11883v1" target="_blank" rel="noopener">legoESM: a modular, differentiable, multiscale, AI-ready Earth system model built with AI agents</a></h2>
+          <p>用 AI 编程智能体把几十年气候模式代码重写成 JAX 版乐高式地球系统模型，从米级湍流到全球气候一套代码打通且端到端可微分。</p>
         </article>
         
         <article class="card">
@@ -138,39 +144,33 @@
         </article>
         
         <article class="card">
-          <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.19919v1" target="_blank" rel="noopener">Beyond DFT electronic band structures via dual-space orbital learning</a></h2>
-          <p>用便宜的 PBE 计算加轨道信息直接预测更贵的 HSE06 能带能量，在近 6000 种三维材料上平均误差仅 0.17 eV。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.06467v1" target="_blank" rel="noopener">Quantum spectral thermodynamics and active learning enable million-scale exploration of high-entropy ceramics</a></h2>
-          <p>把量子谱热力学和主动学习结合，在 770 万种高熵陶瓷配方里做第一性原理级别筛选，速度提升 10 万倍，并首次量化出约 12 at.% 的溶质阈值。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.20519v1" target="_blank" rel="noopener">Probabilistic AI models outperform numerical weather prediction models on record breaking heat extremes</a></h2>
-          <p>首次系统证明概率型 AI 天气预报模型在破纪录高温极端事件上全面胜过 ECMWF 物理集合预报，并指出此前「AI 不擅长极端事件」源于评测方式不当。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.20405v1" target="_blank" rel="noopener">Improved Precipitation Variability in the Community Atmosphere Model through Implementation of a Neural-Network Deep Convection Scheme</a></h2>
-          <p>首次把 CAM6 气候模式里的深对流方案整体换成神经网络，稳定跑过十年且不破坏能量与水分守恒，同时修好了小雨、极端降水偏差和热带陆地降水日循环相位。</p>
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2610.10298v1" target="_blank" rel="noopener">Physics-Aligned Electronic Ground-State Learning Improves Generalization</a></h2>
+          <p>把机器学习原子间势的学习目标对齐到 KS-DFT 物理方程上，分布外泛化误差大幅下降。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.20363v1" target="_blank" rel="noopener">Fractional is Better: Learnable Derivative Orders in Neural Operator Learning</a></h2>
-          <p>给神经算子喂分数阶导数特征并让导数阶数从数据里自己学出来，理论上证明能改善逼近误差，还发现最优阶数反而小于 PDE 本身阶数。</p>
+          <p>给神经算子喂分数阶导数特征并让阶数从数据里自己学出来，理论上证明能改善逼近误差，且最优阶数常小于 PDE 本身阶数。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">AI4Math/PDE</span>
+          <h2><a href="https://arxiv.org/abs/2610.20369v1" target="_blank" rel="noopener">ReAl: Refine neural operators via aligning dynamical flow</a></h2>
+          <p>给已训练好的 PDE 神经代理模型加即插即用的精修对齐模块，找回被 MSE 丢掉的细尺度结构并抑制长时推演误差累积。</p>
         </article>
         
         <article class="card">
           <span class="field">科学基础模型</span>
           <h2><a href="https://arxiv.org/abs/2610.03265v1" target="_blank" rel="noopener">SPEAR: A Spectral-Disentangled MoE Neural Operator with Knowledge-Guided Expert Aggregation for Large-Scale PDE Pretraining</a></h2>
-          <p>把频谱解耦和专家混合结合做 PDE 基础模型预训练，并用知识引导的专家合并把专家数砍掉一半而精度不降。</p>
+          <p>把频谱解耦与专家混合结合做 PDE 基础模型预训练，用知识引导的专家合并把专家数砍掉一半而精度不降。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">药物发现</span>
+          <h2><a href="https://arxiv.org/abs/2610.08495v1" target="_blank" rel="noopener">Information-Dense Synthesis for Molecular Discovery</a></h2>
+          <p>把逐个设计-合成-测试换成合成复杂混合物、整池测试再反解活性归属，理论上把找最优分子的实验次数从 O(d) 降到 O(log d)。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>跨周对比看，热度上升最明显的是 protein 与 materials：protein 从第一周的评测/工具（TurboPairFormer、Fold'EM、LFS 假设）转向第二周的系统级从头设计（金属蛋白酶、半胱氨酸蛋白酶、双特异性抗体 OFAntibody、自然语言生成全原子结构），两周合计约 15 条，是绝对第一大子领域；materials 从第一周的势函数与生成模型（OxiGen、Equivariant Flow Matching）扩展到第二周的百万原子莫尔势、770 万配方筛选、GNoME 重复性质疑，条目数从约 8 条增至约 12 条。climate 保持高位但重心迁移：第一周偏基准与评测（ClimateBench v2.0、S2S-JEPA、legoESM），第二周转向业务级系统（CAM6 神经网络深对流、公里级区域预报、Xaurora 集合预报、破纪录高温评测），说明气候 AI 正从「能不能做」进入「能不能上业务」。molsim 持续高产（两周合计约 20 条），但主题从第一周的基础模型与力场（Atom-JEPA、Drude 力场、一致力场）转向第二周的采样加速与自由能精度（LAO+、Martini 3 评估、可逆 Stratonovich 扰动）。ai4math 与 scifm 相对平稳，但出现「约束/结构先验」这一新浮现方向：不等式约束高斯过程、分数阶导数、低秩 KAN 生成流、SPEAR 频谱解耦，共同指向「把物理结构写进模型」而非纯堆数据。drug 与 bioinfo 条目数偏少但质量集中，drug 从第一周的合成路线可及性（RetroTAC）转向第二周的信息密集合成与智能体建模（APOD），bioinfo 则出现跨物种神经表征对齐与酶反应统一基准两个新方向。</p>
+      <p>跨周对比看，气候与材料是这两周最活跃的两条线：气候从第一周的「评测与订正」（ClimateBench v2.0、概率偏差订正、S2S-JEPA）转向第二周的「系统级重构」（legoESM、Xaurora、公里级区域预报、LLM 翻译 Fortran 到 JAX），说明社区已不满足于做单个预报模型，开始动气候模式的底层代码。材料则从第一周的「生成与筛选」（OxiGen、分子晶体结构预测、超表面逆设计）延续到第二周的「物理约束与基准反思」（Polyconvex 代理、GNoME 去重、uMLIP 高温弹性评测），生成能力与可信度评估同步推进。分子模拟热度持续且方向切换明显：第一周集中在力场与采样（AutoDrude、酸解离常数、可逆 Stratonovich 扰动），第二周转向「可迁移 + 物理对齐」（MD-LLM-2、Physics-Aligned 基态学习、Atom-JEPA），从「训得准」变成「迁得动」。蛋白质两周都保持高位，但重心从第一周的语言接口与纳米抗体算力分配，转到第二周的从头造酶与双特异性抗体，设计对象从「结构」升级为「功能」。相对降温的是纯 AI4Math 求解器类工作，条目数从第一周的密集出现（S²-PINN、约束概率数值、ghost tasking）转为第二周更多与科学场景绑定（Lagrangian PINN、Koopman 核方法）。新浮现的方向有两个：一是「AI 智能体做科研」从概念走向评测（SciExam for ENSO、Prior or Feedback、legoESM），二是「世界模型式大步长模拟」（AtomWorld-Mirror、RiCo）开始挑战传统逐事件推进范式。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下两周值得重点跟踪两条线：一是「从头设计」能否从酶、抗体延伸到 RNA 与多组分复合物（La-Ribo、MORAD、OFAntibody 的后续验证），二是气候与材料的「业务级/百万级」系统能否给出可复现的基准分数（ClimateBench v2.0、GNoME 质疑后的材料发现新规范）。</p>
+      <p>下两周值得重点跟踪两条线：一是 AI 智能体在真实科研任务中的可复现评测（SciExam for ENSO 之后是否出现更多无标准答案的基准），二是物理约束生成模型能否从「单点演示」走向「跨体系可迁移」（如 OxiGen、Atom-JEPA、MD-LLM-2 的后续验证）。</p>
       
     </section>
     
