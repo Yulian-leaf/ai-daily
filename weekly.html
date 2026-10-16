@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-16 09:05 (北京时间 UTC+8)
+      生成于 2026-10-16 12:52 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 10-12 ~ 10-18</h2>
       <p class="r-range">2026-10-12 ~ 2026-10-18</p>
-      <p class="r-overview">本期最鲜明的信号是「从头设计」与「替换核心模块」两条路线同时推进：蛋白质侧用扩散模型从零造出金属蛋白酶和半胱氨酸蛋白酶，气候侧则把 CAM6 的深对流方案整体换成神经网络并稳定跑过十年。方法层面，物理约束正从训练后的修补变成结构本身——把已知方程编译成网络、把不等式约束写进高斯过程、把守恒写进代理模型。评测与反思也在同步加强：GNoME 数据集被证明存在大量重复，AI 天气预报「不擅长极端事件」的旧结论被归因于评测方式不当。整体看，本期工作更少停留在「跑分」，更多在回答「能不能真的用」。</p>
+      <p class="r-overview">本期最鲜明的信号是「从头设计」与「替换经典模块」两条线同时推进：蛋白质侧连续出现金属蛋白酶、半胱氨酸蛋白酶的从头设计，气候侧则把 CAM6 的深对流方案整体换成神经网络并稳定跑过十年。方法层面，神经算子、PDE 代理模型开始系统性地处理「被 MSE 丢掉的细尺度结构」和「分数阶/低秩可解释表示」，材料与分子模拟则密集出现可迁移势函数、全电子 OF-DFT、可极化力场等基础设施型工作。评测与反思也在同步：GNoME 数据集被指出大量重复，地理空间基础模型被揭示跨灾害捷径学习，AI 极端天气预报的评测方式被重新审视。整体看，本期不是单点刷榜，而是「把 AI 塞进科学计算主干流程」的一周。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -109,8 +109,8 @@
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
-          <h2><a href="https://arxiv.org/abs/2610.13917/v2" target="_blank" rel="noopener">Designing Protein Structures from Natural Language</a></h2>
-          <p>Prompteina 用一句自然语言直接生成全原子蛋白质结构，把蛋白质设计接口变成类似文生图的「一句话指定目标」。</p>
+          <h2><a href="https://www.nature.com/articles/s41586-026-11143-w" target="_blank" rel="noopener">De novo design of cysteine proteases</a></h2>
+          <p>首次从头设计出半胱氨酸蛋白酶，切割位置由序列决定，酶功能可以像写代码一样被定制。</p>
         </article>
         
         <article class="card">
@@ -146,7 +146,7 @@
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.20519v1" target="_blank" rel="noopener">Probabilistic AI models outperform numerical weather prediction models on record breaking heat extremes</a></h2>
-          <p>首次系统证明概率型 AI 天气预报模型在破纪录高温极端事件上全面胜过 ECMWF 物理集合预报，并指出旧结论源于评测方式不当。</p>
+          <p>首次系统证明概率型 AI 天气预报模型在破纪录高温极端事件上全面胜过 ECMWF 物理集合预报，并指出此前「AI 不擅长极端事件」源于评测方式不当。</p>
         </article>
         
         <article class="card">
@@ -157,20 +157,20 @@
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
+          <h2><a href="https://arxiv.org/abs/2610.20369v1" target="_blank" rel="noopener">ReAl: Refine neural operators via aligning dynamical flow</a></h2>
+          <p>给已训练好的 PDE 神经代理模型加一个即插即用的精修+对齐模块，专门找回被 MSE 训练丢掉的细尺度结构并缓解长时推演误差累积。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.20525v1" target="_blank" rel="noopener">The Physics Is the Network: Fast, Training-Free Neural Emulation</a></h2>
           <p>把已知物理方程直接编译成神经网络结构，无需训练即可做高精度仿真，GPU 吞吐量高且随分辨率近似恒定。</p>
         </article>
         
         <article class="card">
-          <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2610.20363v1" target="_blank" rel="noopener">Fractional is Better: Learnable Derivative Orders in Neural Operator Learning</a></h2>
-          <p>给神经算子喂分数阶导数特征并让阶数从数据里自己学出来，理论上证明可改善逼近误差，且发现最优阶数反而小于 PDE 本身阶数。</p>
-        </article>
-        
-        <article class="card">
           <span class="field">科学基础模型</span>
           <h2><a href="https://arxiv.org/abs/2610.10398v1" target="_blank" rel="noopener">Cross-Domain Pretraining for Steady-State Neural CFD Surrogates</a></h2>
-          <p>首次系统验证把不同几何、边界条件和精度的流体仿真数据混合预训练，能让神经 CFD 代理模型在新场景下误差降低 2-3 倍，且只需 1/8 样本量。</p>
+          <p>首次系统验证把不同几何、边界条件和精度的流体仿真数据混在一起预训练，能让神经 CFD 代理模型在新场景下误差降低 2-3 倍，且只需 1/8 样本量。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期从「用 AI 拟合数据」明显转向「用 AI 替换科学流程中的核心模块」：气候模式里的深对流参数化被神经网络整体接管，蛋白质设计从改造天然酶走向从零造酶，PDE 求解出现把方程直接编译成网络、完全绕开训练的路线。同时，物理约束的嵌入方式在升级——从损失函数里的软惩罚，变成网络结构、高斯过程条件信息或可学习算子阶数这类硬约束。另一个新动向是反思性工作集中出现：GNoME 数据集被证伪式检验，AI 极端天气预报的旧结论被重新归因于评测缺陷，说明这个领域开始认真对待「宣称」与「证据」之间的距离。</p>
+      <p>与上一期相比，本期从「单点模型刷指标」明显转向「替换经典科学计算模块并验证长期稳定性」：气候侧出现神经网络深对流方案跑过十年、AI 海洋模拟路线对比；材料与分子侧密集出现可迁移势函数、全电子 OF-DFT、可极化 Drude 力场等基础设施型工作。同时，反思性研究集中出现——GNoME 数据集重复、地理空间基础模型跨灾害捷径学习、AI 极端天气评测方式被重新审视，说明社区开始把「基准是否可信」当作一等公民问题。此外，神经算子方向出现「分数阶导数」「低秩符号化」「物理即网络」等新表示思路，PDE 代理模型正从黑箱拟合走向可解释、可外推的结构化设计。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注两点：一是被替换进气候模式、被从头设计的酶能否在更长时间尺度和更多体系上复现；二是物理约束型代理模型与「免训练仿真」路线在真实工程分辨率下的成本-精度权衡。</p>
+      <p>下期值得关注两条线：一是从头设计酶与自然语言蛋白质设计能否从「能造出来」推进到「活性与稳定性可定量预测」；二是神经网络参数化方案在气候模式中的长期守恒性与极端事件保真度，是否会引出新的评测基准。</p>
       
     </section>
     

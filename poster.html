@@ -80,11 +80,11 @@
     
     <h1 class="title">AI4S 周报 · 10-12 ~ 10-18</h1>
     <p class="slogan">「从造酶到造气候，AI 开始写物理」</p>
-    <p class="range">2026-10-12 ~ 2026-10-18 · 2026-10-16 09:06 (北京时间 UTC+8)</p>
+    <p class="range">2026-10-12 ~ 2026-10-18 · 2026-10-16 12:52 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期最鲜明的信号是「从头设计」与「替换核心模块」两条路线同时推进：蛋白质侧用扩散模型从零造出金属蛋白酶和半胱氨酸蛋白酶，气候侧则把 CAM6 的深对流方案整体换成神经网络并稳定跑过十年。方法层面，物理约束正从训练后的修补变成结构本身——把已知方程编译成网络、把不等式约束写进高斯过程、把守恒写进代理模型。评测与反思也在同步加强：GNoME 数据集被证明存在大量重复，AI 天气预报「不擅长极端事件」的旧结论被归因于评测方式不当。整体看，本期工作更少停留在「跑分」，更多在回答「能不能真的用」。</p>
+  <p class="overview">本期最鲜明的信号是「从头设计」与「替换经典模块」两条线同时推进：蛋白质侧连续出现金属蛋白酶、半胱氨酸蛋白酶的从头设计，气候侧则把 CAM6 的深对流方案整体换成神经网络并稳定跑过十年。方法层面，神经算子、PDE 代理模型开始系统性地处理「被 MSE 丢掉的细尺度结构」和「分数阶/低秩可解释表示」，材料与分子模拟则密集出现可迁移势函数、全电子 OF-DFT、可极化力场等基础设施型工作。评测与反思也在同步：GNoME 数据集被指出大量重复，地理空间基础模型被揭示跨灾害捷径学习，AI 极端天气预报的评测方式被重新审视。整体看，本期不是单点刷榜，而是「把 AI 塞进科学计算主干流程」的一周。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -176,12 +176,12 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期从「用 AI 拟合数据」明显转向「用 AI 替换科学流程中的核心模块」：气候模式里的深对流参数化被神经网络整体接管，蛋白质设计从改造天然酶走向从零造酶，PDE 求解出现把方程直接编译成网络、完全绕开训练的路线。同时，物理约束的嵌入方式在升级——从损失函数里的软惩罚，变成网络结构、高斯过程条件信息或可学习算子阶数这类硬约束。另一个新动向是反思性工作集中出现：GNoME 数据集被证伪式检验，AI 极端天气预报的旧结论被重新归因于评测缺陷，说明这个领域开始认真对待「宣称」与「证据」之间的距离。</p>
+  <p class="trend">与上一期相比，本期从「单点模型刷指标」明显转向「替换经典科学计算模块并验证长期稳定性」：气候侧出现神经网络深对流方案跑过十年、AI 海洋模拟路线对比；材料与分子侧密集出现可迁移势函数、全电子 OF-DFT、可极化 Drude 力场等基础设施型工作。同时，反思性研究集中出现——GNoME 数据集重复、地理空间基础模型跨灾害捷径学习、AI 极端天气评测方式被重新审视，说明社区开始把「基准是否可信」当作一等公民问题。此外，神经算子方向出现「分数阶导数」「低秩符号化」「物理即网络」等新表示思路，PDE 代理模型正从黑箱拟合走向可解释、可外推的结构化设计。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">3699</span><small>抓取条目</small></div>
+      <div><span class="num">3823</span><small>抓取条目</small></div>
       <div><span class="num">250</span><small>总结</small></div>
       <div><span class="num">250</span><small>已上墙</small></div>
     </div>
@@ -189,50 +189,50 @@
       
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 14%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 13%"></div></div>
         <b>36</b>
       </div>
       
       <div class="frow">
         <span class="flabel">💊 药物发现</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 12%"></div></div>
-        <b>32</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 13%"></div></div>
+        <b>35</b>
       </div>
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 43%"></div></div>
-        <b>112</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 45%"></div></div>
+        <b>120</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 82%"></div></div>
-        <b>213</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 78%"></div></div>
+        <b>211</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
         <div class="fbar"><div class="fbar-fill" style="width: 39%"></div></div>
-        <b>101</b>
+        <b>106</b>
       </div>
       
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 21%"></div></div>
-        <b>54</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 18%"></div></div>
+        <b>49</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>260</b>
+        <b>269</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 33%"></div></div>
-        <b>86</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 30%"></div></div>
+        <b>81</b>
       </div>
       
     </div>
