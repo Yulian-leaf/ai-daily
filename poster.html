@@ -80,11 +80,11 @@
     
     <h1 class="title">AI4S 周报 · 10-12 ~ 10-18</h1>
     <p class="slogan">「从造酶到造气候，AI 开始写物理」</p>
-    <p class="range">2026-10-12 ~ 2026-10-18 · 2026-10-16 12:52 (北京时间 UTC+8)</p>
+    <p class="range">2026-10-12 ~ 2026-10-18 · 2026-10-16 15:02 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期最鲜明的信号是「从头设计」与「替换经典模块」两条线同时推进：蛋白质侧连续出现金属蛋白酶、半胱氨酸蛋白酶的从头设计，气候侧则把 CAM6 的深对流方案整体换成神经网络并稳定跑过十年。方法层面，神经算子、PDE 代理模型开始系统性地处理「被 MSE 丢掉的细尺度结构」和「分数阶/低秩可解释表示」，材料与分子模拟则密集出现可迁移势函数、全电子 OF-DFT、可极化力场等基础设施型工作。评测与反思也在同步：GNoME 数据集被指出大量重复，地理空间基础模型被揭示跨灾害捷径学习，AI 极端天气预报的评测方式被重新审视。整体看，本期不是单点刷榜，而是「把 AI 塞进科学计算主干流程」的一周。</p>
+  <p class="overview">本期最密集的信号是「从头设计」与「替换经典模块」：金属蛋白酶与半胱氨酸蛋白酶被扩散模型从零造出，气候模式 CAM6 的深对流方案被神经网络整体接管并稳定跑过十年。第二条主线是评测与基准的自我修正——概率型 AI 天气预报在破纪录高温上反超 ECMWF 物理集合预报，而 GNoME 的「220 万种新材料」被晶体不变量证明存在大量重复。第三条主线是物理约束进入模型结构本身：分数阶导数阶数可学、不等式约束变成高斯过程的条件信息、物理方程直接编译成免训练网络。整体看，本期工作从「拟合数据」明显转向「可编程、可验证、可外推」。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -176,7 +176,7 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期从「单点模型刷指标」明显转向「替换经典科学计算模块并验证长期稳定性」：气候侧出现神经网络深对流方案跑过十年、AI 海洋模拟路线对比；材料与分子侧密集出现可迁移势函数、全电子 OF-DFT、可极化 Drude 力场等基础设施型工作。同时，反思性研究集中出现——GNoME 数据集重复、地理空间基础模型跨灾害捷径学习、AI 极端天气评测方式被重新审视，说明社区开始把「基准是否可信」当作一等公民问题。此外，神经算子方向出现「分数阶导数」「低秩符号化」「物理即网络」等新表示思路，PDE 代理模型正从黑箱拟合走向可解释、可外推的结构化设计。</p>
+  <p class="trend">与上一期相比，本期出现三个明显位移：一是「从头设计」从蛋白质结构延伸到酶功能本身，金属蛋白酶与半胱氨酸蛋白酶接连被扩散模型造出，设计对象从骨架变成催化机制；二是气候领域从「AI 能不能替代物理模式」转向「替换哪个模块、如何评测」，CAM6 深对流整体替换与概率型 AI 在极端高温上的反超，都在重写评测标准；三是物理约束的注入方式从损失函数惩罚升级为结构内建——分数阶阶数可学、不等式约束成为高斯过程条件信息、物理方程直接编译成免训练网络，同时 GNoME 基准质疑与地理空间基础模型的捷径学习揭示，社区开始系统性清算「看起来很强」的指标。</p>
   
 
   <div class="stats">
@@ -189,7 +189,7 @@
       
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 13%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 14%"></div></div>
         <b>36</b>
       </div>
       
@@ -207,13 +207,13 @@
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 78%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 80%"></div></div>
         <b>211</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 39%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 40%"></div></div>
         <b>106</b>
       </div>
       
@@ -226,12 +226,12 @@
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>269</b>
+        <b>265</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 30%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 31%"></div></div>
         <b>81</b>
       </div>
       
