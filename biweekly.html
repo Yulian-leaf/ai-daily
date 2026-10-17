@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="weekly.html">周报 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-16 15:02 (北京时间 UTC+8)
+      生成于 2026-10-17 09:12 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 双周报告 · 10-05 ~ 10-18</h2>
       <p class="r-range">2026-10-05 ~ 2026-10-18</p>
-      <p class="r-overview">这两周 AI4S 的主旋律是「从预测走向生成与设计」：蛋白质领域连续出现金属蛋白酶、半胱氨酸蛋白酶的从头设计，材料领域则把氧化态、分叉解、晶胞不变量写进生成模型，气候领域把深对流、集合预报、公里级区域预报整体换成神经网络。第一周（10-05 ~ 10-11）偏重「基础设施与评测」——ClimateBench v2.0、RNADyn、PoreML、DrugTargetWorld 等基准密集出现，同时分子模拟在力场一致性、酸解离常数、可极化 Drude 力场上补齐物理保真度。第二周（10-12 ~ 10-18）明显转向「端到端系统与极端条件」：legoESM 用 AI 智能体重写地球系统模型、Xaurora 把确定性大模型改造成集合预报、铜-碳势函数覆盖冲击压缩、超表面逆设计做到 16 亿自由度。跨周看，气候与材料从「单点模型」升级为「可微分、可组合、可外推的系统」，而蛋白质设计则从「结构生成」推进到「功能可编程」。</p>
+      <p class="r-overview">这两周 AI4S 的主旋律是「从预测走向生成与设计」：蛋白质领域连续出现金属蛋白酶、半胱氨酸蛋白酶的从头设计，材料领域把氧化态、分叉解、晶胞不变量写进生成模型，气候领域则用概率型 AI 模型正面挑战 ECMWF 的极端高温与热带气旋预报。第一周偏重「方法工具箱」——神经算子精修、分数阶导数、可迁移势函数、数据集整合；第二周明显转向「系统级闭环」——把生成模型、智能体、湿实验和评测基准串成端到端流程，例如 legoESM 用 AI 智能体重写地球系统模式、ARGUS 用 458 个转录因子模型约束变异解读。量化上看，材料与分子模拟条目数继续领跑，气候条目从第一周的「预报技巧」扩展到第二周的「模式替换与极端事件评测」，蛋白质则从「单点设计」升级为「多靶点、多骨架、自然语言接口」。一个值得注意的转向是：多篇工作开始质疑既有评测方式（GNoME 重复结构、AI 不擅长极端事件的旧结论、地理空间基础模型的捷径学习），说明领域正从「刷指标」进入「重定义问题」阶段。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -104,37 +104,37 @@
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://www.nature.com/articles/s41586-026-11167-2" target="_blank" rel="noopener">Computational design of metalloproteases</a></h2>
-          <p>用 RFdiffusion 从零设计出含锌活性位点的金属蛋白酶，把造酶从改造天然酶推进到可编程的从头设计，且活性很高。</p>
+          <p>用 RFdiffusion 从零设计出含锌活性位点的金属蛋白酶，把造酶从改造天然酶推进到可编程从头设计，且活性很高。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://www.nature.com/articles/s41586-026-11143-w" target="_blank" rel="noopener">De novo design of cysteine proteases</a></h2>
-          <p>首次用从头设计造出半胱氨酸蛋白酶，切割位置由序列决定，意味着酶的功能可以像写代码一样被定制。</p>
+          <p>首次从头设计出半胱氨酸蛋白酶，切割位置由序列决定，意味着酶功能可以像写代码一样被定制。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.08495v1" target="_blank" rel="noopener">Information-Dense Synthesis for Molecular Discovery</a></h2>
-          <p>把逐个设计-合成-测试换成合成复杂混合物、整池测试、再反解活性归属，理论上把找最优所需实验次数从 O(d) 降到 O(log d)。</p>
+          <p>把逐个设计-合成-测试换成合成复杂混合物、整池测试再反解活性归属，理论上把找最优所需实验次数从 O(d) 降到 O(log d)。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.06227v1" target="_blank" rel="noopener">APOD: reasoning-guided agentic population ordinary differential equation discovery for pharmacological digital twins</a></h2>
-          <p>用语言模型智能体自动从稀疏、带噪人群数据里推出常微分方程，构建带个体差异的药理学数字孪生，把专家手工建模变成自动发现。</p>
+          <p>用语言模型智能体自动从稀疏带噪人群数据里推出常微分方程，构建带个体差异的药理学数字孪生，把专家手工建模变成自动发现。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2610.21637v1" target="_blank" rel="noopener">Directed impulsive molecular dynamics reveal energy-routing pathways of bond cleavage in TATB</a></h2>
+          <p>用机器学习势函数加定向脉冲分子动力学，把含能材料 TATB 的键断裂能量路径变成可追踪的路由图。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.20436v1" target="_blank" rel="noopener">LAO+: Focused, Multi-Replica Accelerated Orthogonal Sampling for Robust Binding Free Energy Predictions</a></h2>
-          <p>把配体解绑自由能计算中最慢的口袋重新进水一步单独加速，配合多副本采样，在 63 纳秒采样下把结合自由能误差压到 0.83 kcal/mol。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.13265v1" target="_blank" rel="noopener">Quantitative modeling of acid-base equilibria</a></h2>
-          <p>首次把机器学习势函数、加速采样和核量子效应修正串成可复用工作流，从第一性原理可靠算出水中多种物质的酸解离常数并验证跨体系可迁移性。</p>
+          <p>把配体解绑自由能计算中最慢的口袋重新进水单独加速，配合多副本采样，在 63 纳秒采样下把结合自由能误差压到 0.83 kcal/mol。</p>
         </article>
         
         <article class="card">
@@ -146,31 +146,31 @@
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.13885v1" target="_blank" rel="noopener">Necessary conditions for benchmarking next-generation AI in materials discovery</a></h2>
-          <p>用晶体不变量证明 GNoME 号称发现的 220 万种新材料里存在大量重复，并提出下一代 AI 宣称发现新材料前必须满足的必要条件。</p>
+          <p>用晶体不变量证明 GNoME 号称发现的 220 万种新材料里存在大量重复，并提出下一代 AI 宣称发现新材料前必须满足的条件。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.20519v1" target="_blank" rel="noopener">Probabilistic AI models outperform numerical weather prediction models on record breaking heat extremes</a></h2>
-          <p>首次系统证明概率型 AI 天气预报模型在破纪录高温极端事件上全面胜过 ECMWF 物理集合预报，并指出此前 AI 不擅长极端事件的结论源于评测方式不当。</p>
+          <p>首次系统证明概率型 AI 天气预报模型在破纪录高温极端事件上全面胜过 ECMWF 物理集合预报，并指出旧结论源于评测方式不当。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.20405v1" target="_blank" rel="noopener">Improved Precipitation Variability in the Community Atmosphere Model through Implementation of a Neural-Network Deep Convection Scheme</a></h2>
-          <p>首次把 CAM6 气候模式里的深对流方案整体换成神经网络，稳定跑过十年且不破坏能量与水分守恒，同时修好小雨、极端降水偏差和热带陆地降水日循环相位。</p>
+          <p>首次把 CAM6 气候模式里的深对流方案整体换成神经网络，稳定跑过十年且不破坏能量与水分守恒，同时修好小雨和极端降水偏差。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.20369v1" target="_blank" rel="noopener">ReAl: Refine neural operators via aligning dynamical flow</a></h2>
-          <p>给已训练好的 PDE 神经代理模型加一个即插即用的精修+对齐模块，专门找回被 MSE 训练丢掉的细尺度结构，并解决生成模型长时推演的误差累积。</p>
+          <p>给已训练好的 PDE 神经代理模型加一个即插即用的精修加对齐模块，专门找回被 MSE 训练丢掉的细尺度结构并缓解长时推演误差累积。</p>
         </article>
         
         <article class="card">
-          <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2610.20525v1" target="_blank" rel="noopener">The Physics Is the Network: Fast, Training-Free Neural Emulation</a></h2>
-          <p>把已知物理方程直接编译成神经网络结构，无需训练即可做高精度仿真，GPU 吞吐量高且随分辨率近似恒定，为科学仿真提供绕开训练成本的路线。</p>
+          <span class="field">科学基础模型</span>
+          <h2><a href="https://arxiv.org/abs/2610.11883v1" target="_blank" rel="noopener">legoESM: a modular, differentiable, multiscale, AI-ready Earth system model built with AI agents</a></h2>
+          <p>用 AI 编程智能体把几十年气候模式代码重写成 JAX 版乐高式地球系统模型，从米级湍流到全球气候一套代码打通且端到端可微分。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>跨周对比看，气候与材料是这两周最明显的升温方向。气候从第一周的基准与订正类工作（ClimateBench v2.0、S2S-JEPA、概率偏差订正）转向第二周的系统级重构：legoESM 用 AI 智能体重写地球系统模型、Xaurora 把确定性大模型改造成集合预报、公里级区域预报复用全球大模型，条目数从第一周约 8 条增至第二周约 12 条。材料领域同样从第一周的势函数与筛选（NEP-CuC、Heusler 筛选、OxiGen）转向第二周的生成与逆设计（超表面 16 亿自由度逆设计、分子晶体结构预测 99% 命中、Bi-FORK 分叉生成），并出现对 GNoME 数据集的系统性质疑，说明领域开始从「造得多」转向「造得对」。分子模拟保持高位但重心从力场训练（AutoDrude、一致力场）转向采样与自由能精度（LAO+、酸解离常数、Martini 3 评测），条目数稳定在 10 条左右。蛋白质领域第一周偏工具与基准（TurboPairFormer、Fold'EM、RNADyn），第二周连续两篇 Nature 从头设计蛋白酶，热度从「怎么算得快」转向「怎么造得准」。AI4Math/PDE 从第一周的算子学习理论（分数阶导数、低秩 KAN）转向第二周的无训练仿真与约束求解，scifm 则从第一周的基准与推断工具（SLICE、β-Flow）转向第二周的工程化框架（underPINN、asdex、DifferentialEquations.jl）。新浮现方向是「AI 智能体做科研」：legoESM、APOD、SciExam for ENSO、LLM 翻译 Fortran 到 JAX 等条目在两周期内密集出现，值得单独跟踪。</p>
+      <p>跨周对比看，材料与分子模拟仍是条目最多的两个方向，两周合计超过 30 条，但重心从第一周的「势函数与数据集」转向第二周的「生成模型与评测反思」：第一周有 NEP-CuC 可迁移势、MAD-COSMO 17 亿结构数据集、全电子 OF-DFT；第二周则出现 OxiGen 氧化态感知晶体生成、Bi-FORK 分叉生成、以及直接质疑 GNoME 重复结构的基准论文。气候方向热度明显上升，从第一周的次季节预报、EC-EarthFlow、Xaurora 等「预报技巧」类工作，扩展到第二周的 CAM6 神经网络深对流替换、legoESM 智能体重写模式、以及热带气旋与破纪录高温的系统评测，说明 AI 正从「做预报」进入「改模式、定标准」。蛋白质方向从第一周的自然语言设计 Prompteina、纳米抗体推理时算力分配，升级到第二周的金属蛋白酶与半胱氨酸蛋白酶两篇 Nature 从头设计，以及 OFAntibody 双特异性抗体，设计对象从单结构走向多组分复合物。AI4Math/PDE 方向保持稳定输出，但第二周更偏「物理约束与可解释」：约束概率数值、Lagrangian PINN、可学习 Hodge-Laplacian 专家混合。新浮现的方向是「科学智能体与评测」：SciExam for ENSO、Prior or Feedback、ARGUS、legoESM 等，把 LLM 智能体放进真实科研任务里做无标准答案的建模与验证。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下两周重点跟踪两条线：一是 AI 智能体能否从「辅助建模」走到「自主发现」，尤其是 legoESM、APOD、SciExam for ENSO 这类端到端科研任务的复现与扩展；二是生成式模型在极端条件与多解物理下的可靠性，包括 Bi-FORK 分叉生成、冲击压缩势函数、破纪录高温集合预报的跨事件泛化。</p>
+      <p>下两周值得重点跟踪三条线：一是 AI 智能体能否从「写代码、调模型」进一步走到「自主提出并验证科学假设」，尤其是 SciExam for ENSO 这类无标准答案评测的后续；二是气候模式替换类工作（CAM6 神经网络深对流、legoESM）能否给出多模式、多成员的稳定性与守恒性量化证据；三是材料生成模型在引入氧化态、分叉、晶胞约束后，能否在湿实验或高通量 DFT 验证中兑现可合成率。</p>
       
     </section>
     
