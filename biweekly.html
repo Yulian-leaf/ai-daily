@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="weekly.html">周报 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-17 14:52 (北京时间 UTC+8)
+      生成于 2026-10-18 08:44 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 双周报告 · 10-05 ~ 10-18</h2>
       <p class="r-range">2026-10-05 ~ 2026-10-18</p>
-      <p class="r-overview">这两周 AI4S 的主旋律是「从预测走向生成、从拟合走向可解释」：蛋白质领域连续出现金属蛋白酶与半胱氨酸蛋白酶的从头设计，把造酶推进到可编程阶段；材料与分子模拟则密集出现「物理约束写进模型结构」的工作，如全电子轨道自由密度泛函、等变流匹配预测电子密度、拉格朗日网络恢复三体相互作用。气候方向的重心从「AI 能不能报天气」转向「AI 能不能替代模式分量」，CAM6 深对流整体换神经网络、legoESM 用智能体重写地球系统模型都是标志性事件。第一周以蛋白质生成与分子模拟方法学为主，第二周明显转向气候模式替换、材料高通量筛选与科学基础模型工程化，评测与基准类工作（ClimateBench v2.0、RNADyn、PoreML、MAD-COSMO）集中出现，说明领域开始从「刷点」转向「可复现比较」。</p>
+      <p class="r-overview">这两周 AI4S 的主旋律是「从预测走向生成与设计」：蛋白质领域连续出现金属蛋白酶、半胱氨酸蛋白酶的从头设计，材料领域则把氧化态、分叉解、电子密度等物理约束写进生成模型。第一周偏重「把物理约束塞进模型」（PINN 提速、等变密度预测、知识引导势函数），第二周明显转向「把模型变成可编程设计器」（自然语言生成蛋白、LLM 改写优化器、AI 智能体重写气候模式）。气候方向从「AI 能否预报」转向「AI 如何替代物理模式组件」，分子模拟则集中解决采样效率与泛化误差两个老问题。整体看，评测与基准类工作也在增多，说明领域开始从刷指标转向可复现比较。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -109,38 +109,32 @@
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
-          <h2><a href="https://www.nature.com/articles/s41586-026-11143-w" target="_blank" rel="noopener">De novo design of cysteine proteases</a></h2>
-          <p>首次从头设计出半胱氨酸蛋白酶，切割位置由序列决定，酶功能可以像写代码一样被定制。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.17975v1" target="_blank" rel="noopener">All-electron machine-learned orbital-free density functional for periodic CHNO systems</a></h2>
-          <p>首个面向周期性 CHNO 体系的全电子机器学习轨道自由密度泛函，密度误差从 6.7% 压到 0.4%，能量误差仅 0.25 mHa/原子。</p>
+          <h2><a href="https://arxiv.org/abs/2610.13917v2" target="_blank" rel="noopener">Designing Protein Structures from Natural Language</a></h2>
+          <p>Prompteina 用一句自然语言描述即可生成全原子蛋白质结构，把蛋白质设计接口统一成类文生图范式。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.19919v1" target="_blank" rel="noopener">Beyond DFT electronic band structures via dual-space orbital learning</a></h2>
-          <p>用便宜 PBE 计算加轨道信息直接预测 HSE06 能带，近 6000 种三维材料上平均误差仅 0.17 eV。</p>
+          <p>用廉价 PBE 计算加轨道信息直接预测 HSE06 能带，在近 6000 种三维材料上平均误差仅 0.17 eV。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">材料科学</span>
+          <h2><a href="https://arxiv.org/abs/2610.08296v1" target="_blank" rel="noopener">OxiGen: Oxidation-State-Aware Crystal Generation</a></h2>
+          <p>把氧化态显式写进晶体生成模型，让生成的无机材料在电荷配比上更接近真实可合成晶体。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.13292v1" target="_blank" rel="noopener">Recovering Irreducible Three-Body Interactions with Lagrangian Neural Networks</a></h2>
-          <p>首次证明拉格朗日神经网络能从轨迹数据恢复不可约三体相互作用，并用符号回归还原闭式公式。</p>
+          <h2><a href="https://arxiv.org/abs/2610.20436v1" target="_blank" rel="noopener">LAO+: Focused, Multi-Replica Accelerated Orthogonal Sampling for Robust Binding Free Energy Predictions</a></h2>
+          <p>单独加速配体解绑中最慢的口袋重新进水步骤，63 纳秒采样下把结合自由能误差压到 0.83 kcal/mol。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.17885v1" target="_blank" rel="noopener">Deep Mesoscopic Dynamics</a></h2>
-          <p>用神经网络从微观轨迹直接学出介观有效场方程，把粗粒化建模从解析推导变成可学习任务。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.20405v1" target="_blank" rel="noopener">Improved Precipitation Variability in the Community Atmosphere Model through Implementation of a Neural-Network Deep Convection Scheme</a></h2>
-          <p>首次把 CAM6 深对流方案整体换成神经网络，稳定跑过十年且不破坏守恒，明显修好小雨与极端降水偏差。</p>
+          <h2><a href="https://arxiv.org/abs/2610.10298v1" target="_blank" rel="noopener">Physics-Aligned Electronic Ground-State Learning Improves Generalization</a></h2>
+          <p>把机器学习原子间势的学习目标对齐到 KS-DFT 物理方程，分布外泛化误差大幅下降。</p>
         </article>
         
         <article class="card">
@@ -150,9 +144,15 @@
         </article>
         
         <article class="card">
+          <span class="field">气候地球</span>
+          <h2><a href="https://arxiv.org/abs/2610.20405v1" target="_blank" rel="noopener">Improved Precipitation Variability in the Community Atmosphere Model through Implementation of a Neural-Network Deep Convection Scheme</a></h2>
+          <p>首次把 CAM6 深对流方案整体换成神经网络，稳定跑过十年且不破坏守恒，同时修好小雨与极端降水偏差。</p>
+        </article>
+        
+        <article class="card">
           <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2610.20363v1" target="_blank" rel="noopener">Fractional is Better: Learnable Derivative Orders in Neural Operator Learning</a></h2>
-          <p>给神经算子喂分数阶导数特征并让阶数从数据里学出来，理论上改善逼近误差，且最优阶数常小于 PDE 本身阶数。</p>
+          <h2><a href="https://arxiv.org/abs/2610.20369v1" target="_blank" rel="noopener">ReAl: Refine neural operators via aligning dynamical flow</a></h2>
+          <p>给已训练 PDE 神经算子加即插即用精修模块，找回被 MSE 丢掉的细尺度结构并缓解长时推演误差累积。</p>
         </article>
         
         <article class="card">
@@ -164,13 +164,13 @@
         <article class="card">
           <span class="field">科学基础模型</span>
           <h2><a href="https://arxiv.org/abs/2610.11883v1" target="_blank" rel="noopener">legoESM: a modular, differentiable, multiscale, AI-ready Earth system model built with AI agents</a></h2>
-          <p>用 AI 编程智能体把几十年气候模式代码重写成 JAX 版乐高式地球系统模型，从米级湍流到全球气候端到端可微分。</p>
+          <p>用 AI 编程智能体把几十年气候模式代码重写成 JAX 版乐高式地球系统模型，端到端可微分。</p>
         </article>
         
         <article class="card">
           <span class="field">生物信息</span>
           <h2><a href="https://arxiv.org/abs/2610.22242v1" target="_blank" rel="noopener">SurvICL: a Foundation Model for in-context Survival Analysis</a></h2>
-          <p>首个在生存分析上真正打败 50 年老牌 Cox 模型的表格基础模型，无需调参，小样本临床队列上首次排名超过 Cox。</p>
+          <p>首个在生存分析上真正打败 50 年老牌 Cox 模型的表格基础模型，且无需调参，小样本临床队列首次有模型排名超过 Cox。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>跨周对比看，蛋白质方向热度从第一周偏「生成接口与骨架设计」（Prompteina、纳米抗体推理时算力分配）转向第二周偏「功能酶从头设计」（金属蛋白酶、半胱氨酸蛋白酶两篇 Nature 同期），从 6 条增至 8 条且质量上移。气候方向升温最明显：第一周以预报订正与集合生成为主（Xaurora、S2S-JEPA、EC-EarthFlow），第二周集中出现「替换模式分量」的硬工作（CAM6 深对流换神经网络、legoESM、公里级全球-区域对齐），条目从约 10 条增至 14 条。材料方向从第一周的生成模型（OxiGen、晶体结构预测）转向第二周的「物理约束代理模型 + 高通量筛选」（全电子 OF-DFT、双空间轨道学习、Heusler 10 万级筛选），并出现对 GNoME 数据集重复性的质疑，说明开始自我校准。分子模拟第一周偏力场与采样方法（AutoDrude、LAO+、酸解离常数），第二周转向「可解释物理结构学习」（拉格朗日网络恢复三体作用、Deep Mesoscopic Dynamics、Koopman 核方法），从 12 条降至 9 条但单篇更硬。新浮现方向是「科学基础模型工程化」：DifferentialEquations.jl、underPINN、asdex、PINNeAPPle 等工具链集中出现，以及 ClimateBench v2.0、RNADyn、PoreML、MAD-COSMO 等基准/数据集，说明领域正从单点模型转向可复现基础设施。</p>
+      <p>跨周对比看，protein 与 materials 是这两周最热的两条线：protein 从第一周的「设计单酶/抗体界面」推进到第二周的「自然语言接口 + 多靶点双抗 + 纳米抗体推理时算力分配」，设计对象从单分子走向复合物与可编程接口；materials 则从第一周的「势函数与能带预测」转向第二周的「氧化态感知生成、分叉解生成、晶体结构预测三步法」，生成模型开始系统性吸收物理约束。molsim 热度持平但重心迁移：第一周集中在势函数与自由能方法，第二周明显转向采样加速（LAO+、可逆 Stratonovich 扰动）与基准建设（RNADyn、Martini 3 评测）。climate 从第一周的「AI 预报技巧评测」转向第二周的「用神经网络替换物理参数化、用智能体重写模式代码」，方向从评估转向改造。ai4math 出现一个值得注意的新苗头：从「训练更好的算子」转向「不训练、把物理编译进网络」（The Physics Is the Network）以及「把约束变成条件信息」（约束高斯过程求解器）。scifm 与 bioinfo 条目数不多但质量集中，前者以工具链与智能体评测为主，后者以基准与基础模型为主。整体上，基准/评测类工作从零星几条增至近十条，说明领域开始重视可比性。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下两周重点跟踪两条线：一是「神经网络替换气候模式分量」能否从单参数化（深对流）扩展到辐射、边界层等更多分量并给出守恒性证明；二是蛋白质从头设计能否从蛋白酶扩展到更复杂的多结构域功能酶，并配套湿实验活性数据。</p>
+      <p>下两周重点跟踪两条线：一是「物理约束进生成模型」在材料与蛋白设计上的可合成性验证（OxiGen、晶体结构预测的湿实验/DFT 复核），二是 AI 智能体直接改造科学软件栈（legoESM、Fortran 转 JAX）能否从演示走向可维护的社区代码。</p>
       
     </section>
     
