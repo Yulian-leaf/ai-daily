@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-19 08:56 (北京时间 UTC+8)
+      生成于 2026-10-19 13:07 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 10-19 ~ 10-25</h2>
       <p class="r-range">2026-10-19 ~ 2026-10-25</p>
-      <p class="r-overview">本期 AI4S 报告覆盖材料、气候、分子模拟、药物发现与科学基础模型等多个方向。材料领域出现多个用几何拓扑、图神经网络和机器学习势函数提升结构识别与缺陷模拟效率的工作；气候方向集中探索扩散模型在降水与气候场降尺度中的应用，分辨率与时空联合建模成为关键词。分子模拟方面，机器学习势与非绝热动力学、大涡模拟滤波结合，拓展了可模拟的时间与空间尺度。药物发现领域则首次系统揭示条件生成模型在交互效应预测中的「幻觉」风险，提醒精度指标可能掩盖非加和效应。整体看，AI 正从「替代单点计算」走向「重构多尺度、多物理场建模流程」。</p>
+      <p class="r-overview">本期 AI4S 的主旋律是「把生成模型用对地方，同时警惕它的副作用」。气候领域两篇扩散模型降尺度工作把时空联合、极端事件刻画推进到可业务化粒度；材料与分子模拟则集中出现「机器学习势 + 经典方法」的混合路线，用 MACE 势、基础势函数和神经算子替代或加速 DFT 与 LES。另一条暗线是结构表征：Voronoi 胞拓扑把晶体分类从少数简单结构扩展到任意晶体与缺陷环境，图神经网络则统一表示嵌段共聚物链拓扑。药物方向一篇负面结果提醒：条件流模型会幻觉出不存在的非加性交互，整体精度指标会掩盖这一缺陷。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -116,43 +116,43 @@
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.20063v1" target="_blank" rel="noopener">Sorption Molecular Dynamics of Point Defects in 2D Materials with a Machine Learning Potential</a></h2>
-          <p>用 MACE 机器学习势替代 DFT 跑分子动力学，在二维材料缺陷筛选上以极低成本复现 DFT 吸附趋势，并将分析扩展到室温。</p>
+          <p>用 MACE 机器学习势替代 DFT 跑分子动力学，在二维材料缺陷筛选上以极低成本复现 DFT 吸附趋势，并把分析扩展到室温。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.19846v1" target="_blank" rel="noopener">A practical route to amorphous solid-state electrolyte structures by hybrid reverse Monte Carlo with foundation potentials</a></h2>
-          <p>首次在同一体系、同一势函数下公平对比熔融淬火与逆蒙特卡洛两条非晶建模路线，并给出「先淬火成玻璃、再用测量数据修正」的混合方案。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.19994v1" target="_blank" rel="noopener">PrecipCorrDiff: A Deep Learning Framework for Generating 0.0625° High-Resolution IMD Gridded Precipitation Data</a></h2>
-          <p>用扩散模型将印度气象局 0.25° 格点降水细化到 0.0625°（约 7 公里），重点改善极端降雨刻画并消除旧模型的偏差。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.19885v1" target="_blank" rel="noopener">Generative modelling for multivariate spatio-temporal downscaling of monthly climate fields</a></h2>
-          <p>用扩散模型把「月度+1°粗网格」气候场一次性联合降尺度成「每日+0.25°」的温度与降水场，预训练模型无需微调即可按新月份条件生成。</p>
+          <p>在同一体系、同一势函数下首次公平对比熔融淬火与逆蒙特卡洛两条非晶建模路线，并给出「先淬火成玻璃、再用测量数据修正」的混合方案。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.20204v1" target="_blank" rel="noopener">Learning to reconstruct Germano Differential Filtered Fields with Convolutional Neural Networks for Large Eddy Simulation of Plasma Turbulence</a></h2>
-          <p>把 Germano 微分滤波器的可逆性接进卷积网络，网络只学「粗网格 LES→滤波后 DNS」，再用逆滤波还原细尺度，从而精确计算非线性项和亚格子项。</p>
+          <p>把 Germano 微分滤波器的可逆性接进卷积网络，只学粗网格 LES 到滤波后 DNS 的映射，再用逆滤波还原细尺度，从而精确算出非线性项和亚格子项。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.19842v1" target="_blank" rel="noopener">Nonadiabatic polaron dynamics from machine-learned hopping trajectories</a></h2>
-          <p>首次把机器学习分子动力学与非绝热分子动力学拼成统一框架，直接「看到」极化子跳跃事件，并用动力学描述其演化。</p>
+          <p>首次把机器学习分子动力学与非绝热分子动力学拼成一个框架，直接观测极化子跳跃事件，并用动力学分析给出跳跃机制。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">气候地球</span>
+          <h2><a href="https://arxiv.org/abs/2610.19994v1" target="_blank" rel="noopener">PrecipCorrDiff: A Deep Learning Framework for Generating 0.0625$^\circ$ High-Resolution IMD Gridded Precipitation Data</a></h2>
+          <p>用扩散模型把印度气象局 0.25° 格点降水细化到 0.0625°（约 7 公里），重点改善极端降雨刻画并消除旧模型的偏差。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">气候地球</span>
+          <h2><a href="https://arxiv.org/abs/2610.19885v1" target="_blank" rel="noopener">Generative modelling for multivariate spatio-temporal downscaling of monthly climate fields</a></h2>
+          <p>用扩散模型把月度 1° 粗网格气候场一次性联合降尺度成每日 0.25° 的温度与降水场，预训练模型无需微调即可按新月份条件生成。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.20288v1" target="_blank" rel="noopener">Predicting Unseen Scientific Interactions: Conditional Flow Models Hallucinate Non-Additive Effects</a></h2>
-          <p>首次系统揭示条件生成模型在科学预测中会「幻觉」出不存在的交互效应，且整体精度指标会掩盖这一缺陷，对药物组合与多扰动实验有直接警示意义。</p>
+          <p>首次系统揭示条件生成模型在科学预测中会幻觉出不存在的交互效应，且整体精度指标会掩盖这一缺陷，对药物组合与多扰动实验有直接警示意义。</p>
         </article>
         
         <article class="card">
@@ -166,11 +166,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期材料领域从「单一性质预测」转向「结构分类与多链拓扑统一表示」，并出现对非晶结构建模路线的系统性对比；气候方向扩散模型降尺度从单一变量、固定分辨率走向多变量时空联合与更高分辨率；分子模拟开始把机器学习势与非绝热动力学、大涡模拟滤波等传统多尺度方法深度耦合；药物发现领域则出现对生成模型「非加和效应幻觉」的反思性研究，提示评估指标需从整体精度转向交互效应识别。</p>
+      <p>与上一期相比，本期最明显的变化是「生成模型批判性评估」开始出现：药物方向不再只报精度提升，而是系统检验条件流模型的幻觉与非加性效应。材料与分子模拟则从「纯 ML 替代」转向「ML 与经典方法混合」：MACE 势、基础势函数、Germano 逆滤波都是把物理约束嵌进网络，而非端到端黑箱。气候降尺度从单变量、单时刻走向多变量时空联合，并开始强调极端事件而非平均误差。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期可关注扩散模型在气候降尺度中的物理一致性约束，以及机器学习势函数与非绝热动力学耦合框架在真实材料体系中的验证进展。</p>
+      <p>下期值得关注：条件生成模型在科学交互预测中的校准与不确定性量化能否给出可操作的修正方案；以及机器学习势与非绝热动力学、逆蒙特卡洛的混合框架能否从方法演示走向真实材料筛选。</p>
       
     </section>
     
