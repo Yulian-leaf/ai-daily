@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="weekly.html">周报 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-19 13:07 (北京时间 UTC+8)
+      生成于 2026-10-19 15:39 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 双周报告 · 10-12 ~ 10-25</h2>
       <p class="r-range">2026-10-12 ~ 2026-10-25</p>
-      <p class="r-overview">这两周 AI4S 的主旋律是「从预测走向生成与设计」：蛋白质领域连续出现金属蛋白酶与半胱氨酸蛋白酶的从头设计，材料领域则密集出现机器学习势函数、哈密顿量与轨道自由密度泛函的精度推进。第一周偏重「方法学突破」——扩散模型造酶、概率 AI 天气模型在破纪录高温上胜出、神经算子精修与分数阶导数；第二周明显转向「系统级落地与评测」——气候模式整体替换深对流方案、AI 海洋模拟路线对比、蛋白质设计系统被数据投毒、GNoME 数据集被证重复。跨周看，气候与材料从「单点模型」走向「全流程可复现与基准检验」，分子模拟则从「算得准」转向「算得全」（酸解离常数、极化子跳跃、三体相互作用）。一个值得注意的降温信号是：纯架构创新的神经算子论文减少，而「训练免费/物理编译成网络」与「工程化工具链」类工作增多。</p>
+      <p class="r-overview">这两周 AI4S 的主旋律是「从预测走向生成与设计」：蛋白质领域连续出现金属蛋白酶与半胱氨酸蛋白酶的从头设计，气候领域则用概率 AI 模型在破纪录高温和热带气旋上正面挑战 ECMWF 物理集合预报。第一周偏重「方法层」——神经算子精修、分数阶导数、等变描述符、机器学习势函数的数据效率；第二周明显转向「系统层」——把神经网络深对流塞进 CAM6 跑十年、用 AI 两阶段复现 3 公里风暴解析模型、把 LLM 智能体接进材料结构搭建与文献抽取。跨周看，材料与分子模拟的「势函数+工作流」条目从第一周的零散方法验证，收敛为第二周可复用的工具链与基准；气候则从「AI 能不能报极端」的评测争论，快速推进到「AI 怎么改气候模式内部参数化」的落地。一个值得注意的暗线是「评测与可信度」：蛋白质设计可被数据投毒、GNoME 数据集被证明大量重复、条件生成模型会幻觉非加性效应，说明社区开始给前两年的乐观结果补做压力测试。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -104,73 +104,73 @@
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://www.nature.com/articles/s41586-026-11167-2" target="_blank" rel="noopener">Computational design of metalloproteases</a></h2>
-          <p>用 RFdiffusion 从零设计出含锌活性位点的金属蛋白酶，把造酶从改造天然酶推进到可编程的从头设计，且活性很高。</p>
+          <p>用 RFdiffusion 从零设计含锌活性位点的金属蛋白酶，把造酶从改造天然酶推进到可编程从头设计，且活性很高。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://www.nature.com/articles/s41586-026-11143-w" target="_blank" rel="noopener">De novo design of cysteine proteases</a></h2>
-          <p>首次用从头设计造出半胱氨酸蛋白酶，切割位置由序列决定，意味着酶的功能可以像写代码一样被定制。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">药物发现</span>
-          <h2><a href="https://arxiv.org/abs/2610.20288v1" target="_blank" rel="noopener">Predicting Unseen Scientific Interactions: Conditional Flow Models Hallucinate Non-Additive Effects</a></h2>
-          <p>首次系统揭示条件生成模型在科学预测中会「幻觉」出不存在的交互效应，且整体精度指标会掩盖这一缺陷，对药物组合与多扰动实验有直接警示意义。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.13265v1" target="_blank" rel="noopener">Quantitative modeling of acid-base equilibria</a></h2>
-          <p>首次把机器学习势函数、加速采样和核量子效应修正串成一套可复用工作流，从第一性原理可靠算出水中多种物质的酸解离常数，并验证跨体系可迁移性。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.19842v1" target="_blank" rel="noopener">Nonadiabatic polaron dynamics from machine-learned hopping trajectories</a></h2>
-          <p>首次把机器学习分子动力学与非绝热分子动力学拼成一个框架，直接「看到」极化子跳跃事件，并用动力学解释其机制。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.19919v1" target="_blank" rel="noopener">Beyond DFT electronic band structures via dual-space orbital learning</a></h2>
-          <p>用便宜的 PBE 计算加轨道信息直接预测更贵的 HSE06 能带能量，在近 6000 种三维材料上平均误差仅 0.17 eV。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.13885v1" target="_blank" rel="noopener">Necessary conditions for benchmarking next-generation AI in materials discovery</a></h2>
-          <p>用晶体不变量证明 GNoME 号称发现的 220 万种新材料里存在大量重复，并提出下一代 AI 宣称「发现新材料」前必须满足的条件。</p>
+          <p>首次从头设计出半胱氨酸蛋白酶，切割位置由序列决定，酶功能可以像写代码一样被定制。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.20519v1" target="_blank" rel="noopener">Probabilistic AI models outperform numerical weather prediction models on record breaking heat extremes</a></h2>
-          <p>首次系统证明概率型 AI 天气预报模型在破纪录高温极端事件上全面胜过 ECMWF 物理集合预报，并指出此前「AI 不擅长极端事件」的结论源于评测方式不当。</p>
+          <p>首次系统证明概率型 AI 天气预报在破纪录高温上全面胜过 ECMWF 物理集合预报，并指出此前「AI 不擅长极端事件」源于评测方式不当。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.20405v1" target="_blank" rel="noopener">Improved Precipitation Variability in the Community Atmosphere Model through Implementation of a Neural-Network Deep Convection Scheme</a></h2>
-          <p>首次把 CAM6 气候模式里的深对流方案整体换成神经网络，稳定跑过十年且不破坏能量与水分守恒，同时明显修好小雨、极端降水偏差和热带陆地降水的日循环相位。</p>
+          <p>首次把 CAM6 深对流方案整体换成神经网络，稳定跑过十年且不破坏能量与水分守恒，同时修好小雨、极端降水偏差和热带陆地降水日循环相位。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">材料科学</span>
+          <h2><a href="https://arxiv.org/abs/2610.19919v1" target="_blank" rel="noopener">Beyond DFT electronic band structures via dual-space orbital learning</a></h2>
+          <p>用便宜 PBE 计算加轨道信息直接预测 HSE06 能带，在近 6000 种三维材料上平均误差仅 0.17 eV。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">材料科学</span>
+          <h2><a href="https://arxiv.org/abs/2610.13885v1" target="_blank" rel="noopener">Necessary conditions for benchmarking next-generation AI in materials discovery</a></h2>
+          <p>用晶体不变量证明 GNoME 号称的 220 万种新材料里存在大量重复，并提出下一代 AI 宣称「发现新材料」前必须满足的必要条件。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2610.20436v1" target="_blank" rel="noopener">LAO+: Focused, Multi-Replica Accelerated Orthogonal Sampling for Robust Binding Free Energy Predictions</a></h2>
+          <p>单独加速配体解绑中最慢的口袋重新进水步骤，配合多副本采样，在 63 纳秒采样下把结合自由能误差压到 0.83 kcal/mol。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2610.13265v1" target="_blank" rel="noopener">Quantitative modeling of acid-base equilibria</a></h2>
+          <p>首次把机器学习势函数、加速采样和核量子效应修正串成可复用工作流，从第一性原理可靠算出水中多种物质的酸解离常数并验证跨体系可迁移性。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">AI4Math/PDE</span>
+          <h2><a href="https://arxiv.org/abs/2610.20369v1" target="_blank" rel="noopener">ReAl: Refine neural operators via aligning dynamical flow</a></h2>
+          <p>给已训练 PDE 神经代理加即插即用的「精修+对齐」模块，专门找回被 MSE 丢掉的细尺度结构并缓解长时推演误差累积。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.20525v1" target="_blank" rel="noopener">The Physics Is the Network: Fast, Training-Free Neural Emulation</a></h2>
-          <p>把已知物理方程直接「编译」成神经网络结构，无需训练即可做高精度仿真，GPU 吞吐量高且随分辨率近似恒定，为科学仿真提供了一条绕开训练成本的路线。</p>
+          <p>把已知物理方程直接编译成神经网络结构，无需训练即可高精度仿真，GPU 吞吐量高且随分辨率近似恒定。</p>
         </article>
         
         <article class="card">
-          <span class="field">科学基础模型</span>
-          <h2><a href="https://github.com/SciML/DifferentialEquations.jl" target="_blank" rel="noopener">SciML/DifferentialEquations.jl</a></h2>
-          <p>用 Julia 写的微分方程求解器全家桶，把 ODE、SDE、DDE、DAE 等各类方程和科学机器学习组件统一到同一套接口下，是 SciML 生态里少见的「工程化底座」。</p>
+          <span class="field">药物发现</span>
+          <h2><a href="https://arxiv.org/abs/2610.20288v1" target="_blank" rel="noopener">Predicting Unseen Scientific Interactions: Conditional Flow Models Hallucinate Non-Additive Effects</a></h2>
+          <p>首次系统揭示条件生成模型在科学预测中会幻觉出不存在的交互效应，且整体精度指标会掩盖这一缺陷，对药物组合与多扰动实验有直接警示。</p>
         </article>
         
         <article class="card">
           <span class="field">生物信息</span>
           <h2><a href="https://arxiv.org/abs/2610.22242v1" target="_blank" rel="noopener">SurvICL: a Foundation Model for in-context Survival Analysis</a></h2>
-          <p>首个在生存分析上真正打败 50 年老牌 Cox 模型的表格基础模型，且无需调参；在小样本临床队列上首次有模型排名超过 Cox。</p>
+          <p>首个在生存分析上真正打败 50 年老牌 Cox 模型的表格基础模型，无需调参，小样本临床队列上首次有模型排名超过 Cox。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>跨周对比看，气候领域热度从第一周的「极端事件评测与降尺度」转向第二周的「模式整体替换与路线对比」：第一周有概率 AI 模型在破纪录高温上胜出、CAM6 深对流换神经网络；第二周则出现 AI 海洋模拟两条路线系统对比、ACE 变量遮蔽修正、以及 LLM 翻译 Fortran 到 JAX 的工程化尝试，条目数从约 8 条增至 12 条。材料领域从第一周的「势函数与哈密顿量精度推进」转向第二周的「基准检验与数据集批判」：GNoME 重复性证明、VoroTypes 结构识别、MAD-COSMO 数据集整合，显示社区开始给「AI 造材料」立规矩。分子模拟从「算得准」转向「算得全」：酸解离常数、极化子跳跃、三体相互作用恢复、核量子效应修正，条目数从约 10 条增至 14 条。蛋白质领域第一周偏「生成接口」（自然语言设计、纳米抗体推理时分配），第二周转向「安全与评测」（数据投毒、RNA 逆设计），热度持平但方向明显从「能生成」转向「可信生成」。AI4Math 纯架构创新减少，出现「训练免费物理编译网络」与「张量处理提速 3.75 倍」等工程化工作，说明该方向进入优化期。新浮现方向：科学基础模型开始出现「工程化工具链」（PINNeAPPle、PaddleCFD、NBodySimulator.jl），以及「AI 智能体长周期科研基准」（OmicsBench）。</p>
+      <p>跨周对比看三条线。其一，气候从「评测争论」转向「模式改造」：第一周集中在 AI 天气模型对极端事件的评测（破纪录高温、热带气旋两篇），第二周则出现把神经网络深对流整体替换进 CAM6 并稳定跑十年、用 AI 两阶段复现 3 公里风暴解析模型（推理成本降 300 倍以上）、以及 AI 海洋模拟路线对比，说明气候 AI 正从「报得准不准」进入「能不能改模式内部」。其二，材料与分子模拟的「势函数」条目从第一周的方法验证（NEP-CuC、知识引导含能材料势、全电子 OF-DFT）收敛为第二周的工具链与基准（MAD-COSMO 17 亿结构数据集、VoroTypes 上千种晶体识别、MASON 自然语言搭结构、LLM 抽取异常吸附），数据与工具的基础设施属性明显增强。其三，可信度与评测成为新浮现方向：蛋白质设计可被纯数据投毒、GNoME 数据集被证明大量重复、条件流模型幻觉非加性效应、地理空间基础模型跨灾害准确率从 0.81 掉到 0.57-0.64，这类「泼冷水」条目在两周内密集出现，是此前少见的。相对降温的是纯架构改进类神经算子工作，条目仍在但更偏工程化（PI-DeepONet 张量处理提速 3.75 倍、Hodge-Laplacian 专家混合），单点「新算子」的声量让位于「可复现工具链」。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下两周值得重点跟踪：气候领域 AI 模式整体替换后的「守恒性与极端事件」双轨评测能否形成标准流程，以及材料领域 GNoME 批判之后是否出现可复现的「新材料发现」基准。</p>
+      <p>下两周重点跟踪两条线：一是气候 AI 从「替换单个参数化」走向「整模式混合」后，能量与水分守恒、十年尺度漂移能否在更多模式上复现；二是材料与蛋白质领域的「可信度补课」是否会催生统一的基准与投毒/重复检测标准，尤其是 GNoME 类数据集与生成模型幻觉的量化评估。</p>
       
     </section>
     
