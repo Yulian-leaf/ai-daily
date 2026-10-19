@@ -78,13 +78,13 @@
   <div class="hero">
     <div class="brand">AI4S-DAILY</div>
     
-    <h1 class="title">AI4S 周报 · 10-12 ~ 10-18</h1>
-    <p class="slogan">「从造酶到造天气，AI 开始写规则」</p>
-    <p class="range">2026-10-12 ~ 2026-10-18 · 2026-10-18 15:11 (北京时间 UTC+8)</p>
+    <h1 class="title">AI4S 周报 · 10-19 ~ 10-25</h1>
+    <p class="slogan">「从晶体到气候，AI 正在重写科学模拟的精度与尺度」</p>
+    <p class="range">2026-10-19 ~ 2026-10-25 · 2026-10-19 08:57 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期最鲜明的信号是「从头设计」与「可学习物理」的合流：蛋白质领域连续出现金属蛋白酶与半胱氨酸蛋白酶的从头设计，把造酶推进到可编程阶段；分子模拟与材料领域则密集出现「把物理约束写进模型结构」的工作，从分数阶导数、递归分离不变量到可极化力场，目标都是让代理模型在数据之外不失效。气候方向出现一组系统评测，概率型 AI 天气模型在破纪录高温和热带气旋上全面对标甚至超过传统集合预报，同时社区开始认真处理「AI 不擅长极端事件」这一旧结论的评测偏差。另一个值得注意的转向是「推理时算力分配」和「数据投毒」进入蛋白质设计议程，说明该领域正从能不能生成，转向生成得可不可控、安不安全。</p>
+  <p class="overview">本期 AI4S 报告覆盖材料、气候、分子模拟、药物发现与科学基础模型等多个方向。材料领域出现多个用几何拓扑、图神经网络和机器学习势函数提升结构识别与缺陷模拟效率的工作；气候方向集中探索扩散模型在降水与气候场降尺度中的应用，分辨率与时空联合建模成为关键词。分子模拟方面，机器学习势与非绝热动力学、大涡模拟滤波结合，拓展了可模拟的时间与空间尺度。药物发现领域则首次系统揭示条件生成模型在交互效应预测中的「幻觉」风险，提醒精度指标可能掩盖非加和效应。整体看，AI 正从「替代单点计算」走向「重构多尺度、多物理场建模流程」。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -92,74 +92,38 @@
   
   <div class="hl">
     <div class="hl-head">
-      <span class="field">🧬 蛋白质/结构</span>
-      <span class="score">9.0</span>
+      <span class="field">💊 药物发现</span>
+      <span class="score">7.0</span>
     </div>
-    <h3>Computational design of metalloproteases</h3>
-    <p>用 RFdiffusion（扩散式蛋白质生成模型）从零设计出含锌活性位点的金属蛋白酶，把「造酶」从改造天然酶推进到可编程的从头设计，且活性很高。</p>
+    <h3>Predicting Unseen Scientific Interactions: Conditional Flow Models Hallucinate Non-Additive Effects</h3>
+    <p>首次系统揭示条件生成模型（如流匹配）在科学预测中会「幻觉」出不存在的交互效应，且整体精度指标会掩盖这一缺陷，对药物组合、多扰动实验等场景有直接警示意义。</p>
   </div>
   
   <div class="hl">
     <div class="hl-head">
       <span class="field">⚛️ 分子模拟</span>
-      <span class="score">8.0</span>
+      <span class="score">7.0</span>
     </div>
-    <h3>Directed impulsive molecular dynamics reveal energy-routing pathways of bond cleavage in TATB</h3>
-    <p>用机器学习势函数（从原子构型学能量与受力的模型）加定向脉冲分子动力学（MD，分子动力学），把含能材料 TATB 的键断裂能量路径变成可追踪的「路由图」，揭示断键…</p>
+    <h3>Learning to reconstruct Germano Differential Filtered Fields with Convolutional Neural Networks for Large Eddy Simulation of Plasma Turbulence</h3>
+    <p>把 Germano 微分滤波器的可逆性接进卷积网络：网络只学「粗网格 LES→滤波后的 DNS」，再用逆滤波还原细尺度，从而精确算出非线性项和亚格子项，绕开传统…</p>
   </div>
   
   <div class="hl">
     <div class="hl-head">
       <span class="field">🧪 材料科学</span>
-      <span class="score">8.0</span>
-    </div>
-    <h3>Beyond DFT electronic band structures via dual-space orbital learning</h3>
-    <p>用便宜的 PBE（一种常用密度泛函近似）计算加轨道信息，直接预测更贵的 HSE06（更精确的杂化泛函）能带能量，在近 6000 种三维材料上平均误差仅 0.17…</p>
-  </div>
-  
-  <div class="hl">
-    <div class="hl-head">
-      <span class="field">🌍 气候地球</span>
-      <span class="score">8.0</span>
-    </div>
-    <h3>Probabilistic AI models outperform numerical weather prediction models on record breaking heat extremes</h3>
-    <p>首次系统证明概率型 AI 天气预报模型在破纪录高温极端事件上全面胜过 ECMWF 的物理集合预报，并指出此前「AI 不擅长极端事件」的结论源于评测方式不当。</p>
-  </div>
-  
-  <div class="hl">
-    <div class="hl-head">
-      <span class="field">📐 AI4Math/PDE</span>
-      <span class="score">8.0</span>
-    </div>
-    <h3>ReAl: Refine neural operators via aligning dynamical flow</h3>
-    <p>给已训练好的 PDE（偏微分方程）神经代理模型加一个即插即用的「精修+对齐」模块，专门找回被 MSE 训练丢掉的细尺度结构，并解决生成模型在长时推演中的误差累积…</p>
-  </div>
-  
-  <div class="hl">
-    <div class="hl-head">
-      <span class="field">⚛️ 分子模拟</span>
-      <span class="score">8.0</span>
-    </div>
-    <h3>LAO+: Focused, Multi-Replica Accelerated Orthogonal Sampling for Robust Binding Free Energy Predictions</h3>
-    <p>把「配体解绑」自由能计算中最慢的一步——口袋重新进水——单独拎出来加速，配合多副本采样，在 63 纳秒采样下把结合自由能误差压到 0.83 kcal/mol，比…</p>
-  </div>
-  
-  <div class="hl">
-    <div class="hl-head">
-      <span class="field">🌍 气候地球</span>
-      <span class="score">8.0</span>
-    </div>
-    <h3>Improved Precipitation Variability in the Community Atmosphere Model through Implementation of a Neural-Network Deep Convection Scheme</h3>
-    <p>首次把 CAM6 气候模式里的深对流方案整体换成神经网络，稳定跑过十年且不破坏能量与水分守恒，同时明显修好了小雨、极端降水偏差和热带陆地降水的日循环相位。</p>
-  </div>
-  
-  <div class="hl">
-    <div class="hl-head">
-      <span class="field">💊 药物发现</span>
       <span class="score">7.0</span>
     </div>
-    <h3>Beyond Fixed Acquisition Functions: Temporal Difference Active Learning for Perturbation Discovery</h3>
-    <p>把主动学习里一直固定不变的「选实验策略」改成可在线学习的模块，用强化学习中的时序差分方法从单条筛选轨迹里学，让每轮实验选谁做能随响应格局自适应。</p>
+    <h3>Structural identification in general crystalline systems via Voronoi cell topology</h3>
+    <p>把「Voronoi 胞拓扑」这一几何工具做成可自动枚举的晶体结构分类器，让原子模拟中原本只能识别少数简单晶体的自动分类，扩展到任意晶体和缺陷环境。</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">🌍 气候地球</span>
+      <span class="score">7.0</span>
+    </div>
+    <h3>PrecipCorrDiff: A Deep Learning Framework for Generating 0.0625$^\circ$ High-Resolution IMD Gridded Precipitation Data</h3>
+    <p>把扩散模型（逐步去噪生成图像的生成式模型）用于降水数据降尺度，将印度气象局0.25°格点数据细化到0.0625°（约7公里），重点改善极端降雨的刻画并消除旧模型…</p>
   </div>
   
   <div class="hl">
@@ -167,17 +131,26 @@
       <span class="field">🧠 科学基础模型</span>
       <span class="score">7.0</span>
     </div>
-    <h3>SciML/DifferentialEquations.jl</h3>
-    <p>一个用 Julia 写的微分方程求解器全家桶，把 ODE、SDE、DDE、DAE 等各类方程和科学机器学习组件统一到同一套接口下，是 SciML 生态里少见的「…</p>
+    <h3>HRTF Upsampling and Personalization via Neural Operators</h3>
+    <p>把稀疏测得的头相关传递函数（HRTF，描述声音到双耳路径的滤波器）当作「算子学习」问题，用一个神经算子从少量方向采样直接还原连续空间声场，实现个性化双耳音频的快…</p>
   </div>
   
   <div class="hl">
     <div class="hl-head">
-      <span class="field">🧫 生物信息</span>
+      <span class="field">🧪 材料科学</span>
       <span class="score">7.0</span>
     </div>
-    <h3>SurvICL: a Foundation Model for in-context Survival Analysis</h3>
-    <p>首个在生存分析（预测事件发生时间，数据常带删失）上真正打败 50 年老牌 Cox 模型的表格基础模型，且无需调参；在小样本临床队列上首次有模型排名超过 Cox。</p>
+    <h3>Effective Graph Neural Representation of Chain Architectures of Block Copolymers Tested by Predicting RPA Instability Limits</h3>
+    <p>用一个图神经网络统一表示多种嵌段共聚物链拓扑，首次让单一模型跨不同链结构学习并预测相分离不稳定性边界，还能外推到更多嵌段的复杂结构。</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">🧪 材料科学</span>
+      <span class="score">7.0</span>
+    </div>
+    <h3>Sorption Molecular Dynamics of Point Defects in 2D Materials with a Machine Learning Potential</h3>
+    <p>用机器学习原子间势（MACE）替代密度泛函理论（DFT）跑分子动力学，在二维材料缺陷筛选上以极低成本复现了 DFT 的吸附趋势，并把分析扩展到室温。</p>
   </div>
   
   </div>
@@ -185,20 +158,20 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期出现三个明显变化：一是蛋白质设计从「能生成」转向「可控与安全」，自然语言接口、推理时算力分配和数据投毒攻击同时出现；二是气候 AI 从「造模型」进入「系统评测与纠偏」阶段，多篇工作专门检验概率模型在极端事件上的表现并指出旧评测的偏差；三是材料与分子模拟领域密集出现「把物理约束写进结构」的工作，从分数阶导数、递归分离不变量到可极化力场，目标都是让代理模型在训练分布之外不失效。此外，AI 智能体开始进入科研流程本身，出现长周期多轮生物信息学基准和自然语言搭原子结构的工具包。</p>
+  <p class="trend">与上一期相比，本期材料领域从「单一性质预测」转向「结构分类与多链拓扑统一表示」，并出现对非晶结构建模路线的系统性对比；气候方向扩散模型降尺度从单一变量、固定分辨率走向多变量时空联合与更高分辨率；分子模拟开始把机器学习势与非绝热动力学、大涡模拟滤波等传统多尺度方法深度耦合；药物发现领域则出现对生成模型「非加和效应幻觉」的反思性研究，提示评估指标需从整体精度转向交互效应识别。</p>
   
 
   <div class="stats">
     <div class="nums">
       <div><span class="num">3853</span><small>抓取条目</small></div>
-      <div><span class="num">270</span><small>总结</small></div>
-      <div><span class="num">270</span><small>已上墙</small></div>
+      <div><span class="num">280</span><small>总结</small></div>
+      <div><span class="num">280</span><small>已上墙</small></div>
     </div>
     <div class="fields">
       
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 13%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 14%"></div></div>
         <b>36</b>
       </div>
       
@@ -210,37 +183,37 @@
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 45%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 46%"></div></div>
         <b>121</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 78%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 80%"></div></div>
         <b>210</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 39%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 40%"></div></div>
         <b>106</b>
       </div>
       
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
         <div class="fbar"><div class="fbar-fill" style="width: 19%"></div></div>
-        <b>51</b>
+        <b>50</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>269</b>
+        <b>262</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 30%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 31%"></div></div>
         <b>82</b>
       </div>
       

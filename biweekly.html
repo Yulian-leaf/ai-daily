@@ -87,15 +87,15 @@
       <a href="index.html">← 日报</a> ·
       <a href="weekly.html">周报 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-18 15:11 (北京时间 UTC+8)
+      生成于 2026-10-19 08:57 (北京时间 UTC+8)
     </p>
   </header>
   <main>
     
     <section class="latest">
-      <h2 class="r-title">AI4S 双周报告 · 10-05 ~ 10-18</h2>
-      <p class="r-range">2026-10-05 ~ 2026-10-18</p>
-      <p class="r-overview">这两周 AI4S 的主旋律是「从预测走向生成、从拟合走向可解释的物理结构」：蛋白质从头设计连续产出金属蛋白酶与半胱氨酸蛋白酶，材料侧则把氧化态、分叉解、电子密度等物理约束显式写进生成模型。第一周偏「工具与基准」——大量数据集、评测协议、开源框架（MAD-COSMO、ClimateBench v2.0、PoreML、RNADyn）集中出现；第二周明显转向「机制与可解释」——用机器学习势追踪断键能量路由、从顺磁响应直接读出磁序、把神经算子压缩成可读闭式方程。气候方向的重心从「能不能替代」转为「怎么评测才对」：多篇工作指出此前「AI 不擅长极端事件」的结论源于评测方式不当，概率型 AI 模型在破纪录高温与热带气旋上反超物理集合预报。分子模拟则出现明显的「物理对齐」潮流：把学习目标对齐 KS-DFT 方程、把键合与非键合参数统一学习、把核量子效应塞进激发态动力学。整体看，AI4S 正从「刷指标」进入「补物理、建基准、做闭环」的阶段。</p>
+      <h2 class="r-title">AI4S 双周报告 · 10-12 ~ 10-25</h2>
+      <p class="r-range">2026-10-12 ~ 2026-10-25</p>
+      <p class="r-overview">这两周 AI4S 的主旋律是「从预测走向生成与设计」：蛋白质领域连续出现金属蛋白酶与半胱氨酸蛋白酶的从头设计，材料领域则把机器学习势函数、哈密顿量与轨道自由密度泛函推进到可迁移、可扩展的工程级精度。气候方向出现明显转向——概率型 AI 天气模型在破纪录高温与热带气旋评测中系统性超越传统集合预报，同时神经网络深对流方案首次在 CAM6 中稳定跑过十年。第一周以分子模拟与材料的方法学铺陈为主（MLFF、采样加速、数据集整合），第二周则密集出现「端到端系统级验证」：气候模式替换、蛋白质语言接口、AI 智能体基准与材料发现的可复现性质疑。跨周对比看，气候与蛋白质热度上升最快，分子模拟从「造工具」转向「验工具」，AI4Math 则从纯算子学习转向训练效率与可解释性。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -104,73 +104,73 @@
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://www.nature.com/articles/s41586-026-11167-2" target="_blank" rel="noopener">Computational design of metalloproteases</a></h2>
-          <p>用 RFdiffusion 从零设计出含锌活性位点的金属蛋白酶，把「造酶」从改造天然酶推进到可编程的从头设计，且活性很高。</p>
+          <p>用 RFdiffusion 从零设计含锌活性位点的金属蛋白酶，把造酶从改造天然酶推进到可编程从头设计，且活性很高。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
-          <h2><a href="https://www.nature.com/articles/s41586-026-11143-w" target="_blank" rel="noopener">De novo design of cysteine proteases</a></h2>
-          <p>首次从头设计出半胱氨酸蛋白酶，切割位置由序列决定，意味着酶的功能可以像写代码一样被定制。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.21637v1" target="_blank" rel="noopener">Directed impulsive molecular dynamics reveal energy-routing pathways of bond cleavage in TATB</a></h2>
-          <p>用机器学习势函数加定向脉冲分子动力学，把含能材料 TATB 的键断裂能量路径变成可追踪的「路由图」。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.10298v1" target="_blank" rel="noopener">Physics-Aligned Electronic Ground-State Learning Improves Generalization</a></h2>
-          <p>把机器学习原子间势的学习目标对齐到 KS-DFT 物理方程上，让模型在分布外泛化时误差大幅下降。</p>
+          <h2><a href="https://arxiv.org/abs/2610.13917v2" target="_blank" rel="noopener">Designing Protein Structures from Natural Language</a></h2>
+          <p>Prompteina 首次用一句自然语言直接生成全原子蛋白质结构，把蛋白质设计接口变成类似文生图的文字描述。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.19919v1" target="_blank" rel="noopener">Beyond DFT electronic band structures via dual-space orbital learning</a></h2>
-          <p>用便宜的 PBE 计算加轨道信息直接预测 HSE06 能带能量，在近 6000 种三维材料上平均误差仅 0.17 eV。</p>
+          <p>用廉价 PBE 加轨道信息直接预测 HSE06 能带，在近 6000 种三维材料上平均误差仅 0.17 eV。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.08296v1" target="_blank" rel="noopener">OxiGen: Oxidation-State-Aware Crystal Generation</a></h2>
-          <p>把氧化态显式写进晶体生成模型，让 AI 造出的无机材料在电荷配比上更接近真实可合成的晶体。</p>
+          <h2><a href="https://arxiv.org/abs/2610.17975v1" target="_blank" rel="noopener">All-electron machine-learned orbital-free density functional for periodic CHNO systems</a></h2>
+          <p>首个面向周期性 CHNO 体系的全电子机器学习轨道自由密度泛函，密度误差从 6.7% 压到 0.4%，能量误差仅 0.25 mHa/原子。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.20519v1" target="_blank" rel="noopener">Probabilistic AI models outperform numerical weather prediction models on record breaking heat extremes</a></h2>
-          <p>首次系统证明概率型 AI 天气预报模型在破纪录高温极端事件上全面胜过 ECMWF 物理集合预报，并指出此前结论源于评测方式不当。</p>
+          <p>首次系统证明概率型 AI 天气预报在破纪录高温上全面胜过 ECMWF 物理集合预报，并指出此前「AI 不擅长极端事件」源于评测方式不当。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.20405v1" target="_blank" rel="noopener">Improved Precipitation Variability in the Community Atmosphere Model through Implementation of a Neural-Network Deep Convection Scheme</a></h2>
-          <p>首次把 CAM6 气候模式的深对流方案整体换成神经网络，稳定跑过十年且不破坏能量与水分守恒，同时修好小雨与极端降水偏差。</p>
+          <p>首次把 CAM6 深对流方案整体换成神经网络，稳定跑过十年且不破坏守恒，同时修好小雨、极端降水偏差与热带陆地降水日循环相位。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2610.20436v1" target="_blank" rel="noopener">LAO+: Focused, Multi-Replica Accelerated Orthogonal Sampling for Robust Binding Free Energy Predictions</a></h2>
+          <p>单独加速配体解绑中最慢的口袋重新进水步骤，63 纳秒采样把结合自由能误差压到 0.83 kcal/mol。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2610.13265v1" target="_blank" rel="noopener">Quantitative modeling of acid-base equilibria</a></h2>
+          <p>首次把机器学习势函数、加速采样与核量子效应修正串成可复用工作流，从第一性原理可靠算出水中多种物质的酸解离常数。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.20369v1" target="_blank" rel="noopener">ReAl: Refine neural operators via aligning dynamical flow</a></h2>
-          <p>给已训练的 PDE 神经代理模型加一个即插即用的「精修+对齐」模块，专门找回被 MSE 训练丢掉的细尺度结构。</p>
+          <p>给已训练 PDE 神经代理加即插即用精修对齐模块，找回被 MSE 丢掉的细尺度结构并缓解长时推演误差累积。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2610.13028v1" target="_blank" rel="noopener">Low-Rank Kolmogorov-Arnold Generator Flows for Interpretable Operator Learning</a></h2>
-          <p>把神经算子学到的物理规律压缩成低秩符号，既能外推到训练分布之外，又能自动吐出可读的闭式方程。</p>
+          <h2><a href="https://arxiv.org/abs/2610.22157v1" target="_blank" rel="noopener">The importance of tensor handling and implementation of physics-informed DeepONets</a></h2>
+          <p>发现 PI-DeepONet 训练慢的根源是张量处理冗余，重构架构后 2D 训练最高提速 3.75 倍且不损失精度。</p>
         </article>
         
         <article class="card">
-          <span class="field">科学基础模型</span>
-          <h2><a href="https://arxiv.org/abs/2610.03265v1" target="_blank" rel="noopener">SPEAR: A Spectral-Disentangled MoE Neural Operator with Knowledge-Guided Expert Aggregation for Large-Scale PDE Pretraining</a></h2>
-          <p>把频谱解耦与专家混合结合做 PDE 基础模型预训练，用知识引导的专家合并把专家数砍掉一半而精度不降。</p>
+          <span class="field">药物发现</span>
+          <h2><a href="https://arxiv.org/abs/2610.20288v1" target="_blank" rel="noopener">Predicting Unseen Scientific Interactions: Conditional Flow Models Hallucinate Non-Additive Effects</a></h2>
+          <p>首次系统揭示条件生成模型在科学预测中会幻觉出不存在的交互效应，且整体精度指标会掩盖这一缺陷，对药物组合实验有直接警示。</p>
         </article>
         
         <article class="card">
           <span class="field">生物信息</span>
           <h2><a href="https://arxiv.org/abs/2610.22242v1" target="_blank" rel="noopener">SurvICL: a Foundation Model for in-context Survival Analysis</a></h2>
-          <p>首个在生存分析上真正打败 50 年老牌 Cox 模型的表格基础模型，且无需调参，小样本临床队列上首次有模型排名超过 Cox。</p>
+          <p>首个在生存分析上真正打败 50 年老牌 Cox 模型的表格基础模型，无需调参，小样本临床队列上首次有模型排名超过 Cox。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>按条目数统计，materials 从第一周约 14 条增至第二周约 18 条，是这两周最热的方向，且重心从「造结构」转向「评结构」——GNoME 数据集被证明存在大量重复、通用机器学习势在高温弹性上被系统评测，基准与质疑类工作明显增多。climate 保持高位（两周合计约 25 条），但内部结构变化明显：第一周以「替代物理模型」为主（EC-EarthFlow、legoESM、ACE 变体），第二周转向「怎么评测才对」（ClimateBench v2.0、极端事件评测、捷径学习），并出现 AI 智能体自主建模 ENSO 的评测。molsim 从第一周偏「数据集与力场」转向第二周偏「机制解释」：断键能量路由、三体相互作用恢复、核量子效应激发态动力学集中出现，物理对齐类工作从 1 条增至 4 条以上。protein 热度略降但质量集中：两周内 Nature 连发两篇从头设计蛋白酶，生成式抗体与纳米抗体设计从单界面走向多组分复合物。ai4math 出现新浮现方向「可解释算子学习」——低秩符号化、分数阶导数自学、物理即网络的无训练仿真，共 3 条以上，此前较少见。scifm 与 bioinfo 相对平稳，但 bioinfo 首次出现长周期多轮智能体基准（OmicsBench）与跨物种表征对齐，值得注意。</p>
+      <p>跨周对比看，气候方向热度上升最明显：第一周以海洋涡旋模拟与风暴解析模型复现为主，第二周密集出现概率型 AI 天气模型在极端事件上的系统评测（高温、热带气旋）、CAM6 神经网络深对流十年稳定运行、以及预报提前量对停电预测价值的量化，从「能不能模拟」转向「能不能替代业务链」。蛋白质方向同样升温：第一周以自然语言生成结构与纳米抗体推理时算力分配为主，第二周连续出现金属蛋白酶与半胱氨酸蛋白酶的从头设计，并首次系统揭示蛋白质设计系统可被纯数据投毒攻击，设计能力与安全性同步进入视野。分子模拟从「造工具」转向「验工具」：第一周集中出现 MLFF 振动性质检验、酸解离常数工作流、可极化 Drude 力场端到端学习，第二周则出现 17 亿条结构数据集整合与递归分离不变量等基础设施级工作。材料方向保持高位但重心从「预测精度」转向「可复现性与工程化」：第一周以双空间轨道学习、平面波哈密顿量扩展为主，第二周出现对 GNoME 数据集大量重复的晶体不变量证明、以及自然语言搭结构的 MASON 工具包。AI4Math 从纯算子学习转向训练效率与可解释性，出现 PI-DeepONet 张量重构提速 3.75 倍、低秩 Kolmogorov-Arnold 生成流吐出闭式方程等工作。药物发现条目数偏少但质量高，焦点从「生成分子」转向「生成模型的失败模式」与「合成可及性」。科学基础模型方向以工程化工具链为主（DifferentialEquations.jl、PINNeAPPle、PaddleCFD），新浮现的方向是「AI 智能体做科研」的基准建设（OmicsBench 长周期多轮基准）与「LLM 翻译老 Fortran 到 JAX」的代码迁移。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下两周重点跟踪三条线：一是「物理对齐」能否从个案变成标准训练范式（KS-DFT 对齐、氧化态感知、守恒约束），二是气候 AI 的评测协议会不会被社区采纳为事实标准，三是可解释算子学习能否给出可复现的闭式方程而非仅演示。</p>
+      <p>下两周值得重点跟踪：概率型 AI 天气模型在极端事件上的评测是否会从「论文对比」走向业务化替换，以及蛋白质从头设计在酶活性之外的安全性与数据投毒防御能否形成标准评测。</p>
       
     </section>
     
@@ -190,6 +190,11 @@
     
     <section class="archive">
       <h3 class="sub">历史双周报告</h3>
+      
+      <details class="date-group">
+        <summary>2026-10-05 ~ 2026-10-18 · AI4S 双周报告 · 10-05 ~ 10-18</summary>
+        <div class="body"><p>这两周 AI4S 的主旋律是「从预测走向生成、从拟合走向可解释的物理结构」：蛋白质从头设计连续产出金属蛋白酶与半胱氨酸蛋白酶，材料侧则把氧化态、分叉解、电子密度等物理约束显式写进生成模型。第一周偏「工具与基准」——大量数据集、评测协议、开源框架（MAD-COSMO、ClimateBench v2.0、PoreML、RNADyn）集中出现；第二周明显转向「机制与可解释」——用机器学习势追踪断键能量路由、从顺磁响应直接读出磁序、把神经算子压缩成可读闭式方程。气候方向的重心从「能不能替代」转为「怎么评测才对」：多篇工作指出此前「AI 不擅长极端事件」的结论源于评测方式不当，概率型 AI 模型在破纪录高温与热带气旋上反超物理集合预报。分子模拟则出现明显的「物理对齐」潮流：把学习目标对齐 KS-DFT 方程、把键合与非键合参数统一学习、把核量子效应塞进激发态动力学。整体看，AI4S 正从「刷指标」进入「补物理、建基准、做闭环」的阶段。</p></div>
+      </details>
       
       <details class="date-group">
         <summary>2026-09-28 ~ 2026-10-11 · AI4S 双周报告 · 09-28 ~ 10-11</summary>
