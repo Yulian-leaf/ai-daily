@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-19 15:39 (北京时间 UTC+8)
+      生成于 2026-10-20 09:39 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,52 +95,70 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 10-19 ~ 10-25</h2>
       <p class="r-range">2026-10-19 ~ 2026-10-25</p>
-      <p class="r-overview">本期 AI4S 的主旋律是「把生成式模型和几何/算子工具放到可验证的物理场景里」。材料与分子模拟方向集中出现用图神经网络、机器学习势和逆蒙特卡洛做结构识别与缺陷筛选的工作；气候方向连续两篇用扩散模型做时空降尺度，把粗网格数据细化到 7 公里级。与此同时，一篇药物组合预测研究系统揭示了条件生成模型会「幻觉」出不存在的交互效应，提醒精度指标可能掩盖结构性缺陷。整体看，方法创新与失效诊断正在同步推进。</p>
+      <p class="r-overview">本期 AI4S 的主旋律是「把昂贵计算压到可负担」。蛋白质扩散模块从 200 步压到 8 步，晶体扩散模型在推理阶段零重训调控多性质，分子自能学习省去逐构型 G0W0。同时，LLM 智能体首次与真实湿实验闭环，三轮把适配体命中率从 0% 提到 42.1%。材料与气候领域则密集出现「统一势函数 + 可微算子」的基础设施型工作，强调跨体系、跨尺度的一次性建模。</p>
 
       
       <h3 class="sub">本期亮点</h3>
       <div class="cards">
         
         <article class="card">
-          <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.20498v1" target="_blank" rel="noopener">Structural identification in general crystalline systems via Voronoi cell topology</a></h2>
-          <p>把 Voronoi 胞拓扑做成可自动枚举的晶体结构分类器，将原子模拟中的自动分类从少数简单晶体扩展到任意晶体和缺陷环境。</p>
+          <span class="field">蛋白质/结构</span>
+          <h2><a href="https://arxiv.org/abs/2610.23703v1" target="_blank" rel="noopener">Blitz: Accelerating the Diffusion Modules of AlphaFold3 and Boltz-2</a></h2>
+          <p>把 AF3 和 Boltz-2 的扩散去噪从 200 步压到 8 步，结构精度基本不掉，AF3-Blitz 在多个指标上甚至超过原模型。</p>
         </article>
         
         <article class="card">
-          <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.20374v1" target="_blank" rel="noopener">Effective Graph Neural Representation of Chain Architectures of Block Copolymers Tested by Predicting RPA Instability Limits</a></h2>
-          <p>用一个图神经网络统一表示多种嵌段共聚物链拓扑，首次让单一模型跨链结构预测相分离不稳定性边界，并可外推到更多嵌段的复杂结构。</p>
+          <span class="field">药物发现</span>
+          <h2><a href="https://arxiv.org/abs/2610.24806v1" target="_blank" rel="noopener">Aptamers as a sandbox for lab-in-the-loop agentic molecular discovery</a></h2>
+          <p>首次把 LLM 推理智能体与真实湿实验闭环打通，用适配体设计做沙盒，三轮迭代把新候选靶向命中率从 0% 提到 42.1%。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.20288v1" target="_blank" rel="noopener">Predicting Unseen Scientific Interactions: Conditional Flow Models Hallucinate Non-Additive Effects</a></h2>
-          <p>首次系统揭示条件生成模型在科学预测中会幻觉出不存在的交互效应，且整体精度指标会掩盖这一缺陷，对药物组合和多扰动实验有直接警示意义。</p>
+          <p>首次系统揭示条件生成模型在科学预测中会「幻觉」出不存在的交互效应，且整体精度指标会掩盖这一缺陷，对药物组合与多扰动实验有直接警示意义。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.20204v1" target="_blank" rel="noopener">Learning to reconstruct Germano Differential Filtered Fields with Convolutional Neural Networks for Large Eddy Simulation of Plasma Turbulence</a></h2>
-          <p>把 Germano 微分滤波器的可逆性接进卷积网络，网络只学粗网格 LES 到滤波后 DNS 的映射，再用逆滤波还原细尺度，从而精确算出非线性项和亚格子项。</p>
+          <h2><a href="https://arxiv.org/abs/2610.23717v1" target="_blank" rel="noopener">Learning the self-energy through equivariant neural networks</a></h2>
+          <p>用等变神经网络直接学习分子自能矩阵，虚频轴误差低于 1 meV，并能延续到实频轴还原光谱，省去逐构型 G0W0 计算。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.19842v1" target="_blank" rel="noopener">Nonadiabatic polaron dynamics from machine-learned hopping trajectories</a></h2>
-          <p>首次把机器学习分子动力学与非绝热分子动力学拼成一个框架，直接看到极化子跳跃事件，并用动力学分析给出跳跃机制。</p>
+          <p>首次把机器学习分子动力学与非绝热分子动力学拼成统一框架，直接「看到」极化子跳跃事件并给出动力学参数。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">材料科学</span>
+          <h2><a href="https://arxiv.org/abs/2610.24828v1" target="_blank" rel="noopener">Multi-property Feynman-Kac Steering of Crystal Diffusion Models</a></h2>
+          <p>无需重训、无需梯度计算，在推理阶段同时调控晶体扩散模型的原子坐标、晶格和元素组成，让同一预训练模型按需生成多目标性质的新材料。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">材料科学</span>
+          <h2><a href="https://arxiv.org/abs/2610.24407v1" target="_blank" rel="noopener">Atomistic prediction of magnetic behaviour across chemistry, structure and temperature</a></h2>
+          <p>首个跨 48 种元素、覆盖 0–1000K 与 0–10GPa 的磁性原子模拟基础模型，能区分原子结构相同但自旋构型不同的磁态。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">材料科学</span>
+          <h2><a href="https://arxiv.org/abs/2610.23545v1" target="_blank" rel="noopener">Linear response for machine-learned interatomic potentials: phonons at arbitrary wave vectors from the primitive cell</a></h2>
+          <p>首次证明消息传递型 MLIP 可在原胞内、任意波矢处精确算出动力学矩阵，不再依赖超胞有限位移，直接修正高通量声子计算的系统性误差。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.19994v1" target="_blank" rel="noopener">PrecipCorrDiff: A Deep Learning Framework for Generating 0.0625$^\circ$ High-Resolution IMD Gridded Precipitation Data</a></h2>
-          <p>把扩散模型用于降水降尺度，将印度气象局 0.25° 格点数据细化到 0.0625°（约 7 公里），重点改善极端降雨刻画并消除旧模型的偏差。</p>
+          <h2><a href="https://arxiv.org/abs/2610.24708v1" target="_blank" rel="noopener">Spherical Physics-informed Neural Operator with Multi-scale Coupling for Meteorological Downscaling</a></h2>
+          <p>把气象降尺度搬到球面上做，用球面拉普拉斯分解+多尺度耦合+物理约束，解决传统神经算子忽略地球曲率、尺度错配和缺物理定律三个问题。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.19885v1" target="_blank" rel="noopener">Generative modelling for multivariate spatio-temporal downscaling of monthly climate fields</a></h2>
-          <p>用扩散模型把月度 1° 粗网格气候场一次性联合降尺度成每日 0.25° 的温度与降水场，预训练模型无需微调即可按新月份条件生成。</p>
+          <h2><a href="https://arxiv.org/abs/2610.24627v1" target="_blank" rel="noopener">UDL-RT: A unified differentiable all-sky microwave radiative transfer model with learnable parameterizations</a></h2>
+          <p>把微波辐射传输的前向、切线性、伴随三套代码合并成一个可微 PyTorch 计算图，并用神经网络替换气体吸收、水凝物散射和海洋表面发射率参数化。</p>
         </article>
         
         <article class="card">
@@ -154,11 +172,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期最明显的变化是「生成模型失效诊断」开始独立成题：药物方向不再只报告生成精度，而是系统检验条件流模型是否幻觉出不存在的交互效应。材料与分子模拟则从「跑得更快」转向「分类更全、对比更公平」，例如 Voronoi 拓扑分类器覆盖任意晶体、非晶电解质建模首次在同一势函数下公平对比两条路线。气候降尺度连续两篇把扩散模型推向时空联合与 7 公里级，显示该方向正从单变量、单时刻向多变量、日尺度推进。</p>
+      <p>与上一期相比，本期最明显的变化是「推理阶段控制」成为高频词：晶体扩散模型用 Feynman-Kac 引导在推理时调多性质，蛋白质扩散模块用步数压缩换速度，均不重训主干。其次，LLM 智能体从纯计算走向湿实验闭环，适配体沙盒给出 0%→42.1% 的量化证据。材料领域集中出现「统一势函数 + 可微长程响应 + 原胞线性响应」的基础设施型工作，气候领域则把降尺度与辐射传输都搬到了球面或统一可微图上。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注生成式模型在科学预测中的可靠性评估是否会从药物组合扩展到气候与材料场景，以及机器学习势与非绝热动力学结合后能否给出可复现的极化子迁移率基准。</p>
+      <p>下期值得关注：推理阶段可控生成能否从晶体扩散扩展到蛋白质与分子体系；以及「实验闭环智能体」在更多湿实验场景中的复现与失败模式分析。</p>
       
     </section>
     

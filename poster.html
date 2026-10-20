@@ -79,12 +79,12 @@
     <div class="brand">AI4S-DAILY</div>
     
     <h1 class="title">AI4S 周报 · 10-19 ~ 10-25</h1>
-    <p class="slogan">「生成模型会幻觉，几何拓扑能分类」</p>
-    <p class="range">2026-10-19 ~ 2026-10-25 · 2026-10-19 15:39 (北京时间 UTC+8)</p>
+    <p class="slogan">「推理提速、闭环实验、跨尺度建模」</p>
+    <p class="range">2026-10-19 ~ 2026-10-25 · 2026-10-20 09:39 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期 AI4S 的主旋律是「把生成式模型和几何/算子工具放到可验证的物理场景里」。材料与分子模拟方向集中出现用图神经网络、机器学习势和逆蒙特卡洛做结构识别与缺陷筛选的工作；气候方向连续两篇用扩散模型做时空降尺度，把粗网格数据细化到 7 公里级。与此同时，一篇药物组合预测研究系统揭示了条件生成模型会「幻觉」出不存在的交互效应，提醒精度指标可能掩盖结构性缺陷。整体看，方法创新与失效诊断正在同步推进。</p>
+  <p class="overview">本期 AI4S 的主旋律是「把昂贵计算压到可负担」。蛋白质扩散模块从 200 步压到 8 步，晶体扩散模型在推理阶段零重训调控多性质，分子自能学习省去逐构型 G0W0。同时，LLM 智能体首次与真实湿实验闭环，三轮把适配体命中率从 0% 提到 42.1%。材料与气候领域则密集出现「统一势函数 + 可微算子」的基础设施型工作，强调跨体系、跨尺度的一次性建模。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -92,38 +92,65 @@
   
   <div class="hl">
     <div class="hl-head">
-      <span class="field">💊 药物发现</span>
-      <span class="score">7.0</span>
+      <span class="field">🧬 蛋白质/结构</span>
+      <span class="score">8.0</span>
     </div>
-    <h3>Predicting Unseen Scientific Interactions: Conditional Flow Models Hallucinate Non-Additive Effects</h3>
-    <p>首次系统揭示条件生成模型（如流匹配）在科学预测中会「幻觉」出不存在的交互效应，且整体精度指标会掩盖这一缺陷，对药物组合、多扰动实验等场景有直接警示意义。</p>
+    <h3>Blitz: Accelerating the Diffusion Modules of AlphaFold3 and Boltz-2</h3>
+    <p>把 AlphaFold3 和 Boltz-2 的扩散去噪步骤从 200 步压到 8 步，且结构精度基本不掉，AF3-Blitz 在多个指标上甚至超过原模型。</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">💊 药物发现</span>
+      <span class="score">8.0</span>
+    </div>
+    <h3>Aptamers as a sandbox for lab-in-the-loop agentic molecular discovery</h3>
+    <p>首次把 LLM 推理智能体与真实湿实验闭环打通，用适配体（短核酸结合分子）设计做沙盒，三轮迭代把新候选的靶向命中率从 0% 提到 42.1%，证明实验反馈比计算…</p>
   </div>
   
   <div class="hl">
     <div class="hl-head">
       <span class="field">⚛️ 分子模拟</span>
-      <span class="score">7.0</span>
+      <span class="score">8.0</span>
     </div>
-    <h3>Learning to reconstruct Germano Differential Filtered Fields with Convolutional Neural Networks for Large Eddy Simulation of Plasma Turbulence</h3>
-    <p>把 Germano 微分滤波器的可逆性接进卷积网络：网络只学「粗网格 LES→滤波后的 DNS」，再用逆滤波还原细尺度，从而精确算出非线性项和亚格子项，绕开传统…</p>
+    <h3>Learning the self-energy through equivariant neural networks</h3>
+    <p>用等变神经网络直接学习分子的自能矩阵（决定电子能级和光谱的关键量），在虚频轴上误差低于1 meV，且能延续到实频轴还原光谱，省去每次新构型都要跑昂贵G0W0计算…</p>
   </div>
   
   <div class="hl">
     <div class="hl-head">
       <span class="field">🧪 材料科学</span>
-      <span class="score">7.0</span>
+      <span class="score">8.0</span>
     </div>
-    <h3>Structural identification in general crystalline systems via Voronoi cell topology</h3>
-    <p>把「Voronoi 胞拓扑」这一几何工具做成可自动枚举的晶体结构分类器，让原子模拟中原本只能识别少数简单晶体的自动分类，扩展到任意晶体和缺陷环境。</p>
+    <h3>Multi-property Feynman-Kac Steering of Crystal Diffusion Models</h3>
+    <p>无需重新训练、也无需梯度计算，就能在推理阶段同时调控晶体扩散模型的原子坐标、晶格和元素组成，让同一预训练模型按需生成多种目标性质的新材料。</p>
   </div>
   
   <div class="hl">
     <div class="hl-head">
       <span class="field">🌍 气候地球</span>
-      <span class="score">7.0</span>
+      <span class="score">8.0</span>
     </div>
-    <h3>PrecipCorrDiff: A Deep Learning Framework for Generating 0.0625$^\circ$ High-Resolution IMD Gridded Precipitation Data</h3>
-    <p>把扩散模型（逐步去噪生成图像的生成式模型）用于降水数据降尺度，将印度气象局0.25°格点数据细化到0.0625°（约7公里），重点改善极端降雨的刻画并消除旧模型…</p>
+    <h3>Spherical Physics-informed Neural Operator with Multi-scale Coupling for Meteorological Downscaling</h3>
+    <p>把气象降尺度（把粗网格气候数据细化到区域高分辨率）搬到球面上做，用球面拉普拉斯分解+多尺度耦合+物理约束，解决传统神经算子忽略地球曲率、尺度错配和缺物理定律三个…</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">🌍 气候地球</span>
+      <span class="score">8.0</span>
+    </div>
+    <h3>UDL-RT: A unified differentiable all-sky microwave radiative transfer model with learnable parameterizations</h3>
+    <p>把微波辐射传输模型的前向、切线性、伴随三套代码合并成一个可微的 PyTorch 计算图，并用神经网络替换气体吸收、水凝物散射和海洋表面发射率参数化，实现「仿真—…</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">🧪 材料科学</span>
+      <span class="score">8.0</span>
+    </div>
+    <h3>A GRACE Interatomic Potential for W--Ta Systems: Application to Ta Segregation and Pinning of Shear-Coupled Grain-Boundary Migration</h3>
+    <p>用「熵最大化自动生成训练数据」的方式，做出一个能同时覆盖钨钽合金相稳定性、缺陷、位错、晶界、熔化等多场景的原子间势（描述原子间相互作用的模型），并首次用它揭示钽…</p>
   </div>
   
   <div class="hl">
@@ -135,86 +162,68 @@
     <p>把稀疏测得的头相关传递函数（HRTF，描述声音到双耳路径的滤波器）当作「算子学习」问题，用一个神经算子从少量方向采样直接还原连续空间声场，实现个性化双耳音频的快…</p>
   </div>
   
-  <div class="hl">
-    <div class="hl-head">
-      <span class="field">🧪 材料科学</span>
-      <span class="score">7.0</span>
-    </div>
-    <h3>Effective Graph Neural Representation of Chain Architectures of Block Copolymers Tested by Predicting RPA Instability Limits</h3>
-    <p>用一个图神经网络统一表示多种嵌段共聚物链拓扑，首次让单一模型跨不同链结构学习并预测相分离不稳定性边界，还能外推到更多嵌段的复杂结构。</p>
-  </div>
-  
-  <div class="hl">
-    <div class="hl-head">
-      <span class="field">🧪 材料科学</span>
-      <span class="score">7.0</span>
-    </div>
-    <h3>Sorption Molecular Dynamics of Point Defects in 2D Materials with a Machine Learning Potential</h3>
-    <p>用机器学习原子间势（MACE）替代密度泛函理论（DFT）跑分子动力学，在二维材料缺陷筛选上以极低成本复现了 DFT 的吸附趋势，并把分析扩展到室温。</p>
-  </div>
-  
   </div>
   
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期最明显的变化是「生成模型失效诊断」开始独立成题：药物方向不再只报告生成精度，而是系统检验条件流模型是否幻觉出不存在的交互效应。材料与分子模拟则从「跑得更快」转向「分类更全、对比更公平」，例如 Voronoi 拓扑分类器覆盖任意晶体、非晶电解质建模首次在同一势函数下公平对比两条路线。气候降尺度连续两篇把扩散模型推向时空联合与 7 公里级，显示该方向正从单变量、单时刻向多变量、日尺度推进。</p>
+  <p class="trend">与上一期相比，本期最明显的变化是「推理阶段控制」成为高频词：晶体扩散模型用 Feynman-Kac 引导在推理时调多性质，蛋白质扩散模块用步数压缩换速度，均不重训主干。其次，LLM 智能体从纯计算走向湿实验闭环，适配体沙盒给出 0%→42.1% 的量化证据。材料领域集中出现「统一势函数 + 可微长程响应 + 原胞线性响应」的基础设施型工作，气候领域则把降尺度与辐射传输都搬到了球面或统一可微图上。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">3966</span><small>抓取条目</small></div>
-      <div><span class="num">280</span><small>总结</small></div>
-      <div><span class="num">280</span><small>已上墙</small></div>
+      <div><span class="num">4082</span><small>抓取条目</small></div>
+      <div><span class="num">290</span><small>总结</small></div>
+      <div><span class="num">290</span><small>已上墙</small></div>
     </div>
     <div class="fields">
       
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 16%"></div></div>
-        <b>40</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 14%"></div></div>
+        <b>41</b>
       </div>
       
       <div class="frow">
         <span class="flabel">💊 药物发现</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 13%"></div></div>
-        <b>34</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 12%"></div></div>
+        <b>36</b>
       </div>
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 49%"></div></div>
-        <b>126</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 47%"></div></div>
+        <b>139</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 83%"></div></div>
-        <b>214</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 79%"></div></div>
+        <b>234</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 41%"></div></div>
-        <b>106</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 39%"></div></div>
+        <b>116</b>
       </div>
       
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
         <div class="fbar"><div class="fbar-fill" style="width: 21%"></div></div>
-        <b>54</b>
+        <b>61</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>257</b>
+        <b>297</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 35%"></div></div>
-        <b>91</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 36%"></div></div>
+        <b>108</b>
       </div>
       
     </div>
