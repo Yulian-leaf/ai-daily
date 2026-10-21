@@ -79,12 +79,12 @@
     <div class="brand">AI4S-DAILY</div>
     
     <h1 class="title">AI4S 周报 · 10-19 ~ 10-25</h1>
-    <p class="slogan">「推理提速、闭环实验、跨尺度建模」</p>
-    <p class="range">2026-10-19 ~ 2026-10-25 · 2026-10-20 15:25 (北京时间 UTC+8)</p>
+    <p class="slogan">「少参数、少步数、少幻觉」</p>
+    <p class="range">2026-10-19 ~ 2026-10-25 · 2026-10-21 09:25 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期 AI4S 的主旋律是「效率与闭环」：蛋白质扩散模块从 200 步压到 8 步，晶体扩散模型在推理阶段无需重训即可多目标调控，LLM 智能体首次与湿实验闭环把命中率从 0% 提到 42.1%。材料领域集中出现一批「让 MLIP 更好用」的工作——长程静电、任意波矢声子、Voronoi 拓扑分类、跨元素磁性基础模型。气候降尺度从球面算子、可微辐射传输到扩散模型多点开花，分子模拟则把等变网络、非绝热动力学与机器学习势拼成新框架。</p>
+  <p class="overview">本期最清晰的信号是「效率与可靠性」取代「堆规模」：蛋白质语言模型用递归深度换参数，AlphaFold3 扩散步数从 200 压到 8，晶体扩散模型在推理阶段免训练调控多性质。与此同时，多篇工作开始系统检验基础模型的域外可靠性——无序碳上的 MLIP、条件生成模型的非加性幻觉、蒸馏势的局部失效，说明社区正从「能跑」转向「可信」。气候方向密集出现降尺度与 AI 化学气候耦合，材料方向则集中在长程静电、声子线性响应等 MLIP 的物理补全。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -95,8 +95,8 @@
       <span class="field">🧬 蛋白质/结构</span>
       <span class="score">8.0</span>
     </div>
-    <h3>Blitz: Accelerating the Diffusion Modules of AlphaFold3 and Boltz-2</h3>
-    <p>把 AlphaFold3 和 Boltz-2 的扩散去噪步骤从 200 步压到 8 步，且结构精度基本不掉，AF3-Blitz 在多个指标上甚至超过原模型。</p>
+    <h3>recAMPLIFY: Large-Scale Pretraining of Recursive Protein Language Models</h3>
+    <p>把「递归深度」当作蛋白质语言模型的新扩展维度：参数比 AMPLIFY-350M 少 56%，却在折叠准确率上提升 22.5%，说明不靠堆参数也能提升蛋白质建模能…</p>
   </div>
   
   <div class="hl">
@@ -113,8 +113,8 @@
       <span class="field">⚛️ 分子模拟</span>
       <span class="score">8.0</span>
     </div>
-    <h3>Learning the self-energy through equivariant neural networks</h3>
-    <p>用等变神经网络直接学习分子的自能矩阵（决定电子能级和光谱的关键量），在虚频轴上误差低于1 meV，且能延续到实频轴还原光谱，省去每次新构型都要跑昂贵G0W0计算…</p>
+    <h3>Challenging Atomistic Foundation Models on Disordered Carbons</h3>
+    <p>首次系统检验六种主流基础机器学习原子间势（MLIP，用机器学习拟合原子间作用力的模型）在无序碳（含氧/氢）上的域外可靠性，发现低DFT误差并不等于MD稳定，MA…</p>
   </div>
   
   <div class="hl">
@@ -131,8 +131,17 @@
       <span class="field">🌍 气候地球</span>
       <span class="score">8.0</span>
     </div>
-    <h3>Spherical Physics-informed Neural Operator with Multi-scale Coupling for Meteorological Downscaling</h3>
-    <p>把气象降尺度（把粗网格气候数据细化到区域高分辨率）搬到球面上做，用球面拉普拉斯分解+多尺度耦合+物理约束，解决传统神经算子忽略地球曲率、尺度错配和缺物理定律三个…</p>
+    <h3>Spatio-temporal precipitation downscaling at hourly resolution based on km-scale regional simulations</h3>
+    <p>用视频扩散模型把粗分辨率、逐日的气候模拟「放大」成 8.8 公里、逐小时的降水场，目标直指百年到千年一遇极端降水的量化——这是传统公里级气候模式算力上做不到的事…</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">⚛️ 分子模拟</span>
+      <span class="score">8.0</span>
+    </div>
+    <h3>Generative marginal learning for finite-size molecular simulation with application to stress calculation</h3>
+    <p>提出生成边际学习（GML），用条件扩散模型学习大系统模拟中局部区域的边际分布，无需显式模拟周围环境或施加周期性边界，即可生成构型并估计局部可观测量，直接缓解有限…</p>
   </div>
   
   <div class="hl">
@@ -140,17 +149,8 @@
       <span class="field">🌍 气候地球</span>
       <span class="score">8.0</span>
     </div>
-    <h3>UDL-RT: A unified differentiable all-sky microwave radiative transfer model with learnable parameterizations</h3>
-    <p>把微波辐射传输模型的前向、切线性、伴随三套代码合并成一个可微的 PyTorch 计算图，并用神经网络替换气体吸收、水凝物散射和海洋表面发射率参数化，实现「仿真—…</p>
-  </div>
-  
-  <div class="hl">
-    <div class="hl-head">
-      <span class="field">🧪 材料科学</span>
-      <span class="score">8.0</span>
-    </div>
-    <h3>A GRACE Interatomic Potential for W--Ta Systems: Application to Ta Segregation and Pinning of Shear-Coupled Grain-Boundary Migration</h3>
-    <p>用「熵最大化自动生成训练数据」的方式，做出一个能同时覆盖钨钽合金相稳定性、缺陷、位错、晶界、熔化等多场景的原子间势（描述原子间相互作用的模型），并首次用它揭示钽…</p>
+    <h3>Spherical Physics-informed Neural Operator with Multi-scale Coupling for Meteorological Downscaling</h3>
+    <p>把气象降尺度（把粗网格气候数据细化到区域高分辨率）搬到球面上做，用球面拉普拉斯分解+多尺度耦合+物理约束，解决传统神经算子忽略地球曲率、尺度错配和缺物理定律三个…</p>
   </div>
   
   <div class="hl">
@@ -167,45 +167,45 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期出现三个明显变化：一是「推理阶段调控」成为材料生成模型的新关键词，Feynman-Kac Steering 让预训练扩散模型无需重训即可多目标采样；二是 MLIP 生态从「能不能算」转向「算得对不对、快不快」，长程静电、任意波矢声子、Voronoi 拓扑分类三篇集中修补高通量模拟的系统性误差；三是 LLM 智能体首次与真实湿实验闭环，实验反馈开始直接驱动分子发现迭代，而条件生成模型的「交互幻觉」警示也同期出现，形成一正一反的对照。</p>
+  <p class="trend">与上期相比，三个变化值得注意：一是「检验与批判」类工作明显增多，无序碳 MLIP 域外测试、条件生成模型幻觉、蒸馏势局部失效三篇形成一组，说明社区开始给基础模型划可靠性边界；二是效率路线从训练端延伸到推理端，递归深度、8 步扩散、免训练 Feynman-Kac 调控都是「不重训也能更好」；三是 MLIP 的物理补全集中爆发，长程静电、任意波矢声子、磁性跨温压三篇补的都是传统势函数缺的物理量。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">4208</span><small>抓取条目</small></div>
-      <div><span class="num">290</span><small>总结</small></div>
-      <div><span class="num">290</span><small>已上墙</small></div>
+      <div><span class="num">4241</span><small>抓取条目</small></div>
+      <div><span class="num">300</span><small>总结</small></div>
+      <div><span class="num">300</span><small>已上墙</small></div>
     </div>
     <div class="fields">
       
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
         <div class="fbar"><div class="fbar-fill" style="width: 14%"></div></div>
-        <b>45</b>
+        <b>46</b>
       </div>
       
       <div class="frow">
         <span class="flabel">💊 药物发现</span>
         <div class="fbar"><div class="fbar-fill" style="width: 11%"></div></div>
-        <b>37</b>
+        <b>38</b>
       </div>
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
         <div class="fbar"><div class="fbar-fill" style="width: 46%"></div></div>
-        <b>151</b>
+        <b>154</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 82%"></div></div>
-        <b>270</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 81%"></div></div>
+        <b>271</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 36%"></div></div>
-        <b>120</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 38%"></div></div>
+        <b>127</b>
       </div>
       
       <div class="frow">
@@ -217,13 +217,13 @@
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>330</b>
+        <b>335</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 35%"></div></div>
-        <b>116</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 39%"></div></div>
+        <b>129</b>
       </div>
       
     </div>

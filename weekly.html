@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-20 15:25 (北京时间 UTC+8)
+      生成于 2026-10-21 09:25 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 10-19 ~ 10-25</h2>
       <p class="r-range">2026-10-19 ~ 2026-10-25</p>
-      <p class="r-overview">本期 AI4S 的主旋律是「效率与闭环」：蛋白质扩散模块从 200 步压到 8 步，晶体扩散模型在推理阶段无需重训即可多目标调控，LLM 智能体首次与湿实验闭环把命中率从 0% 提到 42.1%。材料领域集中出现一批「让 MLIP 更好用」的工作——长程静电、任意波矢声子、Voronoi 拓扑分类、跨元素磁性基础模型。气候降尺度从球面算子、可微辐射传输到扩散模型多点开花，分子模拟则把等变网络、非绝热动力学与机器学习势拼成新框架。</p>
+      <p class="r-overview">本期最清晰的信号是「效率与可靠性」取代「堆规模」：蛋白质语言模型用递归深度换参数，AlphaFold3 扩散步数从 200 压到 8，晶体扩散模型在推理阶段免训练调控多性质。与此同时，多篇工作开始系统检验基础模型的域外可靠性——无序碳上的 MLIP、条件生成模型的非加性幻觉、蒸馏势的局部失效，说明社区正从「能跑」转向「可信」。气候方向密集出现降尺度与 AI 化学气候耦合，材料方向则集中在长程静电、声子线性响应等 MLIP 的物理补全。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -103,62 +103,74 @@
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
+          <h2><a href="https://arxiv.org/abs/2610.26747v1" target="_blank" rel="noopener">recAMPLIFY: Large-Scale Pretraining of Recursive Protein Language Models</a></h2>
+          <p>把递归深度当作新扩展维度：参数比 AMPLIFY-350M 少 56%，折叠准确率反升 22.5%。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2610.23703v1" target="_blank" rel="noopener">Blitz: Accelerating the Diffusion Modules of AlphaFold3 and Boltz-2</a></h2>
-          <p>把 AF3 和 Boltz-2 的扩散去噪从 200 步压到 8 步，结构精度基本不掉，AF3-Blitz 在多个指标上甚至超过原模型。</p>
+          <p>扩散去噪从 200 步压到 8 步，结构精度基本不掉，AF3-Blitz 多项指标超过原模型。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.24806v1" target="_blank" rel="noopener">Aptamers as a sandbox for lab-in-the-loop agentic molecular discovery</a></h2>
-          <p>首次把 LLM 推理智能体与真实湿实验闭环打通，三轮迭代把新候选适配体的靶向命中率从 0% 提到 42.1%。</p>
+          <p>LLM 智能体接真实湿实验闭环，三轮迭代把适配体候选命中率从 0% 提到 42.1%。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.20288v1" target="_blank" rel="noopener">Predicting Unseen Scientific Interactions: Conditional Flow Models Hallucinate Non-Additive Effects</a></h2>
-          <p>系统揭示条件生成模型会「幻觉」出不存在的交互效应，且整体精度指标会掩盖这一缺陷，对药物组合与多扰动实验有直接警示。</p>
+          <p>系统揭示条件生成模型会幻觉出不存在的交互效应，且整体精度指标会掩盖这一缺陷。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.23717v1" target="_blank" rel="noopener">Learning the self-energy through equivariant neural networks</a></h2>
-          <p>用等变网络直接学习分子自能矩阵，虚频轴误差低于 1 meV，并可延续到实频轴还原光谱，省去每次新构型跑 G0W0。</p>
+          <h2><a href="https://arxiv.org/abs/2610.26701v1" target="_blank" rel="noopener">Challenging Atomistic Foundation Models on Disordered Carbons</a></h2>
+          <p>六种主流 MLIP 在含氧/氢无序碳上域外检验：低 DFT 误差不等于 MD 稳定。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.19842v1" target="_blank" rel="noopener">Nonadiabatic polaron dynamics from machine-learned hopping trajectories</a></h2>
-          <p>首次把机器学习分子动力学与非绝热分子动力学拼成框架，直接「看到」极化子跳跃事件并给出动力学参数。</p>
+          <h2><a href="https://arxiv.org/abs/2610.23371v1" target="_blank" rel="noopener">Foundation-Model Supervision of Distilled Potentials for Million-Atom Molecular Dynamics</a></h2>
+          <p>用 MACE-MPA-0 逐原子监督百万原子模拟，首次系统揭示蒸馏势在稀疏化学环境中的局部失效并给出修复方案。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.24828v1" target="_blank" rel="noopener">Multi-property Feynman-Kac Steering of Crystal Diffusion Models</a></h2>
-          <p>无需重训、无需梯度计算，推理阶段同时调控晶体扩散模型的原子坐标、晶格与元素组成，按需生成多目标性质新材料。</p>
+          <p>推理阶段免重训、免梯度，同时调控晶体扩散模型的坐标、晶格与元素组成以生成多目标性质材料。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.24407v1" target="_blank" rel="noopener">Atomistic prediction of magnetic behaviour across chemistry, structure and temperature</a></h2>
-          <p>首个跨 48 种元素、覆盖 0–1000K 与 0–10GPa 的磁性原子模拟基础模型，能区分原子结构相同但自旋构型不同的磁态。</p>
+          <h2><a href="https://arxiv.org/abs/2610.23545v1" target="_blank" rel="noopener">Linear response for machine-learned interatomic potentials: phonons at arbitrary wave vectors from the primitive cell</a></h2>
+          <p>首次证明消息传递 MLIP 可在原胞内任意波矢精确算动力学矩阵，修正高通量声子计算的系统性误差。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.24708v1" target="_blank" rel="noopener">Spherical Physics-informed Neural Operator with Multi-scale Coupling for Meteorological Downscaling</a></h2>
-          <p>把气象降尺度搬到球面上，用球面拉普拉斯分解+多尺度耦合+物理约束，解决传统神经算子忽略曲率、尺度错配与缺物理定律三个问题。</p>
+          <h2><a href="https://arxiv.org/abs/2610.22555v1" target="_blank" rel="noopener">Atmospheric Chemistry-Climate Modeling with an AI Foundation Model</a></h2>
+          <p>首个刻画排放—成分—辐射相互作用的地球系统基础模型，稳定积分 50 年。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.24627v1" target="_blank" rel="noopener">UDL-RT: A unified differentiable all-sky microwave radiative transfer model with learnable parameterizations</a></h2>
-          <p>把微波辐射传输的前向、切线性、伴随三套代码合并成一个可微 PyTorch 计算图，并用神经网络替换气体吸收、水凝物散射与海表发射率参数化。</p>
+          <h2><a href="https://arxiv.org/abs/2610.20405v2" target="_blank" rel="noopener">Improved Precipitation Variability in the Community Atmosphere Model through Implementation of a Neural-Network Deep Convection Scheme</a></h2>
+          <p>CAM6 深对流整体换神经网络，稳定跑十余年且守恒，修正小雨、极端降水与热带日循环偏差。</p>
         </article>
         
         <article class="card">
           <span class="field">科学基础模型</span>
           <h2><a href="https://arxiv.org/abs/2610.20400v1" target="_blank" rel="noopener">HRTF Upsampling and Personalization via Neural Operators</a></h2>
-          <p>把稀疏测得的头相关传递函数当作算子学习问题，用神经算子从少量方向采样还原连续空间声场，实现个性化双耳音频快速生成。</p>
+          <p>把稀疏 HRTF 测量当算子学习问题，从少量方向采样还原连续空间声场，实现个性化双耳音频。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">生物信息</span>
+          <h2><a href="https://arxiv.org/abs/2610.23108v1" target="_blank" rel="noopener">Multiscale Quantum-Classical Simulation of Protein Autoproteolysis in a Million-Atom Membrane Environment</a></h2>
+          <p>首次把量子处理器接入百万原子生物体系的量子-经典多尺度模拟，加速蛋白质自切割电子结构计算。</p>
         </article>
         
       </div>
@@ -166,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期出现三个明显变化：一是「推理阶段调控」成为材料生成模型的新关键词，Feynman-Kac Steering 让预训练扩散模型无需重训即可多目标采样；二是 MLIP 生态从「能不能算」转向「算得对不对、快不快」，长程静电、任意波矢声子、Voronoi 拓扑分类三篇集中修补高通量模拟的系统性误差；三是 LLM 智能体首次与真实湿实验闭环，实验反馈开始直接驱动分子发现迭代，而条件生成模型的「交互幻觉」警示也同期出现，形成一正一反的对照。</p>
+      <p>与上期相比，三个变化值得注意：一是「检验与批判」类工作明显增多，无序碳 MLIP 域外测试、条件生成模型幻觉、蒸馏势局部失效三篇形成一组，说明社区开始给基础模型划可靠性边界；二是效率路线从训练端延伸到推理端，递归深度、8 步扩散、免训练 Feynman-Kac 调控都是「不重训也能更好」；三是 MLIP 的物理补全集中爆发，长程静电、任意波矢声子、磁性跨温压三篇补的都是传统势函数缺的物理量。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注：扩散/流匹配模型在科学预测中的可靠性评估是否会形成独立方向，以及 MLIP 的长程静电与声子修正能否被主流材料高通量流程采纳。</p>
+      <p>下期可关注两条线：实验闭环智能体能否从适配体沙盒迁移到更复杂靶点，以及 MLIP 可靠性检验是否会催生统一的域外基准。</p>
       
     </section>
     
