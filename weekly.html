@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-21 09:25 (北京时间 UTC+8)
+      生成于 2026-10-21 13:11 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 10-19 ~ 10-25</h2>
       <p class="r-range">2026-10-19 ~ 2026-10-25</p>
-      <p class="r-overview">本期最清晰的信号是「效率与可靠性」取代「堆规模」：蛋白质语言模型用递归深度换参数，AlphaFold3 扩散步数从 200 压到 8，晶体扩散模型在推理阶段免训练调控多性质。与此同时，多篇工作开始系统检验基础模型的域外可靠性——无序碳上的 MLIP、条件生成模型的非加性幻觉、蒸馏势的局部失效，说明社区正从「能跑」转向「可信」。气候方向密集出现降尺度与 AI 化学气候耦合，材料方向则集中在长程静电、声子线性响应等 MLIP 的物理补全。</p>
+      <p class="r-overview">本期最清晰的信号是「效率与可靠性」取代「堆规模」：蛋白质语言模型用递归深度替代参数扩张，AlphaFold3/Boltz-2 的扩散步数从 200 压到 8，晶体扩散模型在推理阶段免训练调控多性质。与此同时，多篇工作开始系统性质疑基础模型的域外可靠性——无序碳上的 MLIP、条件生成模型的非加性幻觉、蒸馏势在稀疏环境中的局部失效，都被摆上台面。气候方向继续把降尺度、辐射传输、深对流、化学气候逐个改造成可微或可学习的模块，并出现首个 1 公里土地利用重建基准。实验闭环与量子硬件接入百万原子体系，则把「AI 提出、真实世界验证」的链路又往前推了一步。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -104,7 +104,7 @@
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2610.26747v1" target="_blank" rel="noopener">recAMPLIFY: Large-Scale Pretraining of Recursive Protein Language Models</a></h2>
-          <p>把递归深度当作新扩展维度：参数比 AMPLIFY-350M 少 56%，折叠准确率反升 22.5%。</p>
+          <p>把递归深度当作新的扩展维度，参数比 AMPLIFY-350M 少 56%，折叠准确率反而高 22.5%。</p>
         </article>
         
         <article class="card">
@@ -116,7 +116,7 @@
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.24806v1" target="_blank" rel="noopener">Aptamers as a sandbox for lab-in-the-loop agentic molecular discovery</a></h2>
-          <p>LLM 智能体接真实湿实验闭环，三轮迭代把适配体候选命中率从 0% 提到 42.1%。</p>
+          <p>LLM 智能体与湿实验闭环三轮迭代，适配体新候选靶向命中率从 0% 提到 42.1%。</p>
         </article>
         
         <article class="card">
@@ -128,7 +128,7 @@
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.26701v1" target="_blank" rel="noopener">Challenging Atomistic Foundation Models on Disordered Carbons</a></h2>
-          <p>六种主流 MLIP 在含氧/氢无序碳上域外检验：低 DFT 误差不等于 MD 稳定。</p>
+          <p>六种主流 MLIP 在含氧/氢无序碳上系统检验，低 DFT 误差并不等于 MD 稳定。</p>
         </article>
         
         <article class="card">
@@ -140,37 +140,37 @@
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.24828v1" target="_blank" rel="noopener">Multi-property Feynman-Kac Steering of Crystal Diffusion Models</a></h2>
-          <p>推理阶段免重训、免梯度，同时调控晶体扩散模型的坐标、晶格与元素组成以生成多目标性质材料。</p>
+          <p>推理阶段免重训、免梯度，同时调控晶体扩散模型的原子坐标、晶格与元素组成。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.23545v1" target="_blank" rel="noopener">Linear response for machine-learned interatomic potentials: phonons at arbitrary wave vectors from the primitive cell</a></h2>
-          <p>首次证明消息传递 MLIP 可在原胞内任意波矢精确算动力学矩阵，修正高通量声子计算的系统性误差。</p>
+          <h2><a href="https://arxiv.org/abs/2610.24407v1" target="_blank" rel="noopener">Atomistic prediction of magnetic behaviour across chemistry, structure and temperature</a></h2>
+          <p>首个跨 48 种元素、覆盖 0–1000K 与 0–10GPa 的磁性原子模拟基础模型，能区分同结构不同自旋构型。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.22555v1" target="_blank" rel="noopener">Atmospheric Chemistry-Climate Modeling with an AI Foundation Model</a></h2>
-          <p>首个刻画排放—成分—辐射相互作用的地球系统基础模型，稳定积分 50 年。</p>
+          <p>首个同时刻画排放—大气成分—辐射相互作用的地球系统基础模型，稳定积分 50 年。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.20405v2" target="_blank" rel="noopener">Improved Precipitation Variability in the Community Atmosphere Model through Implementation of a Neural-Network Deep Convection Scheme</a></h2>
-          <p>CAM6 深对流整体换神经网络，稳定跑十余年且守恒，修正小雨、极端降水与热带日循环偏差。</p>
+          <p>CAM6 深对流方案整体换成神经网络，稳定跑十余年且不破坏能量/水分守恒，修正小雨与极端降水偏差。</p>
         </article>
         
         <article class="card">
           <span class="field">科学基础模型</span>
           <h2><a href="https://arxiv.org/abs/2610.20400v1" target="_blank" rel="noopener">HRTF Upsampling and Personalization via Neural Operators</a></h2>
-          <p>把稀疏 HRTF 测量当算子学习问题，从少量方向采样还原连续空间声场，实现个性化双耳音频。</p>
+          <p>把稀疏 HRTF 测量当作算子学习问题，从少量方向采样还原连续空间声场，实现个性化双耳音频。</p>
         </article>
         
         <article class="card">
           <span class="field">生物信息</span>
           <h2><a href="https://arxiv.org/abs/2610.23108v1" target="_blank" rel="noopener">Multiscale Quantum-Classical Simulation of Protein Autoproteolysis in a Million-Atom Membrane Environment</a></h2>
-          <p>首次把量子处理器接入百万原子生物体系的量子-经典多尺度模拟，加速蛋白质自切割电子结构计算。</p>
+          <p>首次把量子处理器接入百万原子级生物体系的量子-经典多尺度模拟，用真实量子硬件加速蛋白质自切割电子结构计算。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上期相比，三个变化值得注意：一是「检验与批判」类工作明显增多，无序碳 MLIP 域外测试、条件生成模型幻觉、蒸馏势局部失效三篇形成一组，说明社区开始给基础模型划可靠性边界；二是效率路线从训练端延伸到推理端，递归深度、8 步扩散、免训练 Feynman-Kac 调控都是「不重训也能更好」；三是 MLIP 的物理补全集中爆发，长程静电、任意波矢声子、磁性跨温压三篇补的都是传统势函数缺的物理量。</p>
+      <p>与上一期相比，本期从「能力展示」明显转向「可靠性审计」：无序碳上的 MLIP 域外检验、条件生成模型的非加性幻觉、蒸馏势的局部失效三篇工作，共同把「低误差指标不等于可用」变成可复现的结论。效率侧出现两条新路线——递归深度替代参数扩张、扩散步数压缩到个位数——而非继续放大模型。气候方向则从单一降尺度扩展到辐射传输、深对流、化学气候的全链条可微化，并首次出现把长期推演误差归因于自回归设计本身的基准。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期可关注两条线：实验闭环智能体能否从适配体沙盒迁移到更复杂靶点，以及 MLIP 可靠性检验是否会催生统一的域外基准。</p>
+      <p>下期值得关注：免训练推理阶段调控能否从晶体扩散推广到分子与蛋白质生成；以及实验闭环智能体在适配体之外，能否在更复杂靶点上复现 42.1% 量级的命中率提升。</p>
       
     </section>
     
