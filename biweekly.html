@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="weekly.html">周报 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-21 15:26 (北京时间 UTC+8)
+      生成于 2026-10-22 09:22 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 双周报告 · 10-12 ~ 10-25</h2>
       <p class="r-range">2026-10-12 ~ 2026-10-25</p>
-      <p class="r-overview">这两周 AI4S 的主旋律是「从预测走向可编程」：蛋白质从头设计连续造出金属蛋白酶与半胱氨酸蛋白酶，气候侧则把降尺度、辐射传输、深对流逐个换成可微 AI 模块。第一周偏「基础能力补课」——MLIP 的域外可靠性、声子线性响应、哈密顿量泛化被集中检验；第二周明显转向「闭环与工程化」——LLM 智能体接湿实验、AF3 扩散步数压到 8 步、CAM6 深对流整体换神经网络并稳定跑十年。量化信号也很清楚：蛋白质设计出现「参数少 56% 却折叠提升 22.5%」的递归扩展路线，材料侧则用 13,680 个构型就训出含能材料反应势。整体看，评价体系正在从「DFT 误差」转向「MD 稳定性、极端事件、跨灾害泛化」这类更接近真实使用的指标。</p>
+      <p class="r-overview">这两周 AI4S 的主旋律是「生成式设计」与「推理时控制」同时下沉到各个子领域：蛋白质从头造酶、晶体扩散模型在推理阶段多目标调控、气候降尺度用扩散模型补极端事件，都是把预训练模型当成可编程底座而非一次性预测器。第一周偏「造东西」——Pinal 用自然语言设计功能蛋白、RFdiffusion 造金属蛋白酶、半胱氨酸蛋白酶从头设计，材料侧则是可微 PXRD 与 MOF 电子场基准；第二周明显转向「控与评」——奖励引导的推理时搜索、Feynman-Kac 多性质调控、以及多篇对基础模型域外可靠性的系统检验（无序碳 MLIP、GNoME 重复性、地理基础模型捷径学习）。另一个跨周信号是「物理约束进架构」：SU(2) 等变旋量网络、球面神经算子、把 PDE 编译成网络免训练仿真，说明等变性与守恒律正从损失项变成结构本身。气候侧则从第一周的实时降水反演与次季节预报，过渡到第二周对极端事件评测方法与概率 AI 模型优势的集中讨论。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -103,74 +103,74 @@
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
-          <h2><a href="https://www.nature.com/articles/s41586-026-11167-2" target="_blank" rel="noopener">Computational design of metalloproteases</a></h2>
-          <p>用 RFdiffusion 从零设计含锌活性位点的金属蛋白酶，把造酶从改造天然酶推进到可编程从头设计，且活性很高。</p>
+          <h2><a href="https://www.nature.com/articles/s41586-026-11205-z" target="_blank" rel="noopener">Programmable design of functional proteins from natural language</a></h2>
+          <p>160 亿参数模型 Pinal 用自然语言直接设计功能蛋白，实验验证活性，且不迭代优化就把二氧化碳固定产物产量提高。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
-          <h2><a href="https://arxiv.org/abs/2610.26747v1" target="_blank" rel="noopener">recAMPLIFY: Large-Scale Pretraining of Recursive Protein Language Models</a></h2>
-          <p>把递归深度当作蛋白质语言模型的新扩展维度，参数比 AMPLIFY-350M 少 56%，折叠准确率反升 22.5%。</p>
+          <h2><a href="https://www.nature.com/articles/s41586-026-11167-2" target="_blank" rel="noopener">Computational design of metalloproteases</a></h2>
+          <p>RFdiffusion 从零设计含锌活性位点的金属蛋白酶，把造酶从改造天然酶推进到可编程从头设计且活性很高。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.24806v1" target="_blank" rel="noopener">Aptamers as a sandbox for lab-in-the-loop agentic molecular discovery</a></h2>
-          <p>首次把 LLM 推理智能体与真实湿实验闭环打通，三轮迭代把适配体候选命中率从 0% 提到 42.1%。</p>
+          <p>LLM 智能体与真实湿实验闭环，三轮迭代把适配体新候选靶向命中率从 0% 提到 42.1%。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2610.29111v1" target="_blank" rel="noopener">SU(2)-Equivariant Spinor Message Passing for Molecular Magnetism</a></h2>
+          <p>把电子态是旋量这一物理事实写进图神经网络，用 SU(2) 等变消息传递预测分子磁性，在钴单分子磁体与镝 MRI 探针上优于现有等变模型。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.26701v1" target="_blank" rel="noopener">Challenging Atomistic Foundation Models on Disordered Carbons</a></h2>
-          <p>系统检验六种主流 MLIP 在无序碳上的域外可靠性，发现低 DFT 误差并不等于 MD 稳定。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.23108v1" target="_blank" rel="noopener">Multiscale Quantum-Classical Simulation of Protein Autoproteolysis in a Million-Atom Membrane Environment</a></h2>
-          <p>首次把量子处理器接入百万原子级生物体系的量子-经典多尺度模拟，用真实量子硬件加速蛋白质自切割的电子结构计算。</p>
+          <p>系统检验六种主流 MLIP 在含氧/氢无序碳上的域外可靠性，发现低 DFT 误差并不等于 MD 稳定。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.24828v1" target="_blank" rel="noopener">Multi-property Feynman-Kac Steering of Crystal Diffusion Models</a></h2>
-          <p>无需重训、无需梯度，在推理阶段同时调控晶体扩散模型的坐标、晶格与元素组成，按需生成多目标性质新材料。</p>
+          <p>无需重训也无需梯度，在推理阶段同时调控晶体扩散模型的原子坐标、晶格与元素组成，按需生成多目标性质新材料。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.24407v1" target="_blank" rel="noopener">Atomistic prediction of magnetic behaviour across chemistry, structure and temperature</a></h2>
-          <p>首个跨 48 种元素、覆盖 0–1000K 与 0–10GPa 的磁性原子模拟基础模型，能区分结构相同但自旋构型不同的磁态。</p>
+          <h2><a href="https://arxiv.org/abs/2610.28564v1" target="_blank" rel="noopener">Differentiable powder X-ray diffraction enables analysis of evolving structures</a></h2>
+          <p>把 PXRD 做成可自动求导的 PyTorch 引擎，用一套共享模型同时拟合成百上千张演化图谱。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.22555v1" target="_blank" rel="noopener">Atmospheric Chemistry-Climate Modeling with an AI Foundation Model</a></h2>
-          <p>首个同时刻画排放—大气成分—辐射相互作用的地球系统基础模型，稳定积分 50 年并可微调外推。</p>
+          <h2><a href="https://arxiv.org/abs/2610.29213v1" target="_blank" rel="noopener">Huayu-Global: Skillful real-time quasi-global precipitation retrieval</a></h2>
+          <p>统一五颗静止卫星三路观测流，每 30 分钟产出准全球降水场，实时产品首次在关键指标上追平延迟数月的高质量产品。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.20405v2" target="_blank" rel="noopener">Improved Precipitation Variability in the Community Atmosphere Model through Implementation of a Neural-Network Deep Convection Scheme</a></h2>
-          <p>首次把 CAM6 深对流方案整体换成神经网络，稳定跑十余年且不破坏能量/水分守恒，同时修正小雨与极端降水偏差。</p>
+          <h2><a href="https://arxiv.org/abs/2610.20519v1" target="_blank" rel="noopener">Probabilistic AI models outperform numerical weather prediction models on record breaking heat extremes</a></h2>
+          <p>首次系统证明概率型 AI 天气预报在破纪录高温上全面胜过 ECMWF 物理集合预报，并指出旧结论源于评测方式不当。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2610.20369v1" target="_blank" rel="noopener">ReAl: Refine neural operators via aligning dynamical flow</a></h2>
-          <p>给已训练 PDE 神经代理加即插即用的精修+对齐模块，找回被 MSE 丢掉的细尺度结构并抑制长时推演误差累积。</p>
+          <h2><a href="https://arxiv.org/abs/2610.28591v1" target="_blank" rel="noopener">PaPi: Parallel Picard-Duhamel Integration for Fast Neuro-Spectral Architectures</a></h2>
+          <p>把神经谱方法求解 PDE 的串行 Runge-Kutta 时间步进换成可并行时间积分，训练与推理最高提速约 100 倍。</p>
         </article>
         
         <article class="card">
           <span class="field">科学基础模型</span>
           <h2><a href="https://github.com/SciML/DifferentialEquations.jl" target="_blank" rel="noopener">SciML/DifferentialEquations.jl</a></h2>
-          <p>Julia 写的微分方程求解器全家桶，把 ODE、SDE、DDE、DAE 与科学机器学习组件统一到同一套接口下。</p>
+          <p>Julia 微分方程求解器全家桶，把 ODE、SDE、DDE、DAE 与科学机器学习组件统一到同一套接口。</p>
         </article>
         
         <article class="card">
           <span class="field">生物信息</span>
           <h2><a href="https://arxiv.org/abs/2610.22242v1" target="_blank" rel="noopener">SurvICL: a Foundation Model for in-context Survival Analysis</a></h2>
-          <p>首个在生存分析上真正打败 50 年老牌 Cox 模型的表格基础模型，无需调参，小样本临床队列首次有模型排名超过 Cox。</p>
+          <p>首个在生存分析上真正打败 50 年老牌 Cox 模型的表格基础模型，无需调参，小样本临床队列上首次排名超过 Cox。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>跨周对比看，热度上升最明显的是 climate 与 materials：climate 从第一周偏降尺度/辐射传输，第二周集中出现「AI 替换气候模式物理参数化」与「极端事件评测」两类硬核工作（CAM6 深对流、化学-气候基础模型、破纪录高温评测），条目数由约 8 条增至 12 条以上；materials 则从势函数/哈密顿量扩展到「推理时多目标调控」与「跨元素磁性基础模型」，方向更偏可编程。molsim 维持高位但重心从「造势函数」转向「检验势函数」——无序碳域外可靠性、蒸馏势局部失效、振动性质误差 3 cm⁻¹ 三篇形成一条评价链。protein 第一周偏语言模型与扩散加速，第二周明显转向「从头设计造酶」与「自然语言设计」，设计接口在变。相对降温的是 ai4math 与 scifm：ai4math 从算子学习理论转向工程提速（PI-DeepONet 张量处理提速 3.75 倍），scifm 则更多以工具链/基准形式出现而非新模型。新浮现的方向是「推理时算力分配」——纳米抗体设计把条件选择重定义为推理预算分配，与晶体扩散的 Feynman-Kac 调控、AF3 扩散 8 步压缩形成同一主题。</p>
+      <p>跨周对比看，protein 从第一周的「造新酶、自然语言设计」密集产出（Pinal、金属蛋白酶、半胱氨酸蛋白酶、Prompteina）转向第二周的「可控性与安全性」：推理时奖励搜索、纳米抗体算力分配、以及首篇蛋白质设计系统数据投毒研究，说明方向从能不能造转向怎么按需造、怎么防滥用。materials 热度持续走高且重心迁移：第一周以可微 PXRD、MOF 电子场基准、磁性基础模型为主，第二周集中出现推理时多性质调控、MLIP 长程静电与声子线性响应、以及 GNoME 重复性这类「给宣称泼冷水」的基准工作，评价类条目明显增多。climate 是两周合计条目最多的子领域，第一周偏实时反演与次季节预报，第二周转向极端事件评测方法论（概率 AI 胜物理集合、热带气旋评测）与降尺度生成模型，且出现 LLM 翻译 Fortran 到 JAX 这类工程化条目。molsim 从第一周的自能学习、百万原子蒸馏势，转向第二周对基础模型域外可靠性的系统检验与等变架构创新，评价与架构两条线并行。ai4math 两周都稳定在 PDE 加速与可解释算子，第二周新增「物理即网络」免训练仿真，方向从训练更快转向绕开训练。scifm 与 bioinfo 条目数少但质量集中：scifm 以工程化工具链（DifferentialEquations.jl、PINNeAPPle、PaddleCFD）为主，bioinfo 则出现长周期智能体基准 OmicsBench 与 CellNet 大规模单细胞预训练，属于新浮现方向。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下两周重点跟踪两条线：一是「AI 替换气候模式物理参数化」能否从 CAM6 单点扩展到辐射、边界层等更多方案并给出多模式复现；二是蛋白质从头设计造出的酶能否在湿实验里给出与计算一致的动力学参数，以及 LLM 智能体闭环能否从适配体沙盒迁移到更复杂的靶点。</p>
+      <p>下两周重点跟踪两条线：一是推理时控制（奖励引导搜索、Feynman-Kac 调控）能否从蛋白质、晶体扩展到气候降尺度与分子模拟，形成统一的「预训练+推理算力分配」范式；二是基础模型域外可靠性评测会不会从零散论文变成社区基准，尤其是 MLIP 在无序/反应体系上的 MD 稳定性与材料生成模型的重复性检验。</p>
       
     </section>
     
