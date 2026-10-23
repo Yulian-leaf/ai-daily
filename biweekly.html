@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="weekly.html">周报 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-23 13:14 (北京时间 UTC+8)
+      生成于 2026-10-23 15:20 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 双周报告 · 10-12 ~ 10-25</h2>
       <p class="r-range">2026-10-12 ~ 2026-10-25</p>
-      <p class="r-overview">这两周 AI4S 的主旋律是「从预测走向可编程的生成与设计」：蛋白质从头造酶、自然语言直接生成结构、晶体按对称性轨道整组生成、气候模型把深对流整体换成神经网络，生成式方法正在从分子扩展到材料、气候和 PDE 求解器。第一周偏重「单点方法突破」——RFdiffusion 造金属蛋白酶、Pinal 用自然语言设计蛋白、Orbitol 按 Wyckoff 轨道生成晶体；第二周明显转向「评测、约束与工程化」——uMLIP 合金基准被质疑、无序碳上基础势的域外失效被系统检验、GNoME 数据集被证明存在大量重复，同时出现 MASON、PINNeAPPle、PaddleCFD 等工具链项目。另一个清晰信号是「推理时算力」成为新杠杆：RFD4-Proteina 用奖励引导推理搜索、Blitz 把 AF3 扩散步数从 200 压到 8、多属性 Feynman-Kac 在推理阶段调控晶体扩散模型，都不重训模型而靠推理阶段换性能。物理约束的嵌入方式也在升级：从「损失函数加惩罚」变成「结构内置」——PDE 理论指导的神经算子、把物理方程直接编译成网络、Brillouin 残差做训练惩罚。整体看，AI4S 正从「模型刷榜」进入「基准可信度 + 推理可控性 + 工具可复用」的三线并进阶段。</p>
+      <p class="r-overview">这两周 AI4S 的主旋律是「生成能力继续外扩、评价体系同步收紧」。蛋白质侧自然语言直接设计功能蛋白、金属蛋白酶与半胱氨酸蛋白酶从头造出，把「造酶」推到可编程阶段；材料与分子模拟侧则密集出现基准质疑、数据去重与域外可靠性检验，说明社区开始给前两年的生成热潮补「控制实验」。第一周偏「能力展示」——大模型设计蛋白、扩散模型造晶体、神经算子解 PDE；第二周明显转向「可信度与效率」——合金基准被指受 DFT 数据库分歧污染、GNoME 新材料被证大量重复、蒸馏势在百万原子模拟中暴露局部失效，同时推理时搜索、少步扩散、可微 PXRD 等「降本增效」路线集中出现。气候方向从「能不能预报」转向「极端事件与次季节尺度是否真的赢过物理模式」，并出现概率型 AI 模型在破纪录高温上全面胜出的系统证据。整体看，AI4S 正从「单点刷指标」进入「基准、外推与部署成本」三者并重的新阶段。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -104,7 +104,7 @@
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://www.nature.com/articles/s41586-026-11205-z" target="_blank" rel="noopener">Programmable design of functional proteins from natural language</a></h2>
-          <p>160 亿参数模型 Pinal 用自然语言描述直接设计有功能蛋白质，实验验证活性，且不迭代优化就把二氧化碳固定产物产量提高。</p>
+          <p>160 亿参数模型 Pinal 用自然语言描述直接设计出有实验活性的功能蛋白，且在不迭代优化的情况下提高了二氧化碳固定产物产量。</p>
         </article>
         
         <article class="card">
@@ -115,14 +115,14 @@
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.30086v1" target="_blank" rel="noopener">Orbitol: Crystal Generation on Wyckoff Orbits</a></h2>
-          <p>晶体生成从逐原子摆放改为按对称性轨道整组生成，指定空间群后结构天然满足对称约束，速度快 2-3 个数量级。</p>
+          <h2><a href="https://arxiv.org/abs/2610.30641v1" target="_blank" rel="noopener">How good are universal MLIPs for alloys? A benchmark is only as trustworthy as its controls</a></h2>
+          <p>用 145 万种金属间化合物量化 DFT 数据库间分歧，证明部分「模型失败」其实是基准控制不当造成的排名污染。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.30641v1" target="_blank" rel="noopener">How good are universal MLIPs for alloys? A benchmark is only as trustworthy as its controls</a></h2>
-          <p>用 145 万种金属间化合物量化 DFT 数据库间分歧，证明部分「模型失败」其实是基准控制不当造成的排名污染。</p>
+          <h2><a href="https://arxiv.org/abs/2610.30086v1" target="_blank" rel="noopener">Orbitol: Crystal Generation on Wyckoff Orbits</a></h2>
+          <p>按对称性轨道整组生成晶体，指定空间群后结构天然满足对称约束，速度还快 2-3 个数量级。</p>
         </article>
         
         <article class="card">
@@ -139,14 +139,14 @@
         
         <article class="card">
           <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.20405v2" target="_blank" rel="noopener">Improved Precipitation Variability in the Community Atmosphere Model through Implementation of a Neural-Network Deep Convection Scheme</a></h2>
-          <p>把 CAM6 深对流方案整体换成神经网络，稳定跑十余年不破坏能量/水分守恒，同时修正小雨、极端降水偏差和热带降水日循环错峰。</p>
+          <h2><a href="https://arxiv.org/abs/2610.20519v1" target="_blank" rel="noopener">Probabilistic AI models outperform numerical weather prediction models on record breaking heat extremes</a></h2>
+          <p>首次系统证明概率型 AI 天气预报在破纪录高温上全面胜过 ECMWF 物理集合预报，并指出旧结论源于评测方式不当。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.20519v1" target="_blank" rel="noopener">Probabilistic AI models outperform numerical weather prediction models on record breaking heat extremes</a></h2>
-          <p>首次系统证明概率型 AI 天气预报在破纪录高温上全面胜过 ECMWF 物理集合预报，并指出此前「AI 不擅长极端事件」源于评测方式不当。</p>
+          <h2><a href="https://arxiv.org/abs/2610.22555v1" target="_blank" rel="noopener">Atmospheric Chemistry-Climate Modeling with an AI Foundation Model</a></h2>
+          <p>首个同时刻画排放—大气成分—辐射相互作用的地球系统基础模型，稳定积分 50 年且把化学气候模拟变成可微调模块。</p>
         </article>
         
         <article class="card">
@@ -158,19 +158,19 @@
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.28591v1" target="_blank" rel="noopener">PaPi: Parallel Picard-Duhamel Integration for Fast Neuro-Spectral Architectures</a></h2>
-          <p>把神经谱方法中串行的 Runge-Kutta 时间步进换成可并行时间积分，训练和推理最高提速约 100 倍。</p>
+          <p>把神经谱方法中串行的 Runge-Kutta 时间步进换成可并行积分，训练与推理最高提速约 100 倍。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.24806v1" target="_blank" rel="noopener">Aptamers as a sandbox for lab-in-the-loop agentic molecular discovery</a></h2>
-          <p>首次把 LLM 推理智能体与真实湿实验闭环打通，三轮迭代把适配体新候选靶向命中率从 0% 提到 42.1%。</p>
+          <p>首次把 LLM 推理智能体与真实湿实验闭环打通，三轮迭代把适配体候选靶向命中率从 0% 提到 42.1%。</p>
         </article>
         
         <article class="card">
-          <span class="field">科学基础模型</span>
-          <h2><a href="https://arxiv.org/abs/2610.31163v1" target="_blank" rel="noopener">Prediction Uncertainty Controlled Computer Model Calibration</a></h2>
-          <p>把预测误差控制直接作为校准目标，预测区间宽度压到传统贝叶斯校准的约 20%，同时把误覆盖率控制在名义水平。</p>
+          <span class="field">生物信息</span>
+          <h2><a href="https://arxiv.org/abs/2610.22242v1" target="_blank" rel="noopener">SurvICL: a Foundation Model for in-context Survival Analysis</a></h2>
+          <p>首个在生存分析上真正打败 50 年老牌 Cox 模型的表格基础模型，无需调参，小样本临床队列上首次排名超过 Cox。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>跨两周对比，热度上升最明显的是「基准可信度与域外可靠性」：第一周以方法发布为主，第二周集中出现 uMLIP 合金基准污染、无序碳上六种 MLIP 域外失效、GNoME 数据集重复性证明三条批判性工作，材料与分子模拟的评测类条目从零星 1-2 条增至 5 条以上。第二个上升方向是「推理时算力替代重训」：RFD4-Proteina 奖励引导搜索、Blitz 把 AF3 扩散步数 200→8、多属性 Feynman-Kac 免梯度调控晶体扩散，三条都指向同一范式。气候领域从第一周的降尺度与辐射传输（UDL-RT、球面神经算子）转向第二周的极端事件评测与模式内嵌（概率 AI 高温评测、CAM6 神经网络深对流、AI 海洋中尺度涡旋对比），评测类占比明显提高。相对降温的是纯「新架构刷精度」类分子模拟条目，等变/非等变之争开始让位于「物理约束怎么内置」的讨论。新浮现方向是科学智能体工具链：MASON 用 MCP 让 LLM 直接搭原子结构、OmicsBench 做长周期多轮生物信息智能体基准、PINNeAPPle 与 PaddleCFD 把 PINN/CFD 工程化，工具与基准类条目从第一周约 2 条增至第二周 6 条以上。</p>
+      <p>跨周看，热度上升最明显的是「基准与可信度」：第一周材料/分子侧以生成与势函数能力为主（Orbitol、多性质 Feynman-Kac 调控、GRACE 势等），第二周集中出现合金 uMLIP 基准污染、无序碳域外失效、GNoME 数据集重复性质疑、蒸馏势局部失效等 4 条以上「泼冷水」工作，方向从「能不能做」转向「测得准不准」。蛋白质侧从第一周的自然语言设计（Pinal、Prompteina）延续到第二周的从头造酶（金属蛋白酶、半胱氨酸蛋白酶）与推理时搜索（RFD4-Proteina、纳米抗体算力分配），生成后的「可控与可验证」权重上升。气候侧第一周偏降尺度与辐射传输可微化，第二周转向极端事件评测与次季节预报（破纪录高温、热带气旋评测、3–5 周预报），评价对象从「平均场」换成「尾部事件」。ai4math 两周都保持高位，但重心从「物理约束进结构」转向「并行化与提速」（PaPi 约 100 倍、PI-DeepONet 张量重构 3.75 倍）。相对降温的是纯「新模型发布」类条目，drug 与 bioinfo 条目数偏少但质量集中（湿实验闭环、生存分析基础模型）。新浮现方向是「推理时搜索/调控」与「可微科学引擎」（可微 PXRD、可微辐射传输），即不重训模型、在推理或求导层面做文章。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下两周重点跟踪三条线：一是「推理时可控生成」能否从蛋白质、晶体扩展到气候与 PDE 求解器，形成统一的推理算力分配范式；二是材料与分子模拟的基准批判是否会催出带控制组的下一代 uMLIP 评测标准；三是 LLM 智能体与湿实验/第一性原理工具链（MCP、MASON 类）的闭环能否从沙盒走向可复现的科研工作流。</p>
+      <p>下两周重点跟踪三条线：一是「基准纠偏」是否会催生带控制实验的新一代材料/分子基准；二是推理时搜索与少步扩散能否在蛋白与晶体设计上给出可复现的实验验证；三是概率型 AI 天气模型在极端事件与次季节尺度上的独立评测是否形成共识。</p>
       
     </section>
     

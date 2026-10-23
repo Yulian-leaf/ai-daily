@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-23 13:14 (北京时间 UTC+8)
+      生成于 2026-10-23 15:20 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 10-19 ~ 10-25</h2>
       <p class="r-range">2026-10-19 ~ 2026-10-25</p>
-      <p class="r-overview">本期最鲜明的信号是「基准与验证」被推到台前：合金 uMLIP 基准被指受 DFT 数据库分歧污染，无序碳上六种基础势的域外可靠性被系统检验，条件生成模型被证明会幻觉出不存在的交互效应。与此同时，生成式方法继续向物理约束靠拢——晶体按 Wyckoff 轨道整组生成、蛋白质用自然语言直接设计、扩散模型在推理阶段被奖励信号与 Feynman-Kac  steering 调控。气候方向则集中解决「实时性」与「降尺度」两件事，准全球降水实时产品首次追平延迟产品，次季节预报被推进到 3–5 周。整体看，本期不是单点精度竞赛，而是围绕可信度、物理一致性与推理期可控性的一轮集中修补。</p>
+      <p class="r-overview">本期最鲜明的信号是「基准与验证」被推到台前：合金 uMLIP 基准被指受 DFT 数据库分歧污染，无序碳上六种基础势的域外可靠性被系统检验，条件生成模型被证明会幻觉出不存在的交互效应。与此同时，生成式方法继续向物理约束靠拢——晶体按 Wyckoff 轨道整组生成、蛋白质用自然语言直接设计、扩散模型在推理阶段被奖励信号与 Feynman-Kac  steering 调控。气候方向则集中解决「实时性」与「极端事件」两个痛点，从准全球降水实时反演到次季节尺度预报。整体看，本期不是单点精度竞赛，而是围绕可信度、可分解性与推理时可控性的系统性补课。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -110,67 +110,67 @@
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2610.23703v1" target="_blank" rel="noopener">Blitz: Accelerating the Diffusion Modules of AlphaFold3 and Boltz-2</a></h2>
-          <p>把 AF3 与 Boltz-2 的扩散去噪从 200 步压到 8 步，结构精度基本不掉，AF3-Blitz 在多个指标上甚至超过原模型。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.30641v1" target="_blank" rel="noopener">How good are universal MLIPs for alloys? A benchmark is only as trustworthy as its controls</a></h2>
-          <p>用 145 万种金属间化合物量化 DFT 数据库间分歧，指出 uMLIP 合金基准排名可能被污染，部分「模型失败」实为基准失控。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.30086v1" target="_blank" rel="noopener">Orbitol: Crystal Generation on Wyckoff Orbits</a></h2>
-          <p>把晶体生成从逐原子摆放改为按对称性轨道整组生成，指定空间群后结构天然满足对称约束，速度提升 2–3 个数量级。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.26701v1" target="_blank" rel="noopener">Challenging Atomistic Foundation Models on Disordered Carbons</a></h2>
-          <p>首次系统检验六种主流 MLIP 在含氧/氢无序碳上的域外可靠性，发现低 DFT 误差并不等于 MD 稳定。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.29111v1" target="_blank" rel="noopener">SU(2)-Equivariant Spinor Message Passing for Molecular Magnetism</a></h2>
-          <p>把电子态本质是旋量这一物理事实写进图神经网络，用 SU(2) 等变消息传递预测分子磁性，在钴单分子磁体与镝 MRI 探针上均优于现有等变模型。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.29213v1" target="_blank" rel="noopener">Huayu-Global: Skillful real-time quasi-global precipitation retrieval</a></h2>
-          <p>统一五颗静止卫星三路观测流，每 30 分钟产出准全球降水场，实时产品首次在关键指标上追平延迟数月的高质量产品。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">气候地球</span>
-          <h2><a href="https://www.nature.com/articles/d41586-026-03077-0" target="_blank" rel="noopener">An AI tool improves weather forecasts up to a month ahead</a></h2>
-          <p>把天气预报有效期推进到 3–5 周次季节尺度，提前数周给出降水、气温和气压预报，并改善热浪、寒潮、暴雨和洪水早期预警。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2610.29938v1" target="_blank" rel="noopener">A PDE-theory-guided neural operator and the long-time relaxation of the two-dimensional anisotropic Boussinesq system</a></h2>
-          <p>把 PDE 严格数学分析嵌进网络结构，让神经算子稳定学到长时间松弛中 ε² 量级的极小信号，纯数据驱动方法做不到。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2610.28591v1" target="_blank" rel="noopener">PaPi: Parallel Picard-Duhamel Integration for Fast Neuro-Spectral Architectures</a></h2>
-          <p>把神经谱方法中串行的 Runge-Kutta 时间步进换成可并行时间积分，训练与推理最高提速约 100 倍。</p>
+          <p>把 AF3 与 Boltz-2 的扩散去噪从 200 步压到 8 步，结构精度基本不掉，部分指标反超原模型。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.24806v1" target="_blank" rel="noopener">Aptamers as a sandbox for lab-in-the-loop agentic molecular discovery</a></h2>
-          <p>首次把 LLM 推理智能体与真实湿实验闭环打通，三轮迭代把适配体新候选靶向命中率从 0% 提到 42.1%。</p>
+          <p>LLM 智能体与湿实验闭环，三轮迭代把适配体新候选靶向命中率从 0% 提到 42.1%。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2610.31183v1" target="_blank" rel="noopener">Unconstrained learning of equivariant atomistic properties</a></h2>
+          <p>非等变 Point-Edge Transformer 统一学习偶极、极化率、NMR 屏蔽张量与电子密度，精度不输专用等变模型。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2610.26701v1" target="_blank" rel="noopener">Challenging Atomistic Foundation Models on Disordered Carbons</a></h2>
+          <p>系统检验六种主流 MLIP 在含氧/氢无序碳上的域外可靠性，发现低 DFT 误差并不等于 MD 稳定。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">材料科学</span>
+          <h2><a href="https://arxiv.org/abs/2610.30641v1" target="_blank" rel="noopener">How good are universal MLIPs for alloys? A benchmark is only as trustworthy as its controls</a></h2>
+          <p>用 145 万种金属间化合物量化 DFT 数据库间分歧，证明部分「模型失败」其实是基准控制不当。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">材料科学</span>
+          <h2><a href="https://arxiv.org/abs/2610.30086v1" target="_blank" rel="noopener">Orbitol: Crystal Generation on Wyckoff Orbits</a></h2>
+          <p>按对称性轨道整组生成晶体，指定空间群后结构天然满足对称约束，速度提升 2–3 个数量级。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">气候地球</span>
+          <h2><a href="https://arxiv.org/abs/2610.29213v1" target="_blank" rel="noopener">Huayu-Global: Skillful real-time quasi-global precipitation retrieval</a></h2>
+          <p>五颗静止卫星三路观测流统一进跨星座深度学习框架，每 30 分钟产出准全球降水场，实时产品首次在关键指标上追平延迟数月的高质量产品。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">气候地球</span>
+          <h2><a href="https://www.nature.com/articles/d41586-026-03077-0" target="_blank" rel="noopener">An AI tool improves weather forecasts up to a month ahead</a></h2>
+          <p>AI 工具把天气预报有效期推进到 3–5 周次季节尺度，改善热浪、寒潮、暴雨和洪水的早期预警。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">AI4Math/PDE</span>
+          <h2><a href="https://arxiv.org/abs/2610.29938v1" target="_blank" rel="noopener">A PDE-theory-guided neural operator and the long-time relaxation of the two-dimensional anisotropic Boussinesq system</a></h2>
+          <p>把 PDE 严格数学分析嵌入网络结构，稳定学到长时间松弛中 ε² 量级的极小信号，纯数据驱动方法做不到。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">AI4Math/PDE</span>
+          <h2><a href="https://arxiv.org/abs/2610.28591v1" target="_blank" rel="noopener">PaPi: Parallel Picard-Duhamel Integration for Fast Neuro-Spectral Architectures</a></h2>
+          <p>把神经谱方法中串行的 Runge-Kutta 时间步进换成可并行积分，训练与推理最高提速约 100 倍。</p>
         </article>
         
         <article class="card">
           <span class="field">科学基础模型</span>
           <h2><a href="https://arxiv.org/abs/2610.31163v1" target="_blank" rel="noopener">Prediction Uncertainty Controlled Computer Model Calibration</a></h2>
-          <p>把预测误差控制直接作为校准目标，合成基准上预测区间宽度压到传统贝叶斯校准的约 20%，同时控制误覆盖率。</p>
+          <p>把预测误差控制直接作为校准目标，预测区间宽度压到传统贝叶斯校准的约 20%，同时控制误覆盖率。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期从「谁的模型更强」转向「谁的评测更可信」：materials 与 molsim 同时出现针对基准污染和域外失效的批判性工作，drug 方向则首次量化了条件生成模型的非加性交互幻觉。生成侧的新变化是推理期控制成为独立赛道——Feynman-Kac steering、奖励引导推理时搜索、8 步扩散蒸馏都不再重训模型。气候方向从单点降尺度转向实时产品与次季节尺度，并开始用基础模型统一化学—气候耦合。</p>
+      <p>与上一期相比，本期从「模型能做什么」明显转向「模型的结果能不能信」：三篇独立工作分别从基准污染、域外 MD 稳定性、生成模型幻觉三个角度拆解可信度问题；同时推理时可控性成为新抓手——奖励引导搜索、Feynman-Kac steering、8 步扩散蒸馏，都在不重训模型的前提下改输出。气候方向则从离线降尺度转向实时业务化与次季节尺度，AI4Math 开始把严格 PDE 理论与并行时间积分同时纳入网络设计。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注批判性基准工作是否会催生带控制组的标准化评测协议，以及推理期可控生成能否从晶体、蛋白质扩展到分子模拟的构型采样。</p>
+      <p>下期值得关注：基准污染与生成幻觉的量化修正方案能否形成社区标准，以及推理时控制方法在真实湿实验闭环中的复现率。</p>
       
     </section>
     
