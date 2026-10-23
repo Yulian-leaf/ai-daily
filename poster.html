@@ -80,11 +80,11 @@
     
     <h1 class="title">AI4S 周报 · 10-19 ~ 10-25</h1>
     <p class="slogan">「从生成到验证，AI4S 补上可信一环」</p>
-    <p class="range">2026-10-19 ~ 2026-10-25 · 2026-10-23 09:21 (北京时间 UTC+8)</p>
+    <p class="range">2026-10-19 ~ 2026-10-25 · 2026-10-23 13:14 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期最鲜明的信号是「基准与验证」被推到台前：合金 uMLIP 基准被指受 DFT 数据库分歧污染，无序碳上六种基础势的域外可靠性被系统检验，条件生成模型被证明会幻觉出不存在的交互效应。与此同时，生成式方法继续向物理约束靠拢——晶体按 Wyckoff 轨道整组生成、蛋白质用自然语言直接设计、扩散模型在推理阶段被奖励信号与 Feynman-Kac 引导。效率侧同样密集：AF3/Boltz-2 扩散步数从 200 压到 8，神经谱求解器时间积分并行化提速约 100 倍。气候方向则从「预报更准」走向「拆解归因」与「公里级降尺度」并行推进。</p>
+  <p class="overview">本期最鲜明的信号是「基准与验证」被推到台前：合金 uMLIP 基准被指受 DFT 数据库分歧污染，无序碳上六种基础势的域外可靠性被系统检验，条件生成模型被证明会幻觉出不存在的交互效应。与此同时，生成式方法继续向物理约束靠拢——晶体按 Wyckoff 轨道整组生成、蛋白质用自然语言直接设计、扩散模型在推理阶段被奖励信号与 Feynman-Kac  steering 调控。气候方向则集中解决「实时性」与「降尺度」两件事，准全球降水实时产品首次追平延迟产品，次季节预报被推进到 3–5 周。整体看，本期不是单点精度竞赛，而是围绕可信度、物理一致性与推理期可控性的一轮集中修补。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -176,7 +176,7 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期从「谁的模型更强」转向「谁的评测更可信」：合金 uMLIP 基准被指受 DFT 数据库分歧污染、无序碳上基础势被系统压力测试、条件生成模型被揭示会幻觉非加性交互，三篇合起来构成对 AI4S 评测链条的集中体检。同时出现两条新方向：一是推理阶段可控生成成为主流手段（奖励引导搜索、Feynman-Kac steering、无需重训的多性质调控），二是物理对称性从「模型内置」转向「生成过程内置」（Wyckoff 轨道、旋量等变、PDE 理论引导）。效率方面，扩散步数压缩与时间积分并行化把成本往下压了一个量级。</p>
+  <p class="trend">与上一期相比，本期从「谁的模型更强」转向「谁的评测更可信」：materials 与 molsim 同时出现针对基准污染和域外失效的批判性工作，drug 方向则首次量化了条件生成模型的非加性交互幻觉。生成侧的新变化是推理期控制成为独立赛道——Feynman-Kac steering、奖励引导推理时搜索、8 步扩散蒸馏都不再重训模型。气候方向从单点降尺度转向实时产品与次季节尺度，并开始用基础模型统一化学—气候耦合。</p>
   
 
   <div class="stats">
@@ -189,50 +189,50 @@
       
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 13%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 15%"></div></div>
         <b>48</b>
       </div>
       
       <div class="frow">
         <span class="flabel">💊 药物发现</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 9%"></div></div>
-        <b>32</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 10%"></div></div>
+        <b>30</b>
       </div>
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 46%"></div></div>
-        <b>167</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 50%"></div></div>
+        <b>156</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 84%"></div></div>
-        <b>302</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 89%"></div></div>
+        <b>276</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 29%"></div></div>
-        <b>106</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 32%"></div></div>
+        <b>100</b>
       </div>
       
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 31%"></div></div>
-        <b>113</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 35%"></div></div>
+        <b>109</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>361</b>
+        <b>310</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 34%"></div></div>
-        <b>121</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 38%"></div></div>
+        <b>117</b>
       </div>
       
     </div>
