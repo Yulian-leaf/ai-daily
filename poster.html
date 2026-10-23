@@ -79,12 +79,12 @@
     <div class="brand">AI4S-DAILY</div>
     
     <h1 class="title">AI4S 周报 · 10-19 ~ 10-25</h1>
-    <p class="slogan">「从生成到可控，从模型到闭环」</p>
-    <p class="range">2026-10-19 ~ 2026-10-25 · 2026-10-22 15:27 (北京时间 UTC+8)</p>
+    <p class="slogan">「从生成到验证，AI4S 补上可信一环」</p>
+    <p class="range">2026-10-19 ~ 2026-10-25 · 2026-10-23 09:21 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期最鲜明的信号是「推理时可控」成为主流：蛋白质设计、晶体生成、扩散采样都在不重训模型的前提下，用奖励引导、Feynman-Kac 转向、少步蒸馏等手段在推理阶段调性质。与此同时，AI 与真实实验的闭环首次跑通——LLM 智能体加湿实验三轮把命中率从 0% 提到 42.1%。气候方向继续向次季节尺度、球面降尺度和可微辐射传输推进，材料与分子模拟则集中解决「低误差不等于可用」的可靠性问题：无序碳上的 MLIP 域外失效、蒸馏势的局部失效、条件生成模型的非加性幻觉都被系统点名。</p>
+  <p class="overview">本期最鲜明的信号是「基准与验证」被推到台前：合金 uMLIP 基准被指受 DFT 数据库分歧污染，无序碳上六种基础势的域外可靠性被系统检验，条件生成模型被证明会幻觉出不存在的交互效应。与此同时，生成式方法继续向物理约束靠拢——晶体按 Wyckoff 轨道整组生成、蛋白质用自然语言直接设计、扩散模型在推理阶段被奖励信号与 Feynman-Kac 引导。效率侧同样密集：AF3/Boltz-2 扩散步数从 200 压到 8，神经谱求解器时间积分并行化提速约 100 倍。气候方向则从「预报更准」走向「拆解归因」与「公里级降尺度」并行推进。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -113,8 +113,8 @@
       <span class="field">⚛️ 分子模拟</span>
       <span class="score">8.0</span>
     </div>
-    <h3>SU(2)-Equivariant Spinor Message Passing for Molecular Magnetism</h3>
-    <p>把电子态本质上是「旋量」这一物理事实直接写进图神经网络，用 SU(2) 等变消息传递预测分子磁性，在钴单分子磁体和镝 MRI 探针上均优于现有等变模型。</p>
+    <h3>Unconstrained learning of equivariant atomistic properties</h3>
+    <p>用非等变（不内置旋转对称）的 Point-Edge Transformer 统一学习偶极、极化率、NMR 屏蔽张量、电子密度等多种原子性质，精度不输专用等变模型…</p>
   </div>
   
   <div class="hl">
@@ -122,8 +122,8 @@
       <span class="field">🧪 材料科学</span>
       <span class="score">8.0</span>
     </div>
-    <h3>Differentiable powder X-ray diffraction enables analysis of evolving structures</h3>
-    <p>把粉末X射线衍射（PXRD，用衍射图谱反推材料原子结构的方法）做成可自动求导的PyTorch引擎，让「用一套共享模型同时拟合成百上千张演化图谱」变得像改模型结构…</p>
+    <h3>How good are universal MLIPs for alloys? A benchmark is only as trustworthy as its controls</h3>
+    <p>指出通用机器学习原子间势（uMLIP）的合金基准排名可能被DFT数据库间分歧「污染」，并用145万种金属间化合物量化了这种分歧，证明部分「模型失败」其实是基准控…</p>
   </div>
   
   <div class="hl">
@@ -140,8 +140,8 @@
       <span class="field">📐 AI4Math/PDE</span>
       <span class="score">8.0</span>
     </div>
-    <h3>PaPi: Parallel Picard-Duhamel Integration for Fast Neuro-Spectral Architectures</h3>
-    <p>把神经谱方法求解偏微分方程时串行的 Runge-Kutta 时间步进，换成可并行的时间积分方案，训练和推理最高提速约 100 倍，低维 PDE 学习训练时间不到…</p>
+    <h3>A PDE-theory-guided neural operator and the long-time relaxation of the two-dimensional anisotropic Boussinesq system</h3>
+    <p>把偏微分方程（PDE）的严格数学分析直接嵌进神经网络结构，让神经算子能稳定学到长时间松弛行为中极小的 ε² 量级信号，这是纯数据驱动方法做不到的。</p>
   </div>
   
   <div class="hl">
@@ -149,17 +149,17 @@
       <span class="field">🧬 蛋白质/结构</span>
       <span class="score">8.0</span>
     </div>
-    <h3>Design Proteins with RFD4-Proteina Using Reward-Guided Inference-Time Search</h3>
-    <p>把蛋白质设计当成「推理时搜索」问题：用奖励信号引导生成模型在推理阶段搜索序列，而不是只靠重训模型，为蛋白质设计提供了新的可控手段。</p>
+    <h3>RiboBridge: protein-conditioned de novo RNA binder structure design</h3>
+    <p>首次把「RNA 构象生成」和「蛋白–RNA 组装」拆成两步做，不再假设已知结合位点，在 124 个蛋白–RNA 复合物基准上取得最优的界面与配体精度。</p>
   </div>
   
   <div class="hl">
     <div class="hl-head">
-      <span class="field">🌍 气候地球</span>
+      <span class="field">🧪 材料科学</span>
       <span class="score">8.0</span>
     </div>
-    <h3>An AI tool improves weather forecasts up to a month ahead</h3>
-    <p>一款 AI 工具把天气预报的有效期推进到 3–5 周的次季节尺度，能提前数周给出降水、气温和气压预报，并改善热浪、寒潮、暴雨和洪水的早期预警。</p>
+    <h3>Decoding Composition-Structure-Performance Relations in Sodium Layered Oxide Positive Electrode Materials</h3>
+    <p>把 41 种 Na/空位有序构型统一套用到 15 种层状钠氧化物上，用机器学习势先筛 12 万+结构、再做 1025 次第一性原理精算，系统解码「成分—结构—性…</p>
   </div>
   
   <div class="hl">
@@ -167,8 +167,8 @@
       <span class="field">🧠 科学基础模型</span>
       <span class="score">7.0</span>
     </div>
-    <h3>HRTF Upsampling and Personalization via Neural Operators</h3>
-    <p>把稀疏测得的头相关传递函数（HRTF，描述声音到双耳路径的滤波器）当作「算子学习」问题，用一个神经算子从少量方向采样直接还原连续空间声场，实现个性化双耳音频的快…</p>
+    <h3>Prediction Uncertainty Controlled Computer Model Calibration</h3>
+    <p>把「预测误差控制」直接作为校准目标，而不是像传统贝叶斯校准那样只保证参数后验的名义覆盖率；在合成基准上把预测区间宽度压到传统方法的约20%，同时把误覆盖率控制在…</p>
   </div>
   
   </div>
@@ -176,63 +176,63 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，重心从「训练更大的模型」转向「在推理阶段控制已有模型」：奖励引导搜索、Feynman-Kac 转向、扩散少步蒸馏、可微 PXRD 引擎都属于不重训而改行为的路数。另一个新出现的方向是「可靠性审计」——无序碳 MLIP 域外失效、蒸馏势局部失效、条件生成模型的非加性幻觉，三篇独立工作共同把「低误差指标不等于可用」摆上台面。气候侧则从单一降尺度转向球面算子、可微辐射传输与化学-气候基础模型的系统化拼装。</p>
+  <p class="trend">与上一期相比，本期从「谁的模型更强」转向「谁的评测更可信」：合金 uMLIP 基准被指受 DFT 数据库分歧污染、无序碳上基础势被系统压力测试、条件生成模型被揭示会幻觉非加性交互，三篇合起来构成对 AI4S 评测链条的集中体检。同时出现两条新方向：一是推理阶段可控生成成为主流手段（奖励引导搜索、Feynman-Kac steering、无需重训的多性质调控），二是物理对称性从「模型内置」转向「生成过程内置」（Wyckoff 轨道、旋量等变、PDE 理论引导）。效率方面，扩散步数压缩与时间积分并行化把成本往下压了一个量级。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">4565</span><small>抓取条目</small></div>
-      <div><span class="num">310</span><small>总结</small></div>
-      <div><span class="num">310</span><small>已上墙</small></div>
+      <div><span class="num">4689</span><small>抓取条目</small></div>
+      <div><span class="num">320</span><small>总结</small></div>
+      <div><span class="num">320</span><small>已上墙</small></div>
     </div>
     <div class="fields">
       
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 14%"></div></div>
-        <b>45</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 13%"></div></div>
+        <b>48</b>
       </div>
       
       <div class="frow">
         <span class="flabel">💊 药物发现</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 10%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 9%"></div></div>
         <b>32</b>
       </div>
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
         <div class="fbar"><div class="fbar-fill" style="width: 46%"></div></div>
-        <b>151</b>
+        <b>167</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 83%"></div></div>
-        <b>272</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 84%"></div></div>
+        <b>302</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 30%"></div></div>
-        <b>100</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 29%"></div></div>
+        <b>106</b>
       </div>
       
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
         <div class="fbar"><div class="fbar-fill" style="width: 31%"></div></div>
-        <b>102</b>
+        <b>113</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>328</b>
+        <b>361</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
         <div class="fbar"><div class="fbar-fill" style="width: 34%"></div></div>
-        <b>113</b>
+        <b>121</b>
       </div>
       
     </div>
