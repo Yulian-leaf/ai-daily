@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-24 09:26 (北京时间 UTC+8)
+      生成于 2026-10-24 12:56 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 10-19 ~ 10-25</h2>
       <p class="r-range">2026-10-19 ~ 2026-10-25</p>
-      <p class="r-overview">本期最鲜明的信号是「目标函数化」：作用量学习把整条轨迹变成可复用目标，生成边际学习直接学局部边际分布，WARP 把 PDE 发现改成学一个能稳定前向积分的求解器——AI 不再只拟合下一步，而是学一个能排序、推断、优化的「整段行为」。蛋白质方向继续把自然语言和推理时搜索变成设计接口，Pinal 用 160 亿参数直接由文本生成有实验活性的蛋白。材料与分子模拟则集中反思「基准可信度」：uMLIP 合金排名被 DFT 数据库分歧污染、无序碳上低 DFT 误差不等于 MD 稳定，提醒社区先修控制再谈排名。气候方向出现评估协议本身被量化的研究，同一批模型因指标不同排名反转，同时次季节预报被推进到 3–5 周。</p>
+      <p class="r-overview">本期最鲜明的信号是「目标函数化」：作用量学习把整条轨迹变成可复用目标，生成边际学习直接学局部分布，Feynman-Kac 在推理阶段调控晶体生成，蛋白质设计也转向推理时奖励搜索。与此同时，多篇工作把评估本身当作研究对象——uMLIP 合金基准被 DFT 数据库分歧污染、AI 天气预报排名随评价协议反转、条件生成模型会幻觉非加性效应，提醒我们「分数高」不等于「结论稳」。物理约束继续以更细的方式嵌入模型结构：SU(2) 旋量消息传递、PDE 理论引导的神经算子、球面物理约束降尺度、可微辐射传输。基础模型则从「更大」转向「更可分解」：递归深度替代参数堆叠、长程静电拆成全局+局部、百万原子蒸馏势的局部失效被系统定位。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -104,67 +104,61 @@
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://www.nature.com/articles/s41586-026-11205-z" target="_blank" rel="noopener">Programmable design of functional proteins from natural language</a></h2>
-          <p>160 亿参数模型 Pinal 用自然语言直接设计有实验活性的蛋白质，且在不迭代优化的情况下提高二氧化碳固定产物产量。</p>
+          <p>160 亿参数模型 Pinal 用自然语言直接设计有活性蛋白质，无需迭代优化即提高二氧化碳固定产物产量。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2610.23703v1" target="_blank" rel="noopener">Blitz: Accelerating the Diffusion Modules of AlphaFold3 and Boltz-2</a></h2>
-          <p>把 AF3 与 Boltz-2 的扩散去噪从 200 步压到 8 步，结构精度基本不掉，AF3-Blitz 在多个指标上还超过原模型。</p>
+          <p>把 AF3 与 Boltz-2 的扩散去噪从 200 步压到 8 步，结构精度基本不掉，部分指标反超原模型。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.24806v1" target="_blank" rel="noopener">Aptamers as a sandbox for lab-in-the-loop agentic molecular discovery</a></h2>
-          <p>LLM 智能体与真实湿实验闭环，三轮迭代把适配体新候选的靶向命中率从 0% 提到 42.1%。</p>
+          <p>LLM 智能体与湿实验闭环，三轮迭代把适配体新候选靶向命中率从 0% 提到 42.1%。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.31585v1" target="_blank" rel="noopener">Action Learning for Scientific Simulations</a></h2>
-          <p>把整条轨迹观测转成可复用目标函数，一次学习即可用于排序、推断、机制引导和约束优化，不再局限于预测下一步。</p>
+          <p>把整条轨迹观测转成可复用目标函数，一次学习即可用于排序、推断、机制引导与约束优化。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.31183v1" target="_blank" rel="noopener">Unconstrained learning of equivariant atomistic properties</a></h2>
-          <p>用非等变 Point-Edge Transformer 统一学习偶极、极化率、NMR 屏蔽张量与电子密度，精度不输专用等变模型。</p>
+          <h2><a href="https://arxiv.org/abs/2610.29111v1" target="_blank" rel="noopener">SU(2)-Equivariant Spinor Message Passing for Molecular Magnetism</a></h2>
+          <p>把电子态是旋量这一事实写进图神经网络，在钴单分子磁体与镝 MRI 探针上优于现有等变模型。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.30641v1" target="_blank" rel="noopener">How good are universal MLIPs for alloys? A benchmark is only as trustworthy as its controls</a></h2>
-          <p>用 145 万种金属间化合物量化 DFT 数据库间分歧，证明部分「模型失败」其实是基准控制被污染。</p>
+          <p>用 145 万种金属间化合物量化 DFT 数据库间分歧，证明部分「模型失败」其实是基准控制问题。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.30086v1" target="_blank" rel="noopener">Orbitol: Crystal Generation on Wyckoff Orbits</a></h2>
-          <p>按对称性轨道整组生成晶体，用户指定空间群后结构天然满足对称约束，速度还快 2–3 个数量级。</p>
+          <p>按对称性轨道整组生成晶体，指定空间群后结构天然满足对称约束，速度还快 2–3 个数量级。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.29213v1" target="_blank" rel="noopener">Huayu-Global: Skillful real-time quasi-global precipitation retrieval</a></h2>
-          <p>五颗静止卫星三路观测流统一进跨星座深度学习框架，每 30 分钟产出准全球降水场，实时产品首次在关键指标上追平延迟数月的高质量产品。</p>
+          <p>五颗静止卫星三路观测流统一进跨星座框架，每 30 分钟准全球降水场首次在关键指标追平延迟数月的高质量产品。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.31237v1" target="_blank" rel="noopener">Can We Trust Evaluations of AI Weather Forecasts for Extremes? How Evaluation Protocols Shape Model Rankings</a></h2>
-          <p>同一套实验设计下，AI 天气预报模型与物理模型的排名会因评价指标不同而反转，量化拆开了文献结论互相矛盾的根源。</p>
+          <p>同一实验设计下，AI 与物理天气预报模型排名会因评价指标不同而反转，量化拆解了文献结论矛盾的根源。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.29938v1" target="_blank" rel="noopener">A PDE-theory-guided neural operator and the long-time relaxation of the two-dimensional anisotropic Boussinesq system</a></h2>
-          <p>把 PDE 严格数学分析嵌进网络结构，让神经算子稳定学到长时间松弛中 ε² 量级的极小信号，纯数据驱动做不到。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2610.28591v1" target="_blank" rel="noopener">PaPi: Parallel Picard-Duhamel Integration for Fast Neuro-Spectral Architectures</a></h2>
-          <p>把神经谱方法中串行的 Runge-Kutta 时间步进换成可并行时间积分，训练和推理最高提速约 100 倍。</p>
+          <p>把 PDE 严格数学分析嵌进网络结构，稳定学到长时间松弛中 ε² 量级信号，纯数据驱动方法做不到。</p>
         </article>
         
         <article class="card">
@@ -173,16 +167,22 @@
           <p>针对潜空间维度远超评估预算的瓶颈，把高维搜索拆成低维期望改进加标量范数调度，决策时间降到几十毫秒。</p>
         </article>
         
+        <article class="card">
+          <span class="field">生物信息</span>
+          <h2><a href="https://arxiv.org/abs/2610.26747v1" target="_blank" rel="noopener">recAMPLIFY: Large-Scale Pretraining of Recursive Protein Language Models</a></h2>
+          <p>把递归深度当作蛋白质语言模型的新扩展维度：参数比 AMPLIFY-350M 少 56%，折叠准确率反升 22.5%。</p>
+        </article>
+        
       </div>
       
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期从「单点预测更强」转向「整条轨迹/整段行为可学」：作用量学习、生成边际学习、WARP 都在把监督信号从下一步搬到轨迹或分布层面。同时出现一股「基准自省」潮流——uMLIP 合金排名、无序碳域外可靠性、AI 天气预报评估协议三篇都在说同一件事：排名可能被基准控制而非模型能力左右。蛋白质方向则把接口从序列/结构扩展到自然语言与推理时搜索，设计可控性成为新竞争点。</p>
+      <p>与上一期相比，本期从「预测下一步」明显转向「学习整条轨迹或整个分布」：作用量学习、生成边际学习、Feynman-Kac 推理调控、奖励引导的推理时搜索都属于同一脉络。另一个新方向是「评估科学」本身成为研究对象——uMLIP 合金基准、AI 天气预报评价协议、条件生成模型幻觉三篇共同指出，基准控制与评价指标会直接改写模型排名。物理约束的嵌入方式也更细：从整体等变转向旋量、球面、可微辐射传输等局部结构。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注「轨迹级目标函数」能否从分子模拟迁移到气候与材料的高通量筛选，以及基准自省之后是否会出现带控制变量的新一代 uMLIP/天气评估协议。</p>
+      <p>下期值得关注推理时搜索与可控生成在蛋白质、晶体、药物闭环中的实际命中率，以及「评估协议」类工作是否会催生更统一的 AI4S 基准标准。</p>
       
     </section>
     
