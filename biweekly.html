@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="weekly.html">周报 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-24 15:09 (北京时间 UTC+8)
+      生成于 2026-10-25 08:55 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 双周报告 · 10-12 ~ 10-25</h2>
       <p class="r-range">2026-10-12 ~ 2026-10-25</p>
-      <p class="r-overview">这两周 AI4S 的主旋律是「从预测走向生成与可控」：蛋白质端出现自然语言直接设计功能蛋白、从头造金属蛋白酶和半胱氨酸蛋白酶；材料端晶体生成开始按对称性轨道整组生成、扩散模型在推理阶段多性质调控；气候端 AI 天气模型把有效预报推到 3–5 周并系统评测极端事件。第一周偏「基础模型与数据集」——MAD-COSMO 17 亿结构、MOFFieldBench 4.6 万 MOF、磁性原子模拟基础模型；第二周明显转向「评测、可控与闭环」——基准可信度被反复拷问（uMLIP 合金基准、GNoME 重复、AI 天气预报评估协议），推理时搜索与实验闭环成为新抓手（RFD4-Proteina、适配体湿实验闭环命中率 0%→42.1%）。整体看，方法创新仍在，但「怎么证明它真的有用」正成为更稀缺的贡献。</p>
+      <p class="r-overview">这两周 AI4S 的主旋律是「可控生成」：蛋白质从头设计从自然语言直接出功能蛋白，材料生成从逐原子摆放转向按对称性轨道整组生成，分子模拟从预测下一步转向学习整条轨迹的目标函数。第一周以「生成能力扩张」为主——Pinal 用自然语言设计功能蛋白、RFdiffusion 造金属蛋白酶、Orbitol 按 Wyckoff 轨道生成晶体；第二周明显转向「评估与可控性」——多篇工作量化基准污染、评估协议如何反转模型排名、推理时搜索与约束引导成为新接口。跨子领域看，蛋白质设计、材料生成、气候降尺度三条线最密集，而「基准可信度」和「推理时控制」是两周共同浮现的新方向。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -104,19 +104,19 @@
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://www.nature.com/articles/s41586-026-11205-z" target="_blank" rel="noopener">Programmable design of functional proteins from natural language</a></h2>
-          <p>160 亿参数模型 Pinal 用自然语言描述直接设计出有实验活性的功能蛋白，且不迭代优化就提高了二氧化碳固定产物产量。</p>
+          <p>160 亿参数模型 Pinal 用自然语言描述直接设计出有实验活性的功能蛋白，并在不迭代优化的情况下提高二氧化碳固定产物产量。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://www.nature.com/articles/s41586-026-11167-2" target="_blank" rel="noopener">Computational design of metalloproteases</a></h2>
-          <p>RFdiffusion 从零设计含锌活性位点的金属蛋白酶，把造酶从改造天然酶推进到可编程从头设计且活性很高。</p>
+          <p>用 RFdiffusion 从零设计含锌活性位点的金属蛋白酶，把造酶从改造天然酶推进到可编程从头设计，且活性很高。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.30086v1" target="_blank" rel="noopener">Orbitol: Crystal Generation on Wyckoff Orbits</a></h2>
-          <p>晶体生成从逐原子摆放改为按对称性轨道整组生成，指定空间群后结构天然满足对称约束，速度快 2–3 个数量级。</p>
+          <p>把晶体生成从逐原子摆放改成按对称性轨道整组生成，指定空间群后结构天然满足对称约束，速度还快 2-3 个数量级。</p>
         </article>
         
         <article class="card">
@@ -128,49 +128,49 @@
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.31585v1" target="_blank" rel="noopener">Action Learning for Scientific Simulations</a></h2>
-          <p>把整条轨迹观测转成可复用目标函数，一次学习即可用于排序、推断、机制引导和约束优化，不再局限于预测下一步。</p>
+          <p>提出「作用量学习」框架，把整条轨迹观测转成可复用目标函数，一次学习即可用于排序、推断、机制引导和约束优化。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.31183v1" target="_blank" rel="noopener">Unconstrained learning of equivariant atomistic properties</a></h2>
-          <p>非等变 Point-Edge Transformer 统一学习偶极、极化率、NMR 屏蔽张量与电子密度，精度不输专用等变模型。</p>
+          <p>用非等变 Point-Edge Transformer 统一学习偶极、极化率、NMR 屏蔽张量和电子密度，精度不输专用等变模型。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">气候地球</span>
+          <h2><a href="https://arxiv.org/abs/2610.29213v1" target="_blank" rel="noopener">Huayu-Global: Skillful real-time quasi-global precipitation retrieval</a></h2>
+          <p>把五颗静止卫星三路观测流统一进跨星座深度学习框架，每 30 分钟产出准全球降水场，实时产品首次在关键指标上追平延迟数月的高质量产品。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://www.nature.com/articles/d41586-026-03077-0" target="_blank" rel="noopener">An AI tool improves weather forecasts up to a month ahead</a></h2>
-          <p>AI 工具把天气预报有效期推进到 3–5 周次季节尺度，能提前数周给出降水、气温和气压预报并改善极端天气早期预警。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.20519v1" target="_blank" rel="noopener">Probabilistic AI models outperform numerical weather prediction models on record breaking heat extremes</a></h2>
-          <p>首次系统证明概率型 AI 天气预报在破纪录高温上全面胜过 ECMWF 物理集合预报，并指出旧结论源于评测方式不当。</p>
+          <p>AI 工具把天气预报有效期推进到 3-5 周次季节尺度，能提前数周给出降水、气温和气压预报并改善极端天气早期预警。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.29938v1" target="_blank" rel="noopener">A PDE-theory-guided neural operator and the long-time relaxation of the two-dimensional anisotropic Boussinesq system</a></h2>
-          <p>把 PDE 严格数学分析嵌进网络结构，让神经算子稳定学到长时间松弛中 ε² 量级的极小信号，纯数据驱动做不到。</p>
+          <p>把 PDE 严格数学分析嵌进神经网络结构，让神经算子稳定学到长时间松弛中极小的 ε² 量级信号，纯数据驱动方法做不到。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.28591v1" target="_blank" rel="noopener">PaPi: Parallel Picard-Duhamel Integration for Fast Neuro-Spectral Architectures</a></h2>
-          <p>把神经谱方法求解 PDE 的串行时间步进换成可并行积分，训练和推理最高提速约 100 倍。</p>
+          <p>把神经谱方法求解 PDE 时串行的 Runge-Kutta 时间步进换成可并行时间积分，训练和推理最高提速约 100 倍。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.24806v1" target="_blank" rel="noopener">Aptamers as a sandbox for lab-in-the-loop agentic molecular discovery</a></h2>
-          <p>首次把 LLM 推理智能体与真实湿实验闭环打通，三轮迭代把适配体新候选靶向命中率从 0% 提到 42.1%。</p>
+          <p>首次把 LLM 推理智能体与真实湿实验闭环打通，三轮迭代把新候选适配体的靶向命中率从 0% 提到 42.1%。</p>
         </article>
         
         <article class="card">
-          <span class="field">生物信息</span>
-          <h2><a href="https://arxiv.org/abs/2610.22242v1" target="_blank" rel="noopener">SurvICL: a Foundation Model for in-context Survival Analysis</a></h2>
-          <p>首个在生存分析上真正打败 50 年老牌 Cox 模型的表格基础模型，无需调参，小样本临床队列上首次排名超过 Cox。</p>
+          <span class="field">科学基础模型</span>
+          <h2><a href="https://arxiv.org/abs/2610.30215v1" target="_blank" rel="noopener">AI Mindmeld: A Latent Interconnect Protocol</a></h2>
+          <p>提出潜空间互联协议，让蛋白质和小分子专用模型的高维表征直接接入大语言模型内部，不再转成文字或图片。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>跨周对比看，protein 与 materials 仍是条目最多的两个方向（各约 10 条量级），但重心从「造新模型」移向「可控生成与评测」：第一周 protein 以 Prompteina、RiboBridge、recAMPLIFY 等新架构为主，第二周则出现 RFD4-Proteina 推理时搜索、rgi_toolkit 可微约束、蛋白质设计数据投毒等「怎么用、怎么防」的条目。materials 第一周偏数据集与基础模型（MOFFieldBench、磁性基础模型、MAD-COSMO），第二周集中出现基准可信度反思（uMLIP 合金基准、GNoME 重复性、VoroTypes 结构识别），评测类条目从约 1 条增至 4 条以上。climate 热度明显上升，从第一周的降尺度与辐射传输，扩展到第二周的次季节预报、极端事件概率评测与「评估协议如何反转排名」，两周合计约 20 条，为各领域最多。molsim 保持高位但主题从「势函数精度」转向「轨迹级学习与长时稳定性」（Action Learning、WARP、蒸馏势失效分析）。ai4math 第一周偏理论嵌入（PDE 引导算子、分数阶导数），第二周偏工程提速（PaPi 百倍加速、PI-DeepONet 张量重构 3.75 倍），呈现「先保精度、再降成本」的节奏。drug 与 bioinfo 条目少但质量集中，drug 出现湿实验闭环这一新范式，bioinfo 从单细胞基础模型转向智能体长周期基准（OmicsBench）。新浮现方向：推理时搜索/推理时算力分配（RFD4-Proteina、纳米抗体 steering、Feynman-Kac steering）与「基准可信度」两条线，两周内各积累 3 条以上。</p>
+      <p>跨周对比看，蛋白质设计从第一周的「生成能力展示」（Pinal、RFdiffusion 金属蛋白酶、半胱氨酸蛋白酶）转向第二周的「可控性与安全」（推理时奖励引导搜索、纳米抗体推理时算力分配、数据投毒攻击），条目数从约 6 条增至 9 条，热度上升最明显。材料领域两周合计约 25 条，是第一大子领域，但重心从第一周的「生成与势函数」（Orbitol、Feynman-Kac 引导、GRACE 势）移向第二周的「基准可信度与评估」（uMLIP 合金基准污染、GNoME 重复性质疑、MOFFieldBench），「基准审计」成为新浮现方向。气候领域约 20 条，第一周偏「降尺度与预报」（球面神经算子、视频扩散降尺度），第二周偏「极端事件评估协议」（评估协议如何反转排名、概率 AI 模型在破纪录高温上胜出），评估类条目从 1 条增至 4 条。分子模拟约 20 条，从第一周的「等变/非等变表征」转向第二周的「轨迹级学习与有限尺寸修正」（作用量学习、生成边际学习），方法层创新密度上升。AI4Math 约 12 条，第一周偏「结构嵌入物理」（PDE 理论引导算子），第二周偏「效率与可解释」（PaPi 百倍提速、低秩 KAN 生成流），工程化倾向增强。药物发现与生物信息条目数持平但偏少（各约 5 条），药物领域从分子表征转向「实验闭环与评估陷阱」（适配体湿实验闭环、条件生成模型幻觉非加性效应）。科学基础模型约 10 条，第一周偏「潜空间互联与可处理推断」，第二周偏「不确定性控制与校准」，方向更务实。整体看，「基准可信度」「推理时控制」「评估协议」三个词在两周内从边缘话题升为跨领域共同议题。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下两周重点跟踪两条线：一是推理时搜索与可微约束能否从蛋白质扩展到材料与分子模拟，形成统一的「生成后控制」范式；二是基准可信度反思是否会催生带对照组的标准化评测协议，尤其是气候极端事件与 MLIP 合金排名这两块争议最集中的领域。</p>
+      <p>下两周重点跟踪两条线：一是「推理时控制」能否从蛋白质设计扩散到材料和分子模拟，形成统一的约束引导接口；二是「基准审计」会不会催生跨子领域的评估标准，尤其是气候极端事件和材料生成两块的排名可信度问题。</p>
       
     </section>
     

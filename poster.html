@@ -80,11 +80,11 @@
     
     <h1 class="title">AI4S 周报 · 10-19 ~ 10-25</h1>
     <p class="slogan">「从预测下一步到学会整条轨迹」</p>
-    <p class="range">2026-10-19 ~ 2026-10-25 · 2026-10-24 15:09 (北京时间 UTC+8)</p>
+    <p class="range">2026-10-19 ~ 2026-10-25 · 2026-10-25 08:55 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期最鲜明的信号是「目标函数化」：作用量学习把整条模拟轨迹压成可复用目标，生成边际学习、WARP 谱求解器、Feynman-Kac 引导都在推理阶段直接优化物理目标，而非只拟合下一步。蛋白质方向继续把自然语言和奖励信号接进设计流程，Pinal 用 160 亿参数直接由文本生成有活性的功能蛋白。材料与分子模拟则集中反思「基准可信度」：uMLIP 合金排名被 DFT 数据库分歧污染、无序碳上低误差不等于 MD 稳定，提醒社区先修控制再谈排名。气候方向出现评估协议本身成为研究对象，同一模型因指标不同排名反转。</p>
+  <p class="overview">本期最鲜明的信号是「目标函数化」：作用量学习把整条轨迹变成可复用目标，Pinal 用自然语言直接设计有活性的蛋白，Orbitol 按对称性轨道整组生成晶体，都在把「逐步预测」换成「直接学目标」。与此同时，多篇工作把评估协议本身当作研究对象——uMLIP 合金基准被 DFT 数据库分歧污染、AI 天气预报排名随指标反转、蛋白分类因系统发育泄漏虚高 80–90%，提醒我们「基准可信度」正成为 AI4S 的一等公民。效率侧同样密集：AF3/Boltz-2 扩散步数 200→8、PaPi 时间积分提速约 100 倍、Orbitol 快 2–3 个数量级。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -176,33 +176,33 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期从「预测下一步」明显转向「学习整条轨迹或整个目标函数」：作用量学习、生成边际学习、WARP 谱求解器、Feynman-Kac 推理引导都属同一脉络。同时出现一股「基准反思」潮：uMLIP 合金排名、无序碳域外可靠性、AI 天气预报评估协议三篇都在说同一件事——低误差不等于可用，控制不严的基准会制造假失败与假排名。蛋白质方向则把自然语言与奖励信号直接接进生成流程，推理时搜索开始替代重训模型。</p>
+  <p class="trend">与上一期相比，本期从「单点模型更强」转向「目标与评估更可信」：作用量学习、生成边际学习、Feynman-Kac 推理期调控等把学习对象从下一步预测上移到整条轨迹或目标函数；同时 uMLIP 合金基准、AI 天气预报评估协议、蛋白系统发育泄漏三篇工作集中暴露基准污染与泄漏问题，评估方法学开始与模型方法学并列为独立议题。效率方向也从「更大模型」转向「更少步数/更少数据」：AF3 扩散 200→8 步、PaPi 约 100 倍提速、RheOPT 少样本微调、recAMPLIFY 参数少 56% 而折叠准确率提升 22.5%。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">4774</span><small>抓取条目</small></div>
-      <div><span class="num">330</span><small>总结</small></div>
-      <div><span class="num">330</span><small>已上墙</small></div>
+      <div><span class="num">4778</span><small>抓取条目</small></div>
+      <div><span class="num">340</span><small>总结</small></div>
+      <div><span class="num">340</span><small>已上墙</small></div>
     </div>
     <div class="fields">
       
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 14%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 15%"></div></div>
         <b>49</b>
       </div>
       
       <div class="frow">
         <span class="flabel">💊 药物发现</span>
         <div class="fbar"><div class="fbar-fill" style="width: 9%"></div></div>
-        <b>30</b>
+        <b>31</b>
       </div>
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 48%"></div></div>
-        <b>163</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 49%"></div></div>
+        <b>164</b>
       </div>
       
       <div class="frow">
@@ -220,18 +220,18 @@
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
         <div class="fbar"><div class="fbar-fill" style="width: 35%"></div></div>
-        <b>117</b>
+        <b>116</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>339</b>
+        <b>336</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 37%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 38%"></div></div>
         <b>127</b>
       </div>
       
