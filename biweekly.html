@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="weekly.html">周报 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-26 13:11 (北京时间 UTC+8)
+      生成于 2026-10-26 15:43 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 双周报告 · 10-19 ~ 11-01</h2>
       <p class="r-range">2026-10-19 ~ 2026-11-01</p>
-      <p class="r-overview">这两周 AI4S 的主旋律是「从单点预测走向整条轨迹与整场分布」：分子模拟出现「作用量学习」把整条轨迹变成可复用目标函数，材料侧把晶体生成改成按对称性轨道整组生成、把 PXRD 做成可微引擎，气候侧则把降尺度、同化、辐射传输统一进可微或生成式框架。第一周偏「补基础设施」——大量基准、评估协议与可靠性检验（uMLIP 合金基准被 DFT 分歧污染、无序碳上基础势的域外失效、AI 天气预报排名随评估协议反转）；第二周明显转向「把物理约束与对称性写进模型结构」——SU(2) 等变旋量消息传递、PDE 理论引导的神经算子、Brillouin 残差惩罚、球面物理约束降尺度。跨周看，蛋白质设计从「重训模型」转向「推理时搜索与可微约束」，气候从「单点预报」转向「可微同化+生成式集合」，材料则从「造势函数」转向「验势函数、修基准」。整体上，社区对「基准可信度」的投入在上升，纯刷指标的叙事在降温。</p>
+      <p class="r-overview">这两周 AI4S 的主旋律是「把物理与对称性写进模型」：等变/非等变之争、作用量学习、Brillouin 残差惩罚、球面神经算子、SU(2) 旋量消息传递，都在回答同一个问题——如何让模型在数据之外仍然守规矩。第一周偏「方法铺路」：大量基准与失效分析（uMLIP 合金基准被 DFT 分歧污染、无序碳上基础势的域外失效、跨标识符绑定失败、系统发育泄漏），以及推理时搜索、可微 PXRD、WARP 谱求解器等工具型工作。第二周明显转向「系统级整合」：百万原子蒸馏势、QPU 接入百万原子生物体系、化学-气候基础模型稳定积分 50 年、CAM6 深对流整体换神经网络跑十余年，规模与闭环（LLM 智能体+湿实验三轮把命中率从 0% 提到 42.1%）成为关键词。整体看，评价体系的可信度问题被反复摆上台面，与模型能力同步升温。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -104,19 +104,19 @@
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://www.nature.com/articles/s41586-026-11205-z" target="_blank" rel="noopener">Programmable design of functional proteins from natural language</a></h2>
-          <p>160 亿参数模型 Pinal 用自然语言直接设计有实验活性的功能蛋白，且不迭代优化就把二氧化碳固定产物产量做上去。</p>
+          <p>160 亿参数模型 Pinal 用自然语言直接设计功能蛋白，实验验证活性，且不经迭代优化即提高二氧化碳固定产物产量。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2610.23703v1" target="_blank" rel="noopener">Blitz: Accelerating the Diffusion Modules of AlphaFold3 and Boltz-2</a></h2>
-          <p>把 AF3/Boltz-2 的扩散去噪从 200 步压到 8 步而结构精度基本不掉，部分指标反超原模型。</p>
+          <p>把 AF3/Boltz-2 的扩散去噪从 200 步压到 8 步，结构精度基本不掉，部分指标反超原模型。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.24806v1" target="_blank" rel="noopener">Aptamers as a sandbox for lab-in-the-loop agentic molecular discovery</a></h2>
-          <p>LLM 智能体与真实湿实验闭环，三轮迭代把适配体新候选靶向命中率从 0% 提到 42.1%。</p>
+          <p>LLM 智能体与真实湿实验闭环，适配体设计三轮迭代把新候选靶向命中率从 0% 提到 42.1%。</p>
         </article>
         
         <article class="card">
@@ -128,49 +128,49 @@
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.29111v1" target="_blank" rel="noopener">SU(2)-Equivariant Spinor Message Passing for Molecular Magnetism</a></h2>
-          <p>把电子态是旋量这一物理事实写进图神经网络，用 SU(2) 等变消息传递预测分子磁性，在钴单分子磁体与镝 MRI 探针上均优于现有等变模型。</p>
+          <p>把电子态是旋量这一物理事实写进图神经网络，在钴单分子磁体与镝 MRI 探针上均优于现有等变模型。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.30641v1" target="_blank" rel="noopener">How good are universal MLIPs for alloys? A benchmark is only as trustworthy as its controls</a></h2>
-          <p>用 145 万种金属间化合物量化 DFT 数据库间分歧，证明部分「模型失败」其实是基准控制不严造成的。</p>
+          <p>用 145 万种金属间化合物量化 DFT 数据库间分歧，证明部分「模型失败」其实是基准控制不严所致。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.30086v1" target="_blank" rel="noopener">Orbitol: Crystal Generation on Wyckoff Orbits</a></h2>
-          <p>把晶体生成从「原子逐个摆」改成「按对称性轨道整组生成」，指定空间群后结构天然满足对称约束，速度快 2–3 个数量级。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.29213v1" target="_blank" rel="noopener">Huayu-Global: Skillful real-time quasi-global precipitation retrieval</a></h2>
-          <p>五颗静止卫星三路观测流统一进跨星座深度学习框架，每 30 分钟产出准全球降水场，实时产品首次在关键指标上追平延迟数月的高质量产品。</p>
+          <p>按对称性轨道整组生成晶体，指定空间群后结构天然满足对称约束，速度还快 2-3 个数量级。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.22555v1" target="_blank" rel="noopener">Atmospheric Chemistry-Climate Modeling with an AI Foundation Model</a></h2>
-          <p>首个同时刻画排放—大气成分—辐射相互作用的地球系统基础模型，稳定积分 50 年，把化学气候模拟从最贵环节变成可微调 AI 模块。</p>
+          <p>首个同时刻画排放—大气成分—辐射相互作用的地球系统基础模型，稳定积分 50 年。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">气候地球</span>
+          <h2><a href="https://arxiv.org/abs/2610.20405v2" target="_blank" rel="noopener">Improved Precipitation Variability in the Community Atmosphere Model through Implementation of a Neural-Network Deep Convection Scheme</a></h2>
+          <p>CAM6 深对流方案整体换成神经网络，稳定跑十余年不破坏能量/水分守恒，并修正小雨与极端降水偏差。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.29938v1" target="_blank" rel="noopener">A PDE-theory-guided neural operator and the long-time relaxation of the two-dimensional anisotropic Boussinesq system</a></h2>
-          <p>把 PDE 严格数学分析嵌进网络结构，让神经算子稳定学到长时间松弛中 ε² 量级的极小信号，纯数据驱动做不到。</p>
+          <p>把 PDE 严格数学分析嵌进网络结构，稳定学到长时间松弛中 ε² 量级的极小信号，纯数据驱动做不到。</p>
         </article>
         
         <article class="card">
           <span class="field">科学基础模型</span>
           <h2><a href="https://arxiv.org/abs/2610.30215v1" target="_blank" rel="noopener">AI Mindmeld: A Latent Interconnect Protocol</a></h2>
-          <p>提出潜空间互联协议 LIP，让蛋白质与小分子专用模型的高维表征直接接入大语言模型内部，不再转成文字或图片。</p>
+          <p>让蛋白质与小分子专用模型的高维表征直接接入 LLM 内部，不再转成文字或图片，打通科学智能体的专家信息瓶颈。</p>
         </article>
         
         <article class="card">
           <span class="field">生物信息</span>
           <h2><a href="https://arxiv.org/abs/2610.28853v1" target="_blank" rel="noopener">An autoencoder outperforms two transformers on prediction of gene expression from chromatin accessibility</a></h2>
-          <p>双变分自编码器管线在全部 60 组配对比较中胜过两个 Transformer，预测基因表达更准且训练时间缩到约四分之一。</p>
+          <p>双变分自编码器管线在全部 60 组配对比较中胜过两个 Transformer，训练时间还缩短到约四分之一。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>跨周对比看三条线。其一，分子模拟与材料从「造模型」转向「验模型、修基准」：第一周还在密集发布新势函数与新生成框架（Orbitol、GRACE W–Ta 势、磁性基础模型），第二周连续出现 uMLIP 合金基准被 DFT 分歧污染、无序碳上六种基础势域外失效、蒸馏势在稀疏化学环境局部失效三篇「泼冷水」工作，说明社区开始为前期的模型繁荣补可信度基础设施。其二，气候方向热度从「预报精度」转向「可微物理与评估协议」：两周内可微辐射传输 UDL-RT、协方差感知集合滤波、球面物理约束降尺度、化学气候基础模型集中出现，同时有专文量化「评估协议如何反转模型排名」，方向性判断是气候 AI 正从刷 RMSE 走向可同化、可守恒、可审计。其三，蛋白质设计从「重训」转向「推理时控制」：RFD4-Proteina 奖励引导推理搜索、rgi_toolkit 可微约束、Blitz 把扩散步数压到 8 步，三条都指向不重训模型而在推理阶段加控制，与第一周 Pinal 的「自然语言直接设计」形成互补。新浮现方向是「潜空间互联」与「智能体+湿实验闭环」：AI Mindmeld 与适配体沙盒分别代表模型间表征直连和实验反馈驱动，两周内各出现 1 条，值得关注。</p>
+      <p>按条目数看，materials 与 climate 是这两周的双引擎（各约 20 条量级），molsim 紧随其后且质量密度最高；protein 从第一周的自然语言设计、RiboBridge、recAMPLIFY 到第二周的 Blitz 与 rgi_toolkit，重心由「生成新蛋白」转向「加速与可控推理」。materials 内部出现明显位移：第一周集中在基准可信度（uMLIP 合金、无序碳）与生成范式（Orbitol、Feynman-Kac steering），第二周转向长程静电、线性响应声子、磁性基础模型等「物理正确性」议题，说明该领域正从「能不能生成」过渡到「生成得对不对」。climate 的跨周变化最直观：第一周以降尺度与同化方法为主（球面 PINN、UDL-RT、协方差集合滤波），第二周连续出现 CAM6 深对流替换、化学-气候基础模型、GraphCast 气旋特征 SAE 分析，从「做工具」升级为「改模型内部」。ai4math 条目数不多但方向收敛：PaPi 的 100 倍提速与 PDE 理论引导算子，共同指向「结构先验换效率」。scifm 仍是小而散（KAN 可解推断、SABLE、LIP 协议），尚未形成统一叙事。值得注意的新浮现方向是「评估协议本身成为研究对象」——合金基准、极端天气评估排名反转、跨标识符绑定失败、系统发育泄漏四条独立工作指向同一结论：不少「模型失败」与「模型领先」都是评测设计产物。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下两周重点跟踪两件事：一是「基准可信度」是否会从材料扩散到分子模拟与气候，出现跨数据库分歧的系统性量化；二是推理时控制（奖励引导搜索、可微约束、少步扩散）能否在蛋白质之外被药物与材料生成复用。</p>
+      <p>下两周重点跟踪三条线：一是「物理约束内生化」能否从单点演示走向可复用组件（Brillouin 残差、SU(2) 旋量、长程静电分解）；二是实验闭环智能体是否出现第二个可复现沙盒，验证 0%→42.1% 不是孤例；三是评估协议类工作会不会催生统一的基准审计规范。</p>
       
     </section>
     

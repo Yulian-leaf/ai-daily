@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-26 13:10 (北京时间 UTC+8)
+      生成于 2026-10-26 15:42 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 10-26 ~ 11-01</h2>
       <p class="r-range">2026-10-26 ~ 2026-11-01</p>
-      <p class="r-overview">本期 AI4S 的主旋律是「把已有结构先验塞进模型」：药物智能体跨口袋复用编辑经验、资料同化把协方差几何嵌入扩散滤波、PINN 被做成可复用时间积分器、对称性驱动少样本微调。同时，Mamba 以线性复杂度替代 Transformer 做量子化学基态搜索，组合式流匹配让多模态散射模型在推理阶段才拼接。气候方向则首次系统解剖 AI 气象模型内部的热带气旋表征。整体看，效率与可迁移性取代了单纯堆参数。</p>
+      <p class="r-overview">本期最清晰的信号是「复用」：LLM 智能体跨蛋白口袋的经验、PINN 作为可复用时间积分器、对称性驱动的少样本微调、推理阶段才组合的多模态模型，都在把一次性训练变成可迁移资产。与此同时，Mamba 以线性复杂度进入量子化学基态搜索，熵最优传输与多层蒙特卡洛结合服务 PDE 贝叶斯反问题，说明效率与不确定性量化正被同时推进。气候方向则从模型外部表现转向内部表征，用稀疏自编码器拆解 AI 气象模型如何组织热带气旋属性。整体看，本期不是单点精度竞赛，而是围绕「可复用组件 + 可解释内部结构」的工程化收敛。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -108,9 +108,15 @@
         </article>
         
         <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2610.29779v1" target="_blank" rel="noopener">Mamba Quantum Eigensolver (MQE): A Selective State Space Model for Scalable Ground State Simulations in Quantum Chemistry</a></h2>
+          <p>用 Mamba 替换 Transformer 做量子化学基态搜索，序列建模复杂度从平方级降到线性级。</p>
+        </article>
+        
+        <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.29634v1" target="_blank" rel="noopener">Symmetry-Based Parameter Efficient Low-Rank Fine-Tuning for High-Throughput Calculation of Lattice Thermal Conductivity</a></h2>
-          <p>用对称性做少样本微调，通用原子间势 MatterSim 1M 只需少量同对称性晶体微调即可批量预测晶格热导率，精度接近逐个微调。</p>
+          <p>用对称性做少样本微调，通用原子间势只需少量同对称性晶体微调即可批量预测晶格热导率，精度接近逐个微调。</p>
         </article>
         
         <article class="card">
@@ -120,39 +126,27 @@
         </article>
         
         <article class="card">
-          <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.28996v1" target="_blank" rel="noopener">Hereditary Effective Atom Theory for Large-Scale Atomic Structure Prediction</a></h2>
-          <p>把有效原子的可微表示塞进遗传算法，用直接叠合双亲结构再弛豫的交叉操作，让上千原子缺陷与扭转双层结构搜索变成连续优化。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.29779v1" target="_blank" rel="noopener">Mamba Quantum Eigensolver (MQE): A Selective State Space Model for Scalable Ground State Simulations in Quantum Chemistry</a></h2>
-          <p>用 Mamba 替换 Transformer 做量子化学基态搜索，序列建模复杂度从平方级降到线性级。</p>
-        </article>
-        
-        <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.32148v1" target="_blank" rel="noopener">Covariance-Informed Ensemble Score Filtering: Embedding Localized Covariance Geometry into Score-Based Transport</a></h2>
-          <p>把资料同化中成熟的误差协方差几何嵌进基于分数的扩散式集合滤波，让观测信息沿协方差结构传播到未观测变量。</p>
+          <p>把资料同化中的误差协方差几何嵌入扩散式集合滤波，使观测信息沿协方差结构传播到未观测变量。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.28904v1" target="_blank" rel="noopener">Tropical Cyclone Attributes in Sparse Autoencoder Features of an AI Weather Model</a></h2>
-          <p>首次系统揭示 GraphCast 内部如何组织热带气旋的位置、强度、气压结构，且该组织方式在不同稀疏自编码器和网络层间可复现。</p>
+          <p>首次系统揭示 GraphCast 内部如何组织热带气旋的位置、强度与气压结构，且该组织方式在不同稀疏自编码器和网络层间可复现。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.29546v1" target="_blank" rel="noopener">Sequential Entropic Optimal Transport for Bayesian Inverse Problems via Multilevel Monte Carlo</a></h2>
-          <p>把熵最优传输与多层蒙特卡洛结合，用轻量薛定谔桥学习相邻精度层级后验耦合，再用保持配对的 MH 校正，面向 PDE 贝叶斯反问题。</p>
+          <p>用轻量薛定谔桥学习相邻精度层级后验之间的耦合，再以保持配对的 Metropolis-Hastings 校正，服务 PDE 贝叶斯反问题。</p>
         </article>
         
         <article class="card">
           <span class="field">生物信息</span>
           <h2><a href="https://arxiv.org/abs/2610.28853v1" target="_blank" rel="noopener">An autoencoder outperforms two transformers on prediction of gene expression from chromatin accessibility</a></h2>
-          <p>统一基准上，双变分自编码器管线在全部 60 组配对比较中胜过两个 Transformer，训练时间缩短到约四分之一。</p>
+          <p>双变分自编码器管线在全部 60 组配对比较中胜过两个 Transformer，训练时间缩短到约四分之一。</p>
         </article>
         
       </div>
@@ -160,11 +154,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期「物理/结构先验注入模型」的路线明显增多：协方差几何进扩散滤波、对称性进少样本微调、有效原子进遗传算法、PINN 做成可复用积分器，四条工作共享同一思路——不重训大模型，而是把领域结构作为可插拔模块。另一新方向是「推理阶段组合」：组合式流匹配与跨口袋经验复用都表明，模块化拼接正在取代联合训练。此外，Mamba 首次进入量子化学基态搜索，线性复杂度替代平方级注意力成为可选项。</p>
+      <p>与上一期相比，本期「复用」从口号变成可检验对象：药物方向开始量化跨靶点经验到底迁移了什么，材料方向用对称性把微调成本压到少样本，多模态散射反演把组合推迟到推理阶段。另一个新变化是效率导向的架构替换更密集，Mamba 进入量子化学、自编码器在基因表达预测上以更短训练时间胜出，说明「更小更快」正与「更准」并列成为可发表贡献。气候方向则出现从预测精度转向内部表征可解释性的明确分支。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注：跨口袋经验库能否从编辑动作进一步抽象为可检索的「动作原语」，以及线性复杂度状态空间模型在更多科学序列任务上的复现与精度边界。</p>
+      <p>下期值得关注：跨口袋经验库能否给出可操作的构建准则，以及线性复杂度序列模型在更大分子体系上的实际外推表现。</p>
       
     </section>
     
