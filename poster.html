@@ -79,12 +79,12 @@
     <div class="brand">AI4S-DAILY</div>
     
     <h1 class="title">AI4S 周报 · 10-26 ~ 11-01</h1>
-    <p class="slogan">「经验可迁移，物理入模型」</p>
-    <p class="range">2026-10-26 ~ 2026-11-01 · 2026-10-26 09:04 (北京时间 UTC+8)</p>
+    <p class="slogan">「经验可迁移，物理进网络」</p>
+    <p class="range">2026-10-26 ~ 2026-11-01 · 2026-10-26 13:11 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期 AI4S 研究呈现两条主线：一是把成熟物理/数值方法（协方差几何、熵最优传输、物理约束）嵌入神经网络，提升科学模拟的可靠性与可扩展性；二是探索模型与经验的复用机制，包括跨蛋白口袋的智能体经验迁移、对称性驱动的少样本微调、以及推理阶段组合多模态模型。同时，对 AI 气象模型内部表征的可解释性分析开始出现，量子化学与生物信息领域则继续用更高效的架构（Mamba、双变分自编码器）挑战 Transformer 的统治地位。</p>
+  <p class="overview">本期 AI4S 的主旋律是「把已有结构先验塞进模型」：药物智能体跨口袋复用编辑经验、资料同化把协方差几何嵌入扩散滤波、PINN 被做成可复用时间积分器、对称性驱动少样本微调。同时，Mamba 以线性复杂度替代 Transformer 做量子化学基态搜索，组合式流匹配让多模态散射模型在推理阶段才拼接。气候方向则首次系统解剖 AI 气象模型内部的热带气旋表征。整体看，效率与可迁移性取代了单纯堆参数。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -167,12 +167,12 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期「物理约束嵌入神经网络」从单点尝试走向系统化：协方差几何、熵最优传输、物理方程约束分别进入滤波、反问题与多相场模拟。同时，经验与参数的复用成为新焦点——跨口袋的智能体经验、跨对称性的少样本微调、推理阶段的多模态组合，均试图降低重复训练成本。可解释性分析开始从视觉模型扩展到 AI 气象模型内部表征。</p>
+  <p class="trend">与上一期相比，本期「物理/结构先验注入模型」的路线明显增多：协方差几何进扩散滤波、对称性进少样本微调、有效原子进遗传算法、PINN 做成可复用积分器，四条工作共享同一思路——不重训大模型，而是把领域结构作为可插拔模块。另一新方向是「推理阶段组合」：组合式流匹配与跨口袋经验复用都表明，模块化拼接正在取代联合训练。此外，Mamba 首次进入量子化学基态搜索，线性复杂度替代平方级注意力成为可选项。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">4787</span><small>抓取条目</small></div>
+      <div><span class="num">4898</span><small>抓取条目</small></div>
       <div><span class="num">350</span><small>总结</small></div>
       <div><span class="num">350</span><small>已上墙</small></div>
     </div>
@@ -180,8 +180,8 @@
       
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 15%"></div></div>
-        <b>49</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 13%"></div></div>
+        <b>46</b>
       </div>
       
       <div class="frow">
@@ -192,38 +192,38 @@
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 49%"></div></div>
-        <b>164</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 48%"></div></div>
+        <b>163</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 83%"></div></div>
-        <b>281</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 85%"></div></div>
+        <b>292</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 31%"></div></div>
-        <b>105</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 29%"></div></div>
+        <b>101</b>
       </div>
       
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 34%"></div></div>
-        <b>116</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 35%"></div></div>
+        <b>120</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>337</b>
+        <b>343</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 39%"></div></div>
-        <b>130</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 36%"></div></div>
+        <b>122</b>
       </div>
       
     </div>

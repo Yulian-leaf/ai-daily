@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-26 09:04 (北京时间 UTC+8)
+      生成于 2026-10-26 13:10 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 10-26 ~ 11-01</h2>
       <p class="r-range">2026-10-26 ~ 2026-11-01</p>
-      <p class="r-overview">本期 AI4S 研究呈现两条主线：一是把成熟物理/数值方法（协方差几何、熵最优传输、物理约束）嵌入神经网络，提升科学模拟的可靠性与可扩展性；二是探索模型与经验的复用机制，包括跨蛋白口袋的智能体经验迁移、对称性驱动的少样本微调、以及推理阶段组合多模态模型。同时，对 AI 气象模型内部表征的可解释性分析开始出现，量子化学与生物信息领域则继续用更高效的架构（Mamba、双变分自编码器）挑战 Transformer 的统治地位。</p>
+      <p class="r-overview">本期 AI4S 的主旋律是「把已有结构先验塞进模型」：药物智能体跨口袋复用编辑经验、资料同化把协方差几何嵌入扩散滤波、PINN 被做成可复用时间积分器、对称性驱动少样本微调。同时，Mamba 以线性复杂度替代 Transformer 做量子化学基态搜索，组合式流匹配让多模态散射模型在推理阶段才拼接。气候方向则首次系统解剖 AI 气象模型内部的热带气旋表征。整体看，效率与可迁移性取代了单纯堆参数。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -110,19 +110,19 @@
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.29634v1" target="_blank" rel="noopener">Symmetry-Based Parameter Efficient Low-Rank Fine-Tuning for High-Throughput Calculation of Lattice Thermal Conductivity</a></h2>
-          <p>用对称性做少样本微调，通用原子间势只需少量同对称性晶体微调即可批量预测晶格热导率，精度接近逐个微调。</p>
+          <p>用对称性做少样本微调，通用原子间势 MatterSim 1M 只需少量同对称性晶体微调即可批量预测晶格热导率，精度接近逐个微调。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.29362v1" target="_blank" rel="noopener">Compositional neural networks for multimodal X-ray and neutron scattering inversion</a></h2>
-          <p>提出组合式流匹配框架，推理阶段组合分别训练的 X 射线/中子模型，无需联合重训即可融合多模态散射数据。</p>
+          <p>组合式流匹配让分别针对 X 射线、中子训练好的模型在推理阶段才组合，无需联合重训即可融合多模态散射数据。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.28996v1" target="_blank" rel="noopener">Hereditary Effective Atom Theory for Large-Scale Atomic Structure Prediction</a></h2>
-          <p>将有效原子的可微表示塞进遗传算法，用直接叠合双亲结构再弛豫的交叉操作，把大规模原子结构搜索变成连续优化。</p>
+          <p>把有效原子的可微表示塞进遗传算法，用直接叠合双亲结构再弛豫的交叉操作，让上千原子缺陷与扭转双层结构搜索变成连续优化。</p>
         </article>
         
         <article class="card">
@@ -134,7 +134,7 @@
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.32148v1" target="_blank" rel="noopener">Covariance-Informed Ensemble Score Filtering: Embedding Localized Covariance Geometry into Score-Based Transport</a></h2>
-          <p>把资料同化中的误差协方差几何嵌入扩散式集合滤波，让观测信息沿协方差结构传播到未观测变量。</p>
+          <p>把资料同化中成熟的误差协方差几何嵌进基于分数的扩散式集合滤波，让观测信息沿协方差结构传播到未观测变量。</p>
         </article>
         
         <article class="card">
@@ -146,13 +146,13 @@
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.29546v1" target="_blank" rel="noopener">Sequential Entropic Optimal Transport for Bayesian Inverse Problems via Multilevel Monte Carlo</a></h2>
-          <p>结合熵最优传输与多层蒙特卡洛，用轻量薛定谔桥学习相邻精度层级后验耦合，并以保持配对的 MH 校正。</p>
+          <p>把熵最优传输与多层蒙特卡洛结合，用轻量薛定谔桥学习相邻精度层级后验耦合，再用保持配对的 MH 校正，面向 PDE 贝叶斯反问题。</p>
         </article>
         
         <article class="card">
           <span class="field">生物信息</span>
           <h2><a href="https://arxiv.org/abs/2610.28853v1" target="_blank" rel="noopener">An autoencoder outperforms two transformers on prediction of gene expression from chromatin accessibility</a></h2>
-          <p>双变分自编码器管线在全部 60 组配对比较中胜过两个 Transformer，预测基因表达更准且训练时间缩短到约四分之一。</p>
+          <p>统一基准上，双变分自编码器管线在全部 60 组配对比较中胜过两个 Transformer，训练时间缩短到约四分之一。</p>
         </article>
         
       </div>
@@ -160,11 +160,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期「物理约束嵌入神经网络」从单点尝试走向系统化：协方差几何、熵最优传输、物理方程约束分别进入滤波、反问题与多相场模拟。同时，经验与参数的复用成为新焦点——跨口袋的智能体经验、跨对称性的少样本微调、推理阶段的多模态组合，均试图降低重复训练成本。可解释性分析开始从视觉模型扩展到 AI 气象模型内部表征。</p>
+      <p>与上一期相比，本期「物理/结构先验注入模型」的路线明显增多：协方差几何进扩散滤波、对称性进少样本微调、有效原子进遗传算法、PINN 做成可复用积分器，四条工作共享同一思路——不重训大模型，而是把领域结构作为可插拔模块。另一新方向是「推理阶段组合」：组合式流匹配与跨口袋经验复用都表明，模块化拼接正在取代联合训练。此外，Mamba 首次进入量子化学基态搜索，线性复杂度替代平方级注意力成为可选项。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期可关注：跨靶点经验库在真实药物设计流程中的泛化边界，以及线性复杂度架构（Mamba、状态空间模型）在量子化学与生物序列任务上能否持续替代 Transformer。</p>
+      <p>下期值得关注：跨口袋经验库能否从编辑动作进一步抽象为可检索的「动作原语」，以及线性复杂度状态空间模型在更多科学序列任务上的复现与精度边界。</p>
       
     </section>
     

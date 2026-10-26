@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="weekly.html">周报 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-26 09:04 (北京时间 UTC+8)
+      生成于 2026-10-26 13:11 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 双周报告 · 10-19 ~ 11-01</h2>
       <p class="r-range">2026-10-19 ~ 2026-11-01</p>
-      <p class="r-overview">这两周 AI4S 的主旋律是「从拟合走向可控与可复用」：蛋白质侧出现自然语言直接设计功能蛋白（Pinal，160 亿参数，实验验证活性并提高 CO2 固定产物产量），材料侧把晶体生成改成按 Wyckoff 轨道整组生成（Orbitol，速度快 2–3 个数量级），分子模拟侧提出「作用量学习」把整条轨迹转成可复用目标函数。第一周偏「表示与生成」——MOFFieldBench 把 4.6 万个 MOF 的电子密度场与静电势场对齐、Orbitol 与 Feynman-Kac Steering 改造晶体扩散模型；第二周明显转向「评估可信度与物理约束」——uMLIP 合金基准被指受 DFT 数据库分歧污染（量化 145 万种金属间化合物）、AI 天气预报排名因评价协议不同而反转、无序碳上六种基础 MLIP 出现「低 DFT 误差但 MD 不稳定」。同时「推理时控制」成为跨领域共同语言：RFD4-Proteina 用奖励引导推理搜索、cddlab/rgi_toolkit 用可微约束引导结构预测、Feynman-Kac Steering 无需重训即可多性质调控。整体看，社区正从「刷指标」转向「问基准是否可信、问物理是否守恒、问推理阶段能否可控」。</p>
+      <p class="r-overview">这两周 AI4S 的主旋律是「从单点预测走向整条轨迹与整场分布」：分子模拟出现「作用量学习」把整条轨迹变成可复用目标函数，材料侧把晶体生成改成按对称性轨道整组生成、把 PXRD 做成可微引擎，气候侧则把降尺度、同化、辐射传输统一进可微或生成式框架。第一周偏「补基础设施」——大量基准、评估协议与可靠性检验（uMLIP 合金基准被 DFT 分歧污染、无序碳上基础势的域外失效、AI 天气预报排名随评估协议反转）；第二周明显转向「把物理约束与对称性写进模型结构」——SU(2) 等变旋量消息传递、PDE 理论引导的神经算子、Brillouin 残差惩罚、球面物理约束降尺度。跨周看，蛋白质设计从「重训模型」转向「推理时搜索与可微约束」，气候从「单点预报」转向「可微同化+生成式集合」，材料则从「造势函数」转向「验势函数、修基准」。整体上，社区对「基准可信度」的投入在上升，纯刷指标的叙事在降温。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -104,19 +104,19 @@
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://www.nature.com/articles/s41586-026-11205-z" target="_blank" rel="noopener">Programmable design of functional proteins from natural language</a></h2>
-          <p>160 亿参数模型 Pinal 用自然语言描述直接设计功能蛋白，实验验证活性，且在不迭代优化的情况下提高 CO2 固定产物产量。</p>
+          <p>160 亿参数模型 Pinal 用自然语言直接设计有实验活性的功能蛋白，且不迭代优化就把二氧化碳固定产物产量做上去。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
-          <h2><a href="https://arxiv.org/abs/2610.30668v1" target="_blank" rel="noopener">RiboBridge: protein-conditioned de novo RNA binder structure design</a></h2>
-          <p>首次把 RNA 构象生成与蛋白–RNA 组装拆成两步，不假设已知结合位点，在 124 个复合物基准上取得最优界面与配体精度。</p>
+          <h2><a href="https://arxiv.org/abs/2610.23703v1" target="_blank" rel="noopener">Blitz: Accelerating the Diffusion Modules of AlphaFold3 and Boltz-2</a></h2>
+          <p>把 AF3/Boltz-2 的扩散去噪从 200 步压到 8 步而结构精度基本不掉，部分指标反超原模型。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.24806v1" target="_blank" rel="noopener">Aptamers as a sandbox for lab-in-the-loop agentic molecular discovery</a></h2>
-          <p>LLM 推理智能体与真实湿实验闭环，三轮迭代把适配体新候选靶向命中率从 0% 提到 42.1%。</p>
+          <p>LLM 智能体与真实湿实验闭环，三轮迭代把适配体新候选靶向命中率从 0% 提到 42.1%。</p>
         </article>
         
         <article class="card">
@@ -127,20 +127,20 @@
         
         <article class="card">
           <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.31183v1" target="_blank" rel="noopener">Unconstrained learning of equivariant atomistic properties</a></h2>
-          <p>用非等变 Point-Edge Transformer 统一学习偶极、极化率、NMR 屏蔽张量与电子密度，精度不输专用等变模型。</p>
+          <h2><a href="https://arxiv.org/abs/2610.29111v1" target="_blank" rel="noopener">SU(2)-Equivariant Spinor Message Passing for Molecular Magnetism</a></h2>
+          <p>把电子态是旋量这一物理事实写进图神经网络，用 SU(2) 等变消息传递预测分子磁性，在钴单分子磁体与镝 MRI 探针上均优于现有等变模型。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.30641v1" target="_blank" rel="noopener">How good are universal MLIPs for alloys? A benchmark is only as trustworthy as its controls</a></h2>
-          <p>用 145 万种金属间化合物量化 DFT 数据库间分歧，证明部分「模型失败」其实是基准控制不当造成的排名污染。</p>
+          <p>用 145 万种金属间化合物量化 DFT 数据库间分歧，证明部分「模型失败」其实是基准控制不严造成的。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.30086v1" target="_blank" rel="noopener">Orbitol: Crystal Generation on Wyckoff Orbits</a></h2>
-          <p>把晶体生成从原子逐个摆改成按对称性轨道整组生成，指定空间群后结构天然满足对称约束，速度快 2–3 个数量级。</p>
+          <p>把晶体生成从「原子逐个摆」改成「按对称性轨道整组生成」，指定空间群后结构天然满足对称约束，速度快 2–3 个数量级。</p>
         </article>
         
         <article class="card">
@@ -151,26 +151,26 @@
         
         <article class="card">
           <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.31237v1" target="_blank" rel="noopener">Can We Trust Evaluations of AI Weather Forecasts for Extremes? How Evaluation Protocols Shape Model Rankings</a></h2>
-          <p>同一实验设计下，AI 天气预报模型与物理模型的排名会因评价指标不同而反转，量化拆解了文献结论互相矛盾的根源。</p>
+          <h2><a href="https://arxiv.org/abs/2610.22555v1" target="_blank" rel="noopener">Atmospheric Chemistry-Climate Modeling with an AI Foundation Model</a></h2>
+          <p>首个同时刻画排放—大气成分—辐射相互作用的地球系统基础模型，稳定积分 50 年，把化学气候模拟从最贵环节变成可微调 AI 模块。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.29938v1" target="_blank" rel="noopener">A PDE-theory-guided neural operator and the long-time relaxation of the two-dimensional anisotropic Boussinesq system</a></h2>
-          <p>把 PDE 严格数学分析嵌进网络结构，让神经算子稳定学到长时间松弛中 ε² 量级的极小信号，纯数据驱动方法做不到。</p>
+          <p>把 PDE 严格数学分析嵌进网络结构，让神经算子稳定学到长时间松弛中 ε² 量级的极小信号，纯数据驱动做不到。</p>
         </article>
         
         <article class="card">
           <span class="field">科学基础模型</span>
           <h2><a href="https://arxiv.org/abs/2610.30215v1" target="_blank" rel="noopener">AI Mindmeld: A Latent Interconnect Protocol</a></h2>
-          <p>提出潜空间互联协议 LIP，让蛋白质与小分子专用模型的高维表征直接接入 LLM 内部，不再转成文字或图片。</p>
+          <p>提出潜空间互联协议 LIP，让蛋白质与小分子专用模型的高维表征直接接入大语言模型内部，不再转成文字或图片。</p>
         </article>
         
         <article class="card">
           <span class="field">生物信息</span>
           <h2><a href="https://arxiv.org/abs/2610.28853v1" target="_blank" rel="noopener">An autoencoder outperforms two transformers on prediction of gene expression from chromatin accessibility</a></h2>
-          <p>双变分自编码器管线在全部 60 组配对比较中胜过两个 Transformer，预测基因表达更准，训练时间缩短到约四分之一。</p>
+          <p>双变分自编码器管线在全部 60 组配对比较中胜过两个 Transformer，预测基因表达更准且训练时间缩到约四分之一。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>按条目数统计，molsim 从第一周的约 14 条增至第二周的约 18 条，仍是最大子领域，但重心从「新势函数」转向「势函数的失效边界」：无序碳上六种基础 MLIP 出现低 DFT 误差但 MD 不稳定、浓 ZnCl2 电解液检验 MLIP 从稀到 30 mol/kg 的可迁移性、百万原子蒸馏势被逐原子监督揭示稀疏化学环境局部失效。materials 保持高位（两周合计约 20 条），且「基准可信度」成为新浮现方向——uMLIP 合金基准污染、PXRD 可微引擎、Voronoi 胞拓扑分类器共同指向「先修测量再谈模型」。climate 从第一周偏「降尺度生成」转向第二周偏「评估与同化」：AI 天气预报排名反转、TerraNostra-Bench 指出自回归设计本身是误差累积主因、Covariance-Informed Ensemble Score Filtering 把协方差几何嵌入分数滤波。protein 热度上升且形态变化明显：第一周以语言模型与递归深度扩展为主（recAMPLIFY 参数少 56% 却提升 22.5% 折叠准确率），第二周转向「推理时控制」（RFD4-Proteina 奖励引导搜索、rgi_toolkit 可微约束、Blitz 把 AF3/Boltz-2 扩散步从 200 压到 8）。drug 条目数不多但方向清晰：从「智能体做设计」转向「智能体经验能否复用」（跨口袋经验复用研究）与「生成模型幻觉非加性效应」的警示。ai4math 与 scifm 相对降温，但 ai4math 出现 PaPi 把时间步进并行化、最高提速约 100 倍这类「工程加速」信号，scifm 则从「造基础模型」转向「让推理可 tractable」（KAN 多项式外层、SABLE 高维贝叶斯优化）。</p>
+      <p>跨周对比看三条线。其一，分子模拟与材料从「造模型」转向「验模型、修基准」：第一周还在密集发布新势函数与新生成框架（Orbitol、GRACE W–Ta 势、磁性基础模型），第二周连续出现 uMLIP 合金基准被 DFT 分歧污染、无序碳上六种基础势域外失效、蒸馏势在稀疏化学环境局部失效三篇「泼冷水」工作，说明社区开始为前期的模型繁荣补可信度基础设施。其二，气候方向热度从「预报精度」转向「可微物理与评估协议」：两周内可微辐射传输 UDL-RT、协方差感知集合滤波、球面物理约束降尺度、化学气候基础模型集中出现，同时有专文量化「评估协议如何反转模型排名」，方向性判断是气候 AI 正从刷 RMSE 走向可同化、可守恒、可审计。其三，蛋白质设计从「重训」转向「推理时控制」：RFD4-Proteina 奖励引导推理搜索、rgi_toolkit 可微约束、Blitz 把扩散步数压到 8 步，三条都指向不重训模型而在推理阶段加控制，与第一周 Pinal 的「自然语言直接设计」形成互补。新浮现方向是「潜空间互联」与「智能体+湿实验闭环」：AI Mindmeld 与适配体沙盒分别代表模型间表征直连和实验反馈驱动，两周内各出现 1 条，值得关注。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下两周重点跟踪三条线：一是「基准可信度」是否会从材料、气候扩散到分子模拟与蛋白质（uMLIP 污染、评估协议反转、系统发育泄漏已给出模板）；二是推理时控制（奖励引导、可微约束、Feynman-Kac Steering）能否在蛋白与材料上形成统一接口；三是量子硬件接入百万原子体系（QPU + 量子-经典多尺度）是否从单点演示走向可复现流程。</p>
+      <p>下两周重点跟踪两件事：一是「基准可信度」是否会从材料扩散到分子模拟与气候，出现跨数据库分歧的系统性量化；二是推理时控制（奖励引导搜索、可微约束、少步扩散）能否在蛋白质之外被药物与材料生成复用。</p>
       
     </section>
     
