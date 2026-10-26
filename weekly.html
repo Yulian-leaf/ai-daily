@@ -87,90 +87,72 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-25 15:31 (北京时间 UTC+8)
+      生成于 2026-10-26 09:04 (北京时间 UTC+8)
     </p>
   </header>
   <main>
     
     <section class="latest">
-      <h2 class="r-title">AI4S 周报 · 10-19 ~ 10-25</h2>
-      <p class="r-range">2026-10-19 ~ 2026-10-25</p>
-      <p class="r-overview">本期最鲜明的信号是「目标函数化」：作用量学习把整条轨迹变成可复用目标，Pinal 用自然语言直接设计有活性的蛋白，晶体生成改为按对称性轨道整组产出。与此同时，多篇工作把评估协议本身当作研究对象——uMLIP 合金基准被 DFT 数据库分歧污染、AI 天气预报排名随指标反转、蛋白分类因系统发育泄漏虚高 80–90%，提醒我们「模型失败」有时是基准失败。效率侧同样密集：AF3/Boltz-2 扩散步数从 200 压到 8，神经谱 PDE 求解器提速约 100 倍，Orbitol 晶体生成快 2–3 个数量级。气候与材料继续向「可微、可外推、长时稳定」推进，量子硬件首次接入百万原子级生物体系的多尺度模拟。</p>
+      <h2 class="r-title">AI4S 周报 · 10-26 ~ 11-01</h2>
+      <p class="r-range">2026-10-26 ~ 2026-11-01</p>
+      <p class="r-overview">本期 AI4S 研究呈现两条主线：一是把成熟物理/数值方法（协方差几何、熵最优传输、物理约束）嵌入神经网络，提升科学模拟的可靠性与可扩展性；二是探索模型与经验的复用机制，包括跨蛋白口袋的智能体经验迁移、对称性驱动的少样本微调、以及推理阶段组合多模态模型。同时，对 AI 气象模型内部表征的可解释性分析开始出现，量子化学与生物信息领域则继续用更高效的架构（Mamba、双变分自编码器）挑战 Transformer 的统治地位。</p>
 
       
       <h3 class="sub">本期亮点</h3>
       <div class="cards">
         
         <article class="card">
-          <span class="field">蛋白质/结构</span>
-          <h2><a href="https://www.nature.com/articles/s41586-026-11205-z" target="_blank" rel="noopener">Programmable design of functional proteins from natural language</a></h2>
-          <p>160 亿参数模型 Pinal 用自然语言描述直接设计出有实验活性的蛋白，且在不迭代优化的情况下提高二氧化碳固定产物产量。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">蛋白质/结构</span>
-          <h2><a href="https://arxiv.org/abs/2610.23703v1" target="_blank" rel="noopener">Blitz: Accelerating the Diffusion Modules of AlphaFold3 and Boltz-2</a></h2>
-          <p>把 AF3 与 Boltz-2 的扩散去噪从 200 步压到 8 步，结构精度基本不掉，AF3-Blitz 在多个指标上还超过原模型。</p>
-        </article>
-        
-        <article class="card">
           <span class="field">药物发现</span>
-          <h2><a href="https://arxiv.org/abs/2610.24806v1" target="_blank" rel="noopener">Aptamers as a sandbox for lab-in-the-loop agentic molecular discovery</a></h2>
-          <p>LLM 推理智能体与真实湿实验闭环，三轮迭代把适配体新候选的靶向命中率从 0% 提到 42.1%。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.31585v1" target="_blank" rel="noopener">Action Learning for Scientific Simulations</a></h2>
-          <p>把整条轨迹观测转成可复用目标函数，一次学习即可用于排序、推断、机制引导与约束优化，不再局限于预测下一步。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.31183v1" target="_blank" rel="noopener">Unconstrained learning of equivariant atomistic properties</a></h2>
-          <p>用非等变 Point-Edge Transformer 统一学习偶极、极化率、NMR 屏蔽张量与电子密度，精度不输专用等变模型。</p>
+          <h2><a href="https://arxiv.org/abs/2610.32620v1" target="_blank" rel="noopener">What Transfers Across Protein Pockets? Experience Reuse in Molecular Optimization for Agentic Structure-Based Drug Design</a></h2>
+          <p>首次系统检验 LLM 智能体跨蛋白口袋的经验复用，发现可迁移信号主要来自编辑动作和分子本身，而非靶点身份。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.30641v1" target="_blank" rel="noopener">How good are universal MLIPs for alloys? A benchmark is only as trustworthy as its controls</a></h2>
-          <p>用 145 万种金属间化合物量化 DFT 数据库间分歧，证明部分 uMLIP 合金「模型失败」其实是基准控制失效。</p>
+          <h2><a href="https://arxiv.org/abs/2610.29634v1" target="_blank" rel="noopener">Symmetry-Based Parameter Efficient Low-Rank Fine-Tuning for High-Throughput Calculation of Lattice Thermal Conductivity</a></h2>
+          <p>用对称性做少样本微调，通用原子间势只需少量同对称性晶体微调即可批量预测晶格热导率，精度接近逐个微调。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.30086v1" target="_blank" rel="noopener">Orbitol: Crystal Generation on Wyckoff Orbits</a></h2>
-          <p>把晶体生成从逐原子摆放改为按对称性轨道整组生成，指定空间群后结构天然满足对称约束，速度快 2–3 个数量级。</p>
+          <h2><a href="https://arxiv.org/abs/2610.29362v1" target="_blank" rel="noopener">Compositional neural networks for multimodal X-ray and neutron scattering inversion</a></h2>
+          <p>提出组合式流匹配框架，推理阶段组合分别训练的 X 射线/中子模型，无需联合重训即可融合多模态散射数据。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">材料科学</span>
+          <h2><a href="https://arxiv.org/abs/2610.28996v1" target="_blank" rel="noopener">Hereditary Effective Atom Theory for Large-Scale Atomic Structure Prediction</a></h2>
+          <p>将有效原子的可微表示塞进遗传算法，用直接叠合双亲结构再弛豫的交叉操作，把大规模原子结构搜索变成连续优化。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2610.29779v1" target="_blank" rel="noopener">Mamba Quantum Eigensolver (MQE): A Selective State Space Model for Scalable Ground State Simulations in Quantum Chemistry</a></h2>
+          <p>用 Mamba 替换 Transformer 做量子化学基态搜索，序列建模复杂度从平方级降到线性级。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.29213v1" target="_blank" rel="noopener">Huayu-Global: Skillful real-time quasi-global precipitation retrieval</a></h2>
-          <p>五颗静止卫星三路观测流统一进跨星座深度学习框架，每 30 分钟产出准全球降水场，实时产品首次在关键指标上追平延迟数月的高质量产品。</p>
+          <h2><a href="https://arxiv.org/abs/2610.32148v1" target="_blank" rel="noopener">Covariance-Informed Ensemble Score Filtering: Embedding Localized Covariance Geometry into Score-Based Transport</a></h2>
+          <p>把资料同化中的误差协方差几何嵌入扩散式集合滤波，让观测信息沿协方差结构传播到未观测变量。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.31237v1" target="_blank" rel="noopener">Can We Trust Evaluations of AI Weather Forecasts for Extremes? How Evaluation Protocols Shape Model Rankings</a></h2>
-          <p>同一实验设计下，AI 与物理天气预报模型的排名会因评价指标不同而反转，量化拆解了文献结论互相矛盾的根源。</p>
+          <h2><a href="https://arxiv.org/abs/2610.28904v1" target="_blank" rel="noopener">Tropical Cyclone Attributes in Sparse Autoencoder Features of an AI Weather Model</a></h2>
+          <p>首次系统揭示 GraphCast 内部如何组织热带气旋的位置、强度、气压结构，且该组织方式在不同稀疏自编码器和网络层间可复现。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2610.29938v1" target="_blank" rel="noopener">A PDE-theory-guided neural operator and the long-time relaxation of the two-dimensional anisotropic Boussinesq system</a></h2>
-          <p>把 PDE 严格数学分析嵌进网络结构，让神经算子稳定学到长时间松弛中 ε² 量级的极小信号，纯数据驱动方法做不到。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">科学基础模型</span>
-          <h2><a href="https://arxiv.org/abs/2610.30215v1" target="_blank" rel="noopener">AI Mindmeld: A Latent Interconnect Protocol</a></h2>
-          <p>提出潜空间互联协议 LIP，让蛋白与小分子专用模型的高维表征直接接入大语言模型内部，不再转成文字或图片。</p>
+          <h2><a href="https://arxiv.org/abs/2610.29546v1" target="_blank" rel="noopener">Sequential Entropic Optimal Transport for Bayesian Inverse Problems via Multilevel Monte Carlo</a></h2>
+          <p>结合熵最优传输与多层蒙特卡洛，用轻量薛定谔桥学习相邻精度层级后验耦合，并以保持配对的 MH 校正。</p>
         </article>
         
         <article class="card">
           <span class="field">生物信息</span>
-          <h2><a href="https://arxiv.org/abs/2610.30394v1" target="_blank" rel="noopener">Escaping the Phylogenetic Trap: Persistent Homology Enables Cross-Species Ion Channel Classification via Multimodal Graph Neural Networks</a></h2>
-          <p>揭示随机划分会让蛋白分类器因系统发育泄漏虚高 80–90%，用持续同调图网络在跨物种评估下把准确率从约 30% 提升到 63%。</p>
+          <h2><a href="https://arxiv.org/abs/2610.28853v1" target="_blank" rel="noopener">An autoencoder outperforms two transformers on prediction of gene expression from chromatin accessibility</a></h2>
+          <p>双变分自编码器管线在全部 60 组配对比较中胜过两个 Transformer，预测基因表达更准且训练时间缩短到约四分之一。</p>
         </article>
         
       </div>
@@ -178,11 +160,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，三个方向明显升温：一是「评估协议」本身成为研究对象，材料、气候、生物信息三个领域同时出现基准污染或泄漏的量化证据；二是推理时控制从蛋白设计扩散到晶体生成与结构预测，奖励引导、Feynman-Kac 引导、可微约束工具并行出现；三是效率工程集中爆发，扩散步数压缩、并行时间积分、对称性轨道生成分别在不同子领域把成本降了 1–2 个数量级。此外，量子硬件首次进入百万原子级生物体系模拟，科学基础模型开始尝试绕过文本接口直接做潜空间互联。</p>
+      <p>与上一期相比，本期「物理约束嵌入神经网络」从单点尝试走向系统化：协方差几何、熵最优传输、物理方程约束分别进入滤波、反问题与多相场模拟。同时，经验与参数的复用成为新焦点——跨口袋的智能体经验、跨对称性的少样本微调、推理阶段的多模态组合，均试图降低重复训练成本。可解释性分析开始从视觉模型扩展到 AI 气象模型内部表征。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注：这些「基准修正」结论能否转化为社区通用的评估规范，以及推理时控制方法在真实湿实验闭环中的命中率是否可复现。</p>
+      <p>下期可关注：跨靶点经验库在真实药物设计流程中的泛化边界，以及线性复杂度架构（Mamba、状态空间模型）在量子化学与生物序列任务上能否持续替代 Transformer。</p>
       
     </section>
     
@@ -190,6 +172,11 @@
     
     <section class="archive">
       <h3 class="sub">历史周报</h3>
+      
+      <details class="date-group">
+        <summary>2026-10-19 ~ 2026-10-25 · AI4S 周报 · 10-19 ~ 10-25</summary>
+        <div class="body"><p>本期最鲜明的信号是「目标函数化」：作用量学习把整条轨迹变成可复用目标，Pinal 用自然语言直接设计有活性的蛋白，晶体生成改为按对称性轨道整组产出。与此同时，多篇工作把评估协议本身当作研究对象——uMLIP 合金基准被 DFT 数据库分歧污染、AI 天气预报排名随指标反转、蛋白分类因系统发育泄漏虚高 80–90%，提醒我们「模型失败」有时是基准失败。效率侧同样密集：AF3/Boltz-2 扩散步数从 200 压到 8，神经谱 PDE 求解器提速约 100 倍，Orbitol 晶体生成快 2–3 个数量级。气候与材料继续向「可微、可外推、长时稳定」推进，量子硬件首次接入百万原子级生物体系的多尺度模拟。</p></div>
+      </details>
       
       <details class="date-group">
         <summary>2026-10-12 ~ 2026-10-18 · AI4S 周报 · 10-12 ~ 10-18</summary>
