@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-27 09:53 (北京时间 UTC+8)
+      生成于 2026-10-27 13:26 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 10-26 ~ 11-01</h2>
       <p class="r-range">2026-10-26 ~ 2026-11-01</p>
-      <p class="r-overview">本期 AI4S 的主线是「把方法做扎实」：材料领域同时出现正向筛选与逆向设计的边界量化、晶体结构预测工具的成分纠错，以及把物理约束写进光谱模型；分子模拟则集中解决采样效率与稳定性，包括低方差力估计器、多智能体自动构建激发态模型、线性复杂度量子化学求解器。药物发现开始系统检验 LLM 智能体跨靶点经验复用，气候方向把传统资料同化的协方差几何嵌入扩散滤波。整体看，量化收益（省 88% GPU 时间、采样加速 57 倍、Top-1 从 28.3% 到 72.2%）比新概念更受关注。</p>
+      <p class="r-overview">本期最鲜明的信号是「效率与可靠性」成为主线：多个工作不再只追求新模型，而是系统量化方法边界、压缩算力开销、修正前代硬伤。材料领域集中出现结构预测与光谱预测的工程化改进，分子模拟则把多智能体、状态空间模型和低方差估计器推向可生产部署。与此同时，AI 气象模型的可解释性、跨蛋白口袋的经验复用等「反直觉」研究开始出现，说明社区在追问「模型内部到底学到了什么」。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -103,14 +103,32 @@
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.32678v1" target="_blank" rel="noopener">Probing the limits of forward screening and inverse design of crystal materials</a></h2>
-          <p>把 55 个数据库去重合并成 1460 万晶体的统一库，首次系统量化晶体材料正向筛选与逆向设计的真实边界。</p>
+          <h2><a href="https://arxiv.org/abs/2610.34029v1" target="_blank" rel="noopener">TCSP3.0: Template-Based Crystal Structure Prediction with Coefficient-Preserving Element Substitution and Structural Diversity</a></h2>
+          <p>修正前代 20% 候选结构成分错误的硬伤，T180 基准 Top-1 命中率从 28.3% 拉到 72.2%，且无需额外训练。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.34029v1" target="_blank" rel="noopener">TCSP3.0: Template-Based Crystal Structure Prediction with Coefficient-Preserving Element Substitution and Structural Diversity</a></h2>
-          <p>修正前代 20% 候选结构成分错误的硬伤，在 T180 基准上把 Top-1 命中率从 28.3% 拉到 72.2%。</p>
+          <h2><a href="https://arxiv.org/abs/2610.32678v1" target="_blank" rel="noopener">Probing the limits of forward screening and inverse design of crystal materials</a></h2>
+          <p>把 55 个数据库去重合并成 1460 万晶体的统一库，首次系统量化正向筛选与逆向设计的真实边界。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">蛋白质/结构</span>
+          <h2><a href="https://arxiv.org/abs/2610.33195v1" target="_blank" rel="noopener">Agent-guided epitope excision enables economical de novo binder design</a></h2>
+          <p>表位切除加智能体自动搜索，GPU 时间最多省约 88%，命中率从 5.06% 提到 9.3%。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">药物发现</span>
+          <h2><a href="https://arxiv.org/abs/2610.32620v1" target="_blank" rel="noopener">What Transfers Across Protein Pockets? Experience Reuse in Molecular Optimization for Agentic Structure-Based Drug Design</a></h2>
+          <p>首次系统检验 LLM 智能体跨蛋白口袋的经验复用，发现可迁移信号主要来自编辑动作和分子本身，而非靶点身份。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2610.32392v1" target="_blank" rel="noopener">PULSES: multi-agent AI for autonomous excited-state model building and dynamics</a></h2>
+          <p>把激发态机器学习模型从采样、标注、训练到动力学部署全流程交给多智能体，人类只定边界，首次在多个真实分子体系端到端验证。</p>
         </article>
         
         <article class="card">
@@ -120,39 +138,39 @@
         </article>
         
         <article class="card">
-          <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.32392v1" target="_blank" rel="noopener">PULSES: multi-agent AI for autonomous excited-state model building and dynamics</a></h2>
-          <p>多智能体把激发态机器学习模型从采样、标注、训练到动力学部署全流程自动跑通，人类只定边界。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">蛋白质/结构</span>
-          <h2><a href="https://arxiv.org/abs/2610.33195v1" target="_blank" rel="noopener">Agent-guided epitope excision enables economical de novo binder design</a></h2>
-          <p>表位切除加智能体自动搜索，让大靶点从头设计 binder 的 GPU 时间最多省约 88%，命中率从 5.06% 提到 9.3%。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">药物发现</span>
-          <h2><a href="https://arxiv.org/abs/2610.32620v1" target="_blank" rel="noopener">What Transfers Across Protein Pockets? Experience Reuse in Molecular Optimization for Agentic Structure-Based Drug Design</a></h2>
-          <p>首次系统检验 LLM 智能体跨蛋白口袋经验复用，发现可迁移信号主要来自编辑动作和分子本身而非靶点身份。</p>
+          <span class="field">气候地球</span>
+          <h2><a href="https://arxiv.org/abs/2610.32148v1" target="_blank" rel="noopener">Covariance-Informed Ensemble Score Filtering: Embedding Localized Covariance Geometry into Score-Based Transport</a></h2>
+          <p>把资料同化中成熟的误差协方差几何嵌进分数扩散集合滤波，补上现有 EnSF 缺失的观测信息传播环节。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.32148v1" target="_blank" rel="noopener">Covariance-Informed Ensemble Score Filtering: Embedding Localized Covariance Geometry into Score-Based Transport</a></h2>
-          <p>把资料同化中成熟的误差协方差几何嵌进基于分数的扩散式集合滤波，补上观测信息向未观测变量传播的一环。</p>
+          <h2><a href="https://arxiv.org/abs/2610.28904v1" target="_blank" rel="noopener">Tropical Cyclone Attributes in Sparse Autoencoder Features of an AI Weather Model</a></h2>
+          <p>首次系统揭示 GraphCast 内部如何组织热带气旋的位置、强度、气压结构，且这种组织跨稀疏自编码器和网络层可复现。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.33939v1" target="_blank" rel="noopener">Stable and Calibrated Latent Force ODE Filters</a></h2>
-          <p>指出潜变量力 ODE 滤波器的稳定性取决于状态先验方差，并给出稳定且校准的即插即用推断算法。</p>
+          <p>指出潜变量力 ODE 滤波器的稳定性取决于状态先验方差，并据此给出稳定且校准的即插即用推断算法。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">AI4Math/PDE</span>
+          <h2><a href="https://arxiv.org/abs/2610.29546v1" target="_blank" rel="noopener">Sequential Entropic Optimal Transport for Bayesian Inverse Problems via Multilevel Monte Carlo</a></h2>
+          <p>用轻量薛定谔桥学习相邻精度层级后验耦合，再用保持配对的 MH 校正，为 PDE 贝叶斯反问题降本。</p>
         </article>
         
         <article class="card">
           <span class="field">生物信息</span>
           <h2><a href="https://arxiv.org/abs/2610.28853v1" target="_blank" rel="noopener">An autoencoder outperforms two transformers on prediction of gene expression from chromatin accessibility</a></h2>
-          <p>双变分自编码器管线在全部 60 组配对比较中胜过两个 Transformer，训练时间缩短到约四分之一。</p>
+          <p>双变分自编码器管线在全部 60 组配对比较中胜过两个 Transformer，训练时间还缩短到约四分之一。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">科学基础模型</span>
+          <h2><a href="https://arxiv.org/abs/2610.34021v1" target="_blank" rel="noopener">Deep Scientific Reasoning under Physical Constraints: Structure-Aware Spectrum Prediction</a></h2>
+          <p>把物理约束直接写进光谱预测模型，让 DOS、声子谱、XANES、拉曼谱自动满足守恒律和谱几何特征。</p>
         </article>
         
       </div>
@@ -160,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期从「提出新模型」转向「量化边界与修硬伤」：材料领域开始系统测量正向筛选与逆向设计的能力上限，并修正晶体预测工具的成分错误；分子模拟集中解决采样方差与稳定性这类生产化瓶颈；LLM 智能体在药物设计中的经验复用被首次系统检验，结论反直觉——可迁移的是编辑动作而非靶点身份。</p>
+      <p>与上一期相比，本期从「提出新架构」明显转向「量化边界与修硬伤」：TCSP3.0 修正前代 20% 成分错误、晶体材料路线边界首次被系统量化、Gnina 这类长期维护工具继续被收录。另一个新方向是「经验与内部表征的可迁移性」——跨蛋白口袋经验复用和 GraphCast 气旋特征分析，都在追问模型学到了什么、能否复用。分子模拟侧则出现 Mamba 替换 Transformer、多智能体全流程自动化两条并行路线。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注：晶体材料筛选与逆向设计的边界量化能否转化为可复用的基准，以及低方差力估计器、多智能体激发态流程能否在真实生产模拟中稳定复现。</p>
+      <p>下期值得关注：物理约束嵌入光谱/结构预测能否从单任务走向通用科学基础模型，以及多智能体自动化在激发态动力学之外的分子体系上能否复现端到端收益。</p>
       
     </section>
     
