@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-26 15:42 (北京时间 UTC+8)
+      生成于 2026-10-27 09:53 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,52 +95,58 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 10-26 ~ 11-01</h2>
       <p class="r-range">2026-10-26 ~ 2026-11-01</p>
-      <p class="r-overview">本期最清晰的信号是「复用」：LLM 智能体跨蛋白口袋的经验、PINN 作为可复用时间积分器、对称性驱动的少样本微调、推理阶段才组合的多模态模型，都在把一次性训练变成可迁移资产。与此同时，Mamba 以线性复杂度进入量子化学基态搜索，熵最优传输与多层蒙特卡洛结合服务 PDE 贝叶斯反问题，说明效率与不确定性量化正被同时推进。气候方向则从模型外部表现转向内部表征，用稀疏自编码器拆解 AI 气象模型如何组织热带气旋属性。整体看，本期不是单点精度竞赛，而是围绕「可复用组件 + 可解释内部结构」的工程化收敛。</p>
+      <p class="r-overview">本期 AI4S 的主线是「把方法做扎实」：材料领域同时出现正向筛选与逆向设计的边界量化、晶体结构预测工具的成分纠错，以及把物理约束写进光谱模型；分子模拟则集中解决采样效率与稳定性，包括低方差力估计器、多智能体自动构建激发态模型、线性复杂度量子化学求解器。药物发现开始系统检验 LLM 智能体跨靶点经验复用，气候方向把传统资料同化的协方差几何嵌入扩散滤波。整体看，量化收益（省 88% GPU 时间、采样加速 57 倍、Top-1 从 28.3% 到 72.2%）比新概念更受关注。</p>
 
       
       <h3 class="sub">本期亮点</h3>
       <div class="cards">
         
         <article class="card">
-          <span class="field">药物发现</span>
-          <h2><a href="https://arxiv.org/abs/2610.32620v1" target="_blank" rel="noopener">What Transfers Across Protein Pockets? Experience Reuse in Molecular Optimization for Agentic Structure-Based Drug Design</a></h2>
-          <p>首次系统检验 LLM 智能体跨蛋白口袋的经验复用，发现可迁移信号主要来自编辑动作和分子本身，而非靶点身份。</p>
+          <span class="field">材料科学</span>
+          <h2><a href="https://arxiv.org/abs/2610.32678v1" target="_blank" rel="noopener">Probing the limits of forward screening and inverse design of crystal materials</a></h2>
+          <p>把 55 个数据库去重合并成 1460 万晶体的统一库，首次系统量化晶体材料正向筛选与逆向设计的真实边界。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">材料科学</span>
+          <h2><a href="https://arxiv.org/abs/2610.34029v1" target="_blank" rel="noopener">TCSP3.0: Template-Based Crystal Structure Prediction with Coefficient-Preserving Element Substitution and Structural Diversity</a></h2>
+          <p>修正前代 20% 候选结构成分错误的硬伤，在 T180 基准上把 Top-1 命中率从 28.3% 拉到 72.2%。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.29779v1" target="_blank" rel="noopener">Mamba Quantum Eigensolver (MQE): A Selective State Space Model for Scalable Ground State Simulations in Quantum Chemistry</a></h2>
-          <p>用 Mamba 替换 Transformer 做量子化学基态搜索，序列建模复杂度从平方级降到线性级。</p>
+          <h2><a href="https://arxiv.org/abs/2610.32652v1" target="_blank" rel="noopener">Low-variance force estimators for nuclear quantum mean forces</a></h2>
+          <p>低方差力估计器让机器学习势函数采样量子平衡结构可稳定训练，分子测试中约束采样时间最多缩短约 57 倍。</p>
         </article>
         
         <article class="card">
-          <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.29634v1" target="_blank" rel="noopener">Symmetry-Based Parameter Efficient Low-Rank Fine-Tuning for High-Throughput Calculation of Lattice Thermal Conductivity</a></h2>
-          <p>用对称性做少样本微调，通用原子间势只需少量同对称性晶体微调即可批量预测晶格热导率，精度接近逐个微调。</p>
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2610.32392v1" target="_blank" rel="noopener">PULSES: multi-agent AI for autonomous excited-state model building and dynamics</a></h2>
+          <p>多智能体把激发态机器学习模型从采样、标注、训练到动力学部署全流程自动跑通，人类只定边界。</p>
         </article>
         
         <article class="card">
-          <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.29362v1" target="_blank" rel="noopener">Compositional neural networks for multimodal X-ray and neutron scattering inversion</a></h2>
-          <p>组合式流匹配让分别针对 X 射线、中子训练好的模型在推理阶段才组合，无需联合重训即可融合多模态散射数据。</p>
+          <span class="field">蛋白质/结构</span>
+          <h2><a href="https://arxiv.org/abs/2610.33195v1" target="_blank" rel="noopener">Agent-guided epitope excision enables economical de novo binder design</a></h2>
+          <p>表位切除加智能体自动搜索，让大靶点从头设计 binder 的 GPU 时间最多省约 88%，命中率从 5.06% 提到 9.3%。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">药物发现</span>
+          <h2><a href="https://arxiv.org/abs/2610.32620v1" target="_blank" rel="noopener">What Transfers Across Protein Pockets? Experience Reuse in Molecular Optimization for Agentic Structure-Based Drug Design</a></h2>
+          <p>首次系统检验 LLM 智能体跨蛋白口袋经验复用，发现可迁移信号主要来自编辑动作和分子本身而非靶点身份。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.32148v1" target="_blank" rel="noopener">Covariance-Informed Ensemble Score Filtering: Embedding Localized Covariance Geometry into Score-Based Transport</a></h2>
-          <p>把资料同化中的误差协方差几何嵌入扩散式集合滤波，使观测信息沿协方差结构传播到未观测变量。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.28904v1" target="_blank" rel="noopener">Tropical Cyclone Attributes in Sparse Autoencoder Features of an AI Weather Model</a></h2>
-          <p>首次系统揭示 GraphCast 内部如何组织热带气旋的位置、强度与气压结构，且该组织方式在不同稀疏自编码器和网络层间可复现。</p>
+          <p>把资料同化中成熟的误差协方差几何嵌进基于分数的扩散式集合滤波，补上观测信息向未观测变量传播的一环。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2610.29546v1" target="_blank" rel="noopener">Sequential Entropic Optimal Transport for Bayesian Inverse Problems via Multilevel Monte Carlo</a></h2>
-          <p>用轻量薛定谔桥学习相邻精度层级后验之间的耦合，再以保持配对的 Metropolis-Hastings 校正，服务 PDE 贝叶斯反问题。</p>
+          <h2><a href="https://arxiv.org/abs/2610.33939v1" target="_blank" rel="noopener">Stable and Calibrated Latent Force ODE Filters</a></h2>
+          <p>指出潜变量力 ODE 滤波器的稳定性取决于状态先验方差，并给出稳定且校准的即插即用推断算法。</p>
         </article>
         
         <article class="card">
@@ -154,11 +160,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期「复用」从口号变成可检验对象：药物方向开始量化跨靶点经验到底迁移了什么，材料方向用对称性把微调成本压到少样本，多模态散射反演把组合推迟到推理阶段。另一个新变化是效率导向的架构替换更密集，Mamba 进入量子化学、自编码器在基因表达预测上以更短训练时间胜出，说明「更小更快」正与「更准」并列成为可发表贡献。气候方向则出现从预测精度转向内部表征可解释性的明确分支。</p>
+      <p>与上一期相比，本期从「提出新模型」转向「量化边界与修硬伤」：材料领域开始系统测量正向筛选与逆向设计的能力上限，并修正晶体预测工具的成分错误；分子模拟集中解决采样方差与稳定性这类生产化瓶颈；LLM 智能体在药物设计中的经验复用被首次系统检验，结论反直觉——可迁移的是编辑动作而非靶点身份。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注：跨口袋经验库能否给出可操作的构建准则，以及线性复杂度序列模型在更大分子体系上的实际外推表现。</p>
+      <p>下期值得关注：晶体材料筛选与逆向设计的边界量化能否转化为可复用的基准，以及低方差力估计器、多智能体激发态流程能否在真实生产模拟中稳定复现。</p>
       
     </section>
     

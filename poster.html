@@ -79,12 +79,12 @@
     <div class="brand">AI4S-DAILY</div>
     
     <h1 class="title">AI4S 周报 · 10-26 ~ 11-01</h1>
-    <p class="slogan">「经验可迁移，物理可组合」</p>
-    <p class="range">2026-10-26 ~ 2026-11-01 · 2026-10-26 15:43 (北京时间 UTC+8)</p>
+    <p class="slogan">「从能算到算得准、算得省」</p>
+    <p class="range">2026-10-26 ~ 2026-11-01 · 2026-10-27 09:53 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期最清晰的信号是「复用」：LLM 智能体跨蛋白口袋的经验、PINN 作为可复用时间积分器、对称性驱动的少样本微调、推理阶段才组合的多模态模型，都在把一次性训练变成可迁移资产。与此同时，Mamba 以线性复杂度进入量子化学基态搜索，熵最优传输与多层蒙特卡洛结合服务 PDE 贝叶斯反问题，说明效率与不确定性量化正被同时推进。气候方向则从模型外部表现转向内部表征，用稀疏自编码器拆解 AI 气象模型如何组织热带气旋属性。整体看，本期不是单点精度竞赛，而是围绕「可复用组件 + 可解释内部结构」的工程化收敛。</p>
+  <p class="overview">本期 AI4S 的主线是「把方法做扎实」：材料领域同时出现正向筛选与逆向设计的边界量化、晶体结构预测工具的成分纠错，以及把物理约束写进光谱模型；分子模拟则集中解决采样效率与稳定性，包括低方差力估计器、多智能体自动构建激发态模型、线性复杂度量子化学求解器。药物发现开始系统检验 LLM 智能体跨靶点经验复用，气候方向把传统资料同化的协方差几何嵌入扩散滤波。整体看，量化收益（省 88% GPU 时间、采样加速 57 倍、Top-1 从 28.3% 到 72.2%）比新概念更受关注。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -92,29 +92,56 @@
   
   <div class="hl">
     <div class="hl-head">
-      <span class="field">💊 药物发现</span>
-      <span class="score">7.0</span>
+      <span class="field">🧬 蛋白质/结构</span>
+      <span class="score">8.0</span>
     </div>
-    <h3>What Transfers Across Protein Pockets? Experience Reuse in Molecular Optimization for Agentic Structure-Based Drug Design</h3>
-    <p>首次系统检验「LLM 智能体做基于结构的药物设计时，跨蛋白口袋的经验能否复用」，发现可迁移的信号主要来自编辑动作和分子本身，而非靶点身份，为经验库设计提供了反直…</p>
+    <h3>Agent-guided epitope excision enables economical de novo binder design</h3>
+    <p>把「表位切除」和「智能体自动搜索」结合，让从头设计蛋白结合物（binder）在大靶点上变得可行：GPU 时间最多省约 88%，命中率从 5.06% 提到 9.3…</p>
   </div>
   
   <div class="hl">
     <div class="hl-head">
       <span class="field">⚛️ 分子模拟</span>
-      <span class="score">7.0</span>
+      <span class="score">8.0</span>
     </div>
-    <h3>Mamba Quantum Eigensolver (MQE): A Selective State Space Model for Scalable Ground State Simulations in Quantum Chemistry</h3>
-    <p>用 Mamba（选择性状态空间模型）替换 Transformer 来做量子化学基态搜索，把序列建模的计算复杂度从平方级降到线性级，为更大分子的量子模拟扫清了一个…</p>
+    <h3>Low-variance force estimators for nuclear quantum mean forces</h3>
+    <p>提出一种低方差力估计器，让「用机器学习势函数采样量子平衡结构」这条路线真正可训练、可稳定生产模拟，分子测试中约束采样时间最多缩短约 57 倍。</p>
   </div>
   
   <div class="hl">
     <div class="hl-head">
       <span class="field">🧪 材料科学</span>
+      <span class="score">8.0</span>
+    </div>
+    <h3>OpenFerro: a unified framework for mesoscale ferroic dynamics and enhanced sampling</h3>
+    <p>把铁电、磁性、自旋-晶格耦合放进同一个晶格-场动力学框架，并用自动微分和增强采样，在中等算力下做到介观尺度、原子级分辨率——过去这类尺度通常只能靠连续介质模型近…</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">🧪 材料科学</span>
+      <span class="score">8.0</span>
+    </div>
+    <h3>Probing the limits of forward screening and inverse design of crystal materials</h3>
+    <p>首次系统量化晶体材料「正向筛选」与「逆向设计」两条路线的真实边界：把 55 个数据库按结构去重合并成 1460 万晶体的统一库，发现已知晶体里还藏着大量未被记录…</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">⚛️ 分子模拟</span>
+      <span class="score">8.0</span>
+    </div>
+    <h3>PULSES: multi-agent AI for autonomous excited-state model building and dynamics</h3>
+    <p>把「激发态机器学习模型」从采样、量化标注、训练、验证到动力学部署的全流程交给多智能体自动跑，且人类专家只定边界、不写流程，首次在多个真实分子体系上端到端验证。</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">💊 药物发现</span>
       <span class="score">7.0</span>
     </div>
-    <h3>SFETNI/PINN-Phase</h3>
-    <p>把物理信息神经网络（PINN，把物理方程当约束的神经网络）做成可复用的「时间积分器」，专门用于多相场（描述材料微观组织演化的模型）长期演化模拟，并强调跨未见微观…</p>
+    <h3>gnina/gnina</h3>
+    <p>Gnina 把深度学习打分函数直接嵌进分子对接流程，让「找姿势」和「判好坏」用同一个神经网络完成，是药物发现里少见的、长期维护的开源对接框架。</p>
   </div>
   
   <div class="hl">
@@ -131,8 +158,8 @@
       <span class="field">📐 AI4Math/PDE</span>
       <span class="score">7.0</span>
     </div>
-    <h3>Sequential Entropic Optimal Transport for Bayesian Inverse Problems via Multilevel Monte Carlo</h3>
-    <p>把「熵最优传输」与「多层蒙特卡洛」结合，用轻量薛定谔桥学习相邻精度层级后验之间的耦合，再用保持配对的 Metropolis-Hastings 校正，为 PDE…</p>
+    <h3>Stable and Calibrated Latent Force ODE Filters</h3>
+    <p>指出潜变量力ODE滤波器（把机理方程和观测数据联合推断的贝叶斯方法）的稳定性取决于状态先验方差，并据此给出稳定且校准的即插即用推断算法。</p>
   </div>
   
   <div class="hl">
@@ -144,86 +171,68 @@
     <p>在统一基准上，一个基于双变分自编码器的管线在全部 60 组配对比较中，都胜过两个 Transformer 模型，预测基因表达的准确率更高，训练时间还缩短到约四分…</p>
   </div>
   
-  <div class="hl">
-    <div class="hl-head">
-      <span class="field">🧪 材料科学</span>
-      <span class="score">7.0</span>
-    </div>
-    <h3>Symmetry-Based Parameter Efficient Low-Rank Fine-Tuning for High-Throughput Calculation of Lattice Thermal Conductivity</h3>
-    <p>用「对称性」做少样本微调，让一个通用原子间势（MatterSim 1M）只需在少量同对称性晶体上微调，就能批量预测大量新化合物的晶格热导率，精度接近逐个微调，速…</p>
-  </div>
-  
-  <div class="hl">
-    <div class="hl-head">
-      <span class="field">🧪 材料科学</span>
-      <span class="score">7.0</span>
-    </div>
-    <h3>Compositional neural networks for multimodal X-ray and neutron scattering inversion</h3>
-    <p>提出「组合式流匹配」框架，让分别针对 X 射线、中子等不同测量训练好的模型在推理阶段才组合，无需联合重训即可融合多模态散射数据，缓解散射反演固有的非唯一性。</p>
-  </div>
-  
   </div>
   
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期「复用」从口号变成可检验对象：药物方向开始量化跨靶点经验到底迁移了什么，材料方向用对称性把微调成本压到少样本，多模态散射反演把组合推迟到推理阶段。另一个新变化是效率导向的架构替换更密集，Mamba 进入量子化学、自编码器在基因表达预测上以更短训练时间胜出，说明「更小更快」正与「更准」并列成为可发表贡献。气候方向则出现从预测精度转向内部表征可解释性的明确分支。</p>
+  <p class="trend">与上一期相比，本期从「提出新模型」转向「量化边界与修硬伤」：材料领域开始系统测量正向筛选与逆向设计的能力上限，并修正晶体预测工具的成分错误；分子模拟集中解决采样方差与稳定性这类生产化瓶颈；LLM 智能体在药物设计中的经验复用被首次系统检验，结论反直觉——可迁移的是编辑动作而非靶点身份。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">4898</span><small>抓取条目</small></div>
-      <div><span class="num">350</span><small>总结</small></div>
-      <div><span class="num">350</span><small>已上墙</small></div>
+      <div><span class="num">5003</span><small>抓取条目</small></div>
+      <div><span class="num">360</span><small>总结</small></div>
+      <div><span class="num">360</span><small>已上墙</small></div>
     </div>
     <div class="fields">
       
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 13%"></div></div>
-        <b>46</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 14%"></div></div>
+        <b>48</b>
       </div>
       
       <div class="frow">
         <span class="flabel">💊 药物发现</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 9%"></div></div>
-        <b>32</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 10%"></div></div>
+        <b>33</b>
       </div>
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
         <div class="fbar"><div class="fbar-fill" style="width: 48%"></div></div>
-        <b>163</b>
+        <b>159</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 85%"></div></div>
-        <b>292</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 90%"></div></div>
+        <b>299</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 29%"></div></div>
-        <b>101</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 30%"></div></div>
+        <b>99</b>
       </div>
       
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 35%"></div></div>
-        <b>120</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 37%"></div></div>
+        <b>123</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>343</b>
+        <b>332</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
         <div class="fbar"><div class="fbar-fill" style="width: 36%"></div></div>
-        <b>122</b>
+        <b>121</b>
       </div>
       
     </div>
