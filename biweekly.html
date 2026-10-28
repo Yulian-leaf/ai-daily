@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="weekly.html">周报 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-27 15:40 (北京时间 UTC+8)
+      生成于 2026-10-28 10:04 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 双周报告 · 10-19 ~ 11-01</h2>
       <p class="r-range">2026-10-19 ~ 2026-11-01</p>
-      <p class="r-overview">这两周 AI4S 的主旋律是「从预测走向可控生成与闭环验证」：蛋白质与材料领域大量工作把生成模型、智能体与实验/高精度计算接成闭环，分子模拟则集中解决「能不能稳定跑生产」的工程问题。第一周以方法框架为主，出现 OpenFerro、PULSES、作用量学习、Orbitol 等一批「把物理结构写进模型」的工作；第二周明显转向评测与落地，出现多项基准审计（uMLIP 合金基准、无序碳、AI 天气预报评估协议）和端到端闭环验证（适配体湿实验闭环、QPU 接入百万原子体系、CAM6 深对流替换）。量化信号也很清楚：蛋白设计侧 GPU 时间最多省 88%、命中率 5.06%→9.3%，扩散模块 200 步压到 8 步；材料侧晶体生成快 2–3 个数量级、TCSP3.0 Top-1 从 28.3% 拉到 72.2%；气候侧实时降水产品首次追平延迟数月的高质量产品。整体看，AI4S 正从「模型刷指标」转向「可复现、可评估、可闭环」的基础设施建设。</p>
+      <p class="r-overview">这两周 AI4S 的主旋律是「可微化」与「可解释化」：天气模式、辐射传输、粉末衍射、分子势函数纷纷被改写成可自动求导的引擎，反向传播开始进入传统上只能前向模拟的领域。与此同时，多篇工作把神经网络「蒸馏」回代数公式或物理约束结构，试图在保留精度的同时恢复可读性。第一周以分子模拟与材料为主，密集出现 MLIP 的基准检验、长程静电、声子线性响应等「给基础模型打补丁」的工作；第二周气候与 AI4Math 明显升温，出现完整 WRF-JAX 移植、次季节预报工具、并行时间积分与结构保持黎曼求解器等系统性成果。蛋白质领域则从「生成结构」转向「推理时搜索与智能体闭环」，药物发现开始系统检验智能体经验能否跨靶点复用。整体看，评价协议与基准可信度成为新的元议题：多篇论文指出排名可能被数据分歧或评估设计本身左右。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -104,19 +104,37 @@
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://www.nature.com/articles/s41586-026-11205-z" target="_blank" rel="noopener">Programmable design of functional proteins from natural language</a></h2>
-          <p>160 亿参数模型 Pinal 用自然语言直接设计有功能蛋白质，实验验证活性，且不迭代优化就把二氧化碳固定产物产量提高。</p>
+          <p>160 亿参数模型 Pinal 用自然语言直接设计有实验活性的功能蛋白，并在不迭代优化的情况下提高二氧化碳固定产物产量。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2610.33195v1" target="_blank" rel="noopener">Agent-guided epitope excision enables economical de novo binder design</a></h2>
-          <p>表位切除加智能体自动搜索，让大靶点从头设计 binder 的 GPU 时间最多省约 88%，命中率从 5.06% 提到 9.3%。</p>
+          <p>表位切除加智能体搜索，让大靶点从头 binder 设计 GPU 时间最多省约 88%，命中率从 5.06% 提到 9.3%。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">药物发现</span>
+          <h2><a href="https://arxiv.org/abs/2610.24806v1" target="_blank" rel="noopener">Aptamers as a sandbox for lab-in-the-loop agentic molecular discovery</a></h2>
+          <p>LLM 智能体与真实湿实验闭环，三轮迭代把适配体新候选靶向命中率从 0% 提到 42.1%。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2610.34551v1" target="_blank" rel="noopener">A thermodynamic correction layer for machine learning interatomic potentials</a></h2>
+          <p>不重训、不改原模型，加一层热力学修正即可把 MLIP 相变温度校准到参考值。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2610.32652v1" target="_blank" rel="noopener">Low-variance force estimators for nuclear quantum mean forces</a></h2>
+          <p>低方差力估计器让机器学习势采样量子平衡结构可稳定生产，约束采样时间最多缩短约 57 倍。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.32678v1" target="_blank" rel="noopener">Probing the limits of forward screening and inverse design of crystal materials</a></h2>
-          <p>把 55 个数据库去重合并成 1460 万晶体统一库，首次量化正向筛选与逆向设计的真实边界。</p>
+          <p>把 55 个数据库去重合并成 1460 万晶体统一库，首次系统量化正向筛选与逆向设计的真实边界。</p>
         </article>
         
         <article class="card">
@@ -126,21 +144,9 @@
         </article>
         
         <article class="card">
-          <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.32392v1" target="_blank" rel="noopener">PULSES: multi-agent AI for autonomous excited-state model building and dynamics</a></h2>
-          <p>激发态机器学习模型从采样、标注、训练到动力学部署全交给多智能体，人类只定边界，首次在多个真实分子体系端到端验证。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.32652v1" target="_blank" rel="noopener">Low-variance force estimators for nuclear quantum mean forces</a></h2>
-          <p>低方差力估计器让机器学习势采样量子平衡结构可稳定生产，分子测试中约束采样时间最多缩短约 57 倍。</p>
-        </article>
-        
-        <article class="card">
           <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.29213v1" target="_blank" rel="noopener">Huayu-Global: Skillful real-time quasi-global precipitation retrieval</a></h2>
-          <p>五颗静止卫星三路观测流统一进跨星座深度学习框架，每 30 分钟产出准全球降水场，实时产品首次在关键指标上追平延迟数月的高质量产品。</p>
+          <h2><a href="https://arxiv.org/abs/2610.35095v1" target="_blank" rel="noopener">WRF-JAX v1.1.28: a differentiable regional weather model with fully coupled physics</a></h2>
+          <p>首个把 WRF 动力核心加全套物理过程完整移植到 JAX 的工作，单 GPU 匹配 128 进程 CPU 性能，且可对 100 个时间步反向传播。</p>
         </article>
         
         <article class="card">
@@ -151,8 +157,8 @@
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2610.29938v1" target="_blank" rel="noopener">A PDE-theory-guided neural operator and the long-time relaxation of the two-dimensional anisotropic Boussinesq system</a></h2>
-          <p>把 PDE 严格数学分析嵌进网络结构，稳定学到长时间松弛中 ε² 量级的极小信号，纯数据驱动方法做不到。</p>
+          <h2><a href="https://arxiv.org/abs/2610.35617v1" target="_blank" rel="noopener">Distilling neural networks into equations to predict planetary instability</a></h2>
+          <p>把神经网络蒸馏成可读代数公式，首次给出预测多行星系统失稳的解析方程，300 年未解动力学难题有了新答案。</p>
         </article>
         
         <article class="card">
@@ -162,15 +168,9 @@
         </article>
         
         <article class="card">
-          <span class="field">药物发现</span>
-          <h2><a href="https://arxiv.org/abs/2610.24806v1" target="_blank" rel="noopener">Aptamers as a sandbox for lab-in-the-loop agentic molecular discovery</a></h2>
-          <p>LLM 推理智能体与真实湿实验闭环打通，三轮迭代把适配体新候选靶向命中率从 0% 提到 42.1%。</p>
-        </article>
-        
-        <article class="card">
           <span class="field">科学基础模型</span>
-          <h2><a href="https://arxiv.org/abs/2610.30215v1" target="_blank" rel="noopener">AI Mindmeld: A Latent Interconnect Protocol</a></h2>
-          <p>潜空间互联协议让蛋白质和小分子专用模型的高维表征直接接入大语言模型内部，不再转成文字或图片。</p>
+          <h2><a href="https://arxiv.org/abs/2610.35652v1" target="_blank" rel="noopener">Active Learning of Conditional Generative Models via the Transport Neural Tangent Kernel</a></h2>
+          <p>提出 tNTK，把主动学习从标量/向量输出扩展到分布输出，能主动挑选同时约束预测分布均值与形状的新实验条件。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>跨周对比看，热度上升最明显的是「评测与基准审计」：第一周以方法框架为主（OpenFerro、PULSES、作用量学习、Orbitol 等），第二周集中出现 uMLIP 合金基准、无序碳域外检验、AI 天气预报评估协议、TerraNostra-Bench 等 4 条以上基准类工作，且多篇结论是「排名会被基准污染或评价协议反转」，说明社区开始给前两年堆出的模型挤水分。材料与分子模拟仍是最大盘，两周合计约 30 条，但重心从「造新模型」转向「让模型可生产」：声子任意波矢、长程静电可分解、百万原子蒸馏势失效诊断、MLIP 电解液可迁移性等，都是工程可用性问题。蛋白质方向从「设计新模型」转向「设计流程经济学」：binder 设计省 88% GPU、扩散模块 200 步压到 8 步、递归深度替代堆参数，量化成本意识明显增强。气候方向第一周偏生成式降尺度，第二周转向业务化与可解释性（实时降水、CAM6 深对流替换、GraphCast 内部气旋特征），落地信号更强。相对降温的是纯「通用科学基础模型」概念条目，scifm 两周仅 5 条左右，且多为推理可 tractable、潜空间互联这类补短板工作，而非新的大模型发布。新浮现方向是「推理时搜索/可控生成」：RFD4-Proteina 奖励引导推理、Feynman-Kac 推理期调控晶体扩散、可微约束结构预测工具，共同指向不重训模型、在推理阶段加控制。</p>
+      <p>按条目数统计，molsim 从第一周约 14 条增至第二周约 16 条，仍是最大子领域，但重心从「新模型」转向「基准检验与可迁移性」：Challenging Atomistic Foundation Models on Disordered Carbons、ZnCl2 电解液可迁移性、合金 uMLIP 基准污染等论文集中出现，说明社区开始给基础势函数做压力测试。materials 两周合计约 24 条，热度持平但方向分化：第一周偏 MLIP 应用与晶体生成，第二周出现 TCSP3.0（Top-1 从 28.3% 拉到 72.2%）、可微 PXRD、Voronoi 拓扑分类等「工具链补课」型工作。climate 明显升温，从第一周约 8 条增至第二周约 12 条，且从降尺度、同化等单点方法升级为 WRF-JAX 全模式可微移植、化学-气候基础模型、次季节预报等系统级成果。ai4math 同样上升，从约 5 条增至约 8 条，并出现「蒸馏成方程」与「并行时间积分」两种相反但互补的路线。protein 数量稳定在约 8 条，但主题从结构预测转向推理时搜索、智能体闭环与 RNA binder。drug 条目少但质量高，开始出现「跨靶点经验复用」与「跨标识符知识不一致」这类元认知研究。scifm 与 bioinfo 基本持平，scifm 新浮现「潜空间互联协议」方向。整体看，第一周是「给分子与材料基础模型打补丁」，第二周是「把气候与 PDE 求解器整体可微化」，评价协议与基准可信度成为跨领域共同的新元议题。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下两周重点跟踪三条线：一是基准审计类工作是否从「指出问题」走向「给出修正协议」，尤其 uMLIP 与 AI 天气预报评估；二是推理时可控生成能否在蛋白与材料上给出跨体系的可复现收益；三是 QPU 接入百万原子体系、湿实验闭环这类「真闭环」工作是否出现第二批跟进。</p>
+      <p>下两周重点跟踪可微天气/气候模式（WRF-JAX 类）能否从单 GPU 演示走向业务化集合预报，以及 MLIP 基准污染与域外可靠性讨论是否会催生带控制组的统一评测标准。</p>
       
     </section>
     

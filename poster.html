@@ -79,12 +79,12 @@
     <div class="brand">AI4S-DAILY</div>
     
     <h1 class="title">AI4S 周报 · 10-26 ~ 11-01</h1>
-    <p class="slogan">「从预测走向可用的模拟与设计」</p>
-    <p class="range">2026-10-26 ~ 2026-11-01 · 2026-10-27 15:40 (北京时间 UTC+8)</p>
+    <p class="slogan">「从可解释方程到可复用势函数」</p>
+    <p class="range">2026-10-26 ~ 2026-11-01 · 2026-10-28 10:05 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期最明显的变化是「可用性」：多个工作不再只追求基准分数，而是把方法做成能稳定跑生产模拟、能省算力、能跨体系复用的工具。材料方向同时从「预测结构」推进到「量化筛选与逆向设计的边界」，并出现把物理约束直接写进模型的尝试。分子模拟则围绕采样效率与自动化流程展开，量子化学开始用线性复杂度架构替换 Transformer。药物发现与气候方向更关注「经验/协方差如何迁移」，而不是单纯堆模型。</p>
+  <p class="overview">本期最鲜明的信号是「可复用基础设施」的集中出现：WRF-JAX 把区域天气模式完整搬上 GPU 并支持 100 步反向传播，OpenFerro 用统一框架覆盖铁电/磁性/自旋-晶格耦合，mdRNAcat 则给出首个 RNA 分子动力学可复用数据集。与此同时，材料领域在「边界量化」上动作密集——1460 万晶体统一库系统检验正向筛选与逆向设计的真实极限，TCSP3.0 把 Top-1 命中率从 28.3% 拉到 72.2%。方法层面，热力学修正层、低方差力估计器、保留约束微调等工作共同指向一个主题：不重训基础模型，而是用轻量外挂层或约束把预训练势函数校准到目标物理量。AI4Math 则继续在「可解释」与「结构保持」两条线上推进，神经网络蒸馏成代数公式预测行星失稳是本期最具象的代表。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -104,8 +104,8 @@
       <span class="field">⚛️ 分子模拟</span>
       <span class="score">8.0</span>
     </div>
-    <h3>Low-variance force estimators for nuclear quantum mean forces</h3>
-    <p>提出一种低方差力估计器，让「用机器学习势函数采样量子平衡结构」这条路线真正可训练、可稳定生产模拟，分子测试中约束采样时间最多缩短约 57 倍。</p>
+    <h3>A thermodynamic correction layer for machine learning interatomic potentials</h3>
+    <p>给机器学习原子间势（MLIP，用神经网络拟合原子间作用力的模型）加一层「热力学修正层」，不重训、不改原模型，就能把相变温度校准到参考值，解决基础模型相变温度偏差…</p>
   </div>
   
   <div class="hl">
@@ -115,6 +115,24 @@
     </div>
     <h3>OpenFerro: a unified framework for mesoscale ferroic dynamics and enhanced sampling</h3>
     <p>把铁电、磁性、自旋-晶格耦合放进同一个晶格-场动力学框架，并用自动微分和增强采样，在中等算力下做到介观尺度、原子级分辨率——过去这类尺度通常只能靠连续介质模型近…</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">🌍 气候地球</span>
+      <span class="score">8.0</span>
+    </div>
+    <h3>WRF-JAX v1.1.28: a differentiable regional weather model with fully coupled physics, numerically consistent with WRF and matching 128-process CPU performance on a single GPU</h3>
+    <p>首个把 WRF 区域天气模式完整移植到 JAX 的工作：动力核心加全套物理过程都能在 GPU 上跑，还能对 100 个时间步做反向传播求梯度，精度与 WRF 相…</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">📐 AI4Math/PDE</span>
+      <span class="score">8.0</span>
+    </div>
+    <h3>Distilling neural networks into equations to predict planetary instability</h3>
+    <p>把神经网络「蒸馏」成可读的代数公式，首次给出能预测多行星系统何时失稳的解析方程，既保留机器学习精度又恢复可解释性，300 年未解的动力学难题有了新答案。</p>
   </div>
   
   <div class="hl">
@@ -131,8 +149,8 @@
       <span class="field">⚛️ 分子模拟</span>
       <span class="score">8.0</span>
     </div>
-    <h3>PULSES: multi-agent AI for autonomous excited-state model building and dynamics</h3>
-    <p>把「激发态机器学习模型」从采样、量化标注、训练、验证到动力学部署的全流程交给多智能体自动跑，且人类专家只定边界、不写流程，首次在多个真实分子体系上端到端验证。</p>
+    <h3>Low-variance force estimators for nuclear quantum mean forces</h3>
+    <p>提出一种低方差力估计器，让「用机器学习势函数采样量子平衡结构」这条路线真正可训练、可稳定生产模拟，分子测试中约束采样时间最多缩短约 57 倍。</p>
   </div>
   
   <div class="hl">
@@ -146,20 +164,11 @@
   
   <div class="hl">
     <div class="hl-head">
-      <span class="field">🌍 气候地球</span>
+      <span class="field">🧠 科学基础模型</span>
       <span class="score">7.0</span>
     </div>
-    <h3>Covariance-Informed Ensemble Score Filtering: Embedding Localized Covariance Geometry into Score-Based Transport</h3>
-    <p>把传统资料同化里成熟的「误差协方差几何」直接嵌进基于分数的扩散式集合滤波，让观测信息能沿协方差结构从观测点传播到未观测变量——这是现有 EnSF 缺失的一环。</p>
-  </div>
-  
-  <div class="hl">
-    <div class="hl-head">
-      <span class="field">📐 AI4Math/PDE</span>
-      <span class="score">7.0</span>
-    </div>
-    <h3>Stable and Calibrated Latent Force ODE Filters</h3>
-    <p>指出潜变量力ODE滤波器（把机理方程和观测数据联合推断的贝叶斯方法）的稳定性取决于状态先验方差，并据此给出稳定且校准的即插即用推断算法。</p>
+    <h3>Active Learning of Conditional Generative Models via the Transport Neural Tangent Kernel</h3>
+    <p>首次把主动学习从「标量/向量输出」扩展到「分布输出」：提出 tNTK（传输神经正切核），让模型能主动挑选最能同时约束预测分布「均值」和「形状」的新实验条件。</p>
   </div>
   
   <div class="hl">
@@ -176,63 +185,63 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期从「单点模型刷榜」转向「把方法做成可复用工具」：材料方向出现统一介观动力学框架与筛选/逆向设计边界的量化研究；分子模拟集中解决采样方差与全流程自动化；药物与气候开始追问「什么经验/结构可迁移」。另一个新信号是物理约束与对称性被直接嵌入模型或微调流程，而非留给后处理。</p>
+  <p class="trend">与上一期相比，本期最明显的变化是「预训练模型的外挂式校准」成为跨领域共识：热力学修正层、保留约束微调、对称性低秩微调三篇工作都不重训基础势函数，而是用轻量层或约束把模型拉到目标物理量上。第二个新方向是「边界量化」意识抬头——晶体材料正向筛选与逆向设计的真实极限被系统测量，LLM 智能体跨口袋经验复用也被首次拆解，说明社区开始从「刷指标」转向「划清能力边界」。第三个信号是 JAX 可微模拟的扩散：WRF-JAX 与 OpenFerro 分别把天气模式和介观铁性动力学做成可反向传播的框架，可微模拟正从单点工具变成基础设施。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">5125</span><small>抓取条目</small></div>
-      <div><span class="num">360</span><small>总结</small></div>
-      <div><span class="num">360</span><small>已上墙</small></div>
+      <div><span class="num">5154</span><small>抓取条目</small></div>
+      <div><span class="num">370</span><small>总结</small></div>
+      <div><span class="num">370</span><small>已上墙</small></div>
     </div>
     <div class="fields">
       
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 14%"></div></div>
-        <b>45</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 13%"></div></div>
+        <b>44</b>
       </div>
       
       <div class="frow">
         <span class="flabel">💊 药物发现</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 10%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 9%"></div></div>
         <b>32</b>
       </div>
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 49%"></div></div>
-        <b>164</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 47%"></div></div>
+        <b>161</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 90%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 89%"></div></div>
         <b>301</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 31%"></div></div>
-        <b>103</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 30%"></div></div>
+        <b>102</b>
       </div>
       
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
         <div class="fbar"><div class="fbar-fill" style="width: 36%"></div></div>
-        <b>121</b>
+        <b>123</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>333</b>
+        <b>339</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 35%"></div></div>
-        <b>115</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 33%"></div></div>
+        <b>111</b>
       </div>
       
     </div>
