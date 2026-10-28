@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-28 14:06 (北京时间 UTC+8)
+      生成于 2026-10-28 16:18 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 10-26 ~ 11-01</h2>
       <p class="r-range">2026-10-26 ~ 2026-11-01</p>
-      <p class="r-overview">本期最鲜明的信号是「可解释」与「可训练」两条线同时推进：神经网络被蒸馏成解析方程、MLIP 被加上热力学修正层、量子力估计器把方差压下来，AI 不再只是黑箱预测器。材料领域继续以高通量筛选和结构预测为主战场，TCSP3.0 把 Top-1 命中率从 28.3% 拉到 72.2%，非晶固态电解质一次筛出 16 种候选。气候方向出现首个完整移植到 JAX 的可微区域天气模式，分子模拟则把多智能体、Mamba、神经特征基等新架构带进激发态与流体降阶。整体看，本期工作更强调「精度可量化、流程可复用、物理约束可嵌入」，而非单纯刷榜。</p>
+      <p class="r-overview">本期最鲜明的信号是「可解释性回归」：神经网络被蒸馏成代数公式、被约束成守恒光谱、被拆成可复用的时间积分器，AI 不再只是黑箱预测器。与此同时，分子模拟方向集中解决「可训练性」问题——低方差力估计器、热力学修正层、保留约束微调，让机器学习势从能跑走向能稳定生产。材料领域则出现两条互补路线：一边系统量化正向筛选与逆向设计的真实边界，一边用对称性、组合式流匹配等低成本手段把高通量计算推到新化合物。气候与 AI4Math 继续在「物理一致性」上做文章，把协方差几何、结构保持格式嵌进扩散与神经求解器。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -110,13 +110,13 @@
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.35265v1" target="_blank" rel="noopener">Towards Exact Multidimensional Fluxes: A Structure-Preserving Data-Informed Framework for Riemann Solvers</a></h2>
-          <p>证明多维黎曼求解器的精确时空通量积分是时间步长与面尺寸的多项式，只需学习「初始状态→多项式系数」映射。</p>
+          <p>证明多维黎曼求解器的精确时空通量可写成时间步长与面尺寸的多项式，神经网络只需学习「初始状态→多项式系数」映射。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.35095v1" target="_blank" rel="noopener">WRF-JAX v1.1.28: a differentiable regional weather model with fully coupled physics</a></h2>
-          <p>首个把 WRF 区域天气模式完整移植到 JAX 的工作，动力核心加全套物理可在单 GPU 上跑，并支持对 100 个时间步反向传播求梯度。</p>
+          <p>首个把 WRF 区域天气模式完整移植到 JAX 的工作：动力核心加全套物理过程可在单 GPU 上跑，支持 100 个时间步反向传播，精度与 128 进程 CPU 相当。</p>
         </article>
         
         <article class="card">
@@ -127,26 +127,26 @@
         
         <article class="card">
           <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.34551v1" target="_blank" rel="noopener">A thermodynamic correction layer for machine learning interatomic potentials</a></h2>
-          <p>给 MLIP 加一层热力学修正层，不重训、不改原模型即可把相变温度校准到参考值。</p>
+          <h2><a href="https://arxiv.org/abs/2610.32652v1" target="_blank" rel="noopener">Low-variance force estimators for nuclear quantum mean forces</a></h2>
+          <p>提出低方差力估计器，让机器学习势采样量子平衡结构真正可训练，分子测试中约束采样时间最多缩短约 57 倍。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.32652v1" target="_blank" rel="noopener">Low-variance force estimators for nuclear quantum mean forces</a></h2>
-          <p>提出低方差力估计器，让机器学习势函数采样量子平衡结构可稳定训练，分子测试中约束采样时间最多缩短约 57 倍。</p>
+          <h2><a href="https://arxiv.org/abs/2610.34551v1" target="_blank" rel="noopener">A thermodynamic correction layer for machine learning interatomic potentials</a></h2>
+          <p>给机器学习原子间势加一层热力学修正层，不重训、不改原模型即可把相变温度校准到参考值。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">材料科学</span>
+          <h2><a href="https://arxiv.org/abs/2610.32678v1" target="_blank" rel="noopener">Probing the limits of forward screening and inverse design of crystal materials</a></h2>
+          <p>把 55 个数据库去重合并成 1460 万晶体的统一库，首次系统量化晶体材料正向筛选与逆向设计两条路线的真实边界。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.34029v1" target="_blank" rel="noopener">TCSP3.0: Template-Based Crystal Structure Prediction with Coefficient-Preserving Element Substitution and Structural Diversity</a></h2>
           <p>修正前代 20% 候选结构成分错误的硬伤，在 T180 基准上把 Top-1 命中率从 28.3% 拉到 72.2%。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.34505v1" target="_blank" rel="noopener">Computational screening of amorphous lithium trivalent-metal chloride solid-state electrolytes</a></h2>
-          <p>用通用机器学习力场跑分子动力学，一次筛选 16 种非晶锂-三价金属氯化物固态电解质，预测室温电导率 7.7–14 mS/cm。</p>
         </article>
         
         <article class="card">
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期「可解释/可校准」类工作明显增多：蒸馏成方程、热力学修正层、低方差力估计器、协方差嵌入滤波，都在把 AI 输出往物理可解释和数值可复现的方向拉。材料领域从「筛出新候选」转向「量化筛选边界」——1460 万晶体统一库的工作首次系统标定正向筛选与逆向设计的真实极限。分子模拟出现多智能体全流程自动化（PULSES）和 Mamba 替代 Transformer 的架构迁移。气候方向则从「AI 预报准不准」推进到「AI 模式可不可微、内部如何组织物理属性」。</p>
+      <p>与上一期相比，本期「可解释/可约束」从口号变成具体算法：蒸馏出解析方程、把守恒律写进光谱预测、用协方差几何约束扩散滤波。分子模拟方向从「造更大的势」转向「让现有势可训练、可校准」，低方差估计器与热力学修正层都是不重训原模型的轻量方案。材料领域出现「先量化边界再谈加速」的务实转向，1460 万晶体统一库和 TCSP3.0 的成分修正都指向对基准可信度的重视。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注可微天气模式与资料同化的进一步耦合，以及 MLIP 热力学修正层能否推广到多组分相图；材料侧则看 TCSP3.0 类结构预测工具与高通量筛选管线能否闭环验证。</p>
+      <p>下期值得关注可微分天气模型与资料同化的进一步耦合，以及「不重训基础模型、只加轻量修正层」这一范式能否从分子模拟扩散到材料和气候。</p>
       
     </section>
     
