@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-28 10:04 (北京时间 UTC+8)
+      生成于 2026-10-28 14:06 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 10-26 ~ 11-01</h2>
       <p class="r-range">2026-10-26 ~ 2026-11-01</p>
-      <p class="r-overview">本期最鲜明的信号是「可复用基础设施」的集中出现：WRF-JAX 把区域天气模式完整搬上 GPU 并支持 100 步反向传播，OpenFerro 用统一框架覆盖铁电/磁性/自旋-晶格耦合，mdRNAcat 则给出首个 RNA 分子动力学可复用数据集。与此同时，材料领域在「边界量化」上动作密集——1460 万晶体统一库系统检验正向筛选与逆向设计的真实极限，TCSP3.0 把 Top-1 命中率从 28.3% 拉到 72.2%。方法层面，热力学修正层、低方差力估计器、保留约束微调等工作共同指向一个主题：不重训基础模型，而是用轻量外挂层或约束把预训练势函数校准到目标物理量。AI4Math 则继续在「可解释」与「结构保持」两条线上推进，神经网络蒸馏成代数公式预测行星失稳是本期最具象的代表。</p>
+      <p class="r-overview">本期最鲜明的信号是「可解释」与「可训练」两条线同时推进：神经网络被蒸馏成解析方程、MLIP 被加上热力学修正层、量子力估计器把方差压下来，AI 不再只是黑箱预测器。材料领域继续以高通量筛选和结构预测为主战场，TCSP3.0 把 Top-1 命中率从 28.3% 拉到 72.2%，非晶固态电解质一次筛出 16 种候选。气候方向出现首个完整移植到 JAX 的可微区域天气模式，分子模拟则把多智能体、Mamba、神经特征基等新架构带进激发态与流体降阶。整体看，本期工作更强调「精度可量化、流程可复用、物理约束可嵌入」，而非单纯刷榜。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -110,37 +110,31 @@
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.35265v1" target="_blank" rel="noopener">Towards Exact Multidimensional Fluxes: A Structure-Preserving Data-Informed Framework for Riemann Solvers</a></h2>
-          <p>证明多维黎曼求解器的精确时空通量积分是时间步长与面尺寸的多项式，神经网络只需学「初始状态→多项式系数」映射。</p>
+          <p>证明多维黎曼求解器的精确时空通量积分是时间步长与面尺寸的多项式，只需学习「初始状态→多项式系数」映射。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.35095v1" target="_blank" rel="noopener">WRF-JAX v1.1.28: a differentiable regional weather model with fully coupled physics, numerically consistent with WRF and matching 128-process CPU performance on a single GPU</a></h2>
-          <p>首个把 WRF 动力核心加全套物理过程完整移植到 JAX 的工作，单 GPU 匹配 128 进程 CPU 性能，且支持对 100 个时间步反向传播求梯度。</p>
+          <h2><a href="https://arxiv.org/abs/2610.35095v1" target="_blank" rel="noopener">WRF-JAX v1.1.28: a differentiable regional weather model with fully coupled physics</a></h2>
+          <p>首个把 WRF 区域天气模式完整移植到 JAX 的工作，动力核心加全套物理可在单 GPU 上跑，并支持对 100 个时间步反向传播求梯度。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.32148v1" target="_blank" rel="noopener">Covariance-Informed Ensemble Score Filtering: Embedding Localized Covariance Geometry into Score-Based Transport</a></h2>
-          <p>把资料同化中成熟的误差协方差几何嵌入基于分数的扩散式集合滤波，补上观测信息向未观测变量传播的关键一环。</p>
+          <p>把资料同化中成熟的误差协方差几何嵌进基于分数的扩散式集合滤波，让观测信息沿协方差结构传播到未观测变量。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.34551v1" target="_blank" rel="noopener">A thermodynamic correction layer for machine learning interatomic potentials</a></h2>
-          <p>给机器学习原子间势加一层热力学修正层，不重训、不改原模型即可把相变温度校准到参考值。</p>
+          <p>给 MLIP 加一层热力学修正层，不重训、不改原模型即可把相变温度校准到参考值。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.32652v1" target="_blank" rel="noopener">Low-variance force estimators for nuclear quantum mean forces</a></h2>
-          <p>提出低方差力估计器，让机器学习势函数采样量子平衡结构真正可训练，分子测试中约束采样时间最多缩短约 57 倍。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.32678v1" target="_blank" rel="noopener">Probing the limits of forward screening and inverse design of crystal materials</a></h2>
-          <p>把 55 个数据库去重合并成 1460 万晶体统一库，首次系统量化正向筛选与逆向设计两条路线的真实边界。</p>
+          <p>提出低方差力估计器，让机器学习势函数采样量子平衡结构可稳定训练，分子测试中约束采样时间最多缩短约 57 倍。</p>
         </article>
         
         <article class="card">
@@ -150,9 +144,15 @@
         </article>
         
         <article class="card">
+          <span class="field">材料科学</span>
+          <h2><a href="https://arxiv.org/abs/2610.34505v1" target="_blank" rel="noopener">Computational screening of amorphous lithium trivalent-metal chloride solid-state electrolytes</a></h2>
+          <p>用通用机器学习力场跑分子动力学，一次筛选 16 种非晶锂-三价金属氯化物固态电解质，预测室温电导率 7.7–14 mS/cm。</p>
+        </article>
+        
+        <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2610.33195v1" target="_blank" rel="noopener">Agent-guided epitope excision enables economical de novo binder design</a></h2>
-          <p>把表位切除与智能体自动搜索结合，GPU 时间最多省约 88%，命中率从 5.06% 提到 9.3%。</p>
+          <p>把表位切除与智能体自动搜索结合，让大靶点从头设计 binder 的 GPU 时间最多省约 88%，命中率从 5.06% 提到 9.3%。</p>
         </article>
         
         <article class="card">
@@ -164,13 +164,13 @@
         <article class="card">
           <span class="field">科学基础模型</span>
           <h2><a href="https://arxiv.org/abs/2610.35652v1" target="_blank" rel="noopener">Active Learning of Conditional Generative Models via the Transport Neural Tangent Kernel</a></h2>
-          <p>提出 tNTK，把主动学习从标量/向量输出扩展到分布输出，让模型主动挑选能同时约束预测分布均值与形状的实验条件。</p>
+          <p>提出 tNTK，把主动学习从标量/向量输出扩展到分布输出，让模型主动挑选能同时约束预测分布均值与形状的新实验条件。</p>
         </article>
         
         <article class="card">
           <span class="field">生物信息</span>
           <h2><a href="https://arxiv.org/abs/2610.28853v1" target="_blank" rel="noopener">An autoencoder outperforms two transformers on prediction of gene expression from chromatin accessibility</a></h2>
-          <p>双变分自编码器管线在全部 60 组配对比较中胜过两个 Transformer，预测基因表达更准，训练时间缩短到约四分之一。</p>
+          <p>在统一基准上，双变分自编码器管线在全部 60 组配对比较中胜过两个 Transformer，训练时间缩短到约四分之一。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期最明显的变化是「预训练模型的外挂式校准」成为跨领域共识：热力学修正层、保留约束微调、对称性低秩微调三篇工作都不重训基础势函数，而是用轻量层或约束把模型拉到目标物理量上。第二个新方向是「边界量化」意识抬头——晶体材料正向筛选与逆向设计的真实极限被系统测量，LLM 智能体跨口袋经验复用也被首次拆解，说明社区开始从「刷指标」转向「划清能力边界」。第三个信号是 JAX 可微模拟的扩散：WRF-JAX 与 OpenFerro 分别把天气模式和介观铁性动力学做成可反向传播的框架，可微模拟正从单点工具变成基础设施。</p>
+      <p>与上一期相比，本期「可解释/可校准」类工作明显增多：蒸馏成方程、热力学修正层、低方差力估计器、协方差嵌入滤波，都在把 AI 输出往物理可解释和数值可复现的方向拉。材料领域从「筛出新候选」转向「量化筛选边界」——1460 万晶体统一库的工作首次系统标定正向筛选与逆向设计的真实极限。分子模拟出现多智能体全流程自动化（PULSES）和 Mamba 替代 Transformer 的架构迁移。气候方向则从「AI 预报准不准」推进到「AI 模式可不可微、内部如何组织物理属性」。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注可微模拟框架在真实业务链条中的落地深度，以及「外挂式校准层」能否从相变温度推广到更多热力学与动力学量。</p>
+      <p>下期值得关注可微天气模式与资料同化的进一步耦合，以及 MLIP 热力学修正层能否推广到多组分相图；材料侧则看 TCSP3.0 类结构预测工具与高通量筛选管线能否闭环验证。</p>
       
     </section>
     
