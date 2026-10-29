@@ -79,12 +79,12 @@
     <div class="brand">AI4S-DAILY</div>
     
     <h1 class="title">AI4S 周报 · 10-26 ~ 11-01</h1>
-    <p class="slogan">「从算子到气候，AI 正在改写科学计算栈」</p>
-    <p class="range">2026-10-26 ~ 2026-11-01 · 2026-10-29 10:15 (北京时间 UTC+8)</p>
+    <p class="slogan">「从算子到气候，AI 正在改写科学计算」</p>
+    <p class="range">2026-10-26 ~ 2026-11-01 · 2026-10-29 14:17 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期最鲜明的信号是「科学计算栈的 AI 化」：从格林算子网络、任意网格算子学习到可微 WRF 与 GPU 原生刚性 PDE 求解，AI 不再只是拟合器，而是嵌入数值求解、微分与反传的底层环节。气候领域集中出现公里级 MLWP 损失设计、世纪尺度耦合与近实时业务验证三条线，AI 天气预报正从论文指标走向可运行系统。材料与分子模拟则把重点放在「校准与可迁移」：热力学修正层、保留约束微调、对称性少样本微调，都在解决基础模型落地时的偏差与成本问题。蛋白质方向出现糖链识别专用扩散模型，把 AlphaFold 3 的短板单独拎出来打。整体看，本期少有大词，多的是把 AI 塞进既有科学工作流的具体接口。</p>
+  <p class="overview">本期最鲜明的信号是「可微 + 可迁移」：WRF-JAX 把完整区域天气模式搬上 GPU 并支持 100 步反向传播，diff-soup 让刚性动力系统端到端可微，AI4Math 则把格林算子、黎曼求解器、ODE 滤波器逐一改造成可学习模块。材料与分子模拟继续向「少样本、跨体系」推进——对称性微调、热力学修正层、保留约束微调都在不重训的前提下扩展基础势的适用边界。蛋白质侧出现首个专攻蛋白-糖链识别的扩散模型，把高质量成功率从 AlphaFold 3 的 19.2% 拉到 71.9%。气候领域则同时出现业务化验证（HRRRCast 跑满一年）与世纪尺度耦合稳定性（FASST 140 年）两条落地线索。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -185,7 +185,7 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期从「模型能做什么」转向「模型怎么嵌进科学计算栈」：可微数值求解器（WRF-JAX、diff-soup）、算子学习去网格化（AMOR、NGO）成为 ai4math 与 scifm 的共同主线。气候方向从单点预报精度转向业务化验证与长期耦合稳定性（HRRRCast、FASST），并开始用稀疏自编码器解剖 AI 气象模型内部表征。材料与分子模拟的新增方向是「后处理校准与低成本迁移」：热力学修正层、保留约束微调、对称性少样本微调，说明基础模型已进入偏差修正与部署成本阶段。蛋白质方向则出现针对特定相互作用类型（糖链识别）的专用模型，而非继续堆通用结构预测。</p>
+  <p class="trend">与上一期相比，本期「可微科学计算」从单点工具走向完整系统：WRF-JAX 与 diff-soup 都把整条仿真链路（含物理过程与稀疏求解）搬上 GPU 并支持反向传播，AI4Math 则同步给出格林算子网络、结构保持黎曼求解器、稳定 ODE 滤波器等可学习数值组件。材料与分子模拟的新方向是「不重训的适配层」——热力学修正层、保留约束微调、对称性低秩微调，都在冻结基础模型的前提下扩展适用域。气候领域首次出现业务化运行满一年的数据驱动区域模型，以及无 SST 校正的世纪尺度耦合，落地验证的权重明显上升。</p>
   
 
   <div class="stats">
@@ -198,50 +198,50 @@
       
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 13%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 15%"></div></div>
         <b>43</b>
       </div>
       
       <div class="frow">
         <span class="flabel">💊 药物发现</span>
         <div class="fbar"><div class="fbar-fill" style="width: 10%"></div></div>
-        <b>31</b>
+        <b>30</b>
       </div>
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 50%"></div></div>
-        <b>162</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 54%"></div></div>
+        <b>157</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 87%"></div></div>
-        <b>280</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 91%"></div></div>
+        <b>267</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 34%"></div></div>
-        <b>109</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 36%"></div></div>
+        <b>106</b>
       </div>
       
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 32%"></div></div>
-        <b>104</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 31%"></div></div>
+        <b>92</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>323</b>
+        <b>293</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 35%"></div></div>
-        <b>114</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 38%"></div></div>
+        <b>110</b>
       </div>
       
     </div>
