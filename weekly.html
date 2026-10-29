@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-29 14:17 (北京时间 UTC+8)
+      生成于 2026-10-29 16:20 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 10-26 ~ 11-01</h2>
       <p class="r-range">2026-10-26 ~ 2026-11-01</p>
-      <p class="r-overview">本期最鲜明的信号是「可微 + 可迁移」：WRF-JAX 把完整区域天气模式搬上 GPU 并支持 100 步反向传播，diff-soup 让刚性动力系统端到端可微，AI4Math 则把格林算子、黎曼求解器、ODE 滤波器逐一改造成可学习模块。材料与分子模拟继续向「少样本、跨体系」推进——对称性微调、热力学修正层、保留约束微调都在不重训的前提下扩展基础势的适用边界。蛋白质侧出现首个专攻蛋白-糖链识别的扩散模型，把高质量成功率从 AlphaFold 3 的 19.2% 拉到 71.9%。气候领域则同时出现业务化验证（HRRRCast 跑满一年）与世纪尺度耦合稳定性（FASST 140 年）两条落地线索。</p>
+      <p class="r-overview">本期最鲜明的信号是「可微分化」与「结构保持」两条线同时推进：WRF 区域天气模式被完整搬上 JAX 单卡并支持百步反向传播，刚性动力系统的 PDE 仿真与求导整体 GPU 化，算子学习则用可学习降维基块摆脱规则网格限制。材料与分子模拟继续把通用势函数往「可校准、可微调、可筛选」方向推，热力学修正层、保留约束微调、对称性低秩微调都是不重训大模型就能改精度的做法。蛋白质侧出现专门针对蛋白-糖链的扩散模型，在 698 个复合物基准上把高质量成功率从 AlphaFold 3 的 19.2% 提到 71.9%。气候方向则集中解决「公里级细节」与「世纪尺度稳定」两个过去难兼顾的问题。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -104,49 +104,55 @@
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2610.37410v1" target="_blank" rel="noopener">Accurate structural modelling of protein-glycan recognition with GlycoWeave</a></h2>
-          <p>首个专攻蛋白-糖链识别的扩散模型，698 个复合物基准上高质量成功率 71.9%，AlphaFold 3 为 19.2%，单次采样 0.34 秒。</p>
+          <p>首个专攻蛋白-糖链识别的扩散模型，698 个复合物基准高质量成功率 71.9%，AlphaFold 3 为 19.2%，单次采样 0.34 秒。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.33195v1" target="_blank" rel="noopener">Agent-guided epitope excision enables economical de novo binder design</a></h2>
-          <p>表位切除加智能体搜索，让大靶点从头设计 binder 的 GPU 时间最多省 88%，命中率从 5.06% 提到 9.3%。</p>
+          <p>表位切除加智能体搜索，让大靶点从头设计 binder 的 GPU 时间最多省约 88%，命中率从 5.06% 提到 9.3%。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.37606v1" target="_blank" rel="noopener">A unified coarse-grained neural network potential for the dynamics of biomolecular complexes</a></h2>
-          <p>AMARO v2.0 保留全部重原子、隐式处理溶剂，用同一套表示覆盖蛋白质、类药小分子及三元蛋白-蛋白-配体复合物。</p>
+          <h2><a href="https://arxiv.org/abs/2610.34551v1" target="_blank" rel="noopener">A thermodynamic correction layer for machine learning interatomic potentials</a></h2>
+          <p>给 MLIP 外挂一层热力学修正，不重训不改原模型即可把相变温度校准到参考值。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2610.32652v1" target="_blank" rel="noopener">Low-variance force estimators for nuclear quantum mean forces</a></h2>
+          <p>低方差力估计器让量子平衡结构采样可稳定训练，分子测试中约束采样时间最多缩短约 57 倍。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.34029v1" target="_blank" rel="noopener">TCSP3.0: Template-Based Crystal Structure Prediction with Coefficient-Preserving Element Substitution and Structural Diversity</a></h2>
-          <p>修正前代 20% 候选成分错误，T180 基准 Top-1 命中率从 28.3% 拉到 72.2%，且无需额外训练。</p>
+          <p>修正前代 20% 候选成分错误，T180 基准 Top-1 命中率从 28.3% 提到 72.2%。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.29634v1" target="_blank" rel="noopener">Symmetry-Based Parameter Efficient Low-Rank Fine-Tuning for High-Throughput Calculation of Lattice Thermal Conductivity</a></h2>
-          <p>用对称性做少样本微调，MatterSim 1M 只需少量同对称性晶体即可批量预测新化合物晶格热导率，精度接近逐个微调。</p>
+          <h2><a href="https://arxiv.org/abs/2610.35653v1" target="_blank" rel="noopener">Retention-constrained fine-tuning of a pre-trained aluminium MACE potential for non-equilibrium defect dynamics and plasticity</a></h2>
+          <p>保留约束微调铝 MACE 势，提升缺陷动力学与塑性精度的同时守住近平衡弹性与振动响应，力误差从 22.43 降下来。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.35095v1" target="_blank" rel="noopener">WRF-JAX v1.1.28: a differentiable regional weather model with fully coupled physics, numerically consistent with WRF and matching 128-process CPU performance on a single GPU</a></h2>
-          <p>首个把 WRF 动力核心加全套物理过程完整移植到 JAX 的工作，单 GPU 对标 128 进程 CPU，并支持 100 个时间步反向传播。</p>
+          <p>WRF 动力核心加全套物理过程完整移植到 JAX，单卡 GPU 对标 128 进程 CPU，且可对 100 个时间步反向传播。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.36186v1" target="_blank" rel="noopener">Towards operational data-driven regional weather forecasting: extreme-event skill and near-real-time verification with HRRRCast</a></h2>
-          <p>首个在近实时业务模式下运行满一年、并用独立观测验证的数据驱动区域天气模型，3 公里对流尺度对标业务数值模式。</p>
+          <h2><a href="https://arxiv.org/abs/2610.36297v1" target="_blank" rel="noopener">FASST: A Compact Stateless Atmosphere Model for Long-Term Ocean Coupling</a></h2>
+          <p>轻量 U-Net 替代大气与海冰模块，耦合气候模拟跑满 140 年仍稳定，且无需海表温度校正。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.37485v1" target="_blank" rel="noopener">AMOR: Adaptive Modal Operator Refinement for Operator Learning on Arbitrary Meshes and Irregular 3D Geometries</a></h2>
-          <p>把 FNO 的傅里叶卷积换成可学习降维基块，让算子学习直接跑在任意网格和不规则三维几何上，同时压住三维谱参数的 m³ 增长。</p>
+          <p>用可学习降维基块替换 FNO 的傅里叶卷积，算子学习首次能直接跑任意网格与不规则三维几何，三维谱参数不再按 m³ 增长。</p>
         </article>
         
         <article class="card">
@@ -158,19 +164,13 @@
         <article class="card">
           <span class="field">科学基础模型</span>
           <h2><a href="https://arxiv.org/abs/2610.37333v1" target="_blank" rel="noopener">diff-soup: GPU-native Differentiable Simulation and Inference for Large-scale Stiff Dynamical Systems</a></h2>
-          <p>用 JAX 加 NVIDIA cuDSS 稀疏直接求解器，把大规模刚性动力系统的 PDE 仿真与求导整体搬到 GPU，做到端到端可微。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">科学基础模型</span>
-          <h2><a href="https://arxiv.org/abs/2610.35652v1" target="_blank" rel="noopener">Active Learning of Conditional Generative Models via the Transport Neural Tangent Kernel</a></h2>
-          <p>提出 tNTK，把主动学习从标量/向量输出扩展到分布输出，能主动挑选同时约束预测分布均值与形状的新实验条件。</p>
+          <p>JAX 加 NVIDIA cuDSS 稀疏直接求解器，把大规模刚性动力系统的 PDE 仿真与求导整体搬到 GPU 上端到端可微。</p>
         </article>
         
         <article class="card">
           <span class="field">生物信息</span>
           <h2><a href="https://arxiv.org/abs/2610.28853v1" target="_blank" rel="noopener">An autoencoder outperforms two transformers on prediction of gene expression from chromatin accessibility</a></h2>
-          <p>双变分自编码器管线在全部 60 组配对比较中胜过两个 Transformer，预测基因表达更准，训练时间缩短到约四分之一。</p>
+          <p>双变分自编码器管线在全部 60 组配对比较中胜过两个 Transformer，训练时间缩短到约四分之一。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期「可微科学计算」从单点工具走向完整系统：WRF-JAX 与 diff-soup 都把整条仿真链路（含物理过程与稀疏求解）搬上 GPU 并支持反向传播，AI4Math 则同步给出格林算子网络、结构保持黎曼求解器、稳定 ODE 滤波器等可学习数值组件。材料与分子模拟的新方向是「不重训的适配层」——热力学修正层、保留约束微调、对称性低秩微调，都在冻结基础模型的前提下扩展适用域。气候领域首次出现业务化运行满一年的数据驱动区域模型，以及无 SST 校正的世纪尺度耦合，落地验证的权重明显上升。</p>
+      <p>与上一期相比，本期从「训练更大的科学模型」明显转向「让已有模型可校准、可微调、可微分」：热力学修正层、保留约束微调、对称性低秩微调都不重训基础模型；WRF-JAX 与 diff-soup 把可微分化推到完整物理模式与刚性动力系统级别；算子学习开始正面处理任意网格与不规则三维几何，而非继续在规则网格上刷精度。另一个新出现的方向是「把神经网络蒸馏回方程」与「物理约束直接写进光谱预测」，可解释性从口号变成可验证的产出。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注可微天气/气候模型能否从「数值一致」走向「业务同化」，以及材料侧不重训适配层在跨体系迁移上的误差上界是否被系统量化。</p>
+      <p>下期值得关注可微分天气与气候模式能否在真实资料同化循环中跑通，以及通用原子间势的「外挂式校准层」能否推广到更多相变体系。</p>
       
     </section>
     
