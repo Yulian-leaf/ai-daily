@@ -79,12 +79,12 @@
     <div class="brand">AI4S-DAILY</div>
     
     <h1 class="title">AI4S 周报 · 10-26 ~ 11-01</h1>
-    <p class="slogan">「从可解释方程到可训练量子力」</p>
-    <p class="range">2026-10-26 ~ 2026-11-01 · 2026-10-28 16:18 (北京时间 UTC+8)</p>
+    <p class="slogan">「从算子到气候，AI 正在改写科学计算栈」</p>
+    <p class="range">2026-10-26 ~ 2026-11-01 · 2026-10-29 10:15 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期最鲜明的信号是「可解释性回归」：神经网络被蒸馏成代数公式、被约束成守恒光谱、被拆成可复用的时间积分器，AI 不再只是黑箱预测器。与此同时，分子模拟方向集中解决「可训练性」问题——低方差力估计器、热力学修正层、保留约束微调，让机器学习势从能跑走向能稳定生产。材料领域则出现两条互补路线：一边系统量化正向筛选与逆向设计的真实边界，一边用对称性、组合式流匹配等低成本手段把高通量计算推到新化合物。气候与 AI4Math 继续在「物理一致性」上做文章，把协方差几何、结构保持格式嵌进扩散与神经求解器。</p>
+  <p class="overview">本期最鲜明的信号是「科学计算栈的 AI 化」：从格林算子网络、任意网格算子学习到可微 WRF 与 GPU 原生刚性 PDE 求解，AI 不再只是拟合器，而是嵌入数值求解、微分与反传的底层环节。气候领域集中出现公里级 MLWP 损失设计、世纪尺度耦合与近实时业务验证三条线，AI 天气预报正从论文指标走向可运行系统。材料与分子模拟则把重点放在「校准与可迁移」：热力学修正层、保留约束微调、对称性少样本微调，都在解决基础模型落地时的偏差与成本问题。蛋白质方向出现糖链识别专用扩散模型，把 AlphaFold 3 的短板单独拎出来打。整体看，本期少有大词，多的是把 AI 塞进既有科学工作流的具体接口。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -95,8 +95,8 @@
       <span class="field">🧬 蛋白质/结构</span>
       <span class="score">8.0</span>
     </div>
-    <h3>Agent-guided epitope excision enables economical de novo binder design</h3>
-    <p>把「表位切除」和「智能体自动搜索」结合，让从头设计蛋白结合物（binder）在大靶点上变得可行：GPU 时间最多省约 88%，命中率从 5.06% 提到 9.3…</p>
+    <h3>Accurate structural modelling of protein-glycan recognition with GlycoWeave</h3>
+    <p>首个专门针对蛋白质-糖链识别的扩散模型，在698个复合物基准上高质量成功率71.9%，远超AlphaFold 3的19.2%，且单次采样仅0.34秒。</p>
   </div>
   
   <div class="hl">
@@ -104,8 +104,8 @@
       <span class="field">⚛️ 分子模拟</span>
       <span class="score">8.0</span>
     </div>
-    <h3>A thermodynamic correction layer for machine learning interatomic potentials</h3>
-    <p>给机器学习原子间势（MLIP，用神经网络拟合原子间作用力的模型）加一层「热力学修正层」，不重训、不改原模型，就能把相变温度校准到参考值，解决基础模型相变温度偏差…</p>
+    <h3>A unified coarse-grained neural network potential for the dynamics of biomolecular complexes</h3>
+    <p>AMARO v2.0 是一个保留全部重原子、隐式处理溶剂的粗粒化神经网络势能，用同一套表示同时覆盖蛋白质、类药小分子及其复合物，包括三元蛋白-蛋白-配体体系。</p>
   </div>
   
   <div class="hl">
@@ -122,8 +122,8 @@
       <span class="field">🌍 气候地球</span>
       <span class="score">8.0</span>
     </div>
-    <h3>WRF-JAX v1.1.28: a differentiable regional weather model with fully coupled physics, numerically consistent with WRF and matching 128-process CPU performance on a single GPU</h3>
-    <p>首个把 WRF 区域天气模式完整移植到 JAX 的工作：动力核心加全套物理过程都能在 GPU 上跑，还能对 100 个时间步做反向传播求梯度，精度与 WRF 相…</p>
+    <h3>Scale-aware and spatially-localised optimisation of kilometre-scale MLWP models</h3>
+    <p>用「双树复小波变换」做损失函数，让公里级 AI 天气预报在保留细尺度结构（如降水细节）的同时不牺牲逐点精度——这是过去全局频谱损失做不到的。</p>
   </div>
   
   <div class="hl">
@@ -131,26 +131,35 @@
       <span class="field">📐 AI4Math/PDE</span>
       <span class="score">8.0</span>
     </div>
-    <h3>Distilling neural networks into equations to predict planetary instability</h3>
-    <p>把神经网络「蒸馏」成可读的代数公式，首次给出能预测多行星系统何时失稳的解析方程，既保留机器学习精度又恢复可解释性，300 年未解的动力学难题有了新答案。</p>
+    <h3>JoostHMPrins/ngo</h3>
+    <p>把「格林算子」这一数学工具做成神经网络版本，专门求解带参数变化的偏微分方程（PDE，描述物理场的方程），一次训练即可对多组参数快速求解，而非每次重新计算。</p>
   </div>
   
   <div class="hl">
     <div class="hl-head">
-      <span class="field">🧪 材料科学</span>
+      <span class="field">🧠 科学基础模型</span>
       <span class="score">8.0</span>
     </div>
-    <h3>Probing the limits of forward screening and inverse design of crystal materials</h3>
-    <p>首次系统量化晶体材料「正向筛选」与「逆向设计」两条路线的真实边界：把 55 个数据库按结构去重合并成 1460 万晶体的统一库，发现已知晶体里还藏着大量未被记录…</p>
+    <h3>diff-soup: GPU-native Differentiable Simulation and Inference for Large-scale Stiff Dynamical Systems</h3>
+    <p>把「大规模刚性动力系统」的 PDE 仿真与求导整体搬到 GPU 上，用 JAX + NVIDIA cuDSS 稀疏直接求解器做到端到端可微，前向求解和梯度都比现…</p>
   </div>
   
   <div class="hl">
     <div class="hl-head">
-      <span class="field">⚛️ 分子模拟</span>
+      <span class="field">📐 AI4Math/PDE</span>
       <span class="score">8.0</span>
     </div>
-    <h3>Low-variance force estimators for nuclear quantum mean forces</h3>
-    <p>提出一种低方差力估计器，让「用机器学习势函数采样量子平衡结构」这条路线真正可训练、可稳定生产模拟，分子测试中约束采样时间最多缩短约 57 倍。</p>
+    <h3>AMOR: Adaptive Modal Operator Refinement for Operator Learning on Arbitrary Meshes and Irregular 3D Geometries</h3>
+    <p>把傅里叶神经算子（FNO）的傅里叶卷积换成可学习的降维基块，让算子学习首次能直接跑在任意网格和不规则三维几何上，同时把三维谱参数从 m³ 增长压下来。</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">🌍 气候地球</span>
+      <span class="score">8.0</span>
+    </div>
+    <h3>FASST: A Compact Stateless Atmosphere Model for Long-Term Ocean Coupling</h3>
+    <p>用轻量 U-Net 替代大气与海冰模块，让耦合气候模拟跑满 140 年仍保持稳定，且无需海表温度（SST）校正——这是「无状态学习型大气」首次在世纪尺度自由耦合…</p>
   </div>
   
   <div class="hl">
@@ -160,15 +169,6 @@
     </div>
     <h3>gnina/gnina</h3>
     <p>Gnina 把深度学习打分函数直接嵌进分子对接流程，让「找姿势」和「判好坏」用同一个神经网络完成，是药物发现里少见的、长期维护的开源对接框架。</p>
-  </div>
-  
-  <div class="hl">
-    <div class="hl-head">
-      <span class="field">🧠 科学基础模型</span>
-      <span class="score">7.0</span>
-    </div>
-    <h3>Active Learning of Conditional Generative Models via the Transport Neural Tangent Kernel</h3>
-    <p>首次把主动学习从「标量/向量输出」扩展到「分布输出」：提出 tNTK（传输神经正切核），让模型能主动挑选最能同时约束预测分布「均值」和「形状」的新实验条件。</p>
   </div>
   
   <div class="hl">
@@ -185,63 +185,63 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期「可解释/可约束」从口号变成具体算法：蒸馏出解析方程、把守恒律写进光谱预测、用协方差几何约束扩散滤波。分子模拟方向从「造更大的势」转向「让现有势可训练、可校准」，低方差估计器与热力学修正层都是不重训原模型的轻量方案。材料领域出现「先量化边界再谈加速」的务实转向，1460 万晶体统一库和 TCSP3.0 的成分修正都指向对基准可信度的重视。</p>
+  <p class="trend">与上一期相比，本期从「模型能做什么」转向「模型怎么嵌进科学计算栈」：可微数值求解器（WRF-JAX、diff-soup）、算子学习去网格化（AMOR、NGO）成为 ai4math 与 scifm 的共同主线。气候方向从单点预报精度转向业务化验证与长期耦合稳定性（HRRRCast、FASST），并开始用稀疏自编码器解剖 AI 气象模型内部表征。材料与分子模拟的新增方向是「后处理校准与低成本迁移」：热力学修正层、保留约束微调、对称性少样本微调，说明基础模型已进入偏差修正与部署成本阶段。蛋白质方向则出现针对特定相互作用类型（糖链识别）的专用模型，而非继续堆通用结构预测。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">5288</span><small>抓取条目</small></div>
-      <div><span class="num">370</span><small>总结</small></div>
-      <div><span class="num">370</span><small>已上墙</small></div>
+      <div><span class="num">5340</span><small>抓取条目</small></div>
+      <div><span class="num">380</span><small>总结</small></div>
+      <div><span class="num">380</span><small>已上墙</small></div>
     </div>
     <div class="fields">
       
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
         <div class="fbar"><div class="fbar-fill" style="width: 13%"></div></div>
-        <b>46</b>
+        <b>43</b>
       </div>
       
       <div class="frow">
         <span class="flabel">💊 药物发现</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 9%"></div></div>
-        <b>32</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 10%"></div></div>
+        <b>31</b>
       </div>
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 47%"></div></div>
-        <b>167</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 50%"></div></div>
+        <b>162</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 84%"></div></div>
-        <b>299</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 87%"></div></div>
+        <b>280</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 32%"></div></div>
-        <b>113</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 34%"></div></div>
+        <b>109</b>
       </div>
       
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 33%"></div></div>
-        <b>118</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 32%"></div></div>
+        <b>104</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>356</b>
+        <b>323</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 31%"></div></div>
-        <b>111</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 35%"></div></div>
+        <b>114</b>
       </div>
       
     </div>
