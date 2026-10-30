@@ -79,12 +79,12 @@
     <div class="brand">AI4S-DAILY</div>
     
     <h1 class="title">AI4S 周报 · 10-26 ~ 11-01</h1>
-    <p class="slogan">「从算子到气候，AI 正把方程变成可训练的对象」</p>
-    <p class="range">2026-10-26 ~ 2026-11-01 · 2026-10-29 16:21 (北京时间 UTC+8)</p>
+    <p class="slogan">「从预测到可控，AI4S 走向闭环」</p>
+    <p class="range">2026-10-26 ~ 2026-11-01 · 2026-10-30 10:28 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期最鲜明的信号是「可微分化」与「结构保持」两条线同时推进：WRF 区域天气模式被完整搬上 JAX 单卡并支持百步反向传播，刚性动力系统的 PDE 仿真与求导整体 GPU 化，算子学习则用可学习降维基块摆脱规则网格限制。材料与分子模拟继续把通用势函数往「可校准、可微调、可筛选」方向推，热力学修正层、保留约束微调、对称性低秩微调都是不重训大模型就能改精度的做法。蛋白质侧出现专门针对蛋白-糖链的扩散模型，在 698 个复合物基准上把高质量成功率从 AlphaFold 3 的 19.2% 提到 71.9%。气候方向则集中解决「公里级细节」与「世纪尺度稳定」两个过去难兼顾的问题。</p>
+  <p class="overview">本期最鲜明的信号是「可控性」：扩散模型、原子生成模型、MLIP 都不再只追求拟合精度，而是通过强化学习、采样时约束、热力学修正层等轻量手段，把物理约束和下游目标直接嵌进推理环节。与此同时，数据与基准建设明显加速——百万级动力学稳定晶体库、RNA 构象系综目录、1460 万晶体统一库，正在把「能不能算」变成「有没有数据可训」。气候与 PDE 方向则继续把可微仿真和业务化验证往前推，WRF-JAX 与 HRRRCast 分别从「可反传」和「跑满一年」两个角度给出可信度证据。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -104,8 +104,8 @@
       <span class="field">⚛️ 分子模拟</span>
       <span class="score">8.0</span>
     </div>
-    <h3>A unified coarse-grained neural network potential for the dynamics of biomolecular complexes</h3>
-    <p>AMARO v2.0 是一个保留全部重原子、隐式处理溶剂的粗粒化神经网络势能，用同一套表示同时覆盖蛋白质、类药小分子及其复合物，包括三元蛋白-蛋白-配体体系。</p>
+    <h3>Generative discovery of chemical reaction networks</h3>
+    <p>提出 ReactNexus，仅从反应物结构出发、无需预设产物或反应模板，就能生成完整化学反应网络，把「反应路径发现」从人工枚举变成生成式搜索。</p>
   </div>
   
   <div class="hl">
@@ -113,8 +113,8 @@
       <span class="field">🧪 材料科学</span>
       <span class="score">8.0</span>
     </div>
-    <h3>OpenFerro: a unified framework for mesoscale ferroic dynamics and enhanced sampling</h3>
-    <p>把铁电、磁性、自旋-晶格耦合放进同一个晶格-场动力学框架，并用自动微分和增强采样，在中等算力下做到介观尺度、原子级分辨率——过去这类尺度通常只能靠连续介质模型近…</p>
+    <h3>AtomSteer: Test-Time Constraint Steering for Atomistic Generative Models</h3>
+    <p>无需重训、不改模型结构，只在采样时给已训练好的原子生成模型加约束，就能同时管住晶体对称性、分子立体化学和蛋白-配体结合姿态，一套框架覆盖三类生成任务。</p>
   </div>
   
   <div class="hl">
@@ -122,8 +122,8 @@
       <span class="field">🌍 气候地球</span>
       <span class="score">8.0</span>
     </div>
-    <h3>Scale-aware and spatially-localised optimisation of kilometre-scale MLWP models</h3>
-    <p>用「双树复小波变换」做损失函数，让公里级 AI 天气预报在保留细尺度结构（如降水细节）的同时不牺牲逐点精度——这是过去全局频谱损失做不到的。</p>
+    <h3>Skillful and realistic precipitation forecasting with reinforced diffusion</h3>
+    <p>首个在美国本土范围内同时做到「预测准」和「物理真实」的降水预报系统 FitzRoy，用强化学习调教扩散模型，解决了长期存在的精度与结构真实感二选一难题。</p>
   </div>
   
   <div class="hl">
@@ -146,20 +146,20 @@
   
   <div class="hl">
     <div class="hl-head">
-      <span class="field">📐 AI4Math/PDE</span>
+      <span class="field">🧪 材料科学</span>
       <span class="score">8.0</span>
     </div>
-    <h3>AMOR: Adaptive Modal Operator Refinement for Operator Learning on Arbitrary Meshes and Irregular 3D Geometries</h3>
-    <p>把傅里叶神经算子（FNO）的傅里叶卷积换成可学习的降维基块，让算子学习首次能直接跑在任意网格和不规则三维几何上，同时把三维谱参数从 m³ 增长压下来。</p>
+    <h3>Crystoria: A Large-Scale Crystal Dataset Linking Thermodynamic and Dynamical Stability for Materials AI</h3>
+    <p>首个把「动力学稳定性」做到百万级晶体规模的数据集：264 万条结构、179 万条经声子筛选确认动力学稳定，填补了晶体结构库与物理稳定性信息之间的量级鸿沟。</p>
   </div>
   
   <div class="hl">
     <div class="hl-head">
-      <span class="field">🌍 气候地球</span>
+      <span class="field">⚛️ 分子模拟</span>
       <span class="score">8.0</span>
     </div>
-    <h3>FASST: A Compact Stateless Atmosphere Model for Long-Term Ocean Coupling</h3>
-    <p>用轻量 U-Net 替代大气与海冰模块，让耦合气候模拟跑满 140 年仍保持稳定，且无需海表温度（SST）校正——这是「无状态学习型大气」首次在世纪尺度自由耦合…</p>
+    <h3>A unified coarse-grained neural network potential for the dynamics of biomolecular complexes</h3>
+    <p>AMARO v2.0 是一个保留全部重原子、隐式处理溶剂的粗粒化神经网络势能，用同一套表示同时覆盖蛋白质、类药小分子及其复合物，包括三元蛋白-蛋白-配体体系。</p>
   </div>
   
   <div class="hl">
@@ -185,63 +185,63 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期从「训练更大的科学模型」明显转向「让已有模型可校准、可微调、可微分」：热力学修正层、保留约束微调、对称性低秩微调都不重训基础模型；WRF-JAX 与 diff-soup 把可微分化推到完整物理模式与刚性动力系统级别；算子学习开始正面处理任意网格与不规则三维几何，而非继续在规则网格上刷精度。另一个新出现的方向是「把神经网络蒸馏回方程」与「物理约束直接写进光谱预测」，可解释性从口号变成可验证的产出。</p>
+  <p class="trend">与上一期相比，本期「推理时干预」成为跨领域共性手法：AtomSteer 在采样阶段加约束、热力学修正层在不重训前提下校准相变温度、SNAP 把神经算子当加速器并加事后检查，说明社区正从「训更大的模型」转向「在已有模型上低成本加控制」。另一个新动向是数据基础设施集中放量——Crystoria、mdRNAcat、1460 万晶体统一库同期出现，材料与分子模拟开始补齐「稳定性标签」这一长期缺口。气候方向则从「能不能跑」进入「跑得久、可反传、可业务验证」的阶段。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">5352</span><small>抓取条目</small></div>
-      <div><span class="num">380</span><small>总结</small></div>
-      <div><span class="num">380</span><small>已上墙</small></div>
+      <div><span class="num">5460</span><small>抓取条目</small></div>
+      <div><span class="num">390</span><small>总结</small></div>
+      <div><span class="num">390</span><small>已上墙</small></div>
     </div>
     <div class="fields">
       
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
         <div class="fbar"><div class="fbar-fill" style="width: 14%"></div></div>
-        <b>43</b>
+        <b>41</b>
       </div>
       
       <div class="frow">
         <span class="flabel">💊 药物发现</span>
         <div class="fbar"><div class="fbar-fill" style="width: 11%"></div></div>
-        <b>32</b>
+        <b>33</b>
       </div>
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 52%"></div></div>
-        <b>157</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 55%"></div></div>
+        <b>162</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 89%"></div></div>
-        <b>268</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 93%"></div></div>
+        <b>272</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 35%"></div></div>
-        <b>106</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 37%"></div></div>
+        <b>109</b>
       </div>
       
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 31%"></div></div>
-        <b>92</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 30%"></div></div>
+        <b>88</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>300</b>
+        <b>293</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 37%"></div></div>
-        <b>111</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 38%"></div></div>
+        <b>112</b>
       </div>
       
     </div>
