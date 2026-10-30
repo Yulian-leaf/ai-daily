@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="weekly.html">周报 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-30 14:18 (北京时间 UTC+8)
+      生成于 2026-10-30 16:29 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 双周报告 · 10-19 ~ 11-01</h2>
       <p class="r-range">2026-10-19 ~ 2026-11-01</p>
-      <p class="r-overview">这两周 AI4S 的主旋律从「造更强的模型」转向「把已有模型管起来、用起来」：推理时约束、免重训微调、可微仿真与评估协议成为高频词。第一周以生成与基础模型扩张为主（蛋白质语言模型、晶体生成、气候基础模型、MLIP 基准），第二周明显转向「控制与校准」——AtomSteer、Feynman-Kac Steering、热力学修正层、保留约束微调、SNAP 等一批工作都在不重训的前提下给模型加约束。与此同时，气候领域从「模型能不能跑」推进到「业务能不能用、评估可不可信」，出现近实时运行一年、评估协议导致排名反转等偏工程与元科学的工作。数学与 PDE 方向则集中解决「串行太慢」和「几何受限」两个老问题，并行时间积分与任意网格算子学习各有多条。整体看，条目总量维持高位，但「新架构」类工作占比下降，「部署、校准、评测」类工作占比上升。</p>
+      <p class="r-overview">这两周 AI4S 的主旋律是「可控性」：不再只追求模型跑得快、精度高，而是把约束、物理、可解释性直接嵌进生成与求解流程。第一周集中在「把物理写进模型结构」——PDE 理论引导的神经算子、球面物理约束降尺度、结构保持的黎曼求解器；第二周明显转向「推理时控制与校准」——AtomSteer、Feynman-Kac Steering、奖励引导的蛋白设计搜索、热力学修正层，都是不重训、只在采样或推理阶段加约束。与此同时，材料与分子模拟的「基础模型可靠性」问题被反复量化：uMLIP 合金基准被 DFT 分歧污染、无序碳上低误差不等于 MD 稳定、蒸馏势在稀疏化学环境局部失效。气候方向则从「能不能预报」推进到「评估协议本身是否可信」，出现多篇拆解评价指标如何反转模型排名的研究。整体看，第一周偏「方法创新」，第二周偏「可靠性审计与部署验证」。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -104,7 +104,7 @@
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://www.nature.com/articles/s41586-026-11205-z" target="_blank" rel="noopener">Programmable design of functional proteins from natural language</a></h2>
-          <p>160 亿参数模型 Pinal 用自然语言直接设计功能蛋白，实验验证活性，且不迭代优化即提高二氧化碳固定产物产量。</p>
+          <p>160 亿参数模型 Pinal 用自然语言直接设计有实验活性的功能蛋白，且不迭代优化就提高 CO2 固定产物产量。</p>
         </article>
         
         <article class="card">
@@ -116,55 +116,55 @@
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.38517v1" target="_blank" rel="noopener">AtomSteer: Test-Time Constraint Steering for Atomistic Generative Models</a></h2>
-          <p>不重训、不改结构，仅在采样时加约束，一套框架同时管住晶体对称性、分子立体化学与蛋白-配体结合姿态。</p>
+          <p>不重训不改结构，仅在采样时加约束，一套框架同时管住晶体对称性、分子立体化学和蛋白-配体结合姿态。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.38195v1" target="_blank" rel="noopener">Crystoria: A Large-Scale Crystal Dataset Linking Thermodynamic and Dynamical Stability for Materials AI</a></h2>
-          <p>264 万条晶体结构、179 万条经声子筛选确认动力学稳定，首次把稳定性信息做到百万级规模。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.38775v1" target="_blank" rel="noopener">Skillful and realistic precipitation forecasting with reinforced diffusion</a></h2>
-          <p>FitzRoy 用强化学习调教扩散模型，在美国本土同时做到降水预测准与结构物理真实，破解精度与真实感二选一难题。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.36186v1" target="_blank" rel="noopener">Towards operational data-driven regional weather forecasting: extreme-event skill and near-real-time verification with HRRRCast</a></h2>
-          <p>首个近实时业务运行满一年、经独立观测验证的数据驱动区域模型，3 公里对流尺度对标业务数值模式。</p>
+          <p>264 万条晶体结构、179 万条经声子筛选确认动力学稳定，填补晶体库与物理稳定性之间的量级鸿沟。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.37606v1" target="_blank" rel="noopener">A unified coarse-grained neural network potential for the dynamics of biomolecular complexes</a></h2>
-          <p>AMARO v2.0 保留全部重原子、隐式处理溶剂，同一套表示覆盖蛋白质、小分子及三元蛋白-蛋白-配体复合物。</p>
+          <p>AMARO v2.0 保留全部重原子、隐式处理溶剂，同一套表示覆盖蛋白、小分子及三元蛋白-蛋白-配体复合物。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.34551v1" target="_blank" rel="noopener">A thermodynamic correction layer for machine learning interatomic potentials</a></h2>
-          <p>给 MLIP 加一层热力学修正，不重训不改模型即可把相变温度校准到参考值。</p>
+          <p>给 MLIP 加一层热力学修正层，不重训不改原模型即可把相变温度校准到参考值。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">气候地球</span>
+          <h2><a href="https://arxiv.org/abs/2610.38775v1" target="_blank" rel="noopener">Skillful and realistic precipitation forecasting with reinforced diffusion</a></h2>
+          <p>FitzRoy 用强化学习调教扩散模型，首次在美国本土同时做到降水预测准与物理结构真实。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">气候地球</span>
+          <h2><a href="https://arxiv.org/abs/2610.31237v1" target="_blank" rel="noopener">Can We Trust Evaluations of AI Weather Forecasts for Extremes? How Evaluation Protocols Shape Model Rankings</a></h2>
+          <p>同一实验设计下，AI 与物理天气模型排名会因评价指标不同而反转，量化拆解了文献结论互相矛盾的根源。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2610.37485v1" target="_blank" rel="noopener">AMOR: Adaptive Modal Operator Refinement for Operator Learning on Arbitrary Meshes and Irregular 3D Geometries</a></h2>
-          <p>用可学习降维基块替换 FNO 的傅里叶卷积，算子学习首次直接跑在任意网格与不规则三维几何上，三维谱参数不再按 m³ 增长。</p>
+          <h2><a href="https://arxiv.org/abs/2610.29938v1" target="_blank" rel="noopener">A PDE-theory-guided neural operator and the long-time relaxation of the two-dimensional anisotropic Boussinesq system</a></h2>
+          <p>把 PDE 严格数学分析嵌进网络结构，稳定学到长时间松弛中 ε² 量级极小信号，纯数据驱动做不到。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2610.28591v1" target="_blank" rel="noopener">PaPi: Parallel Picard-Duhamel Integration for Fast Neuro-Spectral Architectures</a></h2>
-          <p>把神经谱方法中串行的 Runge-Kutta 时间步进换成可并行积分，训练与推理最高提速约 100 倍。</p>
+          <h2><a href="https://arxiv.org/abs/2610.35617v1" target="_blank" rel="noopener">Distilling neural networks into equations to predict planetary instability</a></h2>
+          <p>把神经网络蒸馏成可读代数公式，首次给出预测多行星系统失稳时间的解析方程，300 年难题有了新答案。</p>
         </article>
         
         <article class="card">
           <span class="field">科学基础模型</span>
           <h2><a href="https://arxiv.org/abs/2610.37333v1" target="_blank" rel="noopener">diff-soup: GPU-native Differentiable Simulation and Inference for Large-scale Stiff Dynamical Systems</a></h2>
-          <p>用 JAX + NVIDIA cuDSS 把大规模刚性动力系统的 PDE 仿真与求导整体搬上 GPU，实现端到端可微。</p>
+          <p>用 JAX + NVIDIA cuDSS 把大规模刚性动力系统 PDE 仿真与求导整体搬上 GPU，端到端可微。</p>
         </article>
         
         <article class="card">
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>跨周对比看，materials 与 molsim 仍是条目最多的两个方向（合计约 40 条），但内部结构变化明显：第一周偏「生成与数据集」（Orbitol、Crystoria、MOFFieldBench），第二周偏「约束、校准与微调」（AtomSteer、Feynman-Kac Steering、热力学修正层、保留约束微调、对称性低秩微调），说明材料与分子模拟正从「能不能生成」转向「生成得对不对、稳不稳」。climate 从第一周的「基础模型与降尺度方法」转向第二周的「业务运行与评估可信度」（HRRRCast 运行一年、评估协议导致排名反转、次季节预报推进到 3–5 周），工程化信号增强。ai4math 两周都围绕 PDE 求解效率，但第一周偏算子结构（NGO、PDE 理论引导算子），第二周偏时间积分并行化与几何泛化（PaPi、AMOR、SNAP），「提速」成为共同落点。protein 第一周以语言模型与 binder 设计为主，第二周出现糖链建模、RNA binder、扩散步压缩等更细分的结构任务，说明结构预测正在向「难复合物」和「推理效率」两端分化。scifm 与 bioinfo 条目偏少但稳定，scifm 集中在可微仿真与可处理推断，bioinfo 仅 1 条（自编码器胜 Transformer），热度相对偏低。新浮现的方向是「推理时控制」：AtomSteer、Feynman-Kac Steering、RFD4-Proteina 奖励引导搜索、SNAP 事后检查，两周内至少 5 条，构成一个可命名的新簇。</p>
+      <p>跨周对比看，molsim 与 materials 仍是条目最多的两个方向（合计约 40 条），但重心从「造新模型」转向「审计与校准」：第一周多为新势函数、新数据集（AMARO v2.0、Crystoria），第二周密集出现基准可信度研究（uMLIP 合金基准被 DFT 分歧污染、无序碳上低误差不等于 MD 稳定、蒸馏势局部失效）。climate 从第一周的「预报能力」转向第二周的「评估协议与业务验证」（HRRRCast 近实时运行一年、评估协议反转排名），并新增次季节尺度（Nature 报道 3–5 周预报）。ai4math 明显升温，从第一周约 4 条增至第二周约 8 条，且从「算子加速」扩展到「可解释蒸馏」与「优化加速器」。protein 方向「推理时控制」成为新浮现主题：奖励引导搜索、表位切除智能体、可微约束工具包三条同周出现。drug 条目偏少但质量集中，agentic + 湿实验闭环是明确新方向。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下两周重点跟踪「推理时约束/免重训控制」能否从单点演示走向跨领域通用框架，以及气候领域评估协议标准化与业务化验证的后续争论。</p>
+      <p>下两周重点跟踪两条线：一是「推理时约束/校准」能否从单点演示走向跨任务统一框架（AtomSteer、热力学修正层、奖励引导搜索的合流）；二是材料与分子基础模型的可靠性审计是否会催生新的基准标准与评估协议。</p>
       
     </section>
     
