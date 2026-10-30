@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-30 10:28 (北京时间 UTC+8)
+      生成于 2026-10-30 14:18 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,82 +95,82 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 10-26 ~ 11-01</h2>
       <p class="r-range">2026-10-26 ~ 2026-11-01</p>
-      <p class="r-overview">本期最鲜明的信号是「可控性」：扩散模型、原子生成模型、MLIP 都不再只追求拟合精度，而是通过强化学习、采样时约束、热力学修正层等轻量手段，把物理约束和下游目标直接嵌进推理环节。与此同时，数据与基准建设明显加速——百万级动力学稳定晶体库、RNA 构象系综目录、1460 万晶体统一库，正在把「能不能算」变成「有没有数据可训」。气候与 PDE 方向则继续把可微仿真和业务化验证往前推，WRF-JAX 与 HRRRCast 分别从「可反传」和「跑满一年」两个角度给出可信度证据。</p>
+      <p class="r-overview">本期最鲜明的信号是「可控性」：扩散模型、原子生成模型、MLIP 都在不重训的前提下被加上约束或修正层，把精度与物理真实性从二选一变成可同时满足。数据侧出现百万级动力学稳定性晶体库与 RNA 力场数据集，补齐了「结构有、稳定性无」的量级缺口。气候方向集中交付可业务化、可微、可耦合的系统级工作，AI 天气模型开始跑满一年、跑满百年。数学与 PDE 侧则把神经算子推向任意网格、把神经网络蒸馏回可读方程，可解释性与通用性同步推进。</p>
 
       
       <h3 class="sub">本期亮点</h3>
       <div class="cards">
         
         <article class="card">
-          <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.38775v1" target="_blank" rel="noopener">Skillful and realistic precipitation forecasting with reinforced diffusion</a></h2>
-          <p>FitzRoy 用强化学习调教扩散模型，首次在美国本土同时做到降水预测准与结构物理真实，破解精度与真实感二选一的老问题。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.35095v1" target="_blank" rel="noopener">WRF-JAX v1.1.28: a differentiable regional weather model with fully coupled physics</a></h2>
-          <p>首个把 WRF 动力核心加全套物理过程完整移植到 JAX 的工作，单 GPU 匹配 128 进程 CPU 性能，且可对 100 个时间步反向传播求梯度。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.38195v1" target="_blank" rel="noopener">Crystoria: A Large-Scale Crystal Dataset Linking Thermodynamic and Dynamical Stability for Materials AI</a></h2>
-          <p>264 万条晶体结构中 179 万条经声子筛选确认动力学稳定，首次把动力学稳定性做到百万级规模。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.38517v1" target="_blank" rel="noopener">AtomSteer: Test-Time Constraint Steering for Atomistic Generative Models</a></h2>
-          <p>不重训、不改结构，仅在采样时加约束，一套框架同时管住晶体对称性、分子立体化学与蛋白-配体结合姿态三类任务。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.37606v1" target="_blank" rel="noopener">A unified coarse-grained neural network potential for the dynamics of biomolecular complexes</a></h2>
-          <p>AMARO v2.0 保留全部重原子、隐式处理溶剂，用同一套表示覆盖蛋白质、类药小分子及三元蛋白-蛋白-配体复合物。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.38236v1" target="_blank" rel="noopener">Generative discovery of chemical reaction networks</a></h2>
-          <p>ReactNexus 仅从反应物结构出发、无需预设产物或模板，即可生成完整化学反应网络，把路径发现变成生成式搜索。</p>
-        </article>
-        
-        <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2610.37410v1" target="_blank" rel="noopener">Accurate structural modelling of protein-glycan recognition with GlycoWeave</a></h2>
-          <p>首个专攻蛋白-糖链识别的扩散模型，698 个复合物基准高质量成功率 71.9%，远超 AlphaFold 3 的 19.2%，单次采样仅 0.34 秒。</p>
+          <p>首个专攻蛋白-糖链识别的扩散模型，698 个复合物基准高质量成功率 71.9%，AlphaFold 3 为 19.2%，单次采样 0.34 秒。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2610.33195v1" target="_blank" rel="noopener">Agent-guided epitope excision enables economical de novo binder design</a></h2>
-          <p>表位切除加智能体自动搜索，让大靶点从头设计 binder 的 GPU 时间最多省约 88%，命中率从 5.06% 提到 9.3%。</p>
+          <p>表位切除加智能体搜索，大靶点从头设计 binder 的 GPU 时间最多省约 88%，命中率从 5.06% 提到 9.3%。</p>
         </article>
         
         <article class="card">
-          <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2610.37485v1" target="_blank" rel="noopener">AMOR: Adaptive Modal Operator Refinement for Operator Learning on Arbitrary Meshes and Irregular 3D Geometries</a></h2>
-          <p>用可学习降维基块替换 FNO 的傅里叶卷积，让算子学习首次直接跑在任意网格与不规则三维几何上，并压住三维谱参数的 m³ 增长。</p>
+          <span class="field">药物发现</span>
+          <h2><a href="https://arxiv.org/abs/2610.32620v1" target="_blank" rel="noopener">What Transfers Across Protein Pockets? Experience Reuse in Molecular Optimization for Agentic Structure-Based Drug Design</a></h2>
+          <p>系统检验 LLM 智能体跨口袋经验复用，发现可迁移信号主要来自编辑动作与分子本身，而非靶点身份。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2610.37606v1" target="_blank" rel="noopener">A unified coarse-grained neural network potential for the dynamics of biomolecular complexes</a></h2>
+          <p>AMARO v2.0 保留全部重原子、隐式溶剂，一套表示覆盖蛋白、类药小分子及三元蛋白-蛋白-配体复合物。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2610.32652v1" target="_blank" rel="noopener">Low-variance force estimators for nuclear quantum mean forces</a></h2>
+          <p>低方差力估计器让量子平衡结构采样可稳定训练，分子测试中约束采样时间最多缩短约 57 倍。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">材料科学</span>
+          <h2><a href="https://arxiv.org/abs/2610.38195v1" target="_blank" rel="noopener">Crystoria: A Large-Scale Crystal Dataset Linking Thermodynamic and Dynamical Stability for Materials AI</a></h2>
+          <p>264 万条晶体结构、179 万条经声子筛选确认动力学稳定，首个百万级「稳定性标注」晶体数据集。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">材料科学</span>
+          <h2><a href="https://arxiv.org/abs/2610.38517v1" target="_blank" rel="noopener">AtomSteer: Test-Time Constraint Steering for Atomistic Generative Models</a></h2>
+          <p>不重训不改结构，仅在采样时加约束，一套框架同时管住晶体对称性、分子立体化学与蛋白-配体结合姿态。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">气候地球</span>
+          <h2><a href="https://arxiv.org/abs/2610.38775v1" target="_blank" rel="noopener">Skillful and realistic precipitation forecasting with reinforced diffusion</a></h2>
+          <p>FitzRoy 用强化学习调教扩散模型，首次在美国本土同时做到降水预测准与结构物理真实。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">气候地球</span>
+          <h2><a href="https://arxiv.org/abs/2610.36186v1" target="_blank" rel="noopener">Towards operational data-driven regional weather forecasting: extreme-event skill and near-real-time verification with HRRRCast</a></h2>
+          <p>首个近实时业务运行满一年、经独立观测验证的数据驱动区域模型，3 公里对流尺度对标业务数值模式。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.35617v1" target="_blank" rel="noopener">Distilling neural networks into equations to predict planetary instability</a></h2>
-          <p>把神经网络蒸馏成可读代数公式，首次给出预测多行星系统失稳时机的解析方程，兼顾精度与可解释性。</p>
+          <p>把神经网络蒸馏成可读代数公式，首次给出预测多行星系统失稳时间的解析方程，兼顾精度与可解释性。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">AI4Math/PDE</span>
+          <h2><a href="https://arxiv.org/abs/2610.37485v1" target="_blank" rel="noopener">AMOR: Adaptive Modal Operator Refinement for Operator Learning on Arbitrary Meshes and Irregular 3D Geometries</a></h2>
+          <p>用可学习降维基块替换 FNO 傅里叶卷积，算子学习首次直接跑在任意网格与不规则三维几何上。</p>
         </article>
         
         <article class="card">
           <span class="field">科学基础模型</span>
           <h2><a href="https://arxiv.org/abs/2610.37333v1" target="_blank" rel="noopener">diff-soup: GPU-native Differentiable Simulation and Inference for Large-scale Stiff Dynamical Systems</a></h2>
-          <p>用 JAX 加 NVIDIA cuDSS 稀疏直接求解器，把大规模刚性动力系统的 PDE 仿真与求导整体搬到 GPU，实现端到端可微。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">生物信息</span>
-          <h2><a href="https://arxiv.org/abs/2610.28853v1" target="_blank" rel="noopener">An autoencoder outperforms two transformers on prediction of gene expression from chromatin accessibility</a></h2>
-          <p>双变分自编码器管线在全部 60 组配对比较中胜过两个 Transformer，预测基因表达更准，训练时间缩至约四分之一。</p>
+          <p>JAX 加 NVIDIA cuDSS 稀疏直接求解器，把大规模刚性动力系统 PDE 仿真与求导整体搬到 GPU 端到端可微。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期「推理时干预」成为跨领域共性手法：AtomSteer 在采样阶段加约束、热力学修正层在不重训前提下校准相变温度、SNAP 把神经算子当加速器并加事后检查，说明社区正从「训更大的模型」转向「在已有模型上低成本加控制」。另一个新动向是数据基础设施集中放量——Crystoria、mdRNAcat、1460 万晶体统一库同期出现，材料与分子模拟开始补齐「稳定性标签」这一长期缺口。气候方向则从「能不能跑」进入「跑得久、可反传、可业务验证」的阶段。</p>
+      <p>与上一期相比，本期从「造更大的模型/数据集」转向「给已有模型加控制与修正」：AtomSteer、热力学修正层、保留约束微调、SNAP 都是不重训、只在推理或微调阶段加约束的思路。气候方向从单点预报精度转向业务化验证与世纪尺度耦合稳定性，HRRRCast 与 FASST 分别给出一年与 140 年的运行证据。数学侧出现「蒸馏回方程」与「任意网格算子」两条互补路线，可解释性与几何通用性同时被推进。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注推理时约束与可微仿真两条线的合流：若 AtomSteer 式采样约束能与 WRF-JAX、diff-soup 这类可微求解器对接，物理约束有望从「事后过滤」变成「训练与推理一体」的内生机制；同时留意百万级动力学稳定数据集能否催生首批以稳定性为目标函数的生成模型。</p>
+      <p>下期值得关注测试时约束方法能否从三类任务推广到更广的生成模型，以及百万级稳定性数据集能否直接喂进晶体生成流程形成闭环。</p>
       
     </section>
     
