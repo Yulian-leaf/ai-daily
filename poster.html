@@ -79,12 +79,12 @@
     <div class="brand">AI4S-DAILY</div>
     
     <h1 class="title">AI4S 周报 · 10-26 ~ 11-01</h1>
-    <p class="slogan">「从算得快，到算得对、算得稳」</p>
-    <p class="range">2026-10-26 ~ 2026-11-01 · 2026-10-31 10:08 (北京时间 UTC+8)</p>
+    <p class="slogan">「从预测到自洽，AI 开始接管物理闭环」</p>
+    <p class="range">2026-10-26 ~ 2026-11-01 · 2026-10-31 14:09 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期最鲜明的信号是「物理自洽」开始被写进模型内部：电化学大正则约束、热力学修正层、物理约束光谱预测、保结构黎曼求解器，都在把守恒律和热力学一致性从后处理搬到训练与采样环节。与此同时，基础模型继续向「一个权重跨系统」推进，FilterFM 实现未见动力学零样本滤波，MACE 冻结特征把 DFT+LOBSTER 的键强度计算压到约 1 秒。气候方向出现业务化拐点：公里级全异构加速模式、区域 AI 预报满一年近实时验证、无状态大气耦合跑满 140 年，评价标准正从「报得准」转向「跑得稳、可业务」。材料与分子模拟则在数据与工具层补课，百万级动力学稳定性晶体库、单卡 3 小时 10 亿分子聚类，降低了规模化门槛。</p>
+  <p class="overview">本期最鲜明的信号是 AI 不再满足于「拟合输出」，而是把热力学自洽、自洽迭代、物理约束直接写进模型内部：GC-MACE 把大正则约束嵌入可微势，Transformer 电子密度模型跳过 DFT 自洽循环，热力学修正层不重训即可校准相变温度。与此同时，气候领域出现多个「业务级」里程碑——1.5 km 全球模式在 24576 块 GPU 上跑通、区域 AI 预报完成一年近实时验证、无状态大气模型支撑百年耦合。材料与分子模拟侧，数据与工具链继续补齐：264 万晶体动力学稳定性数据集、单卡 3 小时聚类 10 亿分子、Tensor Core 加速 MLIP。整体看，本期从「模型更强」转向「流程更闭环、验证更接近业务」。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -185,12 +185,12 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期从「用大模型替代传统计算」转向「把物理约束与稳定性保证嵌入模型内部」：热力学修正层、大正则约束、保结构黎曼求解器、协方差几何嵌入滤波，都是不重训或少改结构就能校准物理一致性的轻量方案。气候方向评价口径明显变化，业务化运行时长、近实时独立观测验证、百年耦合稳定性成为新指标，而非单点预报精度。材料与分子模拟的重心落在数据与工具基建：百万级动力学稳定性数据集、单卡十亿分子聚类、Tensor Core 加速 MLIP，指向规模化门槛下移。</p>
+  <p class="trend">与上期相比，本期从「单点模型刷榜」明显转向「把物理约束与业务验证接进闭环」：热力学修正层、大正则约束、自洽跳过、物理约束光谱预测等条目集中出现，说明 AI4S 正在从代理模型走向可自洽的物理求解器；气候侧则首次出现业务运行级证据（SD3 业务跑通、HRRRCast 一年近实时验证、FASST 百年耦合稳定），验证标准从基准分数转向真实业务指标。此外，智能体开始进入实验闭环（QUANTA 自主量子测量、WxCrop 天气到农业损失），数据侧则补上动力学稳定性与 RNA 力场数据集两块短板。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">5610</span><small>抓取条目</small></div>
+      <div><span class="num">5615</span><small>抓取条目</small></div>
       <div><span class="num">400</span><small>总结</small></div>
       <div><span class="num">400</span><small>已上墙</small></div>
     </div>
@@ -216,7 +216,7 @@
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 99%"></div></div>
         <b>303</b>
       </div>
       
@@ -228,19 +228,19 @@
       
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 31%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 30%"></div></div>
         <b>93</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 99%"></div></div>
-        <b>301</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
+        <b>306</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 37%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 36%"></div></div>
         <b>111</b>
       </div>
       
