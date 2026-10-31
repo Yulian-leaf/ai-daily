@@ -79,12 +79,12 @@
     <div class="brand">AI4S-DAILY</div>
     
     <h1 class="title">AI4S 周报 · 10-26 ~ 11-01</h1>
-    <p class="slogan">「从预测到可控，AI4S 走向闭环」</p>
-    <p class="range">2026-10-26 ~ 2026-11-01 · 2026-10-30 16:29 (北京时间 UTC+8)</p>
+    <p class="slogan">「从算得快，到算得对、算得稳」</p>
+    <p class="range">2026-10-26 ~ 2026-11-01 · 2026-10-31 10:08 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期最鲜明的信号是「可控性」：扩散模型、原子生成模型、MLIP 都不再只追求拟合精度，而是通过强化学习、采样时约束、热力学修正层等轻量手段，把物理约束和下游目标直接嵌进推理或微调环节。与此同时，数据与基准建设明显加速——百万级动力学稳定晶体库、RNA 构象目录、统一晶体去重库，正在把「能不能算」变成「有没有数据可训」。气候方向则集中出现业务化与可微化两条线：区域模式跑满一年近实时验证，WRF 整体移植 JAX 后可反向传播。整体看，AI4S 正从「单点模型刷指标」转向「端到端可部署、可约束、可解释」的工程化阶段。</p>
+  <p class="overview">本期最鲜明的信号是「物理自洽」开始被写进模型内部：电化学大正则约束、热力学修正层、物理约束光谱预测、保结构黎曼求解器，都在把守恒律和热力学一致性从后处理搬到训练与采样环节。与此同时，基础模型继续向「一个权重跨系统」推进，FilterFM 实现未见动力学零样本滤波，MACE 冻结特征把 DFT+LOBSTER 的键强度计算压到约 1 秒。气候方向出现业务化拐点：公里级全异构加速模式、区域 AI 预报满一年近实时验证、无状态大气耦合跑满 140 年，评价标准正从「报得准」转向「跑得稳、可业务」。材料与分子模拟则在数据与工具层补课，百万级动力学稳定性晶体库、单卡 3 小时 10 亿分子聚类，降低了规模化门槛。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -104,8 +104,8 @@
       <span class="field">⚛️ 分子模拟</span>
       <span class="score">8.0</span>
     </div>
-    <h3>Generative discovery of chemical reaction networks</h3>
-    <p>提出 ReactNexus，仅从反应物结构出发、无需预设产物或反应模板，就能生成完整化学反应网络，把「反应路径发现」从人工枚举变成生成式搜索。</p>
+    <h3>NEOPIC: A Neural Operator Framework for Particle-based Kinetic Plasma Simulations</h3>
+    <p>提出 NEOPIC，一种直接作用在粒子上的神经算子，用来替代粒子模拟中的场求解器；无需网格或树结构，可即插即用，还能跨不同参考方法训练出统一模型。</p>
   </div>
   
   <div class="hl">
@@ -113,8 +113,8 @@
       <span class="field">🧪 材料科学</span>
       <span class="score">8.0</span>
     </div>
-    <h3>AtomSteer: Test-Time Constraint Steering for Atomistic Generative Models</h3>
-    <p>无需重训、不改模型结构，只在采样时给已训练好的原子生成模型加约束，就能同时管住晶体对称性、分子立体化学和蛋白-配体结合姿态，一套框架覆盖三类生成任务。</p>
+    <h3>ML-COHP: predicting bond descriptors using latent space of a universal interatomic potentials</h3>
+    <p>用通用原子间势（MACE 基础模型）的冻结特征直接预测键强度描述符 ICOHP，把原本需要数小时到数十小时的 DFT+LOBSTER 计算压缩到约 1 秒，误差…</p>
   </div>
   
   <div class="hl">
@@ -122,8 +122,8 @@
       <span class="field">🌍 气候地球</span>
       <span class="score">8.0</span>
     </div>
-    <h3>Skillful and realistic precipitation forecasting with reinforced diffusion</h3>
-    <p>首个在美国本土范围内同时做到「预测准」和「物理真实」的降水预报系统 FitzRoy，用强化学习调教扩散模型，解决了长期存在的精度与结构真实感二选一难题。</p>
+    <h3>SD3: The First Operationally-Proven, Fully Heterogeneous-Accelerated Global Kilometer-Scale Model with Inline Physics Architecture</h3>
+    <p>首个在业务预报中真正跑起来的全球公里级（1.5 km）全异构加速天气/气候模式，用 24576 块 GPU 做到每天模拟 205.7 天，且用原生 CUDA 重…</p>
   </div>
   
   <div class="hl">
@@ -140,17 +140,8 @@
       <span class="field">🧠 科学基础模型</span>
       <span class="score">8.0</span>
     </div>
-    <h3>diff-soup: GPU-native Differentiable Simulation and Inference for Large-scale Stiff Dynamical Systems</h3>
-    <p>把「大规模刚性动力系统」的 PDE 仿真与求导整体搬到 GPU 上，用 JAX + NVIDIA cuDSS 稀疏直接求解器做到端到端可微，前向求解和梯度都比现…</p>
-  </div>
-  
-  <div class="hl">
-    <div class="hl-head">
-      <span class="field">🧪 材料科学</span>
-      <span class="score">8.0</span>
-    </div>
-    <h3>Crystoria: A Large-Scale Crystal Dataset Linking Thermodynamic and Dynamical Stability for Materials AI</h3>
-    <p>首个把「动力学稳定性」做到百万级晶体规模的数据集：264 万条结构、179 万条经声子筛选确认动力学稳定，填补了晶体结构库与物理稳定性信息之间的量级鸿沟。</p>
+    <h3>A Pretrained Model for Bayesian Filtering in Heterogeneous Dynamical Systems</h3>
+    <p>首个面向贝叶斯滤波的预训练基础模型 FilterFM：单一权重即可跨异构动力系统估计隐状态，并首次实现未见动力学上的零样本滤波。</p>
   </div>
   
   <div class="hl">
@@ -158,8 +149,17 @@
       <span class="field">⚛️ 分子模拟</span>
       <span class="score">8.0</span>
     </div>
-    <h3>A unified coarse-grained neural network potential for the dynamics of biomolecular complexes</h3>
-    <p>AMARO v2.0 是一个保留全部重原子、隐式处理溶剂的粗粒化神经网络势能，用同一套表示同时覆盖蛋白质、类药小分子及其复合物，包括三元蛋白-蛋白-配体体系。</p>
+    <h3>Differentiable Electronic Grand Canonical Learning for Electrochemistry</h3>
+    <p>把电化学界面的「大正则」热力学约束直接写进可微分模型，做出 GC-MACE：既能算力与电荷，又保证热力学自洽，还能在比第一性原理分子动力学大得多的尺度上做恒电位…</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">🧪 材料科学</span>
+      <span class="score">8.0</span>
+    </div>
+    <h3>Transformer-inspired architectures make machine-learned electron densities accurate and transferable enough to bypass self-consistency</h3>
+    <p>用 Transformer 类架构直接预测电子密度，精度高到可以跳过密度泛函理论（DFT）里最耗时的自洽迭代，只做一次 Kohn-Sham 步骤就还原自洽电子结…</p>
   </div>
   
   <div class="hl">
@@ -185,39 +185,39 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上期相比，本期出现三个明显转向：一是「推理时控制」成为热词，AtomSteer、热力学修正层、SNAP 等工作都在不重训的前提下给已训练模型加约束或加速；二是数据基建从「有结构」升级到「有稳定性/有构象」，Crystoria、mdRNAcat、1460 万晶体统一库把物理标签做成了规模；三是气候模型从「能预报」走向「能业务运行、能求导」，HRRRCast 的一年期验证与 WRF-JAX 的可微移植是标志性事件。</p>
+  <p class="trend">与上一期相比，本期从「用大模型替代传统计算」转向「把物理约束与稳定性保证嵌入模型内部」：热力学修正层、大正则约束、保结构黎曼求解器、协方差几何嵌入滤波，都是不重训或少改结构就能校准物理一致性的轻量方案。气候方向评价口径明显变化，业务化运行时长、近实时独立观测验证、百年耦合稳定性成为新指标，而非单点预报精度。材料与分子模拟的重心落在数据与工具基建：百万级动力学稳定性数据集、单卡十亿分子聚类、Tensor Core 加速 MLIP，指向规模化门槛下移。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">5589</span><small>抓取条目</small></div>
-      <div><span class="num">390</span><small>总结</small></div>
-      <div><span class="num">390</span><small>已上墙</small></div>
+      <div><span class="num">5610</span><small>抓取条目</small></div>
+      <div><span class="num">400</span><small>总结</small></div>
+      <div><span class="num">400</span><small>已上墙</small></div>
     </div>
     <div class="fields">
       
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
         <div class="fbar"><div class="fbar-fill" style="width: 14%"></div></div>
-        <b>41</b>
+        <b>42</b>
       </div>
       
       <div class="frow">
         <span class="flabel">💊 药物发现</span>
         <div class="fbar"><div class="fbar-fill" style="width: 11%"></div></div>
-        <b>33</b>
+        <b>34</b>
       </div>
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 59%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 58%"></div></div>
         <b>177</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>302</b>
+        <b>303</b>
       </div>
       
       <div class="frow">
@@ -234,14 +234,14 @@
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 98%"></div></div>
-        <b>295</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 99%"></div></div>
+        <b>301</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 40%"></div></div>
-        <b>122</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 37%"></div></div>
+        <b>111</b>
       </div>
       
     </div>
