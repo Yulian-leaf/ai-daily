@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-10-31 16:19 (北京时间 UTC+8)
+      生成于 2026-11-01 09:59 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,34 +95,46 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 10-26 ~ 11-01</h2>
       <p class="r-range">2026-10-26 ~ 2026-11-01</p>
-      <p class="r-overview">本期最鲜明的信号是 AI 不再满足于「拟合输出」，而是直接嵌入物理与热力学约束：电子密度预测跳过 DFT 自洽迭代、电化学模型内建大正则约束、MLIP 加一层热力学修正层即可校准相变温度。与此同时，气候领域出现多个可业务化、可长期耦合的工程级成果，公里级模式与百年耦合模拟同时落地。数据与基础设施侧，百万级动力学稳定性晶体库、单卡十亿分子聚类、Tensor Core 加速 MLIP 等把「算得起」的门槛继续下压。整体看，本期从「模型更准」转向「流程更闭环、约束更硬、部署更真」。</p>
+      <p class="r-overview">本期最鲜明的信号是「闭环」：智能体不再只做单点预测，而是把测量、建模、验证串成可自动运行的流程，QUANTA 在商用 PPMS 上闭环表征、PULSES 端到端跑完激发态建模、WxCrop 把天气直接换算成农业损失。与此同时，基础模型继续向「通用底座」收敛：FilterFM 用单一权重跨异构动力系统做零样本滤波，MACE 冻结特征把 DFT+LOBSTER 的键强度计算压到约 1 秒。工程侧的量级同样醒目：SD3 用 24576 块 GPU 做到每天模拟 205.7 天，Chelombus 单卡 3 小时聚类 10 亿分子。方法上，「不重训、只加约束或修正」成为高频套路，AtomSteer、热力学修正层、保留约束微调都在不改原模型的前提下校准行为。</p>
 
       
       <h3 class="sub">本期亮点</h3>
       <div class="cards">
         
         <article class="card">
+          <span class="field">蛋白质/结构</span>
+          <h2><a href="https://arxiv.org/abs/2610.37410v1" target="_blank" rel="noopener">Accurate structural modelling of protein-glycan recognition with GlycoWeave</a></h2>
+          <p>首个专攻蛋白-糖链识别的扩散模型，698 个复合物基准高质量成功率 71.9%，AlphaFold 3 为 19.2%，单次采样 0.34 秒。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">药物发现</span>
+          <h2><a href="https://arxiv.org/abs/2610.32620v1" target="_blank" rel="noopener">What Transfers Across Protein Pockets? Experience Reuse in Molecular Optimization for Agentic Structure-Based Drug Design</a></h2>
+          <p>系统检验 LLM 智能体跨口袋经验复用，发现可迁移信号主要来自编辑动作与分子本身而非靶点身份，为经验库设计提供反直觉依据。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2610.40528v1" target="_blank" rel="noopener">NEOPIC: A Neural Operator Framework for Particle-based Kinetic Plasma Simulations</a></h2>
+          <p>神经算子直接作用在粒子上替代场求解器，无需网格或树结构，可即插即用并跨不同参考方法训练统一模型。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2610.37606v1" target="_blank" rel="noopener">A unified coarse-grained neural network potential for the dynamics of biomolecular complexes</a></h2>
+          <p>AMARO v2.0 保留全部重原子、隐式处理溶剂，同一套表示覆盖蛋白质、类药小分子及三元蛋白-蛋白-配体复合物。</p>
+        </article>
+        
+        <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.39687v1" target="_blank" rel="noopener">Transformer-inspired architectures make machine-learned electron densities accurate and transferable enough to bypass self-consistency</a></h2>
-          <p>直接预测电子密度，精度足以跳过 DFT 最耗时的自洽迭代，只做一次 Kohn-Sham 步骤即可还原自洽电子结构。</p>
+          <h2><a href="https://arxiv.org/abs/2610.40445v1" target="_blank" rel="noopener">ML-COHP: predicting bond descriptors using latent space of a universal interatomic potentials</a></h2>
+          <p>用 MACE 基础模型冻结特征直接预测 ICOHP，把数小时到数十小时的 DFT+LOBSTER 计算压缩到约 1 秒。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.38195v1" target="_blank" rel="noopener">Crystoria: A Large-Scale Crystal Dataset Linking Thermodynamic and Dynamical Stability for Materials AI</a></h2>
-          <p>264 万条结构、179 万条经声子筛选确认动力学稳定，首次把动力学稳定性做到百万级晶体规模。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.40338v1" target="_blank" rel="noopener">Differentiable Electronic Grand Canonical Learning for Electrochemistry</a></h2>
-          <p>把电化学界面的大正则热力学约束写进可微分模型 GC-MACE，兼顾力与电荷并保证热力学自洽，可做远超第一性原理分子动力学尺度的恒电位模拟。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.34551v1" target="_blank" rel="noopener">A thermodynamic correction layer for machine learning interatomic potentials</a></h2>
-          <p>不重训、不改原模型，加一层热力学修正层即可把 MLIP 的相变温度校准到参考值。</p>
+          <p>264 万条结构、179 万条经声子筛选确认动力学稳定，首个把动力学稳定性做到百万级规模的晶体数据集。</p>
         </article>
         
         <article class="card">
@@ -133,38 +145,32 @@
         
         <article class="card">
           <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.36297v2" target="_blank" rel="noopener">FASST: A Compact Stateless Atmosphere Model for Long-Term Ocean Coupling</a></h2>
-          <p>轻量 U-Net 替代大气与冰模块、只保留真实海洋，首次证明无状态学习大气可支撑百年尺度自由耦合模拟，全球平均海温与 CESM2 几乎一致。</p>
+          <h2><a href="https://arxiv.org/abs/2610.38775v1" target="_blank" rel="noopener">Skillful and realistic precipitation forecasting with reinforced diffusion</a></h2>
+          <p>FitzRoy 用强化学习调教扩散模型，在美国本土同时做到降水预测准与结构物理真实，打破二者二选一的长期困局。</p>
         </article>
         
         <article class="card">
-          <span class="field">蛋白质/结构</span>
-          <h2><a href="https://arxiv.org/abs/2610.37410v1" target="_blank" rel="noopener">Accurate structural modelling of protein-glycan recognition with GlycoWeave</a></h2>
-          <p>首个专攻蛋白-糖链识别的扩散模型，698 个复合物基准高质量成功率 71.9%，远超 AlphaFold 3 的 19.2%，单次采样仅 0.34 秒。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">药物发现</span>
-          <h2><a href="https://arxiv.org/abs/2610.32620v1" target="_blank" rel="noopener">What Transfers Across Protein Pockets? Experience Reuse in Molecular Optimization for Agentic Structure-Based Drug Design</a></h2>
-          <p>系统检验 LLM 智能体跨口袋经验复用，发现可迁移信号主要来自编辑动作与分子本身而非靶点身份，为经验库设计提供反直觉依据。</p>
+          <span class="field">AI4Math/PDE</span>
+          <h2><a href="https://arxiv.org/abs/2610.35617v1" target="_blank" rel="noopener">Distilling neural networks into equations to predict planetary instability</a></h2>
+          <p>把神经网络蒸馏成可读代数公式，首次给出预测多行星系统失稳时机的解析方程，兼顾精度与可解释性。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.37485v1" target="_blank" rel="noopener">AMOR: Adaptive Modal Operator Refinement for Operator Learning on Arbitrary Meshes and Irregular 3D Geometries</a></h2>
-          <p>用可学习降维基块替换 FNO 的傅里叶卷积，让算子学习首次直接跑在任意网格与不规则三维几何上，并把三维谱参数从 m³ 增长压下来。</p>
+          <p>用可学习降维基块替换 FNO 的傅里叶卷积，算子学习首次直接跑在任意网格与不规则三维几何上，并压住三维谱参数增长。</p>
         </article>
         
         <article class="card">
           <span class="field">科学基础模型</span>
           <h2><a href="https://arxiv.org/abs/2610.40437v1" target="_blank" rel="noopener">A Pretrained Model for Bayesian Filtering in Heterogeneous Dynamical Systems</a></h2>
-          <p>首个面向贝叶斯滤波的预训练基础模型 FilterFM，单一权重跨异构动力系统估计隐状态，并首次实现未见动力学上的零样本滤波。</p>
+          <p>FilterFM 以单一权重跨异构动力系统估计隐状态，首次实现未见动力学上的零样本滤波。</p>
         </article>
         
         <article class="card">
           <span class="field">生物信息</span>
-          <h2><a href="https://arxiv.org/abs/2610.28853v1" target="_blank" rel="noopener">An autoencoder outperforms two transformers on prediction of gene expression from chromatin accessibility</a></h2>
-          <p>双变分自编码器管线在全部 60 组配对比较中胜过两个 Transformer，预测基因表达更准且训练时间缩短到约四分之一。</p>
+          <h2><a href="https://arxiv.org/abs/2610.40556v1" target="_blank" rel="noopener">Advancing Clinical Genomic Analysis with a Skill-Centred Agent</a></h2>
+          <p>把临床基因组分析拆成 105 个可执行技能由大模型编排，223 个时间外推病例上与专家结论一致率从 45.7% 提到 71.7%。</p>
         </article>
         
       </div>
@@ -172,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期「物理约束内嵌」从零散尝试变成成组出现：电子密度跳过自洽、电化学大正则约束、MLIP 热力学修正层、光谱预测写守恒律，说明 AI4S 正从「学数据分布」转向「学物理闭环」。气候方向则从单点模型转向可业务运行与长期耦合的工程验证，出现业务级公里模式与百年耦合模拟。基础设施侧，单卡十亿分子聚类、Tensor Core 加速 MLIP、GPU 原生可微刚性求解器等把大规模计算的门槛继续下压。</p>
+      <p>与上一期相比，单点模型精度竞赛明显降温，取而代之的是三类新动向：一是「智能体闭环」从概念走向真实仪器与业务系统，QUANTA、PULSES、WxCrop、HRRRCast 都强调跑满周期或端到端验证；二是「免重训适配」成为主流工程范式，AtomSteer、热力学修正层、保留约束微调、对称性低秩微调都在不动原权重的前提下校准行为；三是科学基础模型开始横向铺开，FilterFM 跨动力系统、MACE 特征跨任务复用，显示通用底座正从分子扩展到动力学与滤波问题。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注「约束内嵌」能否从单点演示走向通用框架，以及业务级 AI 天气模式与百年耦合模拟的独立验证结果；同时留意百万级动力学稳定性数据如何反哺生成式材料发现。</p>
+      <p>下期值得关注智能体闭环在真实实验室与业务系统中的可复现性报告，以及「冻结基础模型 + 轻量适配层」能否在材料与分子任务上形成统一评测基准。</p>
       
     </section>
     

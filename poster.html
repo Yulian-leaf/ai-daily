@@ -79,12 +79,12 @@
     <div class="brand">AI4S-DAILY</div>
     
     <h1 class="title">AI4S 周报 · 10-26 ~ 11-01</h1>
-    <p class="slogan">「从预测到自洽，AI 开始接管物理闭环」</p>
-    <p class="range">2026-10-26 ~ 2026-11-01 · 2026-10-31 16:19 (北京时间 UTC+8)</p>
+    <p class="slogan">「从预测走向闭环：AI 开始接管科学流程」</p>
+    <p class="range">2026-10-26 ~ 2026-11-01 · 2026-11-01 09:59 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期最鲜明的信号是 AI 不再满足于「拟合输出」，而是直接嵌入物理与热力学约束：电子密度预测跳过 DFT 自洽迭代、电化学模型内建大正则约束、MLIP 加一层热力学修正层即可校准相变温度。与此同时，气候领域出现多个可业务化、可长期耦合的工程级成果，公里级模式与百年耦合模拟同时落地。数据与基础设施侧，百万级动力学稳定性晶体库、单卡十亿分子聚类、Tensor Core 加速 MLIP 等把「算得起」的门槛继续下压。整体看，本期从「模型更准」转向「流程更闭环、约束更硬、部署更真」。</p>
+  <p class="overview">本期最鲜明的信号是「闭环」：智能体不再只做单点预测，而是把测量、建模、验证串成可自动运行的流程，QUANTA 在商用 PPMS 上闭环表征、PULSES 端到端跑完激发态建模、WxCrop 把天气直接换算成农业损失。与此同时，基础模型继续向「通用底座」收敛：FilterFM 用单一权重跨异构动力系统做零样本滤波，MACE 冻结特征把 DFT+LOBSTER 的键强度计算压到约 1 秒。工程侧的量级同样醒目：SD3 用 24576 块 GPU 做到每天模拟 205.7 天，Chelombus 单卡 3 小时聚类 10 亿分子。方法上，「不重训、只加约束或修正」成为高频套路，AtomSteer、热力学修正层、保留约束微调都在不改原模型的前提下校准行为。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -176,8 +176,8 @@
       <span class="field">🧫 生物信息</span>
       <span class="score">7.0</span>
     </div>
-    <h3>An autoencoder outperforms two transformers on prediction of gene expression from chromatin accessibility</h3>
-    <p>在统一基准上，一个基于双变分自编码器的管线在全部 60 组配对比较中，都胜过两个 Transformer 模型，预测基因表达的准确率更高，训练时间还缩短到约四分…</p>
+    <h3>Advancing Clinical Genomic Analysis with a Skill-Centred Agent</h3>
+    <p>把临床基因组分析拆成 105 个可执行「技能」，由大模型按任务检索并编排调用，在 223 个时间外推病例上把与专家结论的一致率从 45.7% 提到 71.7%，…</p>
   </div>
   
   </div>
@@ -185,14 +185,14 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期「物理约束内嵌」从零散尝试变成成组出现：电子密度跳过自洽、电化学大正则约束、MLIP 热力学修正层、光谱预测写守恒律，说明 AI4S 正从「学数据分布」转向「学物理闭环」。气候方向则从单点模型转向可业务运行与长期耦合的工程验证，出现业务级公里模式与百年耦合模拟。基础设施侧，单卡十亿分子聚类、Tensor Core 加速 MLIP、GPU 原生可微刚性求解器等把大规模计算的门槛继续下压。</p>
+  <p class="trend">与上一期相比，单点模型精度竞赛明显降温，取而代之的是三类新动向：一是「智能体闭环」从概念走向真实仪器与业务系统，QUANTA、PULSES、WxCrop、HRRRCast 都强调跑满周期或端到端验证；二是「免重训适配」成为主流工程范式，AtomSteer、热力学修正层、保留约束微调、对称性低秩微调都在不动原权重的前提下校准行为；三是科学基础模型开始横向铺开，FilterFM 跨动力系统、MACE 特征跨任务复用，显示通用底座正从分子扩展到动力学与滤波问题。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">5616</span><small>抓取条目</small></div>
-      <div><span class="num">400</span><small>总结</small></div>
-      <div><span class="num">400</span><small>已上墙</small></div>
+      <div><span class="num">5622</span><small>抓取条目</small></div>
+      <div><span class="num">410</span><small>总结</small></div>
+      <div><span class="num">410</span><small>已上墙</small></div>
     </div>
     <div class="fields">
       
@@ -211,13 +211,13 @@
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
         <div class="fbar"><div class="fbar-fill" style="width: 58%"></div></div>
-        <b>177</b>
+        <b>178</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
         <div class="fbar"><div class="fbar-fill" style="width: 99%"></div></div>
-        <b>303</b>
+        <b>304</b>
       </div>
       
       <div class="frow">
@@ -229,13 +229,13 @@
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
         <div class="fbar"><div class="fbar-fill" style="width: 30%"></div></div>
-        <b>93</b>
+        <b>92</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>306</b>
+        <b>307</b>
       </div>
       
       <div class="frow">
