@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="weekly.html">周报 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-11-01 09:59 (北京时间 UTC+8)
+      生成于 2026-11-01 14:40 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 双周报告 · 10-19 ~ 11-01</h2>
       <p class="r-range">2026-10-19 ~ 2026-11-01</p>
-      <p class="r-overview">这两周 AI4S 的主旋律是「从预测走向可控生成、从黑箱走向可微闭环」：蛋白质与材料生成模型开始强调推理时约束与奖励引导，分子模拟则密集出现可微分、热力学自洽与不确定性校准的工作。第一周以「生成范式的扩张」为主——晶体按对称性轨道生成、反应网络生成式发现、蛋白-糖链专用扩散模型、气候扩散降尺度集中出现；第二周明显转向「把物理与数学约束塞进模型」——可微电子大正则学习、PDE 理论引导的神经算子、结构保持黎曼求解器、热力学修正层与保留约束微调。量化上看，materials 与 molsim 仍是最大票仓（合计约 50 条），climate 从第一周的高密度业务化验证转向第二周的机理与评估方法反思，ai4math 则从「算子加速」转向「结构复杂度与可证明性」。整体上，评价协议、基准污染与不确定性可比性成为跨领域的共同焦虑。</p>
+      <p class="r-overview">这两周 AI4S 的主旋律是「从预测精度转向可微、可控、可闭环」：可微分模拟与算子学习密集出现，生成模型开始被约束、被引导、被接入真实实验与业务系统。第一周以方法层创新为主，集中在神经算子、可微求解器、MLIP 的热力学与不确定性修正；第二周明显转向系统级与闭环验证，出现业务化公里级天气模式、智能体驱动的量子测量与湿实验闭环、以及百万原子级量子-经典耦合。跨周看，材料与分子模拟仍是最大板块，但气候与科学基础模型的工程化、业务化条目占比上升。同时，「评估协议本身影响结论」类元研究增多，说明领域开始反思基准可信度。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -104,37 +104,37 @@
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://www.nature.com/articles/s41586-026-11205-z" target="_blank" rel="noopener">Programmable design of functional proteins from natural language</a></h2>
-          <p>160 亿参数模型 Pinal 用自然语言直接设计有实验活性的功能蛋白，且无需迭代优化即提高二氧化碳固定产物产量。</p>
+          <p>160 亿参数模型 Pinal 用自然语言直接设计有实验活性的功能蛋白，且不迭代优化即提高 CO2 固定产物产量。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2610.37410v1" target="_blank" rel="noopener">Accurate structural modelling of protein-glycan recognition with GlycoWeave</a></h2>
-          <p>首个蛋白-糖链识别专用扩散模型，698 个复合物基准高质量成功率 71.9%，远超 AlphaFold 3 的 19.2%，单次采样 0.34 秒。</p>
+          <p>首个蛋白-糖链识别扩散模型，698 个复合物基准高质量成功率 71.9%，远超 AlphaFold 3 的 19.2%，单次采样 0.34 秒。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.39687v1" target="_blank" rel="noopener">Transformer-inspired architectures make machine-learned electron densities accurate and transferable enough to bypass self-consistency</a></h2>
-          <p>Transformer 类架构直接预测电子密度，精度足以跳过 DFT 最耗时的自洽迭代，只做一次 Kohn-Sham 步骤即还原自洽电子结构。</p>
+          <h2><a href="https://arxiv.org/abs/2610.40445v1" target="_blank" rel="noopener">ML-COHP: predicting bond descriptors using latent space of a universal interatomic potentials</a></h2>
+          <p>用 MACE 冻结特征直接预测键强度描述符 ICOHP，把数小时到数十小时的 DFT+LOBSTER 计算压缩到约 1 秒。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2610.38195v1" target="_blank" rel="noopener">Crystoria: A Large-Scale Crystal Dataset Linking Thermodynamic and Dynamical Stability for Materials AI</a></h2>
-          <p>264 万条晶体结构、179 万条经声子筛选确认动力学稳定，首次把「动力学稳定性」做到百万级规模。</p>
+          <p>264 万条晶体结构、179 万条经声子筛选确认动力学稳定，填补晶体库与物理稳定性信息之间的量级鸿沟。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.40338v1" target="_blank" rel="noopener">Differentiable Electronic Grand Canonical Learning for Electrochemistry</a></h2>
-          <p>把电化学界面的大正则热力学约束写进可微分模型 GC-MACE，兼顾力与电荷并保证热力学自洽，可做远超第一性原理分子动力学的恒电位模拟。</p>
+          <p>把电化学界面大正则热力学约束写进可微模型 GC-MACE，兼顾力与电荷并保证热力学自洽，可做远超第一性原理分子动力学尺度的恒电位模拟。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2610.34551v1" target="_blank" rel="noopener">A thermodynamic correction layer for machine learning interatomic potentials</a></h2>
-          <p>不重训、不改原模型，仅加一层热力学修正层即可把 MLIP 的相变温度校准到参考值。</p>
+          <p>不重训、不改原模型，仅加一层热力学修正即可把 MLIP 的相变温度校准到参考值。</p>
         </article>
         
         <article class="card">
@@ -146,31 +146,31 @@
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.38775v1" target="_blank" rel="noopener">Skillful and realistic precipitation forecasting with reinforced diffusion</a></h2>
-          <p>FitzRoy 用强化学习调教扩散模型，首次在美国本土同时做到降水预测准与物理结构真实。</p>
+          <p>FitzRoy 用强化学习调教扩散模型，在美国本土同时做到降水预测准与物理结构真实，破解长期二选一难题。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2610.29938v1" target="_blank" rel="noopener">A PDE-theory-guided neural operator and the long-time relaxation of the two-dimensional anisotropic Boussinesq system</a></h2>
-          <p>把 PDE 严格数学分析嵌入网络结构，使神经算子能稳定学到长时间松弛中 ε² 量级的极小信号。</p>
+          <h2><a href="https://arxiv.org/abs/2610.37485v1" target="_blank" rel="noopener">AMOR: Adaptive Modal Operator Refinement for Operator Learning on Arbitrary Meshes and Irregular 3D Geometries</a></h2>
+          <p>把 FNO 的傅里叶卷积换成可学习降维基块，让算子学习直接跑在任意网格与不规则三维几何上，并压低三维谱参数增长。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2610.40384v1" target="_blank" rel="noopener">Neural Network Approximation and Structural Complexity of Semilinear PDEs with Lower Bounds</a></h2>
-          <p>首次从方程结构解释神经算子为何只需小网络：半线性抛物型方程的非线性项参数需求与维度无关，二维 Navier-Stokes 仅需 O(log) 量级。</p>
+          <h2><a href="https://arxiv.org/abs/2610.35617v1" target="_blank" rel="noopener">Distilling neural networks into equations to predict planetary instability</a></h2>
+          <p>把神经网络蒸馏成可读代数公式，首次给出预测多行星系统失稳时间的解析方程，兼顾精度与可解释性。</p>
         </article>
         
         <article class="card">
           <span class="field">科学基础模型</span>
           <h2><a href="https://arxiv.org/abs/2610.40437v1" target="_blank" rel="noopener">A Pretrained Model for Bayesian Filtering in Heterogeneous Dynamical Systems</a></h2>
-          <p>首个贝叶斯滤波预训练基础模型 FilterFM，单一权重跨异构动力系统估计隐状态，并首次实现未见动力学上的零样本滤波。</p>
+          <p>首个面向贝叶斯滤波的预训练基础模型 FilterFM，单一权重跨异构动力系统估计隐状态，并实现未见动力学零样本滤波。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.24806v1" target="_blank" rel="noopener">Aptamers as a sandbox for lab-in-the-loop agentic molecular discovery</a></h2>
-          <p>LLM 智能体与湿实验闭环打通，三轮迭代把适配体新候选靶向命中率从 0% 提到 42.1%。</p>
+          <p>LLM 智能体与真实湿实验闭环，三轮迭代把适配体新候选靶向命中率从 0% 提到 42.1%。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>跨周对比看三条线。其一，materials 与 molsim 持续高热且内部结构变化：第一周 materials 偏「生成与数据集」（Orbitol 对称轨道生成、Crystoria 百万级动力学稳定性、MOFFieldBench），第二周转向「评估与物理约束」（uMLIP 合金基准被 DFT 数据库分歧污染、Brillouin 残差惩罚、保留约束微调），说明领域从「造得出」进入「信得过」。其二，climate 明显换挡：第一周是业务化验证密集期（SD3、HRRRCast 一年近实时、Huayu-Global 实时降水、FASST 140 年耦合），第二周转为机理与评估反思（评估协议如何反转模型排名、GraphCast 内部气旋表征、因果先验台风预警），从「能不能跑」转向「怎么评」。其三，ai4math 从「算子提速」（PaPi 约 100 倍、AMOR 任意网格）转向「结构复杂度与可证明性」（半线性 PDE 下界、结构保持黎曼求解器、SNAP 带事后检查的加速），理论味变浓。新浮现方向有二：一是「推理时可控性」成为跨领域共识（AtomSteer、Multi-property Feynman-Kac Steering、RFD4-Proteina 奖励引导、LOGSI 逻辑引导），二是「不确定性可比性」焦虑（MLIP 不确定性随体系大小漂移、条件流模型幻觉非可加效应、评估协议左右排名）。相对降温的是纯 benchmark 类与单点工具发布，条目占比从第一周的约三成降到第二周不足两成。</p>
+      <p>跨周对比看，materials 与 molsim 仍是条目最多的两个板块（两周合计约 40 条），但内部重心从「新模型」转向「修正与评估」：第一周多为 MLIP 新架构与新数据集，第二周密集出现热力学修正层、不确定性随体系大小漂移、合金基准被 DFT 数据库分歧污染等元研究。climate 从第一周的方法创新（球面算子、扩散降尺度）明显转向第二周的业务化与闭环验证（SD3 业务运行、HRRRCast 近实时一年验证、FASST 百年耦合），工程化条目占比由约三成升至约五成。scifm 从零散工具转向「预训练基础模型 + 可处理推断」，出现 FilterFM、world2vec、KAN 可处理推断等。ai4math 保持稳定但更偏「把数学结构写进网络」（PDE 理论引导算子、结构保持黎曼求解器）。新浮现方向是「评估协议元研究」与「智能体闭环实验」：前者两周内出现 3 条以上（天气预报评估排名反转、跨标识符绑定失败、条件流模型幻觉非加性效应），后者从药物适配体扩展到量子测量与临床基因组。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下两周重点跟踪「推理时约束/奖励引导」能否从演示走向跨任务统一框架，以及可微分求解器（GC-MACE、WRF-JAX、diff-soup）在真实业务闭环中的稳定性与梯度可信度；同时关注评估协议与不确定性校准是否形成社区共识性基准。</p>
+      <p>下两周重点跟踪三条线：可微分模拟与算子学习能否从单点演示走向与业务模式/实验平台的稳定耦合；智能体闭环（湿实验、量子测量、临床基因组）的可复现性与失败模式；以及评估协议元研究是否会催生新的基准规范。</p>
       
     </section>
     

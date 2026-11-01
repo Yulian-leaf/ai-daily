@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-11-01 09:59 (北京时间 UTC+8)
+      生成于 2026-11-01 14:40 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,22 +95,22 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 10-26 ~ 11-01</h2>
       <p class="r-range">2026-10-26 ~ 2026-11-01</p>
-      <p class="r-overview">本期最鲜明的信号是「闭环」：智能体不再只做单点预测，而是把测量、建模、验证串成可自动运行的流程，QUANTA 在商用 PPMS 上闭环表征、PULSES 端到端跑完激发态建模、WxCrop 把天气直接换算成农业损失。与此同时，基础模型继续向「通用底座」收敛：FilterFM 用单一权重跨异构动力系统做零样本滤波，MACE 冻结特征把 DFT+LOBSTER 的键强度计算压到约 1 秒。工程侧的量级同样醒目：SD3 用 24576 块 GPU 做到每天模拟 205.7 天，Chelombus 单卡 3 小时聚类 10 亿分子。方法上，「不重训、只加约束或修正」成为高频套路，AtomSteer、热力学修正层、保留约束微调都在不改原模型的前提下校准行为。</p>
+      <p class="r-overview">本期最鲜明的信号是 AI 不再只做「快速近似」，而是直接嵌入科学计算的核心环节：跳过 DFT 自洽迭代、替代粒子模拟的场求解器、把热力学约束写进可微模型、把 WRF 完整搬到 GPU 并可反传梯度。与此同时，气候领域出现多个「业务级」证据——公里级全球模式、区域模式近实时运行一年、百年耦合模拟稳定跑满，AI 天气预报正从论文指标走向可验证的运行记录。材料与分子模拟则集中在「给基础模型加约束、加修正、加数据」：不重训即可校准相变温度、采样时加约束、百万级动力学稳定性数据集补齐。另一个新方向是智能体从单点任务走向闭环流程：量子测量、激发态建模、临床基因组分析、农业损失评估都出现了端到端可溯源的多智能体系统。</p>
 
       
       <h3 class="sub">本期亮点</h3>
       <div class="cards">
         
         <article class="card">
-          <span class="field">蛋白质/结构</span>
-          <h2><a href="https://arxiv.org/abs/2610.37410v1" target="_blank" rel="noopener">Accurate structural modelling of protein-glycan recognition with GlycoWeave</a></h2>
-          <p>首个专攻蛋白-糖链识别的扩散模型，698 个复合物基准高质量成功率 71.9%，AlphaFold 3 为 19.2%，单次采样 0.34 秒。</p>
+          <span class="field">材料科学</span>
+          <h2><a href="https://arxiv.org/abs/2610.39687v1" target="_blank" rel="noopener">Transformer-inspired architectures make machine-learned electron densities accurate and transferable enough to bypass self-consistency</a></h2>
+          <p>用 Transformer 类架构直接预测电子密度，精度高到可跳过 DFT 最耗时的自洽迭代，只做一次 Kohn-Sham 步骤即还原自洽电子结构。</p>
         </article>
         
         <article class="card">
-          <span class="field">药物发现</span>
-          <h2><a href="https://arxiv.org/abs/2610.32620v1" target="_blank" rel="noopener">What Transfers Across Protein Pockets? Experience Reuse in Molecular Optimization for Agentic Structure-Based Drug Design</a></h2>
-          <p>系统检验 LLM 智能体跨口袋经验复用，发现可迁移信号主要来自编辑动作与分子本身而非靶点身份，为经验库设计提供反直觉依据。</p>
+          <span class="field">材料科学</span>
+          <h2><a href="https://arxiv.org/abs/2610.38195v1" target="_blank" rel="noopener">Crystoria: A Large-Scale Crystal Dataset Linking Thermodynamic and Dynamical Stability for Materials AI</a></h2>
+          <p>首个百万级动力学稳定性晶体数据集：264 万条结构、179 万条经声子筛选确认动力学稳定，填补结构库与物理稳定性之间的量级鸿沟。</p>
         </article>
         
         <article class="card">
@@ -121,50 +121,44 @@
         
         <article class="card">
           <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.37606v1" target="_blank" rel="noopener">A unified coarse-grained neural network potential for the dynamics of biomolecular complexes</a></h2>
-          <p>AMARO v2.0 保留全部重原子、隐式处理溶剂，同一套表示覆盖蛋白质、类药小分子及三元蛋白-蛋白-配体复合物。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.40445v1" target="_blank" rel="noopener">ML-COHP: predicting bond descriptors using latent space of a universal interatomic potentials</a></h2>
-          <p>用 MACE 基础模型冻结特征直接预测 ICOHP，把数小时到数十小时的 DFT+LOBSTER 计算压缩到约 1 秒。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.38195v1" target="_blank" rel="noopener">Crystoria: A Large-Scale Crystal Dataset Linking Thermodynamic and Dynamical Stability for Materials AI</a></h2>
-          <p>264 万条结构、179 万条经声子筛选确认动力学稳定，首个把动力学稳定性做到百万级规模的晶体数据集。</p>
+          <h2><a href="https://arxiv.org/abs/2610.34551v1" target="_blank" rel="noopener">A thermodynamic correction layer for machine learning interatomic potentials</a></h2>
+          <p>给 MLIP 加一层热力学修正层，不重训、不改原模型即可把相变温度校准到参考值。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.39334v1" target="_blank" rel="noopener">SD3: The First Operationally-Proven, Fully Heterogeneous-Accelerated Global Kilometer-Scale Model with Inline Physics Architecture</a></h2>
-          <p>首个业务运行的全球 1.5 km 全异构加速天气/气候模式，24576 块 GPU 实现每天模拟 205.7 天。</p>
+          <p>首个业务运行的全球 1.5 km 全异构加速天气/气候模式，24576 块 GPU 做到每天模拟 205.7 天。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.38775v1" target="_blank" rel="noopener">Skillful and realistic precipitation forecasting with reinforced diffusion</a></h2>
-          <p>FitzRoy 用强化学习调教扩散模型，在美国本土同时做到降水预测准与结构物理真实，打破二者二选一的长期困局。</p>
+          <h2><a href="https://arxiv.org/abs/2610.36186v1" target="_blank" rel="noopener">Towards operational data-driven regional weather forecasting: extreme-event skill and near-real-time verification with HRRRCast</a></h2>
+          <p>首个近实时业务运行满一年、并用独立观测验证的数据驱动区域天气模型，在 3 km 对流尺度对标业务数值模式。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.35617v1" target="_blank" rel="noopener">Distilling neural networks into equations to predict planetary instability</a></h2>
-          <p>把神经网络蒸馏成可读代数公式，首次给出预测多行星系统失稳时机的解析方程，兼顾精度与可解释性。</p>
+          <p>把神经网络蒸馏成可读代数公式，首次给出预测多行星系统失稳的解析方程，兼顾精度与可解释性。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.37485v1" target="_blank" rel="noopener">AMOR: Adaptive Modal Operator Refinement for Operator Learning on Arbitrary Meshes and Irregular 3D Geometries</a></h2>
-          <p>用可学习降维基块替换 FNO 的傅里叶卷积，算子学习首次直接跑在任意网格与不规则三维几何上，并压住三维谱参数增长。</p>
+          <p>把 FNO 的傅里叶卷积换成可学习降维基块，让算子学习首次直接跑在任意网格和不规则三维几何上，并压低三维谱参数增长。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">蛋白质/结构</span>
+          <h2><a href="https://arxiv.org/abs/2610.37410v1" target="_blank" rel="noopener">Accurate structural modelling of protein-glycan recognition with GlycoWeave</a></h2>
+          <p>首个专门针对蛋白质-糖链识别的扩散模型，698 个复合物基准高质量成功率 71.9%，远超 AlphaFold 3 的 19.2%，单次采样仅 0.34 秒。</p>
         </article>
         
         <article class="card">
           <span class="field">科学基础模型</span>
           <h2><a href="https://arxiv.org/abs/2610.40437v1" target="_blank" rel="noopener">A Pretrained Model for Bayesian Filtering in Heterogeneous Dynamical Systems</a></h2>
-          <p>FilterFM 以单一权重跨异构动力系统估计隐状态，首次实现未见动力学上的零样本滤波。</p>
+          <p>首个面向贝叶斯滤波的预训练基础模型 FilterFM，单一权重跨异构动力系统估计隐状态，并首次实现未见动力学上的零样本滤波。</p>
         </article>
         
         <article class="card">
@@ -173,16 +167,22 @@
           <p>把临床基因组分析拆成 105 个可执行技能由大模型编排，223 个时间外推病例上与专家结论一致率从 45.7% 提到 71.7%。</p>
         </article>
         
+        <article class="card">
+          <span class="field">药物发现</span>
+          <h2><a href="https://arxiv.org/abs/2610.32620v1" target="_blank" rel="noopener">What Transfers Across Protein Pockets? Experience Reuse in Molecular Optimization for Agentic Structure-Based Drug Design</a></h2>
+          <p>首次系统检验 LLM 智能体跨蛋白口袋的经验复用，发现可迁移信号主要来自编辑动作和分子本身而非靶点身份，为经验库设计提供反直觉依据。</p>
+        </article>
+        
       </div>
       
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，单点模型精度竞赛明显降温，取而代之的是三类新动向：一是「智能体闭环」从概念走向真实仪器与业务系统，QUANTA、PULSES、WxCrop、HRRRCast 都强调跑满周期或端到端验证；二是「免重训适配」成为主流工程范式，AtomSteer、热力学修正层、保留约束微调、对称性低秩微调都在不动原权重的前提下校准行为；三是科学基础模型开始横向铺开，FilterFM 跨动力系统、MACE 特征跨任务复用，显示通用底座正从分子扩展到动力学与滤波问题。</p>
+      <p>与上一期相比，本期从「用 AI 加速单点计算」明显转向「把 AI 放进科学计算闭环并保证自洽」：可微求解器、热力学修正层、约束采样、跳过自洽迭代成为共同关键词；气候领域集中出现业务运行与长期稳定性证据，而非单纯基准分数；材料与分子模拟则从「造更大基础模型」转向「给已有基础模型加约束、加数据、加校准」；智能体从单任务工具升级为可溯源的多步骤流程。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注智能体闭环在真实实验室与业务系统中的可复现性报告，以及「冻结基础模型 + 轻量适配层」能否在材料与分子任务上形成统一评测基准。</p>
+      <p>下期值得关注：可微天气/气候模式与业务预报的误差评估能否给出跨季节的稳定结论；以及「不重训即校准」类方法（热力学修正层、测试时约束）能否从个案走向通用接口。</p>
       
     </section>
     
