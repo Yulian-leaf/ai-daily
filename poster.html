@@ -78,13 +78,13 @@
   <div class="hero">
     <div class="brand">AI4S-DAILY</div>
     
-    <h1 class="title">AI4S 周报 · 10-26 ~ 11-01</h1>
-    <p class="slogan">「从替代一步到重写全流程」</p>
-    <p class="range">2026-10-26 ~ 2026-11-01 · 2026-11-01 17:02 (北京时间 UTC+8)</p>
+    <h1 class="title">AI4S 周报 · 11-02 ~ 11-08</h1>
+    <p class="slogan">「让物理约束住 AI，让数据跑得更远」</p>
+    <p class="range">2026-11-02 ~ 2026-11-08 · 2026-11-02 10:12 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期最鲜明的信号是 AI 不再只替代单个计算步骤，而是开始接管整条科研流程：从电子密度预测跳过自洽迭代、从反应物直接生成反应网络，到多智能体自动完成激发态建模与量子测量闭环。与此同时，物理约束被更系统地写进模型内部——热力学自洽、因果先验、守恒律、对称性，而不是事后修补。气候与材料两个领域在「业务级可用性」上推进明显：公里级全球模式跑进业务预报，百万级晶体数据集补上动力学稳定性缺口。基础模型继续向异构系统泛化，零样本滤波与统一粗粒化势能是本周的代表。</p>
+  <p class="overview">本期 AI4S 的主旋律是「把物理与实验约束嵌入学习流程」：从 PDE 求解算子迁移、ML 跳步时间积分，到有限温度热力学数据自动接入 CALPHAD，方法侧普遍强调可计算、可验证的误差判据。数据侧出现两条新路径——把免纯化直接生物测试（D2B）的粗数据直接用于药物筛选学习，以及把几十年文献热力学证据结构化复用。同时，全原子尺度复现振动极化激元凝聚、电子结构 n 体描述符映射到 n 量子比特门，显示多尺度与量子-经典接口正在成为分子模拟的新增长点。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -92,74 +92,11 @@
   
   <div class="hl">
     <div class="hl-head">
-      <span class="field">🧬 蛋白质/结构</span>
-      <span class="score">8.0</span>
-    </div>
-    <h3>Accurate structural modelling of protein-glycan recognition with GlycoWeave</h3>
-    <p>首个专门针对蛋白质-糖链识别的扩散模型，在698个复合物基准上高质量成功率71.9%，远超AlphaFold 3的19.2%，且单次采样仅0.34秒。</p>
-  </div>
-  
-  <div class="hl">
-    <div class="hl-head">
-      <span class="field">⚛️ 分子模拟</span>
-      <span class="score">8.0</span>
-    </div>
-    <h3>NEOPIC: A Neural Operator Framework for Particle-based Kinetic Plasma Simulations</h3>
-    <p>提出 NEOPIC，一种直接作用在粒子上的神经算子，用来替代粒子模拟中的场求解器；无需网格或树结构，可即插即用，还能跨不同参考方法训练出统一模型。</p>
-  </div>
-  
-  <div class="hl">
-    <div class="hl-head">
-      <span class="field">🧪 材料科学</span>
-      <span class="score">8.0</span>
-    </div>
-    <h3>ML-COHP: predicting bond descriptors using latent space of a universal interatomic potentials</h3>
-    <p>用通用原子间势（MACE 基础模型）的冻结特征直接预测键强度描述符 ICOHP，把原本需要数小时到数十小时的 DFT+LOBSTER 计算压缩到约 1 秒，误差…</p>
-  </div>
-  
-  <div class="hl">
-    <div class="hl-head">
-      <span class="field">🌍 气候地球</span>
-      <span class="score">8.0</span>
-    </div>
-    <h3>SD3: The First Operationally-Proven, Fully Heterogeneous-Accelerated Global Kilometer-Scale Model with Inline Physics Architecture</h3>
-    <p>首个在业务预报中真正跑起来的全球公里级（1.5 km）全异构加速天气/气候模式，用 24576 块 GPU 做到每天模拟 205.7 天，且用原生 CUDA 重…</p>
-  </div>
-  
-  <div class="hl">
-    <div class="hl-head">
       <span class="field">📐 AI4Math/PDE</span>
       <span class="score">8.0</span>
     </div>
-    <h3>JoostHMPrins/ngo</h3>
-    <p>把「格林算子」这一数学工具做成神经网络版本，专门求解带参数变化的偏微分方程（PDE，描述物理场的方程），一次训练即可对多组参数快速求解，而非每次重新计算。</p>
-  </div>
-  
-  <div class="hl">
-    <div class="hl-head">
-      <span class="field">🧠 科学基础模型</span>
-      <span class="score">8.0</span>
-    </div>
-    <h3>A Pretrained Model for Bayesian Filtering in Heterogeneous Dynamical Systems</h3>
-    <p>首个面向贝叶斯滤波的预训练基础模型 FilterFM：单一权重即可跨异构动力系统估计隐状态，并首次实现未见动力学上的零样本滤波。</p>
-  </div>
-  
-  <div class="hl">
-    <div class="hl-head">
-      <span class="field">⚛️ 分子模拟</span>
-      <span class="score">8.0</span>
-    </div>
-    <h3>Differentiable Electronic Grand Canonical Learning for Electrochemistry</h3>
-    <p>把电化学界面的「大正则」热力学约束直接写进可微分模型，做出 GC-MACE：既能算力与电荷，又保证热力学自洽，还能在比第一性原理分子动力学大得多的尺度上做恒电位…</p>
-  </div>
-  
-  <div class="hl">
-    <div class="hl-head">
-      <span class="field">🧪 材料科学</span>
-      <span class="score">8.0</span>
-    </div>
-    <h3>Transformer-inspired architectures make machine-learned electron densities accurate and transferable enough to bypass self-consistency</h3>
-    <p>用 Transformer 类架构直接预测电子密度，精度高到可以跳过密度泛函理论（DFT）里最耗时的自洽迭代，只做一次 Kohn-Sham 步骤就还原自洽电子结…</p>
+    <h3>Instrumental Transfer Learning for Solution Operators</h3>
+    <p>针对目标系统数据稀缺、源系统方程有未知稀疏差异的场景，提出结构化迁移学习，首次给出迁移何时能达到全源合并速率的非渐近预测界与可识别性下界。</p>
   </div>
   
   <div class="hl">
@@ -167,8 +104,26 @@
       <span class="field">💊 药物发现</span>
       <span class="score">7.0</span>
     </div>
-    <h3>gnina/gnina</h3>
-    <p>Gnina 把深度学习打分函数直接嵌进分子对接流程，让「找姿势」和「判好坏」用同一个神经网络完成，是药物发现里少见的、长期维护的开源对接框架。</p>
+    <h3>D2ML: Models for Direct-to-Biology Small Molecule Screening</h3>
+    <p>首次系统性地把「免纯化直接生物测试」（D2B）的原始数据用于机器学习，让模型直接从未纯化混合物的单点筛选和粗测剂量反应中学习，并成功指导新化合物合成，选出比训练…</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">⚛️ 分子模拟</span>
+      <span class="score">7.0</span>
+    </div>
+    <h3>Machine Learning-Enabled Time-Skipping Method: Theory and Perturbation-Based Verification</h3>
+    <p>提出「机器学习跳步」框架：让 ML 一次跨过多个时间步、再由物理求解器回拉纠错，并用隐函数定理给出误差是否可控的一阶判据，把「能不能跳、跳多少」从调参变成可计算…</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">🧪 材料科学</span>
+      <span class="score">7.0</span>
+    </div>
+    <h3>CAP: Learning to Optimize from Sparse Observations of Related Tasks</h3>
+    <p>把「已完成的相关实验记录」变成可复用的优化经验：即使每个任务只有几条稀疏历史，也能学出一个在新任务上按反馈逐步调整查询的策略，直接服务实验成本高昂的黑盒优化。</p>
   </div>
   
   <div class="hl">
@@ -176,8 +131,26 @@
       <span class="field">🧫 生物信息</span>
       <span class="score">7.0</span>
     </div>
-    <h3>Advancing Clinical Genomic Analysis with a Skill-Centred Agent</h3>
-    <p>把临床基因组分析拆成 105 个可执行「技能」，由大模型按任务检索并编排调用，在 223 个时间外推病例上把与专家结论的一致率从 45.7% 提到 71.7%，…</p>
+    <h3>Do Language Models Know What Compelling Scientific Evidence Looks Like?</h3>
+    <p>首个用真实生物学数据检验语言模型「证据权衡」能力的基准 EDB-Bio，揭示前沿模型在科学证据判断上系统性信心不足，经校准训练后可反超。</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">🧪 材料科学</span>
+      <span class="score">7.0</span>
+    </div>
+    <h3>ORCHID: Connecting Finite-Temperature Thermodynamic Evidence to Computational Materials Discovery</h3>
+    <p>把散落在几十年文献里的有限温度热力学数据整理成结构化数据库，并直接接入 CALPHAD（相图计算）自动拟合流程，让「读文献」和「建热力学模型」连成一条流水线。</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">⚛️ 分子模拟</span>
+      <span class="score">7.0</span>
+    </div>
+    <h3>Atomistic Emergence of Vibrational Polariton Condensation</h3>
+    <p>首次用全原子尺度的分子动力学模拟复现「振动极化激元凝聚」这一宏观量子现象，不再依赖现象学参数，并给出约5000万原子的二维实空间成像。</p>
   </div>
   
   </div>
@@ -185,63 +158,63 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，三个方向明显升温：一是「跳过中间步骤」的端到端替代从单点走向流程级，电子密度绕过自洽迭代、反应网络绕过模板枚举、经验复用绕过靶点重训；二是智能体从演示走向闭环，量子测量、激发态建模、临床基因组分析都出现了可追溯的完整流水线；三是约束内生化成为共识，热力学修正层、因果先验、对称性微调、物理约束光谱预测集中出现，说明社区正从「先训后修」转向「训练即守约束」。</p>
+  <p class="trend">与上一期相比，本期从「堆模型」转向「给判据」：迁移学习、时间跳步、模型降阶三条线都补上了非渐近界或一阶误差判据，方法可验证性明显增强。新出现的方向有两个：一是把实验流程中的「粗数据」（D2B 未纯化筛选、稀疏历史实验记录）直接纳入学习闭环；二是量子-经典接口开始与电子结构描述符对接，分子模拟的多尺度链条从全原子延伸到量子线路。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">5626</span><small>抓取条目</small></div>
-      <div><span class="num">410</span><small>总结</small></div>
-      <div><span class="num">410</span><small>已上墙</small></div>
+      <div><span class="num">5708</span><small>抓取条目</small></div>
+      <div><span class="num">420</span><small>总结</small></div>
+      <div><span class="num">420</span><small>已上墙</small></div>
     </div>
     <div class="fields">
       
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 14%"></div></div>
-        <b>42</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 13%"></div></div>
+        <b>44</b>
       </div>
       
       <div class="frow">
         <span class="flabel">💊 药物发现</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 11%"></div></div>
-        <b>35</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 10%"></div></div>
+        <b>36</b>
       </div>
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 57%"></div></div>
-        <b>178</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 55%"></div></div>
+        <b>189</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 98%"></div></div>
-        <b>304</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 92%"></div></div>
+        <b>318</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 39%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 35%"></div></div>
         <b>122</b>
       </div>
       
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
         <div class="fbar"><div class="fbar-fill" style="width: 30%"></div></div>
-        <b>93</b>
+        <b>102</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>310</b>
+        <b>345</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 35%"></div></div>
-        <b>110</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 33%"></div></div>
+        <b>115</b>
       </div>
       
     </div>

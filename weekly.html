@@ -87,90 +87,78 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-11-01 17:02 (北京时间 UTC+8)
+      生成于 2026-11-02 10:11 (北京时间 UTC+8)
     </p>
   </header>
   <main>
     
     <section class="latest">
-      <h2 class="r-title">AI4S 周报 · 10-26 ~ 11-01</h2>
-      <p class="r-range">2026-10-26 ~ 2026-11-01</p>
-      <p class="r-overview">本期最鲜明的信号是 AI 不再只替代单个计算步骤，而是开始接管整条科研流程：从电子密度预测跳过自洽迭代、从反应物直接生成反应网络，到多智能体自动完成激发态建模与量子测量闭环。与此同时，物理约束被更系统地写进模型内部——热力学自洽、因果先验、守恒律、对称性，而不是事后修补。气候与材料两个领域在「业务级可用性」上推进明显：公里级全球模式跑进业务预报，百万级晶体数据集补上动力学稳定性缺口。基础模型继续向异构系统泛化，零样本滤波与统一粗粒化势能是本周的代表。</p>
+      <h2 class="r-title">AI4S 周报 · 11-02 ~ 11-08</h2>
+      <p class="r-range">2026-11-02 ~ 2026-11-08</p>
+      <p class="r-overview">本期 AI4S 的主旋律是「把物理与实验约束嵌入学习流程」：从 PDE 求解算子迁移、ML 跳步时间积分，到有限温度热力学数据自动接入 CALPHAD，方法侧普遍强调可计算、可验证的误差判据。数据侧出现两条新路径——把免纯化直接生物测试（D2B）的粗数据直接用于药物筛选学习，以及把几十年文献热力学证据结构化复用。同时，全原子尺度复现振动极化激元凝聚、电子结构 n 体描述符映射到 n 量子比特门，显示多尺度与量子-经典接口正在成为分子模拟的新增长点。</p>
 
       
       <h3 class="sub">本期亮点</h3>
       <div class="cards">
         
         <article class="card">
-          <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.39687v1" target="_blank" rel="noopener">Transformer-inspired architectures make machine-learned electron densities accurate and transferable enough to bypass self-consistency</a></h2>
-          <p>直接预测电子密度并跳过 DFT 最耗时的自洽迭代，只做一次 Kohn-Sham 步骤即可还原自洽电子结构。</p>
+          <span class="field">AI4Math/PDE</span>
+          <h2><a href="https://arxiv.org/abs/2610.41262v1" target="_blank" rel="noopener">Instrumental Transfer Learning for Solution Operators</a></h2>
+          <p>针对目标系统数据稀缺、源方程存在未知稀疏差异的场景，首次给出迁移何时能达到全源合并速率的非渐近预测界与可识别性下界。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">AI4Math/PDE</span>
+          <h2><a href="https://arxiv.org/abs/2610.41043v1" target="_blank" rel="noopener">Meshless Latent Dynamics Models for Model Order Reduction of time-dependent PDEs</a></h2>
+          <p>用神经场做条件化的无网格潜动力学统一框架，为时变 PDE 的模型降阶提供可证明的数学表述。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.38195v1" target="_blank" rel="noopener">Crystoria: A Large-Scale Crystal Dataset Linking Thermodynamic and Dynamical Stability for Materials AI</a></h2>
-          <p>264 万条结构、179 万条经声子筛选确认动力学稳定，首次把动力学稳定性做到百万级晶体规模。</p>
+          <h2><a href="https://arxiv.org/abs/2610.41173v1" target="_blank" rel="noopener">CAP: Learning to Optimize from Sparse Observations of Related Tasks</a></h2>
+          <p>把已完成的相关实验记录变成可复用优化经验，每个任务仅几条稀疏历史也能学出按反馈逐步调整查询的策略。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">材料科学</span>
+          <h2><a href="https://arxiv.org/abs/2610.41164v1" target="_blank" rel="noopener">ORCHID: Connecting Finite-Temperature Thermodynamic Evidence to Computational Materials Discovery</a></h2>
+          <p>将散落数十年的有限温度热力学数据整理为结构化数据库并直连 CALPHAD 自动拟合，把读文献与建热力学模型连成流水线。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.38236v1" target="_blank" rel="noopener">Generative discovery of chemical reaction networks</a></h2>
-          <p>ReactNexus 仅从反应物结构出发、无需预设产物或模板，即可生成完整化学反应网络。</p>
+          <h2><a href="https://arxiv.org/abs/2610.41152v1" target="_blank" rel="noopener">Machine Learning-Enabled Time-Skipping Method: Theory and Perturbation-Based Verification</a></h2>
+          <p>ML 一次跨多时间步、物理求解器回拉纠错，并用隐函数定理给出一阶误差判据，把跳步多少从调参变成可计算问题。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.40445v1" target="_blank" rel="noopener">ML-COHP: predicting bond descriptors using latent space of a universal interatomic potentials</a></h2>
-          <p>用 MACE 基础模型的冻结特征预测键强度描述符 ICOHP，把数小时到数十小时的 DFT+LOBSTER 计算压缩到约 1 秒。</p>
+          <h2><a href="https://arxiv.org/abs/2610.41133v1" target="_blank" rel="noopener">Atomistic Emergence of Vibrational Polariton Condensation</a></h2>
+          <p>首次用全原子分子动力学复现振动极化激元凝聚，不依赖现象学参数，并给出约 5000 万原子的二维实空间成像。</p>
         </article>
         
         <article class="card">
-          <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.39334v1" target="_blank" rel="noopener">SD3: The First Operationally-Proven, Fully Heterogeneous-Accelerated Global Kilometer-Scale Model with Inline Physics Architecture</a></h2>
-          <p>首个业务运行的全球 1.5 km 全异构加速天气/气候模式，24576 块 GPU 实现每天模拟 205.7 天。</p>
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2610.40840v1" target="_blank" rel="noopener">Electronic-Structure-Informed Many-Body Encoding for Quantum Machine Learning</a></h2>
+          <p>把电子结构的 n 体描述符直接映射为 n 量子比特门，使量子线路多体表达能力随输入物理层级系统升级。</p>
         </article>
         
         <article class="card">
-          <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.38775v1" target="_blank" rel="noopener">Skillful and realistic precipitation forecasting with reinforced diffusion</a></h2>
-          <p>FitzRoy 用强化学习调教扩散模型，在美国本土同时做到降水预测准与结构物理真实。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">蛋白质/结构</span>
-          <h2><a href="https://arxiv.org/abs/2610.37410v1" target="_blank" rel="noopener">Accurate structural modelling of protein-glycan recognition with GlycoWeave</a></h2>
-          <p>首个专攻蛋白-糖链识别的扩散模型，698 个复合物基准高质量成功率 71.9%，AlphaFold 3 为 19.2%，单次采样 0.34 秒。</p>
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2610.40794v1" target="_blank" rel="noopener">FLUCS: a modular GPU-native framework for fluid and plasma turbulence</a></h2>
+          <p>开源 GPU 原生框架以一套模块化数值基础设施同时支撑流体与等离子体湍流多种约化模型，单卡可跑 1-3 维周期域。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
-          <h2><a href="https://arxiv.org/abs/2610.32620v1" target="_blank" rel="noopener">What Transfers Across Protein Pockets? Experience Reuse in Molecular Optimization for Agentic Structure-Based Drug Design</a></h2>
-          <p>系统检验 LLM 智能体跨口袋经验复用，发现可迁移信号主要来自编辑动作与分子本身，而非靶点身份。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2610.35617v1" target="_blank" rel="noopener">Distilling neural networks into equations to predict planetary instability</a></h2>
-          <p>把神经网络蒸馏成可读代数公式，首次给出预测多行星系统失稳时间的解析方程。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2610.37485v1" target="_blank" rel="noopener">AMOR: Adaptive Modal Operator Refinement for Operator Learning on Arbitrary Meshes and Irregular 3D Geometries</a></h2>
-          <p>用可学习降维基块替换 FNO 的傅里叶卷积，让算子学习直接跑在任意网格与不规则三维几何上。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">科学基础模型</span>
-          <h2><a href="https://arxiv.org/abs/2610.40437v1" target="_blank" rel="noopener">A Pretrained Model for Bayesian Filtering in Heterogeneous Dynamical Systems</a></h2>
-          <p>FilterFM 用单一权重跨异构动力系统估计隐状态，首次实现未见动力学上的零样本滤波。</p>
+          <h2><a href="https://arxiv.org/abs/2610.41070v1" target="_blank" rel="noopener">D2ML: Models for Direct-to-Biology Small Molecule Screening</a></h2>
+          <p>首次系统性把免纯化直接生物测试的原始数据用于机器学习，从未纯化混合物单点筛选与粗测剂量反应中学习并指导新化合物合成。</p>
         </article>
         
         <article class="card">
           <span class="field">生物信息</span>
-          <h2><a href="https://arxiv.org/abs/2610.40556v1" target="_blank" rel="noopener">Advancing Clinical Genomic Analysis with a Skill-Centred Agent</a></h2>
-          <p>把临床基因组分析拆成 105 个可执行技能由大模型编排，223 个时间外推病例上与专家结论一致率从 45.7% 提到 71.7%。</p>
+          <h2><a href="https://arxiv.org/abs/2610.41015v1" target="_blank" rel="noopener">Do Language Models Know What Compelling Scientific Evidence Looks Like?</a></h2>
+          <p>首个用真实生物学数据检验语言模型证据权衡能力的基准 EDB-Bio，揭示前沿模型在科学证据判断上系统性信心不足，校准训练后可反超。</p>
         </article>
         
       </div>
@@ -178,11 +166,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，三个方向明显升温：一是「跳过中间步骤」的端到端替代从单点走向流程级，电子密度绕过自洽迭代、反应网络绕过模板枚举、经验复用绕过靶点重训；二是智能体从演示走向闭环，量子测量、激发态建模、临床基因组分析都出现了可追溯的完整流水线；三是约束内生化成为共识，热力学修正层、因果先验、对称性微调、物理约束光谱预测集中出现，说明社区正从「先训后修」转向「训练即守约束」。</p>
+      <p>与上一期相比，本期从「堆模型」转向「给判据」：迁移学习、时间跳步、模型降阶三条线都补上了非渐近界或一阶误差判据，方法可验证性明显增强。新出现的方向有两个：一是把实验流程中的「粗数据」（D2B 未纯化筛选、稀疏历史实验记录）直接纳入学习闭环；二是量子-经典接口开始与电子结构描述符对接，分子模拟的多尺度链条从全原子延伸到量子线路。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注可微分模拟器与神经算子求解器的收敛：WRF-JAX、diff-soup、SNAP 这类工作能否在真实业务尺度上稳定替代传统求解循环，以及百万级动力学稳定性数据集会催生怎样的稳定性预测基准。</p>
+      <p>下期值得关注：带误差判据的 ML 加速积分能否在真实分子体系上给出可复现的加速比，以及 D2B 粗数据学习与稀疏实验优化能否在同一个药物发现闭环中合并验证。</p>
       
     </section>
     
@@ -190,6 +178,11 @@
     
     <section class="archive">
       <h3 class="sub">历史周报</h3>
+      
+      <details class="date-group">
+        <summary>2026-10-26 ~ 2026-11-01 · AI4S 周报 · 10-26 ~ 11-01</summary>
+        <div class="body"><p>本期最鲜明的信号是 AI 不再只替代单个计算步骤，而是开始接管整条科研流程：从电子密度预测跳过自洽迭代、从反应物直接生成反应网络，到多智能体自动完成激发态建模与量子测量闭环。与此同时，物理约束被更系统地写进模型内部——热力学自洽、因果先验、守恒律、对称性，而不是事后修补。气候与材料两个领域在「业务级可用性」上推进明显：公里级全球模式跑进业务预报，百万级晶体数据集补上动力学稳定性缺口。基础模型继续向异构系统泛化，零样本滤波与统一粗粒化势能是本周的代表。</p></div>
+      </details>
       
       <details class="date-group">
         <summary>2026-10-19 ~ 2026-10-25 · AI4S 周报 · 10-19 ~ 10-25</summary>
