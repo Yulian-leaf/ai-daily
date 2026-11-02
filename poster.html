@@ -80,11 +80,11 @@
     
     <h1 class="title">AI4S 周报 · 11-02 ~ 11-08</h1>
     <p class="slogan">「让物理约束与稀疏数据握手」</p>
-    <p class="range">2026-11-02 ~ 2026-11-08 · 2026-11-02 14:39 (北京时间 UTC+8)</p>
+    <p class="range">2026-11-02 ~ 2026-11-08 · 2026-11-02 17:18 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期 AI4S 的主旋律是「在数据稀缺处注入结构」。从迁移学习给出可计算的迁移速率界，到 ML 跳步用隐函数定理判定误差可控性，再到把文献热力学数据接入 CALPHAD 自动拟合，方法都在回答同一个问题：当实验或高保真计算昂贵时，如何用物理与任务结构换取样本效率。与此同时，全原子尺度复现振动极化激元凝聚、D2B 原始筛选数据直接进模型，显示「更少预处理、更贴原始观测」的路线在扩散。量子线路编码与 GPU 原生湍流框架则补上了表达力与基础设施两块拼图。</p>
+  <p class="overview">本期 AI4S 的主旋律是「在数据稀缺处注入结构」：迁移学习给出何时能借源系统数据的非渐近判据，ML 跳步用隐函数定理把误差可控性变成可计算条件，无网格潜动力学为 PDE 降阶提供统一框架。材料与药物方向则把「已有实验记录」和「未纯化粗测数据」直接变成可复用监督信号，降低黑盒优化与筛选成本。分子模拟同时向两端延伸：一端用全原子模拟复现振动极化激元凝聚，另一端发布 GPU 原生湍流框架。整体看，方法论文档开始给出可识别性下界、误差判据等量化保证，而非仅报指标提升。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -158,12 +158,12 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期明显从「堆模型」转向「给保证」：迁移学习、跳步方法、降阶框架都附带可计算的界或判据，方法论文风更接近数值分析。另一个新方向是「原始观测直通模型」——D2B 未纯化筛选数据、文献热力学数据不经人工精修直接进流水线，减少预处理环节正成为提升数据利用率的手段。量子机器学习编码与 GPU 原生湍流框架则分别补上表达力与工程基础设施两条此前较薄的线。</p>
+  <p class="trend">与上一期相比，方法论文档从「报指标」转向「给保证」：迁移学习出现可识别性下界，ML 跳步给出误差一阶判据，PDE 降阶有统一数学框架。数据侧新方向是「把低质量/非标准数据纳入训练」——D2B 未纯化粗测数据、文献热力学数据、稀疏历史实验记录均被结构化复用。分子模拟则出现全原子尺度复现宏观量子现象与 GPU 原生多物理框架两条并行路线。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">5804</span><small>抓取条目</small></div>
+      <div><span class="num">5807</span><small>抓取条目</small></div>
       <div><span class="num">420</span><small>总结</small></div>
       <div><span class="num">420</span><small>已上墙</small></div>
     </div>
@@ -178,7 +178,7 @@
       <div class="frow">
         <span class="flabel">💊 药物发现</span>
         <div class="fbar"><div class="fbar-fill" style="width: 11%"></div></div>
-        <b>36</b>
+        <b>37</b>
       </div>
       
       <div class="frow">
@@ -189,7 +189,7 @@
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 91%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 90%"></div></div>
         <b>302</b>
       </div>
       
@@ -201,14 +201,14 @@
       
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 33%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 32%"></div></div>
         <b>108</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>332</b>
+        <b>334</b>
       </div>
       
       <div class="frow">
