@@ -80,11 +80,11 @@
     
     <h1 class="title">AI4S 周报 · 11-02 ~ 11-08</h1>
     <p class="slogan">「采样更快，泛函更准，闭环更紧」</p>
-    <p class="range">2026-11-02 ~ 2026-11-08 · 2026-11-03 15:08 (北京时间 UTC+8)</p>
+    <p class="range">2026-11-02 ~ 2026-11-08 · 2026-11-03 17:23 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期最集中的信号来自分子模拟：增强采样、自由能学习、扩散采样与时间跳步四条路线同时向「GPU 原生 + 在线闭环」收敛，目标都是把昂贵的能量评估次数压下来。材料方向则围绕机器学习势与生成式筛选展开，不确定性量化开始从训练分布内走向分布外。数学与 PDE 侧继续补理论地基，迁移学习的非渐近界与无网格潜动力学的统一框架是代表。整体看，AI4S 正从「拟合一个代理模型」转向「把采样、纠错与实验决策串成可计算的流水线」。</p>
+  <p class="overview">本期最集中的信号来自分子模拟：GPU 原生工具链（PLUMED-JAX、FLUCS）与在线学习式增强采样（VESPER）同时推进，把「采样慢」这一老问题从工程和算法两端压缩。材料方向则围绕「数据从哪来、可信度如何」展开：从文献热力学数据自动接入 CALPHAD，到预训练驱动的分布外不确定性量化，再到生成模型造催化剂。数学与 PDE 侧继续补理论地基，迁移学习的非渐近界、无网格潜动力学的统一框架都是「先讲清楚为什么有效」的工作。整体看，本期不是单点刷榜，而是工具、数据、理论三条线各自补齐关键拼图。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -158,7 +158,7 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，分子模拟的重心从「训练一个更准的势」明显转向「让采样与学习互相驱动」：VESPER 的在线闭环、WASABI 的训练后免能量采样、ML 时间跳步的误差判据，都在回答同一个问题——如何减少能量评估次数。材料侧则出现两条新线：一是把密度矩阵等更细的电子结构表示喂给泛函学习，二是把不确定性量化从分布内推到分布外。此外，冲击加载打开新反应路径这一结果提示，反应性机器学习势的用途正从「加速已知化学」扩展到「发现未知化学」。</p>
+  <p class="trend">与上一期相比，分子模拟的重心从「单点模型更强」转向「工具链与采样闭环」：PLUMED-JAX、FLUCS 补 GPU 原生基础设施，VESPER 把学习与采样耦合成在线回路，WASABI 则试图把能量评估从采样阶段彻底移走。材料方向新出现两条此前少见的线：一是把文献中的有限温度热力学数据结构化并直连 CALPHAD（ORCHID），二是用预训练做 MLIP 的分布外不确定性量化，说明社区开始正视「数据来源」与「可信度」而非只比精度。数学侧本期明显偏理论，迁移学习与模型降阶都在补非渐近界和统一框架。</p>
   
 
   <div class="stats">
@@ -171,7 +171,7 @@
       
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 13%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 14%"></div></div>
         <b>46</b>
       </div>
       
@@ -183,37 +183,37 @@
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 60%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 62%"></div></div>
         <b>208</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 89%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 91%"></div></div>
         <b>307</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 40%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 42%"></div></div>
         <b>140</b>
       </div>
       
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 34%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 35%"></div></div>
         <b>117</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>346</b>
+        <b>336</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 35%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 36%"></div></div>
         <b>120</b>
       </div>
       
