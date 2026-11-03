@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="weekly.html">周报 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-11-03 11:53 (北京时间 UTC+8)
+      生成于 2026-11-03 15:08 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 双周报告 · 10-26 ~ 11-08</h2>
       <p class="r-range">2026-10-26 ~ 2026-11-08</p>
-      <p class="r-overview">这两周 AI4S 的主旋律是「从单点预测走向闭环系统」：分子模拟领域集中出现把采样、自由能学习、增强采样做成在线闭环的工作（VESPER、WASABI、PLUMED-JAX），材料领域则把生成模型、MLIP、GNN 串成端到端流水线并强调可验证性（双金属析氢催化剂、Crystoria 数据集、AtomSteer 推理时约束）。第一周偏「基础设施与数据集」——GPU 原生模拟框架、百万级晶体稳定性数据集、可微分求解器密集发布；第二周明显转向「闭环与自动化」——智能体驱动的激发态建模、自主量子测量、在线自由能学习、反应网络生成式发现集中出现。另一个跨周信号是「不确定性量化与可信度」被系统性提上日程：MLIP 的 OOD 不确定性预训练、体系大小对 UQ 打分的影响、PolyDiscover 的可信度打分，说明社区开始为「AI 输出能不能直接用」补基础设施。气候领域则从「模型能跑」转向「业务能验」：HRRRCast 一年近实时验证、SD3 业务化公里级模式、FASST 百年耦合稳定性，评价标准正从 benchmark 转向业务指标。</p>
+      <p class="r-overview">这两周 AI4S 的主线从「单点模型更强」转向「把模型嵌进可闭环的科学流程」：分子模拟领域集中出现在线学习、可微采样与 GPU 原生工具链，材料领域则把生成、筛选、验证串成流水线并补上稳定性与不确定性两块短板。第一周偏重「基础设施与数据集」——Crystoria 百万级动力学稳定晶体库、mdRNAcat、FLUCS、WRF-JAX 等集中发布；第二周明显转向「闭环与部署」——VESPER 的在线自由能学习、PULSES 多智能体自动建模、QUANTA 自主量子测量、SD3 业务化公里级预报，都是从「能算」走到「自己跑」。跨周看，评价标准也在变：不再只比精度，而是比能量评估次数、GPU 吞吐、是否热力学自洽、能否零样本外推。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -116,7 +116,7 @@
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2611.00401v1" target="_blank" rel="noopener">VESPER: Online Learning of Free Energies with a Multi-Tempered Variational Objective</a></h2>
-          <p>把 MD 采样与神经网络自由能学习做成在线闭环，模型边学边给 MD 加偏置加速跨能垒，用单一凸变分目标统一多个升温层级且无需重加权。</p>
+          <p>把 MD 采样与神经网络自由能学习做成在线闭环，模型边学边给 MD 加偏置，用单一凸变分目标统一多个升温层级且无需重加权。</p>
         </article>
         
         <article class="card">
@@ -128,37 +128,37 @@
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2610.37410v1" target="_blank" rel="noopener">Accurate structural modelling of protein-glycan recognition with GlycoWeave</a></h2>
-          <p>首个专门针对蛋白质-糖链识别的扩散模型，698 个复合物基准上高质量成功率 71.9%，远超 AlphaFold 3 的 19.2%，单次采样仅 0.34 秒。</p>
+          <p>首个专攻蛋白-糖链识别的扩散模型，698 个复合物基准上高质量成功率 71.9%，远超 AlphaFold 3 的 19.2%，单次采样仅 0.34 秒。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.41070v1" target="_blank" rel="noopener">D2ML: Models for Direct-to-Biology Small Molecule Screening</a></h2>
-          <p>首次系统性地把免纯化直接生物测试的原始数据用于机器学习，让模型从未纯化混合物的单点筛选和粗测剂量反应中学习，并成功指导新化合物合成。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.36186v1" target="_blank" rel="noopener">Towards operational data-driven regional weather forecasting: extreme-event skill and near-real-time verification with HRRRCast</a></h2>
-          <p>首个在近实时业务模式下运行满一年、并用独立观测验证的数据驱动区域天气模型，证明 AI 预报在 3 公里对流尺度上能对标业务数值模式。</p>
+          <p>首次系统性地把免纯化直接生物测试的原始数据用于机器学习，并成功指导新化合物合成，选出优于训练集的分子。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.39334v1" target="_blank" rel="noopener">SD3: The First Operationally-Proven, Fully Heterogeneous-Accelerated Global Kilometer-Scale Model with Inline Physics Architecture</a></h2>
-          <p>首个业务运行的全球公里级（1.5 km）全异构加速天气/气候模式，24576 块 GPU 做到每天模拟 205.7 天，并用原生 CUDA 重写物理过程。</p>
+          <p>首个业务化运行的全球 1.5 km 全异构加速天气/气候模式，24576 块 GPU 做到每天模拟 205.7 天，物理过程用原生 CUDA 重写。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">气候地球</span>
+          <h2><a href="https://arxiv.org/abs/2610.38775v1" target="_blank" rel="noopener">Skillful and realistic precipitation forecasting with reinforced diffusion</a></h2>
+          <p>FitzRoy 用强化学习调教扩散模型，首次在美国本土同时做到降水预测准且物理结构真实，破解精度与真实感二选一难题。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.37485v1" target="_blank" rel="noopener">AMOR: Adaptive Modal Operator Refinement for Operator Learning on Arbitrary Meshes and Irregular 3D Geometries</a></h2>
-          <p>把 FNO 的傅里叶卷积换成可学习的降维基块，让算子学习首次能直接跑在任意网格和不规则三维几何上，同时把三维谱参数从 m³ 增长压下来。</p>
+          <p>把 FNO 的傅里叶卷积换成可学习降维基块，让算子学习首次直接跑在任意网格与不规则三维几何上，并把三维谱参数从 m³ 增长压下来。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.35617v1" target="_blank" rel="noopener">Distilling neural networks into equations to predict planetary instability</a></h2>
-          <p>把神经网络蒸馏成可读代数公式，首次给出能预测多行星系统何时失稳的解析方程，兼顾机器学习精度与可解释性。</p>
+          <p>把神经网络蒸馏成可读代数公式，首次给出预测多行星系统失稳时间的解析方程，兼顾 ML 精度与可解释性。</p>
         </article>
         
         <article class="card">
@@ -170,7 +170,7 @@
         <article class="card">
           <span class="field">生物信息</span>
           <h2><a href="https://arxiv.org/abs/2610.40556v1" target="_blank" rel="noopener">Advancing Clinical Genomic Analysis with a Skill-Centred Agent</a></h2>
-          <p>把临床基因组分析拆成 105 个可执行技能，由大模型按任务检索编排调用，223 个时间外推病例上与专家结论一致率从 45.7% 提到 71.7%。</p>
+          <p>把临床基因组分析拆成 105 个可执行技能由大模型编排调用，223 个时间外推病例上与专家结论一致率从 45.7% 提到 71.7%。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>按子领域条目数统计，molsim 仍是绝对主力（约 30 条），但内部结构在变：第一周以 GPU 原生框架与可微分求解器为主（PLUMED-JAX、FLUCS、diff-soup、WRF-JAX），第二周转向在线闭环与自动化（VESPER、PULSES 多智能体、ReactNexus 反应网络生成、Chelombus 十亿分子聚类），「闭环」类工作从零星 1-2 条增至 5 条以上。materials 热度持平但重心迁移：第一周偏数据集与筛选边界（Crystoria、1460 万晶体正逆向边界），第二周偏生成式流水线与推理时控制（双金属析氢催化剂、AtomSteer、框架条件生成），生成+验证类从 2 条增至 5 条。climate 明显升温，从第一周偏方法（小波损失、FASST 预印本）转为第二周偏业务验证（HRRRCast 一年实测、SD3 业务化、FASST v2 百年耦合），业务化/验证类条目从 1 条增至 4 条。ai4math 保持稳定但更偏「理论保证」：迁移学习非渐近界、PDE 解算子结构复杂度下界、SNAP 事后检查，带界/带保证的工作占比上升。protein 与 drug 相对降温，两周合计各约 3-4 条，但质量集中（GlycoWeave 对 AlphaFold 3 的 71.9% vs 19.2%、D2ML 首次用 D2B 原始数据）。新浮现方向有两个：一是「不确定性量化与可信度」从 materials/molsim 扩散到平台层（MLIP OOD 预训练、体系大小对 UQ 的影响、PolyDiscover 可信度打分），两周内至少 4 条；二是「智能体进入实验闭环」（QUANTA 自主量子测量、PULSES 激发态建模、WxCrop 天气到农业损失），从工具调用走向端到端流程编排。</p>
+      <p>分子模拟是这两周绝对的热度中心，收录条目从第一周的十余条增至第二周的二十条以上，且形态从「单点方法」转向「工具链与闭环」：PLUMED-JAX、FLUCS、diff-soup、Chelombus 补齐 GPU 原生基础设施，VESPER、WASABI、PULSES 则把采样-学习-部署连成环。材料领域热度持平但重心迁移：第一周以数据集与筛选为主（Crystoria 264 万结构、1460 万晶体统一库、非晶固态电解质筛选），第二周转向泛函与电子密度本身（ROSE、粒子-空穴展开、Transformer 电子密度），即从「用模型筛材料」回到「把底层电子结构算得更准」。气候领域第一周密集发布 FASST、HRRRCast、WRF-JAX 等模式与工具，第二周明显降温，仅剩 SD3 与 FitzRoy 两条偏业务化的条目，说明该方向正从「造模型」进入「验证与部署」的静默期。AI4Math 两周均稳定在十条左右，但主题从算子学习架构（AMOR、NGO）转向理论保证与可解释性（半线性 PDE 下界、蒸馏成方程、迁移学习非渐近界），显示该领域开始补理论短板。蛋白质与药物发现条目数偏少但质量集中：GlycoWeave 以 71.9% 对 19.2% 的大幅差距指向「通用模型在特定模态上仍有大片空白」，D2ML 则开辟了未纯化数据这一新数据源。新浮现的方向是「测试时约束与在线修正」：AtomSteer 的采样时约束、热力学修正层、SNAP 的事后安全检查，共同指向「不重训、在推理或部署阶段纠偏」这一低成本路线。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下两周重点跟踪两条线：一是「在线闭环」能否从分子模拟外溢到材料与气候（VESPER 式边学边采样的思路是否被 MLIP 训练与资料同化采纳），二是业务化 AI 预报的独立验证结果是否开始反向约束模型设计（HRRRCast、SD3 之后是否出现统一的公里级业务评价基准）。</p>
+      <p>下两周值得重点跟踪两条线：一是「在线闭环」能否从分子模拟外溢到材料与气候，即 VESPER 式边学边采样的框架是否被复用到晶体生成或资料同化；二是「推理时约束/修正」这条低成本路线会不会形成统一工具层，尤其是 AtomSteer、热力学修正层与 SNAP 三者思路的合流。</p>
       
     </section>
     
