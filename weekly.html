@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-11-03 17:23 (北京时间 UTC+8)
+      生成于 2026-11-04 10:57 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,70 +95,82 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 11-02 ~ 11-08</h2>
       <p class="r-range">2026-11-02 ~ 2026-11-08</p>
-      <p class="r-overview">本期最集中的信号来自分子模拟：GPU 原生工具链（PLUMED-JAX、FLUCS）与在线学习式增强采样（VESPER）同时推进，把「采样慢」这一老问题从工程和算法两端压缩。材料方向则围绕「数据从哪来、可信度如何」展开：从文献热力学数据自动接入 CALPHAD，到预训练驱动的分布外不确定性量化，再到生成模型造催化剂。数学与 PDE 侧继续补理论地基，迁移学习的非渐近界、无网格潜动力学的统一框架都是「先讲清楚为什么有效」的工作。整体看，本期不是单点刷榜，而是工具、数据、理论三条线各自补齐关键拼图。</p>
+      <p class="r-overview">本期 AI4S 的主线是「把静态预测变成可控生成与可编程设计」：蛋白质模型开始按折叠进度生成连续构象，材料领域用 LLM 智能体把目标空间结构反推为工艺配方，晶体扩散模型用对称性约束同时兼顾稳定、独特与新颖。分子模拟侧集中解决「算得起」的问题——柔性电荷、增强采样、跳步积分与 GPU 原生工具链把十万原子级、长时程模拟的成本压到接近固定电荷模型。评测与基础设施同步补位：相场断裂有了受控基准，材料科学出现六任务统一工具包，不确定性量化开始走向训练分布之外。</p>
 
       
       <h3 class="sub">本期亮点</h3>
       <div class="cards">
         
         <article class="card">
-          <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2611.00826v1" target="_blank" rel="noopener">ROSE: Deep Learning exchange-correlation functional from reduced density-matrix representations</a></h2>
-          <p>改用占据态密度矩阵而非电子密度作输入学习交换-关联泛函，多个基准上超过同等训练条件的神经网络泛函，精度达到甚至优于多数杂化泛函。</p>
+          <span class="field">蛋白质/结构</span>
+          <h2><a href="https://arxiv.org/abs/2611.04287v1" target="_blank" rel="noopener">Predicting protein structures at any folding stage from sequence</a></h2>
+          <p>FoldScape 首次让模型按「折叠进度」生成蛋白质构象，补上从松散链到近天然态之间的连续路径，而不只是预测最终天然结构。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.41932v1" target="_blank" rel="noopener">Generative Design and Graph Neural Network Screening of Novel Bimetallic Alloy Catalysts for the Hydrogen Evolution Reaction</a></h2>
-          <p>扩散生成模型+机器学习力场+两种图神经网络串成流水线，在现有吸附数据库之外造出双金属析氢催化剂，DFT 验证出 4 个氢吸附接近热中性的候选。</p>
+          <h2><a href="https://arxiv.org/abs/2611.03795v1" target="_blank" rel="noopener">Agentic inverse design of spatially programmed materials</a></h2>
+          <p>用 LLM 智能体把「想要的材料空间结构」直接反推成「怎么造」的工艺配方，让空间结构成为可编程变量而非试错结果。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">材料科学</span>
+          <h2><a href="https://arxiv.org/abs/2611.02906v1" target="_blank" rel="noopener">Site-orbit masked twin-branch Transformer for symmetry-constrained crystal generation</a></h2>
+          <p>用 Wyckoff 轨道对称性约束引导扩散模型生成晶体，已知结构模式下稳定、独特、新颖三项同时达标率比最强基线相对提升 68.15%。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2611.03499v1" target="_blank" rel="noopener">Shadow Molecular Dynamics for General Nonlinear Flexible-Charge Models</a></h2>
+          <p>把柔性电荷模型每步的全局非线性电荷平衡换成一次线性化「影子势」求解，让带长程静电与电荷转移的 MD 在十万原子规模上接近固定电荷模型开销。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2611.00483v1" target="_blank" rel="noopener">PLUMED-JAX: GPU-native enhanced sampling for atomistic simulations</a></h2>
-          <p>把 PLUMED 移植到 JAX，让分子动力学在 GPU 上原生跑批量副本与共享偏置，吞吐量提升数倍。</p>
+          <p>把常用增强采样工具 PLUMED 移植到 JAX，GPU 上原生跑批量副本与共享偏置，吞吐量提升数倍。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2611.00401v1" target="_blank" rel="noopener">VESPER: Online Learning of Free Energies with a Multi-Tempered Variational Objective</a></h2>
-          <p>把 MD 采样与神经网络自由能学习做成在线闭环，模型边学边给 MD 加偏置加速跨能垒，单一凸变分目标统一多个升温层级且无需重加权。</p>
+          <h2><a href="https://arxiv.org/abs/2610.41958v1" target="_blank" rel="noopener">WASABI: Wasserstein Sampling via Bridge Interpolants</a></h2>
+          <p>只用能量函数训练扩散模型采样玻尔兹曼分布，训练后采样不再反复算能量，丙氨酸二肽上比最强基线少用约 3.3 倍能量评估。</p>
         </article>
         
         <article class="card">
-          <span class="field">药物发现</span>
-          <h2><a href="https://github.com/BIMSBbioinfo/PocketVina" target="_blank" rel="noopener">BIMSBbioinfo/PocketVina</a></h2>
-          <p>把 P2Rank 口袋预测与分子对接串成 GPU 流水线，对接时同时考虑多个口袋而非只盯一个。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">药物发现</span>
-          <h2><a href="https://arxiv.org/abs/2610.41070v1" target="_blank" rel="noopener">D2ML: Models for Direct-to-Biology Small Molecule Screening</a></h2>
-          <p>首次系统性利用免纯化直接生物测试的原始数据训练模型，并成功指导新化合物合成。</p>
+          <span class="field">气候地球</span>
+          <h2><a href="https://arxiv.org/abs/2611.03381v1" target="_blank" rel="noopener">A Geometry-Informed Neural Operator surrogate of LISFLOOD-FP for rapid pluvial-fluvial flood forecasting: the case of Forlì, Italy</a></h2>
+          <p>用神经算子替代 LISFLOOD-FP，在意大利 Forlì 暴雨-河流复合洪水场景下把 72 小时预报从 55 秒压缩到秒级。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.41262v1" target="_blank" rel="noopener">Instrumental Transfer Learning for Solution Operators</a></h2>
-          <p>针对目标数据稀缺、源方程有未知稀疏差异的场景，首次给出迁移达到全源合并速率的非渐近预测界与可识别性下界。</p>
+          <p>针对目标系统数据稀缺、源系统方程有未知稀疏差异的场景，首次给出迁移何时能达到全源合并速率的非渐近预测界与可识别性下界。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.41043v1" target="_blank" rel="noopener">Meshless Latent Dynamics Models for Model Order Reduction of time-dependent Partial Differential Equations</a></h2>
-          <p>用神经场条件化的无网格潜动力学统一框架，为时变 PDE 的模型降阶提供理论刻画。</p>
+          <p>提出无网格潜动力学模型的统一数学框架，用神经场做条件化，为时变 PDE 的降阶给出可证明的误差结构。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">药物发现</span>
+          <h2><a href="https://arxiv.org/abs/2610.41070v1" target="_blank" rel="noopener">D2ML: Models for Direct-to-Biology Small Molecule Screening</a></h2>
+          <p>首次系统性地把免纯化直接生物测试的原始数据用于机器学习，并成功指导新化合物合成。</p>
         </article>
         
         <article class="card">
           <span class="field">生物信息</span>
           <h2><a href="https://arxiv.org/abs/2610.41015v1" target="_blank" rel="noopener">Do Language Models Know What Compelling Scientific Evidence Looks Like?</a></h2>
-          <p>首个用真实生物学数据检验语言模型证据权衡能力的基准 EDB-Bio，发现前沿模型系统性信心不足，校准训练后可反超。</p>
+          <p>首个用真实生物学数据检验语言模型证据权衡能力的基准 EDB-Bio，揭示前沿模型系统性信心不足，校准训练后可反超。</p>
         </article>
         
         <article class="card">
           <span class="field">科学基础模型</span>
-          <h2><a href="https://github.com/lululxvi/deepxde" target="_blank" rel="noopener">lululxvi/deepxde</a></h2>
-          <p>科学机器学习与 PINN 领域最常用开源库之一，长期占据 GitHub 趋势榜，反映「神经网络解 PDE」的持续热度。</p>
+          <h2><a href="https://arxiv.org/abs/2611.03154v1" target="_blank" rel="noopener">PaddleMaterials: An End-to-End Deep Learning Toolkit for Materials Science</a></h2>
+          <p>首个把材料科学六类任务统一到一个开源框架的工具包，让跨任务组合可验证、可编译加速，为科学基础模型提供工程底座。</p>
         </article>
         
       </div>
@@ -166,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，分子模拟的重心从「单点模型更强」转向「工具链与采样闭环」：PLUMED-JAX、FLUCS 补 GPU 原生基础设施，VESPER 把学习与采样耦合成在线回路，WASABI 则试图把能量评估从采样阶段彻底移走。材料方向新出现两条此前少见的线：一是把文献中的有限温度热力学数据结构化并直连 CALPHAD（ORCHID），二是用预训练做 MLIP 的分布外不确定性量化，说明社区开始正视「数据来源」与「可信度」而非只比精度。数学侧本期明显偏理论，迁移学习与模型降阶都在补非渐近界和统一框架。</p>
+      <p>与上一期相比，本期从「单点预测精度」明显转向「可控生成 + 可编程设计 + 可负担模拟」：蛋白质按折叠进度生成、材料按目标空间结构反推工艺、晶体按对称性约束生成，三条线共同把生成模型从「采样像不像」推进到「满足约束且可执行」。分子模拟侧出现一批降低单步成本的工作（影子势、跳步积分、GPU 原生增强采样），而非单纯堆算力。评测与不确定性量化开始覆盖训练分布之外，说明社区在补「可信度」这一课。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注 GPU 原生采样工具的实际吞吐基准对比，以及在线学习式自由能方法在真实药物体系上的可复现性；同时留意预训练式不确定性量化能否从 MLIP 扩展到更广的科学代理模型。</p>
+      <p>下期值得关注：对称性/几何约束生成方法能否从晶体扩展到更一般的空间编程材料，以及 MLIP 的分布外不确定性估计能否与主动学习闭环真正接上实验。</p>
       
     </section>
     
