@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="weekly.html">周报 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-11-04 14:55 (北京时间 UTC+8)
+      生成于 2026-11-04 16:57 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 双周报告 · 10-26 ~ 11-08</h2>
       <p class="r-range">2026-10-26 ~ 2026-11-08</p>
-      <p class="r-overview">这两周 AI4S 的主旋律是「从静态预测走向动态过程与闭环系统」：蛋白质模型开始按折叠进度生成中间构象，分子模拟把在线学习、可微求解与 GPU 原生工具链串成闭环，材料领域则密集出现智能体反设计、统一工具包与大规模稳定性数据集。第一周（10-26 ~ 11-01）以方法学铺底为主，神经算子、可微模拟、不确定性量化和预训练基础模型集中出现；第二周（11-02 ~ 11-08）明显转向「系统级整合」，智能体工作流、端到端工具包、基准套件和业务化验证成为主角。量化上看，molsim 与 materials 合计占据收录条目的六成以上，climate 从第一周的方法探索转向第二周的业务化与耦合模拟验证，ai4math 则从纯理论保证向可落地求解器迁移。整体信号是：单点精度竞赛仍在继续，但竞争焦点已转向「能否嵌入真实科研流程并自我纠错」。</p>
+      <p class="r-overview">这两周 AI4S 的主旋律是「从静态预测走向动态过程与闭环系统」：蛋白质模型开始按折叠进度生成中间构象，分子模拟把在线学习、跳步、影子势做成可生产部署的加速器，材料领域则密集出现智能体反演、统一工具包与受控基准。第一周（10-26 ~ 11-01）以方法学铺底为主，大量神经算子、可微分求解器与不确定性量化工作集中出现；第二周（11-02 ~ 11-08）明显转向「系统级整合」——LAMMPS 里跑通通用势的 NPT、材料六类任务统一到一个框架、智能体直接反推工艺配方，工程落地与端到端闭环的条目占比上升。跨周看，molsim 与 materials 仍是绝对主力，但 climate 从第一周的方法探索（可微分 WRF、无状态大气耦合）转向第二周的业务化验证（公里级全异构模式、强化扩散降水预报），ai4math 则从纯理论保证转向「神经算子嵌进经典求解器」的混合路线。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -114,15 +114,27 @@
         </article>
         
         <article class="card">
-          <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2611.00401v1" target="_blank" rel="noopener">VESPER: Online Learning of Free Energies with a Multi-Tempered Variational Objective</a></h2>
-          <p>把 MD 采样与神经网络自由能学习做成在线闭环，模型边学边给 MD 加偏置加速跨能垒，并用单一凸变分目标统一多个升温层级、无需重加权。</p>
+          <span class="field">药物发现</span>
+          <h2><a href="https://arxiv.org/abs/2610.33195v1" target="_blank" rel="noopener">Agent-guided epitope excision enables economical de novo binder design</a></h2>
+          <p>把「表位切除」与智能体自动搜索结合，让大靶点从头设计 binder 的 GPU 时间最多省约 88%，命中率从 5.06% 提到 9.3%。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">药物发现</span>
+          <h2><a href="https://arxiv.org/abs/2610.41070v1" target="_blank" rel="noopener">D2ML: Models for Direct-to-Biology Small Molecule Screening</a></h2>
+          <p>首次系统性地把免纯化直接生物测试的原始数据用于机器学习，并成功指导新化合物合成，选出比训练集更强的分子。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2611.03499v1" target="_blank" rel="noopener">Shadow Molecular Dynamics for General Nonlinear Flexible-Charge Models</a></h2>
-          <p>用一次线性化求解的「影子势」替代每步全局非线性电荷平衡，让带长程静电和电荷转移的分子动力学在十万原子规模上接近固定电荷模型的开销。</p>
+          <h2><a href="https://arxiv.org/abs/2611.03892v1" target="_blank" rel="noopener">Isothermal-Isobaric Molecular Dynamics with a Foundation Interatomic Potential in LAMMPS across NVIDIA and Intel GPUs</a></h2>
+          <p>首次让通用机器学习原子间势（UMA）在 LAMMPS 里跑通等温等压分子动力学，同一套代码同时支持 NVIDIA 和 Intel GPU。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2611.00401v1" target="_blank" rel="noopener">VESPER: Online Learning of Free Energies with a Multi-Tempered Variational Objective</a></h2>
+          <p>把 MD 采样与神经网络自由能学习做成在线闭环，模型边学边给 MD 加偏置加速跨能垒，并用单一凸变分目标统一多个升温层级。</p>
         </article>
         
         <article class="card">
@@ -133,26 +145,26 @@
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2610.38195v1" target="_blank" rel="noopener">Crystoria: A Large-Scale Crystal Dataset Linking Thermodynamic and Dynamical Stability for Materials AI</a></h2>
-          <p>首个把动力学稳定性做到百万级晶体规模的数据集：264 万条结构、179 万条经声子筛选确认动力学稳定，填补结构库与物理稳定性信息之间的量级鸿沟。</p>
+          <h2><a href="https://arxiv.org/abs/2611.03154v1" target="_blank" rel="noopener">PaddleMaterials: An End-to-End Deep Learning Toolkit for Materials Science</a></h2>
+          <p>首个把材料科学六类任务（性质预测、结构生成、原子间势、电子结构、光谱解析、显微图像）统一到一个开源框架的工具包。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.39334v1" target="_blank" rel="noopener">SD3: The First Operationally-Proven, Fully Heterogeneous-Accelerated Global Kilometer-Scale Model with Inline Physics Architecture</a></h2>
-          <p>首个在业务预报中真正跑起来的全球公里级（1.5 km）全异构加速天气/气候模式，用 24576 块 GPU 做到每天模拟 205.7 天。</p>
+          <p>首个在业务预报中真正跑起来的全球公里级全异构加速天气/气候模式，用 24576 块 GPU 做到每天模拟 205.7 天。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.38775v1" target="_blank" rel="noopener">Skillful and realistic precipitation forecasting with reinforced diffusion</a></h2>
-          <p>FitzRoy 用强化学习调教扩散模型，首次在美国本土同时做到降水预测准与物理结构真实，破解精度与真实感二选一的长期难题。</p>
+          <p>首个在美国本土同时做到「预测准」和「物理真实」的降水预报系统 FitzRoy，用强化学习调教扩散模型解决精度与结构真实感二选一难题。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2610.37485v1" target="_blank" rel="noopener">AMOR: Adaptive Modal Operator Refinement for Operator Learning on Arbitrary Meshes and Irregular 3D Geometries</a></h2>
-          <p>把傅里叶神经算子的傅里叶卷积换成可学习的降维基块，让算子学习首次能直接跑在任意网格和不规则三维几何上，同时压住三维谱参数增长。</p>
+          <h2><a href="https://arxiv.org/abs/2610.38790v1" target="_blank" rel="noopener">Safeguarded Neurally-Accelerated Preconditioning (SNAP) framework for Nonlinear Optimization</a></h2>
+          <p>把预训练神经算子当作加速器嵌进经典非线性优化循环，并用事后检查保证不跑偏，兼顾收敛性与迭代次数下降。</p>
         </article>
         
         <article class="card">
@@ -161,28 +173,16 @@
           <p>首个面向贝叶斯滤波的预训练基础模型 FilterFM：单一权重跨异构动力系统估计隐状态，并首次实现未见动力学上的零样本滤波。</p>
         </article>
         
-        <article class="card">
-          <span class="field">生物信息</span>
-          <h2><a href="https://arxiv.org/abs/2610.40556v1" target="_blank" rel="noopener">Advancing Clinical Genomic Analysis with a Skill-Centred Agent</a></h2>
-          <p>把临床基因组分析拆成 105 个可执行「技能」，由大模型按任务检索编排，在 223 个时间外推病例上把与专家结论一致率从 45.7% 提到 71.7%。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">药物发现</span>
-          <h2><a href="https://arxiv.org/abs/2610.41070v1" target="_blank" rel="noopener">D2ML: Models for Direct-to-Biology Small Molecule Screening</a></h2>
-          <p>首次系统性地把免纯化直接生物测试的原始数据用于机器学习，让模型从未纯化混合物的单点筛选中学习，并成功指导新化合物合成。</p>
-        </article>
-        
       </div>
       
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>跨周对比看，molsim 是这两周最稳定的高热区：第一周集中在可微模拟、量子校正热力学与不确定性量化（如 diff-soup、On-the-fly 量子校正、MLIP 不确定性随体系大小漂移），第二周明显转向「在线闭环与工程化」（VESPER 在线自由能学习、PLUMED-JAX 的 GPU 原生增强采样、Shadow MD 的十万原子级静电处理），从方法论证走向可生产部署。materials 则从第一周的「生成与筛选方法」（对称性约束晶体生成、生成式双金属催化剂）升级为第二周的「系统级基础设施」（PaddleMaterials 统一工具包、Fracture-Bench 受控基准、Agentic 反设计、Crystoria 百万级数据集），工具链与基准的密度明显上升。climate 的变化最清晰：第一周以损失函数、区域模型和资料同化方法为主（双树复小波损失、HRRRCast、协方差集合滤波），第二周转向业务化验证与长程耦合（SD3 业务化公里级模式、FASST 百年耦合、FitzRoy 强化扩散降水），从「能不能做」变成「跑得稳不稳」。ai4math 从第一周的泛化界与结构复杂度理论（迁移学习非渐近界、半线性 PDE 网络逼近下界）转向第二周的可落地算子与求解器（AMOR 任意网格算子、SNAP 安全加速预条件、可微 Schwarz 耦合），理论开始向工程让位。protein 与 drug 热度相对平稳但方向分化：protein 从终态预测转向折叠路径与糖链复合物，drug 从对接工具维护转向智能体经验复用与 D2B 数据学习。scifm 与 bioinfo 条目数不多，但「预训练基础模型 + 智能体技能编排」这条线在两周内持续出现，属于正在浮现的新方向。</p>
+      <p>跨周对比看三条线。其一，molsim 从第一周的方法铺底（WASABI、VESPER、影子分子动力学、跳步框架）转向第二周的工程集成（LAMMPS 里跑通 UMA 的 NPT、PLUMED-JAX 的 GPU 原生增强采样），条目数维持在两周合计约 20 条的高位，但「能直接部署」的比例明显上升。其二，materials 是这两周最密集的方向，合计约 25 条，且第二周出现明显的「系统化」信号：PaddleMaterials 统一六类任务、Fracture-Bench 给出受控基准、Crystoria 补上百万级动力学稳定性数据，从单点模型转向基础设施。其三，climate 的节奏变化最清晰：第一周以可微分 WRF、无状态大气耦合、小波损失等方法探索为主，第二周直接跳到 SD3 业务化公里级模式与 FitzRoy 强化扩散降水，从「能不能做」转向「能不能业务跑」。相对降温的是 ai4math 的纯理论保证类工作，第二周更多转向神经算子嵌进经典求解器的混合路线（SNAP、Schwarz 耦合可微分求解器）。新浮现的方向是「智能体 + 科学工作流」：materials 的 Agentic inverse design、drug 的表位切除智能体、bioinfo 的 105 技能临床基因组智能体，两周内至少 5 条，且都强调可溯源与闭环执行。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下两周值得重点跟踪两条线：一是「在线闭环」能否从分子模拟扩散到材料与气候流程，即模型在推理时反过来驱动采样或实验设计；二是智能体工作流在真实实验室与业务系统中的可复现性验证，尤其是基准套件能否给出跨任务可比的失败模式。</p>
+      <p>下两周重点跟踪两条线：一是「智能体 + 科学工作流」能否从单点演示走向可复现的端到端流水线（尤其材料反设计与临床基因组分析）；二是通用机器学习原子间势在 LAMMPS 等生产级软件里的 NPT/增强采样集成，是否会出现跨 GPU 厂商的性能基准与稳定性报告。</p>
       
     </section>
     
