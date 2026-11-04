@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-11-04 10:57 (北京时间 UTC+8)
+      生成于 2026-11-04 14:54 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 11-02 ~ 11-08</h2>
       <p class="r-range">2026-11-02 ~ 2026-11-08</p>
-      <p class="r-overview">本期 AI4S 的主线是「把静态预测变成可控生成与可编程设计」：蛋白质模型开始按折叠进度生成连续构象，材料领域用 LLM 智能体把目标空间结构反推为工艺配方，晶体扩散模型用对称性约束同时兼顾稳定、独特与新颖。分子模拟侧集中解决「算得起」的问题——柔性电荷、增强采样、跳步积分与 GPU 原生工具链把十万原子级、长时程模拟的成本压到接近固定电荷模型。评测与基础设施同步补位：相场断裂有了受控基准，材料科学出现六任务统一工具包，不确定性量化开始走向训练分布之外。</p>
+      <p class="r-overview">本期 AI4S 的主线是「把静态预测变成可控生成与可算误差」：蛋白质模型开始按折叠进度生成构象，材料侧用 LLM 智能体把目标空间结构反推为工艺配方，晶体扩散模型用对称性约束同时兼顾稳定、独特、新颖。分子模拟方向集中解决「算得起」的问题——柔性电荷、增强采样、跳步积分、GPU 原生工具链都在把原本昂贵的计算压到可接受开销。评测与不确定性成为另一条暗线：相场断裂基准揭示架构排名随任务而变，MLIP 的分布外不确定性开始用预训练思路处理。整体看，本期少有大口号，多的是把「能不能用」变成「用得起、信得过」的工程与理论补丁。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -110,7 +110,7 @@
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2611.03795v1" target="_blank" rel="noopener">Agentic inverse design of spatially programmed materials</a></h2>
-          <p>用 LLM 智能体把「想要的材料空间结构」直接反推成「怎么造」的工艺配方，让空间结构成为可编程变量而非试错结果。</p>
+          <p>用 LLM 智能体把「想要的材料空间结构」直接反推成「怎么造」的工艺配方，让空间结构成为可编程变量，而不是靠人反复试错。</p>
         </article>
         
         <article class="card">
@@ -122,25 +122,25 @@
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2611.03499v1" target="_blank" rel="noopener">Shadow Molecular Dynamics for General Nonlinear Flexible-Charge Models</a></h2>
-          <p>把柔性电荷模型每步的全局非线性电荷平衡换成一次线性化「影子势」求解，让带长程静电与电荷转移的 MD 在十万原子规模上接近固定电荷模型开销。</p>
+          <p>把柔性电荷模型每步的全局非线性电荷平衡换成一次线性化「影子势」求解，让带长程静电和电荷转移的 MD 在十万原子规模上接近固定电荷模型的开销。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2611.00483v1" target="_blank" rel="noopener">PLUMED-JAX: GPU-native enhanced sampling for atomistic simulations</a></h2>
-          <p>把常用增强采样工具 PLUMED 移植到 JAX，GPU 上原生跑批量副本与共享偏置，吞吐量提升数倍。</p>
+          <p>把增强采样工具 PLUMED 移植到 JAX，让 MD 在 GPU 上原生跑批量副本和共享偏置，吞吐量提升数倍。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.41958v1" target="_blank" rel="noopener">WASABI: Wasserstein Sampling via Bridge Interpolants</a></h2>
-          <p>只用能量函数训练扩散模型采样玻尔兹曼分布，训练后采样不再反复算能量，丙氨酸二肽上比最强基线少用约 3.3 倍能量评估。</p>
+          <h2><a href="https://arxiv.org/abs/2611.03892v1" target="_blank" rel="noopener">Isothermal-Isobaric Molecular Dynamics with a Foundation Interatomic Potential in LAMMPS across NVIDIA and Intel GPUs</a></h2>
+          <p>首次让通用机器学习原子间势 UMA 在 LAMMPS 里跑通 NPT 分子动力学，同一套代码同时支持 NVIDIA 和 Intel GPU。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2611.03381v1" target="_blank" rel="noopener">A Geometry-Informed Neural Operator surrogate of LISFLOOD-FP for rapid pluvial-fluvial flood forecasting: the case of Forlì, Italy</a></h2>
-          <p>用神经算子替代 LISFLOOD-FP，在意大利 Forlì 暴雨-河流复合洪水场景下把 72 小时预报从 55 秒压缩到秒级。</p>
+          <p>用神经算子替代 LISFLOOD-FP，在意大利 Forlì 的暴雨-河流复合洪水场景下把 72 小时预报从 55 秒压缩到秒级。</p>
         </article>
         
         <article class="card">
@@ -152,25 +152,25 @@
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2610.41043v1" target="_blank" rel="noopener">Meshless Latent Dynamics Models for Model Order Reduction of time-dependent Partial Differential Equations</a></h2>
-          <p>提出无网格潜动力学模型的统一数学框架，用神经场做条件化，为时变 PDE 的降阶给出可证明的误差结构。</p>
+          <p>提出无网格潜动力学模型的统一数学框架，用神经场做条件化，为时变 PDE 的降阶提供可证明的误差控制路径。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
-          <h2><a href="https://arxiv.org/abs/2610.41070v1" target="_blank" rel="noopener">D2ML: Models for Direct-to-Biology Small Molecule Screening</a></h2>
-          <p>首次系统性地把免纯化直接生物测试的原始数据用于机器学习，并成功指导新化合物合成。</p>
+          <h2><a href="https://github.com/BIMSBbioinfo/PocketVina" target="_blank" rel="noopener">BIMSBbioinfo/PocketVina</a></h2>
+          <p>把「找口袋」和「对接打分」串成一条 GPU 流水线，先用 P2Rank 预测可结合口袋，再让对接同时考虑多个口袋而非只盯一个。</p>
         </article>
         
         <article class="card">
           <span class="field">生物信息</span>
           <h2><a href="https://arxiv.org/abs/2610.41015v1" target="_blank" rel="noopener">Do Language Models Know What Compelling Scientific Evidence Looks Like?</a></h2>
-          <p>首个用真实生物学数据检验语言模型证据权衡能力的基准 EDB-Bio，揭示前沿模型系统性信心不足，校准训练后可反超。</p>
+          <p>首个用真实生物学数据检验语言模型「证据权衡」能力的基准 EDB-Bio，揭示前沿模型在科学证据判断上系统性信心不足，经校准训练后可反超。</p>
         </article>
         
         <article class="card">
           <span class="field">科学基础模型</span>
-          <h2><a href="https://arxiv.org/abs/2611.03154v1" target="_blank" rel="noopener">PaddleMaterials: An End-to-End Deep Learning Toolkit for Materials Science</a></h2>
-          <p>首个把材料科学六类任务统一到一个开源框架的工具包，让跨任务组合可验证、可编译加速，为科学基础模型提供工程底座。</p>
+          <h2><a href="https://arxiv.org/abs/2611.03276v1" target="_blank" rel="noopener">FACTO: fast atom-centered tensor operator for accurate and efficient foundational machine-learned interatomic potentials</a></h2>
+          <p>把等变机器学习原子间势的推理速度推到新高度，同时保持 FP32 级能量守恒，在 Matbench Discovery 的 46 个完整评分模型中综合领先。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期从「单点预测精度」明显转向「可控生成 + 可编程设计 + 可负担模拟」：蛋白质按折叠进度生成、材料按目标空间结构反推工艺、晶体按对称性约束生成，三条线共同把生成模型从「采样像不像」推进到「满足约束且可执行」。分子模拟侧出现一批降低单步成本的工作（影子势、跳步积分、GPU 原生增强采样），而非单纯堆算力。评测与不确定性量化开始覆盖训练分布之外，说明社区在补「可信度」这一课。</p>
+      <p>与上一期相比，本期最明显的变化是「生成式」从分子、晶体扩展到工艺与折叠路径：材料侧出现 LLM 智能体反推制造配方，蛋白质侧出现按折叠进度生成构象，说明 AI4S 正从「预测终态」转向「生成过程」。分子模拟则集中补工程债——柔性电荷、增强采样、跳步积分、GPU 原生工具链同时发力，目标都是把昂贵计算压到可接受开销。评测与不确定性成为新暗线：Fracture-Bench 揭示架构排名随任务而变，MLIP 的分布外不确定性开始用预训练思路处理，说明社区开始认真对待「模型在没见过的场景下是否可信」。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注：对称性/几何约束生成方法能否从晶体扩展到更一般的空间编程材料，以及 MLIP 的分布外不确定性估计能否与主动学习闭环真正接上实验。</p>
+      <p>下期值得关注：按折叠进度生成构象能否与实验解析的中间态对上，以及 LLM 智能体反推的工艺配方能否在真实合成中复现；同时留意 MLIP 分布外不确定性与相场断裂基准是否会催生统一的「可信度」评测协议。</p>
       
     </section>
     
