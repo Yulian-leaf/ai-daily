@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-11-05 15:13 (北京时间 UTC+8)
+      生成于 2026-11-05 17:20 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 11-02 ~ 11-08</h2>
       <p class="r-range">2026-11-02 ~ 2026-11-08</p>
-      <p class="r-overview">本期最鲜明的信号是「真实数据」开始压过「仿真刷榜」：RealPDEBench 把真实实验测量与仿真数据成对配齐，AutoDNA 把 AI 决策接进真实自动化实验闭环，D2B 数据被直接用于学习。分子模拟侧继续在「通用性」上加码，一个力场覆盖 85 种元素、一个势函数同时跑热分解与冲击加载。材料与气候领域则集中补齐基准与工具链，Fracture-Bench、GeoSim、PaddleMaterials 都在回答「怎么公平比较」。整体看，方法创新仍在，但评价体系与实验闭环正成为新的竞争焦点。</p>
+      <p class="r-overview">本期最鲜明的信号是「真实」二字：RealPDEBench 把实验测量与仿真数据成对配齐，AutoDNA 把 AI 决策接进真实自动化实验闭环，D2B 数据让模型从未纯化混合物里学习——AI4S 正在从「刷仿真榜」转向「对得上实验」。分子模拟侧，覆盖 85 种元素的通用反应力场、GPU 原生增强采样与在线自由能学习密集出现，通用势与采样效率两条线同时推进。材料与气候领域则继续用受控基准和混合建模拆解「平均误差掩盖的真相」，架构排名随任务而变、物理约束与深度学习各有所长成为共识。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -110,31 +110,31 @@
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://www.nature.com/articles/s41586-026-11210-2" target="_blank" rel="noopener">An open structure-guided RNA foundation model for generalizable prediction</a></h2>
-          <p>首个以结构为引导、在 2100 万条 RNA 序列-结构配对上预训练的开放 RNA 基础模型 structRFM，把 AlphaFold 式结构监督搬到 RNA。</p>
+          <p>structRFM 在 2100 万条 RNA 序列-结构配对上做结构引导预训练，把 AlphaFold 式结构监督思路搬到 RNA。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2611.06237v1" target="_blank" rel="noopener">SO3LR Tauri: Generally Applicable Force Fields for Reactive (Bio)Molecular Simulations Covering the Periodic Table</a></h2>
-          <p>一个机器学习力场试图覆盖周期表 85 种元素，用同一套模型同时处理有机反应、蛋白质、核酸、膜和金属酶，无需按体系定制。</p>
+          <p>一个机器学习力场覆盖周期表 85 种元素，用同一套模型处理有机反应、蛋白质、核酸、膜与金属酶，无需按体系定制。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2610.41955v1" target="_blank" rel="noopener">Shock Loading Accesses Reaction Pathways beyond Accelerated Thermolysis</a></h2>
-          <p>首次用同一反应性机器学习势能面同时模拟热分解与冲击加载，证明冲击打开的是热分解走不到的新反应路径，而非单纯加速。</p>
+          <h2><a href="https://arxiv.org/abs/2611.00483v1" target="_blank" rel="noopener">PLUMED-JAX: GPU-native enhanced sampling for atomistic simulations</a></h2>
+          <p>把增强采样工具 PLUMED 移植到 JAX，GPU 上原生跑批量副本与共享偏置，吞吐量提升数倍。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2611.03473v1" target="_blank" rel="noopener">Fracture-Bench: A Controlled Benchmark Suite for Machine Learning Surrogates in Phase-Field Fracture Mechanics</a></h2>
-          <p>首个相场断裂力学 ML 代理模型受控基准，用两套固定划分对比五种架构，揭示「架构排名随任务而变」被平均误差掩盖的事实。</p>
+          <p>首个相场断裂力学代理模型受控基准，用两套固定划分对比五种架构，揭示「架构排名随任务而变」被平均误差掩盖的事实。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2611.03154v1" target="_blank" rel="noopener">PaddleMaterials: An End-to-End Deep Learning Toolkit for Materials Science</a></h2>
-          <p>首个把材料科学六类任务（性质预测、结构生成、原子间势、电子结构、光谱解析、显微图像）统一到一个开源框架的工具包。</p>
+          <h2><a href="https://arxiv.org/abs/2611.03276v1" target="_blank" rel="noopener">FACTO: fast atom-centered tensor operator for accurate and efficient foundational machine-learned interatomic potentials</a></h2>
+          <p>FACTO 把等变机器学习原子间势推理速度推到新高度，同时保持 FP32 级能量守恒，在 Matbench Discovery 46 个完整评分模型中综合领先。</p>
         </article>
         
         <article class="card">
@@ -152,7 +152,7 @@
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://github.com/AI4Science-WestlakeU/RealPDEBench" target="_blank" rel="noopener">AI4Science-WestlakeU/RealPDEBench</a></h2>
-          <p>ICLR26 Oral 论文发布 RealPDEBench，首个把真实实验测量与仿真数据成对配齐的复杂物理系统基准，直指 AI 求解 PDE 的仿真刷榜问题。</p>
+          <p>ICLR26 Oral 论文发布首个把真实实验测量与仿真数据成对配齐的复杂物理系统基准，直指 AI 解 PDE 时「仿真刷榜」的痛点。</p>
         </article>
         
         <article class="card">
@@ -164,13 +164,13 @@
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2610.41070v1" target="_blank" rel="noopener">D2ML: Models for Direct-to-Biology Small Molecule Screening</a></h2>
-          <p>首次系统性地把免纯化直接生物测试（D2B）的原始数据用于机器学习，并成功指导新化合物合成，选出优于训练集的候选。</p>
+          <p>首次系统性地把免纯化直接生物测试的原始数据用于机器学习，从单点筛选与粗测剂量反应中学习并成功指导新化合物合成。</p>
         </article>
         
         <article class="card">
           <span class="field">生物信息</span>
           <h2><a href="https://arxiv.org/abs/2610.41015v1" target="_blank" rel="noopener">Do Language Models Know What Compelling Scientific Evidence Looks Like?</a></h2>
-          <p>首个用真实生物学数据检验语言模型「证据权衡」能力的基准 EDB-Bio，揭示前沿模型在科学证据判断上系统性信心不足，校准后可反超。</p>
+          <p>首个用真实生物学数据检验语言模型证据权衡能力的基准 EDB-Bio，揭示前沿模型在科学证据判断上系统性信心不足，校准训练后可反超。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期从「单点模型更强」转向「评价与闭环更真」：RealPDEBench、Fracture-Bench、GeoSim 三个基准同期出现，分别对准 PDE 求解、断裂力学代理和地幔多场模拟；AutoDNA 与 D2ML 则把真实实验数据拉进训练与决策回路。分子模拟侧出现「通用力场覆盖周期表」与「同一势函数跨加载条件」两条通用性路线，气候侧则出现物理模型追平深度学习的反向信号。</p>
+      <p>与上一期相比，本期「真实实验对齐」从口号变成基础设施：RealPDEBench 提供实验-仿真配对基准，AutoDNA 与 D2ML 分别把闭环实验和未纯化筛选数据纳入训练回路，评价体系开始向「对得上实验」迁移。分子模拟侧，通用性（覆盖 85 种元素的反应力场、跨 NVIDIA/Intel GPU 的 NPT 通用势）与采样效率（PLUMED-JAX、VESPER、WASABI）两条线同时加密，且开始出现「跳步误差可计算」这类把调参变成理论判据的工作。材料与气候领域则集中出现受控基准（Fracture-Bench、GeoSim），共同结论是架构排名随任务而变、物理约束模型可与深度学习打平。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注真实实验基准能否被复现与扩展，以及通用机器学习力场在 NPT、冲击等非平衡条件下的稳定性与成本；RNA 结构基础模型的下游任务表现也值得跟踪。</p>
+      <p>下期值得关注实验-仿真配对基准能否被社区真正用起来，以及通用反应力场在含金属酶等复杂体系上的实测复现；同时留意 GPU 原生采样工具与在线自由能学习的组合能否把药物发现中的自由能计算成本再压一个量级。</p>
       
     </section>
     
