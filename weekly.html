@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-11-05 11:19 (北京时间 UTC+8)
+      生成于 2026-11-05 15:13 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,17 +95,11 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 11-02 ~ 11-08</h2>
       <p class="r-range">2026-11-02 ~ 2026-11-08</p>
-      <p class="r-overview">本期最鲜明的信号是「真实」二字：RealPDEBench 把真实实验测量与仿真数据成对配齐，AutoDNA 把 AI 决策接进真实自动化实验闭环，D2B 数据让模型从未纯化混合物里学习。分子模拟侧继续在「通用性」上加码，SO3LR Tauri 试图用一套力场覆盖 85 种元素，FACTO 把等变势推理速度再推一档。气候与地球领域则出现「物理约束模型追平深度学习」与「神经算子替代传统模拟器」两条互补路线。整体看，本期不是单点精度竞赛，而是数据可信度、跨体系泛化与工程可用性三条线同时推进。</p>
+      <p class="r-overview">本期最鲜明的信号是「真实数据」开始压过「仿真刷榜」：RealPDEBench 把真实实验测量与仿真数据成对配齐，AutoDNA 把 AI 决策接进真实自动化实验闭环，D2B 数据被直接用于学习。分子模拟侧继续在「通用性」上加码，一个力场覆盖 85 种元素、一个势函数同时跑热分解与冲击加载。材料与气候领域则集中补齐基准与工具链，Fracture-Bench、GeoSim、PaddleMaterials 都在回答「怎么公平比较」。整体看，方法创新仍在，但评价体系与实验闭环正成为新的竞争焦点。</p>
 
       
       <h3 class="sub">本期亮点</h3>
       <div class="cards">
-        
-        <article class="card">
-          <span class="field">蛋白质/结构</span>
-          <h2><a href="https://www.nature.com/articles/s41586-026-11210-2" target="_blank" rel="noopener">An open structure-guided RNA foundation model for generalizable prediction</a></h2>
-          <p>首个以结构为引导、在 2100 万条 RNA 序列-结构配对上预训练的开放 RNA 基础模型 structRFM，把 AlphaFold 式结构监督搬到 RNA。</p>
-        </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
@@ -114,51 +108,51 @@
         </article>
         
         <article class="card">
-          <span class="field">药物发现</span>
-          <h2><a href="https://arxiv.org/abs/2610.41070v1" target="_blank" rel="noopener">D2ML: Models for Direct-to-Biology Small Molecule Screening</a></h2>
-          <p>首次系统性地把免纯化直接生物测试的原始数据用于机器学习，并成功指导新化合物合成。</p>
+          <span class="field">蛋白质/结构</span>
+          <h2><a href="https://www.nature.com/articles/s41586-026-11210-2" target="_blank" rel="noopener">An open structure-guided RNA foundation model for generalizable prediction</a></h2>
+          <p>首个以结构为引导、在 2100 万条 RNA 序列-结构配对上预训练的开放 RNA 基础模型 structRFM，把 AlphaFold 式结构监督搬到 RNA。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2611.06237v1" target="_blank" rel="noopener">SO3LR Tauri: Generally Applicable Force Fields for Reactive (Bio)Molecular Simulations Covering the Periodic Table</a></h2>
-          <p>一个机器学习力场试图覆盖周期表 85 种元素，用同一套模型同时处理有机反应、蛋白质、核酸、膜和金属酶。</p>
+          <p>一个机器学习力场试图覆盖周期表 85 种元素，用同一套模型同时处理有机反应、蛋白质、核酸、膜和金属酶，无需按体系定制。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2611.03276v1" target="_blank" rel="noopener">FACTO: fast atom-centered tensor operator for accurate and efficient foundational machine-learned interatomic potentials</a></h2>
-          <p>把等变机器学习原子间势的推理速度推到新高度，同时保持 FP32 级能量守恒，在 Matbench Discovery 46 个完整评分模型中综合领先。</p>
+          <h2><a href="https://arxiv.org/abs/2610.41955v1" target="_blank" rel="noopener">Shock Loading Accesses Reaction Pathways beyond Accelerated Thermolysis</a></h2>
+          <p>首次用同一反应性机器学习势能面同时模拟热分解与冲击加载，证明冲击打开的是热分解走不到的新反应路径，而非单纯加速。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2611.02906v1" target="_blank" rel="noopener">Site-orbit masked twin-branch Transformer for symmetry-constrained crystal generation</a></h2>
-          <p>用 Wyckoff 轨道对称性约束引导扩散模型生成晶体，已知结构模式下稳定、独特、新颖三项同时达标率比最强基线相对提升 68.15%。</p>
+          <h2><a href="https://arxiv.org/abs/2611.03473v1" target="_blank" rel="noopener">Fracture-Bench: A Controlled Benchmark Suite for Machine Learning Surrogates in Phase-Field Fracture Mechanics</a></h2>
+          <p>首个相场断裂力学 ML 代理模型受控基准，用两套固定划分对比五种架构，揭示「架构排名随任务而变」被平均误差掩盖的事实。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2611.03795v1" target="_blank" rel="noopener">Agentic inverse design of spatially programmed materials</a></h2>
-          <p>用 LLM 智能体把想要的材料空间结构直接反推成工艺配方，让空间结构成为可编程变量而非靠人反复试错。</p>
+          <h2><a href="https://arxiv.org/abs/2611.03154v1" target="_blank" rel="noopener">PaddleMaterials: An End-to-End Deep Learning Toolkit for Materials Science</a></h2>
+          <p>首个把材料科学六类任务（性质预测、结构生成、原子间势、电子结构、光谱解析、显微图像）统一到一个开源框架的工具包。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2611.06382v1" target="_blank" rel="noopener">From hydrological laws to catchment models: A process-based model matches deep-learning accuracy on three continents</a></h2>
-          <p>物理定律约束的低维流域模型 CaRT+ 在英、美、澳三大洲径流预测上追平甚至局部超过 LSTM，提示流域尺度可能存在形式定律。</p>
+          <p>物理定律约束的低维流域模型 CaRT+ 在英、美、澳三大洲径流预测上追平甚至局部超过 LSTM，提示流域尺度可能存在「形式定律」。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2611.03381v1" target="_blank" rel="noopener">A Geometry-Informed Neural Operator surrogate of LISFLOOD-FP for rapid pluvial-fluvial flood forecasting: the case of Forlì, Italy</a></h2>
-          <p>用神经算子替代 LISFLOOD-FP，在意大利 Forlì 复合洪水场景下把 72 小时预报从 55 秒压缩到秒级。</p>
+          <h2><a href="https://arxiv.org/abs/2611.04517v1" target="_blank" rel="noopener">GeoSim: Benchmarking Multi-Field Neural Operators for Geodynamics</a></h2>
+          <p>首个地幔柱多场耦合神经算子基准，用 237 条高分辨率轨迹揭示「标量场准、速度场差」的系统性偏差并给出改进基线。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://github.com/AI4Science-WestlakeU/RealPDEBench" target="_blank" rel="noopener">AI4Science-WestlakeU/RealPDEBench</a></h2>
-          <p>ICLR26 Oral 论文发布首个把真实实验测量与仿真数据成对配齐的复杂物理系统基准，直指 AI 求解 PDE 时仿真刷分的问题。</p>
+          <p>ICLR26 Oral 论文发布 RealPDEBench，首个把真实实验测量与仿真数据成对配齐的复杂物理系统基准，直指 AI 求解 PDE 的仿真刷榜问题。</p>
         </article>
         
         <article class="card">
@@ -168,9 +162,15 @@
         </article>
         
         <article class="card">
+          <span class="field">药物发现</span>
+          <h2><a href="https://arxiv.org/abs/2610.41070v1" target="_blank" rel="noopener">D2ML: Models for Direct-to-Biology Small Molecule Screening</a></h2>
+          <p>首次系统性地把免纯化直接生物测试（D2B）的原始数据用于机器学习，并成功指导新化合物合成，选出优于训练集的候选。</p>
+        </article>
+        
+        <article class="card">
           <span class="field">生物信息</span>
           <h2><a href="https://arxiv.org/abs/2610.41015v1" target="_blank" rel="noopener">Do Language Models Know What Compelling Scientific Evidence Looks Like?</a></h2>
-          <p>首个用真实生物学数据检验语言模型证据权衡能力的基准 EDB-Bio，揭示前沿模型在科学证据判断上系统性信心不足，校准训练后可反超。</p>
+          <p>首个用真实生物学数据检验语言模型「证据权衡」能力的基准 EDB-Bio，揭示前沿模型在科学证据判断上系统性信心不足，校准后可反超。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期出现三个明显位移：一是「真实数据」从口号变成基础设施，RealPDEBench、AutoDNA、D2ML 分别从基准、实验闭环、训练数据三个层面把真实测量拉进 AI 流程；二是通用性竞争升温，SO3LR Tauri 与 FACTO 不再满足于单一化学体系，而是直接对标周期表覆盖与跨体系推理效率；三是气候领域出现「物理约束模型追平深度学习」的反向证据，与神经算子替代模拟器的工程路线形成对照，说明该领域开始同时追问「为什么准」和「能不能用」。</p>
+      <p>与上一期相比，本期从「单点模型更强」转向「评价与闭环更真」：RealPDEBench、Fracture-Bench、GeoSim 三个基准同期出现，分别对准 PDE 求解、断裂力学代理和地幔多场模拟；AutoDNA 与 D2ML 则把真实实验数据拉进训练与决策回路。分子模拟侧出现「通用力场覆盖周期表」与「同一势函数跨加载条件」两条通用性路线，气候侧则出现物理模型追平深度学习的反向信号。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注真实实验数据与仿真数据的配比方法是否出现可复用的训练范式，以及覆盖周期表的通用力场在 NPT、反应路径等真实工况下的验证结果。</p>
+      <p>下期值得关注真实实验基准能否被复现与扩展，以及通用机器学习力场在 NPT、冲击等非平衡条件下的稳定性与成本；RNA 结构基础模型的下游任务表现也值得跟踪。</p>
       
     </section>
     
