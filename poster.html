@@ -79,12 +79,12 @@
     <div class="brand">AI4S-DAILY</div>
     
     <h1 class="title">AI4S 周报 · 11-02 ~ 11-08</h1>
-    <p class="slogan">「从预测结构到编程物质」</p>
-    <p class="range">2026-11-02 ~ 2026-11-08 · 2026-11-04 16:57 (北京时间 UTC+8)</p>
+    <p class="slogan">「从仿真刷分，走向真实实验」</p>
+    <p class="range">2026-11-02 ~ 2026-11-08 · 2026-11-05 11:19 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期最鲜明的信号是 AI4S 正从「预测」走向「可编程」：蛋白质不再只给最终天然态，而是按折叠进度生成连续构象；材料不再只做性质筛选，而是由 LLM 智能体把目标空间结构反推成工艺配方。分子模拟侧集中解决「算得起」的问题——柔性电荷、增强采样、跳步积分、GPU 原生工具链都在把原本昂贵的计算压到可接受开销。材料领域则出现明显的「基础设施化」倾向：统一工具包、受控基准、结构化热力学数据库，说明社区开始为可复现比较搭台。</p>
+  <p class="overview">本期最鲜明的信号是「真实」二字：RealPDEBench 把真实实验测量与仿真数据成对配齐，AutoDNA 把 AI 决策接进真实自动化实验闭环，D2B 数据让模型从未纯化混合物里学习。分子模拟侧继续在「通用性」上加码，SO3LR Tauri 试图用一套力场覆盖 85 种元素，FACTO 把等变势推理速度再推一档。气候与地球领域则出现「物理约束模型追平深度学习」与「神经算子替代传统模拟器」两条互补路线。整体看，本期不是单点精度竞赛，而是数据可信度、跨体系泛化与工程可用性三条线同时推进。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -92,20 +92,20 @@
   
   <div class="hl">
     <div class="hl-head">
-      <span class="field">🧬 蛋白质/结构</span>
-      <span class="score">8.0</span>
+      <span class="field">⚛️ 分子模拟</span>
+      <span class="score">9.0</span>
     </div>
-    <h3>Predicting protein structures at any folding stage from sequence</h3>
-    <p>FoldScape 首次让模型按「折叠进度」生成蛋白质构象，而不只是预测最终天然结构，补上了从松散链到近天然态之间的连续路径。</p>
+    <h3>SO3LR Tauri: Generally Applicable Force Fields for Reactive (Bio)Molecular Simulations Covering the Periodic Table</h3>
+    <p>一个机器学习力场（用神经网络近似量子力学计算）试图覆盖元素周期表上的 85 种元素，并用同一套模型同时处理有机反应、蛋白质、核酸、膜和金属酶，无需针对具体体系调…</p>
   </div>
   
   <div class="hl">
     <div class="hl-head">
-      <span class="field">⚛️ 分子模拟</span>
+      <span class="field">🧬 蛋白质/结构</span>
       <span class="score">8.0</span>
     </div>
-    <h3>Isothermal-Isobaric Molecular Dynamics with a Foundation Interatomic Potential in LAMMPS across NVIDIA and Intel GPUs</h3>
-    <p>首次让通用机器学习原子间势（UMA，一个模型覆盖多种化学体系）在 LAMMPS 里跑通等温等压（NPT）分子动力学，并且同一套代码同时支持 NVIDIA 和 I…</p>
+    <h3>An AI-native experimental laboratory for autonomous biomolecular operations</h3>
+    <p>AutoDNA 把「AI 决策 + 多仪器自动化实验」做成一个闭环、多用户共用的生物分子工程实验室，让 AI 与自动化系统在真实实验里互相迭代，而不只是单点自动…</p>
   </div>
   
   <div class="hl">
@@ -122,8 +122,8 @@
       <span class="field">🌍 气候地球</span>
       <span class="score">8.0</span>
     </div>
-    <h3>A Geometry-Informed Neural Operator surrogate of LISFLOOD-FP for rapid pluvial-fluvial flood forecasting: the case of Forlì, Italy</h3>
-    <p>用神经算子（学习物理场映射的神经网络）替代传统洪水模拟器 LISFLOOD-FP，在意大利 Forlì 的暴雨-河流复合洪水场景下，72 小时预报从 55 秒压…</p>
+    <h3>From hydrological laws to catchment models: A process-based model matches deep-learning accuracy on three continents</h3>
+    <p>用物理定律约束的低维流域模型 CaRT+，在英、美、澳三大洲的径流预测上追平甚至局部超过 LSTM（长短期记忆网络），说明流域尺度可能存在「形式定律」，而非纯靠…</p>
   </div>
   
   <div class="hl">
@@ -131,8 +131,8 @@
       <span class="field">📐 AI4Math/PDE</span>
       <span class="score">8.0</span>
     </div>
-    <h3>Instrumental Transfer Learning for Solution Operators</h3>
-    <p>针对目标系统数据稀缺、源系统方程有未知稀疏差异的场景，提出结构化迁移学习，首次给出迁移何时能达到全源合并速率的非渐近预测界与可识别性下界。</p>
+    <h3>AI4Science-WestlakeU/RealPDEBench</h3>
+    <p>ICLR26 Oral 论文发布 RealPDEBench，首个把「真实实验测量」与「仿真数据」成对配齐的复杂物理系统基准，直指 AI 求解偏微分方程时「仿真刷…</p>
   </div>
   
   <div class="hl">
@@ -140,17 +140,17 @@
       <span class="field">⚛️ 分子模拟</span>
       <span class="score">8.0</span>
     </div>
-    <h3>DynaSolver: A Neural Operator for Autoregressive 4D Flow Prediction with Dynamic Boundaries</h3>
-    <p>首个面向「连续运动边界」的 4D 流体预测神经算子，并配套发布 RoboCFD-4D 基准；在完整自回归推演中精度最高，且误差随推演步数增加的优势更明显。</p>
+    <h3>Neural Stochastic Forecasting for Lateral Molecular Diffusion Simulations</h3>
+    <p>用神经网络随机模型替代昂贵MD模拟，从短轨迹外推膜蛋白长时扩散，能生成4万帧轨迹并复现MD测得的异常扩散指数，比此前变分自回归模型更准。</p>
   </div>
   
   <div class="hl">
     <div class="hl-head">
-      <span class="field">⚛️ 分子模拟</span>
+      <span class="field">🧬 蛋白质/结构</span>
       <span class="score">8.0</span>
     </div>
-    <h3>Shadow Molecular Dynamics for General Nonlinear Flexible-Charge Models</h3>
-    <p>把柔性电荷模型每步都要做的全局非线性电荷平衡，换成一次线性化求解的「影子势」，让带长程静电和电荷转移的分子动力学在十万原子规模上接近固定电荷模型的开销。</p>
+    <h3>An open structure-guided RNA foundation model for generalizable prediction</h3>
+    <p>首个以「结构」为引导、在2100万条RNA序列-结构配对上预训练的开放RNA基础模型structRFM，把蛋白质领域AlphaFold式的结构监督思路搬到RNA…</p>
   </div>
   
   <div class="hl">
@@ -176,63 +176,63 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期从「单点模型刷榜」明显转向「系统级可用性」：材料侧出现统一工具包 PaddleMaterials 与受控基准 Fracture-Bench，分子模拟侧集中补齐 GPU 原生、跳步、影子势等工程短板，说明社区开始为可复现比较和真实工作流搭基础设施；同时「按过程生成」取代「只给终态」成为新叙事，FoldScape 的折叠路径与 Agentic 反设计都指向同一方向。</p>
+  <p class="trend">与上一期相比，本期出现三个明显位移：一是「真实数据」从口号变成基础设施，RealPDEBench、AutoDNA、D2ML 分别从基准、实验闭环、训练数据三个层面把真实测量拉进 AI 流程；二是通用性竞争升温，SO3LR Tauri 与 FACTO 不再满足于单一化学体系，而是直接对标周期表覆盖与跨体系推理效率；三是气候领域出现「物理约束模型追平深度学习」的反向证据，与神经算子替代模拟器的工程路线形成对照，说明该领域开始同时追问「为什么准」和「能不能用」。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">6270</span><small>抓取条目</small></div>
-      <div><span class="num">440</span><small>总结</small></div>
-      <div><span class="num">440</span><small>已上墙</small></div>
+      <div><span class="num">6445</span><small>抓取条目</small></div>
+      <div><span class="num">450</span><small>总结</small></div>
+      <div><span class="num">450</span><small>已上墙</small></div>
     </div>
     <div class="fields">
       
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
         <div class="fbar"><div class="fbar-fill" style="width: 14%"></div></div>
-        <b>51</b>
+        <b>57</b>
       </div>
       
       <div class="frow">
         <span class="flabel">💊 药物发现</span>
         <div class="fbar"><div class="fbar-fill" style="width: 12%"></div></div>
-        <b>44</b>
+        <b>49</b>
       </div>
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 58%"></div></div>
-        <b>206</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 55%"></div></div>
+        <b>220</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 89%"></div></div>
-        <b>314</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 83%"></div></div>
+        <b>331</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 40%"></div></div>
-        <b>142</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 38%"></div></div>
+        <b>152</b>
       </div>
       
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 37%"></div></div>
-        <b>131</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 36%"></div></div>
+        <b>144</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>354</b>
+        <b>397</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
         <div class="fbar"><div class="fbar-fill" style="width: 34%"></div></div>
-        <b>119</b>
+        <b>135</b>
       </div>
       
     </div>

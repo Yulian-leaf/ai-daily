@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="weekly.html">周报 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-11-04 16:57 (北京时间 UTC+8)
+      生成于 2026-11-05 11:19 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 双周报告 · 10-26 ~ 11-08</h2>
       <p class="r-range">2026-10-26 ~ 2026-11-08</p>
-      <p class="r-overview">这两周 AI4S 的主旋律是「从静态预测走向动态过程与闭环系统」：蛋白质模型开始按折叠进度生成中间构象，分子模拟把在线学习、跳步、影子势做成可生产部署的加速器，材料领域则密集出现智能体反演、统一工具包与受控基准。第一周（10-26 ~ 11-01）以方法学铺底为主，大量神经算子、可微分求解器与不确定性量化工作集中出现；第二周（11-02 ~ 11-08）明显转向「系统级整合」——LAMMPS 里跑通通用势的 NPT、材料六类任务统一到一个框架、智能体直接反推工艺配方，工程落地与端到端闭环的条目占比上升。跨周看，molsim 与 materials 仍是绝对主力，但 climate 从第一周的方法探索（可微分 WRF、无状态大气耦合）转向第二周的业务化验证（公里级全异构模式、强化扩散降水预报），ai4math 则从纯理论保证转向「神经算子嵌进经典求解器」的混合路线。</p>
+      <p class="r-overview">这两周 AI4S 的主旋律是「从仿真走向真实、从单点走向闭环」：RealPDEBench 把真实实验测量与仿真数据成对配齐，直指 PDE 求解器「仿真刷分」的老问题；AutoDNA 把 AI 决策与多仪器自动化实验做成闭环实验室；HRRRCast 与 SD3 则把数据驱动天气预报推到近实时业务与公里级全球模式。第一周以「工具与基准」为主——大量神经算子、MLIP 加速、数据集与开源框架集中发布；第二周明显转向「系统级整合」——反应性力场覆盖周期表、RNA 结构基础模型、抗体强化学习优化、洪水与海洋耦合预报等端到端系统集中出现。量化上看，molsim 与 materials 仍是条目最多的两个方向，但 climate 与 protein 在第二周的条目质量与系统完整度明显上升。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -103,68 +103,62 @@
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
-          <h2><a href="https://arxiv.org/abs/2611.04287v1" target="_blank" rel="noopener">Predicting protein structures at any folding stage from sequence</a></h2>
-          <p>FoldScape 首次让模型按「折叠进度」生成蛋白质构象，补上从松散链到近天然态之间的连续路径，而不只是预测最终天然结构。</p>
+          <h2><a href="https://www.nature.com/articles/s41586-026-11210-2" target="_blank" rel="noopener">An open structure-guided RNA foundation model for generalizable prediction</a></h2>
+          <p>首个以结构为引导、在 2100 万条 RNA 序列-结构配对上预训练的开放 RNA 基础模型 structRFM，把 AlphaFold 式结构监督搬到 RNA。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
-          <h2><a href="https://arxiv.org/abs/2610.37410v1" target="_blank" rel="noopener">Accurate structural modelling of protein-glycan recognition with GlycoWeave</a></h2>
-          <p>首个专门针对蛋白质-糖链识别的扩散模型，在 698 个复合物基准上高质量成功率 71.9%，远超 AlphaFold 3 的 19.2%，单次采样仅 0.34 秒。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">药物发现</span>
-          <h2><a href="https://arxiv.org/abs/2610.33195v1" target="_blank" rel="noopener">Agent-guided epitope excision enables economical de novo binder design</a></h2>
-          <p>把「表位切除」与智能体自动搜索结合，让大靶点从头设计 binder 的 GPU 时间最多省约 88%，命中率从 5.06% 提到 9.3%。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">药物发现</span>
-          <h2><a href="https://arxiv.org/abs/2610.41070v1" target="_blank" rel="noopener">D2ML: Models for Direct-to-Biology Small Molecule Screening</a></h2>
-          <p>首次系统性地把免纯化直接生物测试的原始数据用于机器学习，并成功指导新化合物合成，选出比训练集更强的分子。</p>
+          <h2><a href="https://arxiv.org/abs/2611.05270v1" target="_blank" rel="noopener">iGC: Antibody Optimization via Reinforcement Learning over a Learned Somatic Hypermutation Prior</a></h2>
+          <p>把 B 细胞体细胞超突变先验与抗原特异性奖励拆成两阶段强化学习，让抗体亲和力优化沿着自然成熟路径走。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2611.03892v1" target="_blank" rel="noopener">Isothermal-Isobaric Molecular Dynamics with a Foundation Interatomic Potential in LAMMPS across NVIDIA and Intel GPUs</a></h2>
-          <p>首次让通用机器学习原子间势（UMA）在 LAMMPS 里跑通等温等压分子动力学，同一套代码同时支持 NVIDIA 和 Intel GPU。</p>
+          <h2><a href="https://arxiv.org/abs/2611.06237v1" target="_blank" rel="noopener">SO3LR Tauri: Generally Applicable Force Fields for Reactive (Bio)Molecular Simulations Covering the Periodic Table</a></h2>
+          <p>一个机器学习力场试图覆盖周期表 85 种元素，用同一套模型同时处理有机反应、蛋白质、核酸、膜和金属酶。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2611.00401v1" target="_blank" rel="noopener">VESPER: Online Learning of Free Energies with a Multi-Tempered Variational Objective</a></h2>
-          <p>把 MD 采样与神经网络自由能学习做成在线闭环，模型边学边给 MD 加偏置加速跨能垒，并用单一凸变分目标统一多个升温层级。</p>
+          <h2><a href="https://arxiv.org/abs/2610.41958v1" target="_blank" rel="noopener">WASABI: Wasserstein Sampling via Bridge Interpolants</a></h2>
+          <p>只用能量函数训练扩散模型采样玻尔兹曼分布，训练后采样不再反复算能量，丙氨酸二肽上比最强基线少用约 3.3 倍能量评估。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2611.03795v1" target="_blank" rel="noopener">Agentic inverse design of spatially programmed materials</a></h2>
-          <p>用 LLM 智能体把「想要的材料空间结构」直接反推成「怎么造」的工艺配方，让空间结构成为可编程变量而非靠人反复试错。</p>
+          <h2><a href="https://arxiv.org/abs/2611.03276v1" target="_blank" rel="noopener">FACTO: fast atom-centered tensor operator for accurate and efficient foundational machine-learned interatomic potentials</a></h2>
+          <p>把等变 MLIP 推理速度推到新高度，同时保持 FP32 级能量守恒，在 Matbench Discovery 46 个完整评分模型中综合领先。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2611.03154v1" target="_blank" rel="noopener">PaddleMaterials: An End-to-End Deep Learning Toolkit for Materials Science</a></h2>
-          <p>首个把材料科学六类任务（性质预测、结构生成、原子间势、电子结构、光谱解析、显微图像）统一到一个开源框架的工具包。</p>
+          <h2><a href="https://arxiv.org/abs/2610.38195v1" target="_blank" rel="noopener">Crystoria: A Large-Scale Crystal Dataset Linking Thermodynamic and Dynamical Stability for Materials AI</a></h2>
+          <p>首个百万级晶体动力学稳定性数据集：264 万条结构、179 万条经声子筛选确认动力学稳定，填补结构库与物理稳定性之间的量级鸿沟。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2610.39334v1" target="_blank" rel="noopener">SD3: The First Operationally-Proven, Fully Heterogeneous-Accelerated Global Kilometer-Scale Model with Inline Physics Architecture</a></h2>
-          <p>首个在业务预报中真正跑起来的全球公里级全异构加速天气/气候模式，用 24576 块 GPU 做到每天模拟 205.7 天。</p>
+          <p>首个业务运行的全球 1.5 km 全异构加速天气/气候模式，24576 块 GPU 做到每天模拟 205.7 天。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2610.38775v1" target="_blank" rel="noopener">Skillful and realistic precipitation forecasting with reinforced diffusion</a></h2>
-          <p>首个在美国本土同时做到「预测准」和「物理真实」的降水预报系统 FitzRoy，用强化学习调教扩散模型解决精度与结构真实感二选一难题。</p>
+          <h2><a href="https://arxiv.org/abs/2611.06382v1" target="_blank" rel="noopener">From hydrological laws to catchment models: A process-based model matches deep-learning accuracy on three continents</a></h2>
+          <p>物理定律约束的低维流域模型 CaRT+ 在英、美、澳三大洲径流预测上追平甚至局部超过 LSTM，提示流域尺度可能存在「形式定律」。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2610.38790v1" target="_blank" rel="noopener">Safeguarded Neurally-Accelerated Preconditioning (SNAP) framework for Nonlinear Optimization</a></h2>
-          <p>把预训练神经算子当作加速器嵌进经典非线性优化循环，并用事后检查保证不跑偏，兼顾收敛性与迭代次数下降。</p>
+          <h2><a href="https://github.com/AI4Science-WestlakeU/RealPDEBench" target="_blank" rel="noopener">AI4Science-WestlakeU/RealPDEBench</a></h2>
+          <p>ICLR26 Oral 论文发布 RealPDEBench，首个把真实实验测量与仿真数据成对配齐的复杂物理系统基准，直指 PDE 求解器「仿真刷分」。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">AI4Math/PDE</span>
+          <h2><a href="https://arxiv.org/abs/2610.35617v1" target="_blank" rel="noopener">Distilling neural networks into equations to predict planetary instability</a></h2>
+          <p>把神经网络蒸馏成可读代数公式，首次给出预测多行星系统何时失稳的解析方程，300 年未解的动力学难题有了新答案。</p>
         </article>
         
         <article class="card">
@@ -173,16 +167,22 @@
           <p>首个面向贝叶斯滤波的预训练基础模型 FilterFM：单一权重跨异构动力系统估计隐状态，并首次实现未见动力学上的零样本滤波。</p>
         </article>
         
+        <article class="card">
+          <span class="field">生物信息</span>
+          <h2><a href="https://arxiv.org/abs/2610.40556v1" target="_blank" rel="noopener">Advancing Clinical Genomic Analysis with a Skill-Centred Agent</a></h2>
+          <p>把临床基因组分析拆成 105 个可执行技能，由大模型按任务检索编排，在 223 个时间外推病例上把与专家结论一致率从 45.7% 提到 71.7%。</p>
+        </article>
+        
       </div>
       
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>跨周对比看三条线。其一，molsim 从第一周的方法铺底（WASABI、VESPER、影子分子动力学、跳步框架）转向第二周的工程集成（LAMMPS 里跑通 UMA 的 NPT、PLUMED-JAX 的 GPU 原生增强采样），条目数维持在两周合计约 20 条的高位，但「能直接部署」的比例明显上升。其二，materials 是这两周最密集的方向，合计约 25 条，且第二周出现明显的「系统化」信号：PaddleMaterials 统一六类任务、Fracture-Bench 给出受控基准、Crystoria 补上百万级动力学稳定性数据，从单点模型转向基础设施。其三，climate 的节奏变化最清晰：第一周以可微分 WRF、无状态大气耦合、小波损失等方法探索为主，第二周直接跳到 SD3 业务化公里级模式与 FitzRoy 强化扩散降水，从「能不能做」转向「能不能业务跑」。相对降温的是 ai4math 的纯理论保证类工作，第二周更多转向神经算子嵌进经典求解器的混合路线（SNAP、Schwarz 耦合可微分求解器）。新浮现的方向是「智能体 + 科学工作流」：materials 的 Agentic inverse design、drug 的表位切除智能体、bioinfo 的 105 技能临床基因组智能体，两周内至少 5 条，且都强调可溯源与闭环执行。</p>
+      <p>跨周对比看，molsim 与 materials 仍是条目最多的两个方向（两周合计约 30 条与 25 条），但内部重心从「单点加速」转向「系统级可用性」：第一周密集出现 PLUMED-JAX、Tensor Core MLIP、Chelombus 等工具型工作，第二周则集中出现 SO3LR Tauri、FACTO、AMARO v2.0 等「一个模型覆盖多体系」的整合型工作。climate 明显升温：第一周以神经算子替代模拟器（LISFLOOD-FP、GeoSim）为主，第二周升级为业务级系统（SD3 全球公里级、HRRRCast 近实时区域预报、FASST 百年耦合），从「能算」走向「能跑业务」。protein 在第二周集中爆发：structRFM、FoldScape、iGC、GlycoWeave、AutoDNA 五条高完整度系统工作同周出现，明显高于第一周以单点预测为主的节奏。ai4math 热度从「算子学习架构」转向「基准与理论边界」：RealPDEBench、Fracture-Bench、迁移学习非渐近界、PDE 结构复杂度下界等，说明社区开始给算子学习「划边界」。相对降温的是 drug：两周仅 PocketVina、Gnina、D2ML 等少数条目，且多为工具维护而非新范式。新浮现方向是「智能体闭环实验」：AutoDNA、QUANTA、PULSES、WxCrop、Agent-guided epitope excision 在两周内跨 protein/materials/climate 三个领域同时出现，从单点自动化走向「AI 决策 + 仪器执行 + 数据回流」的闭环。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下两周重点跟踪两条线：一是「智能体 + 科学工作流」能否从单点演示走向可复现的端到端流水线（尤其材料反设计与临床基因组分析）；二是通用机器学习原子间势在 LAMMPS 等生产级软件里的 NPT/增强采样集成，是否会出现跨 GPU 厂商的性能基准与稳定性报告。</p>
+      <p>下两周重点跟踪两条线：一是「真实数据基准」能否从 RealPDEBench 扩散到气候与材料领域，形成对仿真刷分的系统性纠偏；二是智能体闭环实验能否从单实验室演示走向多用户共用平台，并给出可复现的命中率与成本账。</p>
       
     </section>
     
