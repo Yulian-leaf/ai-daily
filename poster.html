@@ -80,11 +80,11 @@
     
     <h1 class="title">AI4S 周报 · 11-02 ~ 11-08</h1>
     <p class="slogan">「从预测到重建，从仿真到实盘」</p>
-    <p class="range">2026-11-02 ~ 2026-11-08 · 2026-11-06 15:14 (北京时间 UTC+8)</p>
+    <p class="range">2026-11-02 ~ 2026-11-08 · 2026-11-06 17:14 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期 AI4S 的主线是「从预测走向重建与闭环」：分子模拟不再满足于能量和力，开始重建完整波函数、生成任意折叠阶段的构象；材料领域出现覆盖周期表 85 种元素的通用力场和 11 万结构哈密顿量数据集，把「一个模型通吃」推向新尺度。气候与地球科学则强调「实盘」与「物理约束」——按真实市场截止时间冻结信息集的能源基准、用物理定律约束的低维流域模型追平 LSTM，都在回应「仿真刷分」的质疑。蛋白质方向继续基础模型化：结构引导的 RNA 基础模型、按折叠进度生成构象、强化学习优化抗体，形成从序列到功能的多层工具链。整体看，本期工作更强调可验证的基准、真实实验闭环和跨体系泛化，而非单点指标刷新。</p>
+  <p class="overview">本期 AI4S 的主线是「从预测走向重建与闭环」：分子模拟不再满足于能量和力，开始重建完整波函数与任意折叠阶段的构象；材料领域密集出现覆盖周期表、四元体系、跨任务统一框架的通用势与工具包；气候与能源评测转向「实盘」和物理约束，用低维模型追平深度学习、用可微分模式压住漂移。同时，自动化实验与强化学习把 AI 从「算」推进到「做」，RNA 结构基础模型和 70 亿分子数据集则继续抬高数据与预训练的门槛。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -176,12 +176,12 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期出现三个明显变化：一是分子模拟从「预测能量和力」转向「重建电子结构与生成构象路径」，波函数重建和按折叠进度生成构象都是新方向；二是基准建设从静态数据集转向「实盘」和「真实实验配对」，EnergyBench 按市场截止时间冻结信息集、RealPDEBench 把真实测量与仿真成对配齐，回应了仿真刷分问题；三是通用力场和基础模型继续向「一个模型覆盖多体系」推进，SO3LR Tauri 覆盖 85 种元素、structRFM 把结构监督搬到 RNA，跨体系泛化成为核心卖点。</p>
+  <p class="trend">与上一期相比，本期出现三个明显变化：一是分子模拟从「预测能量和力」转向「重建电子结构与折叠路径」，波函数重建和任意折叠阶段生成同时出现；二是材料领域密集发布通用势与统一工具包（覆盖 85 种元素、四元体系、六类任务），并开始系统处理分布外不确定性；三是评测范式从静态回测转向「实盘」与「真实实验配对」，EnergyBench 和 RealPDEBench 分别从市场截止时间和实验测量两端收紧评测口径。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">6628</span><small>抓取条目</small></div>
+      <div><span class="num">6705</span><small>抓取条目</small></div>
       <div><span class="num">460</span><small>总结</small></div>
       <div><span class="num">460</span><small>已上墙</small></div>
     </div>
@@ -189,50 +189,50 @@
       
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 14%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 13%"></div></div>
         <b>58</b>
       </div>
       
       <div class="frow">
         <span class="flabel">💊 药物发现</span>
         <div class="fbar"><div class="fbar-fill" style="width: 12%"></div></div>
-        <b>49</b>
+        <b>51</b>
       </div>
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 53%"></div></div>
-        <b>218</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 52%"></div></div>
+        <b>226</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 74%"></div></div>
-        <b>303</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 72%"></div></div>
+        <b>312</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 36%"></div></div>
-        <b>147</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 35%"></div></div>
+        <b>152</b>
       </div>
       
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 35%"></div></div>
-        <b>145</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 36%"></div></div>
+        <b>155</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>410</b>
+        <b>435</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
         <div class="fbar"><div class="fbar-fill" style="width: 31%"></div></div>
-        <b>129</b>
+        <b>137</b>
       </div>
       
     </div>
