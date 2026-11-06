@@ -237,7 +237,7 @@
       <a href="poster.html" class="weekly-link">🖼 海报 →</a> ·
       今日新增 <strong>10</strong> 条 ·
       归档 <strong>290</strong> 条（29 天）·
-      最近更新于 2026-11-05 17:20 (北京时间 UTC+8)
+      最近更新于 2026-11-06 11:18 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -291,6 +291,319 @@
       
         <div class="cards">
           
+    <article class="card" data-url="https://arxiv.org/abs/2611.07695v1" data-field="materials">
+      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2611.07695v1" onclick="toggleStar(this)">☆</button>
+      <div class="card-head">
+        <h2><a href="https://arxiv.org/abs/2611.07695v1" target="_blank" rel="noopener">Equivariant Deep Learning in Direct-Product Space for Electronic-Structure Hamiltonian Prediction</a></h2>
+        <div class="badges">
+          <span class="score high">8</span>
+          <span class="source cat-paper" title="arxiv:arxiv-physchem">arXiv · 物化</span>
+          
+          <span class="field" title="子领域">材料科学</span>
+          
+        </div>
+      </div>
+      
+      <div class="tags">
+        <span class="tag">materials</span><span class="tag">equivariant-learning</span><span class="tag">electronic-structure</span><span class="tag">scientific-machine-learning</span>
+      </div>
+      
+      <p class="innovation">首次让等变深度学习直接在「直积空间」里操作哈密顿量矩阵块，绕开传统球张量分解，同时提出 11 万材料结构的大规模哈密顿量数据集 MP-HAM-110K。</p>
+      <dl class="details">
+        <dt>技术方案</dt><dd>过去预测哈密顿量的等变模型在「直和空间」里传递特征，而目标哈密顿量本身是轨道与自旋基上的直积算符块，两者表示不匹配，导致矩阵块被切碎、需要大量 Clebsch-Gordan 变换。DP-Learner 改为直接在直积空间中对类哈密顿量算符块做消息传递，用李代数生成元构造方向嵌入，并用不变加权的左右乘积与收缩保持对 SO(3)、SU(2) 和空间反演的等变性，无需显式 CG 分解或逆重构。方法上实例化为 Transformer：矩阵特征在等变算符下演化，非线性不变标量路由控制门控、方向传播、注意力和环境上下文交互。</dd>
+        <dt>关键数据</dt><dd>构建 MP-HAM-110K 数据集，含超过 110,000 个材料结构、覆盖 68 种元素，同时提供哈密顿量与波函数数据；在 MP-HAM-110K 和 Materials-HAM-SOC 上，哈密顿量预测精度与推理效率均较当前最优方法大幅提升，具体百分比未披露。</dd>
+        <dt>为什么值得关注</dt><dd>对关心 AI for Science、科学机器学习与材料设计的读者，这条把等变网络从「特征空间」推进到「算符空间」，直接预测电子结构哈密顿量，是连接深度学习与第一性原理计算的关键一步，新数据集也降低了该方向的数据门槛。</dd>
+      </dl>
+      <footer class="card-foot">
+        <span class="date">2026-11-05</span>
+        
+        
+        <a class="cta" href="https://arxiv.org/abs/2611.07695v1" target="_blank" rel="noopener">阅读原文 →</a>
+      </footer>
+    </article>
+    <article class="card" data-url="https://arxiv.org/abs/2611.06779v1" data-field="molsim">
+      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2611.06779v1" onclick="toggleStar(this)">☆</button>
+      <div class="card-head">
+        <h2><a href="https://arxiv.org/abs/2611.06779v1" target="_blank" rel="noopener">Machine Learning the Complete Active-Space Wavefunction Reconstruction</a></h2>
+        <div class="badges">
+          <span class="score high">8</span>
+          <span class="source cat-paper" title="arxiv:arxiv-physchem">arXiv · 物化</span>
+          
+          <span class="field" title="子领域">分子模拟</span>
+          
+        </div>
+      </div>
+      
+      <div class="tags">
+        <span class="tag">molecular-dynamics</span><span class="tag">scientific-machine-learning</span><span class="tag">dataset</span>
+      </div>
+      
+      <p class="innovation">把「机器学习势函数」从只会预测能量和力，升级为能重建反应过程中完整电子结构（波函数），且无需反复做昂贵的轨道优化，让多参考态反应动力学第一次能逐帧看到电子层面发生了什么。</p>
+      <dl class="details">
+        <dt>技术方案</dt><dd>作者提出 CAS-WR 模型：先用 CASSCF（完整活性空间自洽场，一种高精度多参考态电子结构方法）算出大量几何构型对应的波函数作为训练数据，再让模型学习「几何结构→CAS 波函数」的映射，推理时直接重建波函数而跳过轨道优化这一步。配合基于不确定度的主动学习，只在模型不确定的构型上补算 CASSCF，降低数据成本。与过去「机器学习势函数只给能量/力、电子结构需另跑 CASSCF」的做法相比，它把电子结构信息内嵌进模型，避免了两套计算不一致的问题。</dd>
+        <dt>关键数据</dt><dd>未披露具体误差或加速倍数；论文以 Diels–Alder 反应和 TiC+ 催化的 C–H 活化两个体系做演示，并初步扩展到激发态质子转移与过渡金属光催化，定性意义是首次实现沿反应轨迹逐帧重建多参考态电子结构。</dd>
+        <dt>为什么值得关注</dt><dd>对关心分子动力学、反应机理和科学机器学习的读者，这条把「机器学习势函数」和「电子结构」打通，意味着未来 MD 轨迹可以同时给出能量、力和波函数，对多参考态反应、光催化和过渡金属化学的机理解析有直接价值。</dd>
+      </dl>
+      <footer class="card-foot">
+        <span class="date">2026-11-04</span>
+        
+        
+        <a class="cta" href="https://arxiv.org/abs/2611.06779v1" target="_blank" rel="noopener">阅读原文 →</a>
+      </footer>
+    </article>
+    <article class="card" data-url="https://arxiv.org/abs/2611.02403v1" data-field="materials">
+      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2611.02403v1" onclick="toggleStar(this)">☆</button>
+      <div class="card-head">
+        <h2><a href="https://arxiv.org/abs/2611.02403v1" target="_blank" rel="noopener">Machine-Learned Interatomic Potential for the Mo-S-Al-O System</a></h2>
+        <div class="badges">
+          <span class="score high">8</span>
+          <span class="source cat-paper" title="arxiv:arxiv-physchem">arXiv · 物化</span>
+          
+          <span class="field" title="子领域">材料科学</span>
+          
+        </div>
+      </div>
+      
+      <div class="tags">
+        <span class="tag">materials</span><span class="tag">molecular-dynamics</span><span class="tag">dataset</span><span class="tag">scientific machine learning</span>
+      </div>
+      
+      <p class="innovation">首个覆盖 Mo-S-Al-O 四元体系的机器学习原子间势（用神经网络拟合原子间作用力），专门瞄准 MoS₂ 在蓝宝石衬底上的异质外延生长，把界面能、取向、缺陷能等关键量都压到接近第一性原理精度。</p>
+      <dl class="details">
+        <dt>技术方案</dt><dd>作者训练了一个神经演化势（NEP，一种用进化算法优化结构的机器学习势），训练数据是从约 110 万条 DFT（密度泛函理论，第一性原理计算）构型中蒸馏出的 63,611 个 PBE+D3 结构。关键设计是采用能量差损失函数，直接对准界面能和取向相关能量，而不是只拟合总能量——这让势函数在异质界面这种能量差很小的场景下更准。相比过去多为单元素或简单二元体系的势，这次把 Mo-S-Al-O 四元、含界面和缺陷的复杂场景一起覆盖。</dd>
+        <dt>关键数据</dt><dd>留出集上能量误差 29 meV/atom、力误差 0.23 eV/Å；晶格常数误差 0.3% 以内，弹性常数 17% 以内，声子色散平均偏差低于 2.5%，表面能误差 1.3% 以内；MoS₂/蓝宝石界面粘附能最小值误差 0.8%、界面能 2.2%，并复现最稳定单层取向；点缺陷能量排序 Spearman ρ=0.995，镜像孪晶界 ρ=1.0，倾斜晶界能误差 8%（ρ=0.98），层错能垒误差 14%。</dd>
+        <dt>为什么值得关注</dt><dd>对做材料设计、分子动力学和科学机器学习的读者，这条展示了机器学习势如何从「能跑 MD」进阶到「能定量预测异质界面与缺陷 energetics」，直接支撑二维材料外延生长的原子尺度模拟；对关注 AI for Science 的人来说，也是一份训练数据蒸馏 + 损失函数设计的可复用范例。</dd>
+      </dl>
+      <footer class="card-foot">
+        <span class="date">2026-11-02</span>
+        
+        
+        <a class="cta" href="https://arxiv.org/abs/2611.02403v1" target="_blank" rel="noopener">阅读原文 →</a>
+      </footer>
+    </article>
+    <article class="card" data-url="https://arxiv.org/abs/2611.02315v1" data-field="molsim">
+      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2611.02315v1" onclick="toggleStar(this)">☆</button>
+      <div class="card-head">
+        <h2><a href="https://arxiv.org/abs/2611.02315v1" target="_blank" rel="noopener">GPU infrastructure for ML/MM with electrostatic embedding for enzyme chemistry</a></h2>
+        <div class="badges">
+          <span class="score high">8</span>
+          <span class="source cat-paper" title="arxiv:arxiv-physchem">arXiv · 物化</span>
+          
+          <span class="field" title="子领域">分子模拟</span>
+          
+        </div>
+      </div>
+      
+      <div class="tags">
+        <span class="tag">molecular-dynamics</span><span class="tag">foundation-model</span><span class="tag">code</span><span class="tag">protein</span>
+      </div>
+      
+      <p class="innovation">首个全 GPU 原生的 ML/MM（机器学习+分子力学）增强采样框架，把预训练 MACE-POLAR-1-M 模型移植到 JAX 并与静电嵌入、JAX-MD、PLUMED-JAX 端到端编译，在真实酶反应上跑通。</p>
+      <dl class="details">
+        <dt>技术方案</dt><dd>做法是把原本依赖 CPU 或混合后端的 ML/MM 流程整体搬到 GPU：将 MACE-POLAR-1-M 这个预训练机器学习势函数用 JAX 重写，设计一套与 MACE-POLAR 架构兼容的静电嵌入方案（让量子区与经典环境之间传递电荷影响），再接入 JAX-MD 做分子动力学、PLUMED-JAX 做增强采样，整条链路编译执行、避免 Python 层反复调度。与过去常见的「ML 区用 GPU、MM 区和采样调度在 CPU」的拼装方案不同，这里蛋白和反应物全部由 ML 势描述，只有大部分溶剂用传统分子力学。</dd>
+        <dt>关键数据</dt><dd>用副本交换伞形采样（replica exchange umbrella sampling）计算卤代烷脱卤酶中亲核取代反应的自由能曲线，总成本约 200 个 H100 GPU 小时；蛋白与反应物整体用 MACE-POLAR-1-M-JAX 处理，溶剂大部分用 MM。未披露与经典力场或此前 ML/MM 实现的精度/速度对照。</dd>
+        <dt>为什么值得关注</dt><dd>对关心 protein structure prediction、molecular dynamics、drug discovery 和 scientific machine learning 的读者，这条展示了预训练 ML 势函数如何真正进入酶催化自由能计算的生产级工作流，200 H100 小时的成本量级也给出了 ML/MM 增强采样当前的可及门槛。</dd>
+      </dl>
+      <footer class="card-foot">
+        <span class="date">2026-11-02</span>
+        
+        
+        <a class="cta" href="https://arxiv.org/abs/2611.02315v1" target="_blank" rel="noopener">阅读原文 →</a>
+      </footer>
+    </article>
+    <article class="card" data-url="https://arxiv.org/abs/2611.02170v1" data-field="molsim">
+      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2611.02170v1" onclick="toggleStar(this)">☆</button>
+      <div class="card-head">
+        <h2><a href="https://arxiv.org/abs/2611.02170v1" target="_blank" rel="noopener">Restrained Diffusion Bridges: Targeted Denoiser Training and Refinement</a></h2>
+        <div class="badges">
+          <span class="score high">8</span>
+          <span class="source cat-paper" title="arxiv:arxiv-physchem">arXiv · 物化</span>
+          
+          <span class="field" title="子领域">分子模拟</span>
+          
+        </div>
+      </div>
+      
+      <div class="tags">
+        <span class="tag">molecular-dynamics</span><span class="tag">scientific-machine-learning</span><span class="tag">diffusion-model</span><span class="tag">enhanced-sampling</span>
+      </div>
+      
+      <p class="innovation">把经典增强采样里的「受约束分布」和扩散模型结合，证明只要在合适的中间时刻做条件加噪，采样偏差会精确抵消，从而在数据稀疏区也能高精度采样。</p>
+      <dl class="details">
+        <dt>技术方案</dt><dd>做法是先用受约束分布（把数据集中到指定构型附近的偏置分布）收集训练数据，再对预训练扩散模型做微调。关键设计是：从受约束数据前向加噪时，在选定的中间时间步上以受约束构型为条件，此时偏差恰好抵消，因此用标准去噪或流匹配目标即可，无需重要性权重。若完全没有目标分布数据，则用 Gibbs 采样从仅受约束数据训练的模型中推断。与过去直接在有偏数据上训练、或依赖重要性重加权的方法不同，它从理论上消除了偏差。</dd>
+        <dt>关键数据</dt><dd>未披露具体数值结果；论文属方法/理论贡献，核心是偏差精确抵消的证明与可行性论证，实际精度提升幅度需看后续实验部分。</dd>
+        <dt>为什么值得关注</dt><dd>对做分子动力学增强采样、科学机器学习采样、以及药物/材料设计中稀有构型生成的研究者，这提供了一种在低概率区域仍能准确采样的训练范式，直接关联 MD 与 AI for Science 的交叉场景。</dd>
+      </dl>
+      <footer class="card-foot">
+        <span class="date">2026-11-01</span>
+        
+        
+        <a class="cta" href="https://arxiv.org/abs/2611.02170v1" target="_blank" rel="noopener">阅读原文 →</a>
+      </footer>
+    </article>
+    <article class="card" data-url="https://arxiv.org/abs/2611.01614v1" data-field="climate">
+      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2611.01614v1" onclick="toggleStar(this)">☆</button>
+      <div class="card-head">
+        <h2><a href="https://arxiv.org/abs/2611.01614v1" target="_blank" rel="noopener">Sonny-ENS: demystifying machine-learning ensemble weather forecasting</a></h2>
+        <div class="badges">
+          <span class="score high">8</span>
+          <span class="source cat-paper" title="arxiv:arxiv-climate">arXiv · 地球</span>
+          
+          <span class="field" title="子领域">气候地球</span>
+          
+        </div>
+      </div>
+      
+      <div class="tags">
+        <span class="tag">climate</span><span class="tag">ensemble-forecasting</span><span class="tag">machine-learning</span><span class="tag">uncertainty-quantification</span>
+      </div>
+      
+      <p class="innovation">用不到3块GPU天训练出的小型集合预报模型，在96%的指标上超过欧洲中期天气预报中心的业务集合预报，把「高精度概率天气预报」的门槛从数百加速器天拉低到单台GPU服务器。</p>
+      <dl class="details">
+        <dt>技术方案</dt><dd>Sonny-ENS 由三个6890万参数的神经网络组成，训练时用 Monte Carlo dropout（随机丢弃部分神经元）作为唯一的随机性来源，直接以 CRPS（连续排序概率评分，衡量概率预报好坏）为损失函数训练。与过去动辄数百到数千加速器天的大模型集合预报不同，它只用2.7个 A40 GPU 天就完成训练；推理时51个成员、15天预报在单块 GPU 上只需69秒。作者还用消融实验拆解了各设计的作用，并用 Kolmogorov-Arnold 稀疏自编码器分析 dropout 注入的不确定性分布。</dd>
+        <dt>关键数据</dt><dd>训练成本2.7 A40 GPU天；2022年评估中，在570个目标里96%的 CRPS 低于 ECMWF ENS，1-10天平均 CRPS 低8.3%；在69%的目标上优于业务系统 GenCast；51成员15天预报单 GPU 推理69秒；dropout 注入的不确定性与 Eady 增长率（衡量斜压不稳定性的指标）空间相关达0.91。</dd>
+        <dt>为什么值得关注</dt><dd>对关心科学机器学习、气候建模和概率预报的读者，这条给出了一个具体反例：高质量 ML 集合预报未必需要超大算力，且用可解释工具揭示了随机性如何对应大气动力结构，对做 AI4S 模型效率与可解释性研究都有参考价值。</dd>
+      </dl>
+      <footer class="card-foot">
+        <span class="date">2026-11-01</span>
+        
+        
+        <a class="cta" href="https://arxiv.org/abs/2611.01614v1" target="_blank" rel="noopener">阅读原文 →</a>
+      </footer>
+    </article>
+    <article class="card" data-url="https://arxiv.org/abs/2611.08001v1" data-field="materials">
+      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2611.08001v1" onclick="toggleStar(this)">☆</button>
+      <div class="card-head">
+        <h2><a href="https://arxiv.org/abs/2611.08001v1" target="_blank" rel="noopener">LithoSAGE: Spatially Adaptive and Geometrically Equivariant Neural Operators for Computational Lithography</a></h2>
+        <div class="badges">
+          <span class="score mid">7</span>
+          <span class="source cat-paper" title="arxiv:arxiv-ml">arXiv · ML</span>
+          
+          <span class="field" title="子领域">材料科学</span>
+          
+        </div>
+      </div>
+      
+      <div class="tags">
+        <span class="tag">neural-operator</span><span class="tag">materials</span><span class="tag">code</span>
+      </div>
+      
+      <p class="innovation">把「旋转/平移等变」和「不同尺寸版图窗口自适应」同时塞进一个神经算子，用于光刻仿真代理，解决了以往模型换窗口尺寸就失准的痛点。</p>
+      <dl class="details">
+        <dt>技术方案</dt><dd>在傅里叶神经算子（FNO，用频域卷积学算子的模型）框架里，把频谱权重写成归一化径向频率的连续函数——用一组可学习高斯函数叠加表示。这样模型天然保持光刻系统的几何性质：旋转平移等变、空间作用随距离衰减，还能直接在不同物理尺寸的版图窗口上推理，无需重训或插值。过去的学习架构通常固定窗口尺寸、不保证等变性，泛化受限。</dd>
+        <dt>关键数据</dt><dd>论文未披露具体误差数字与参数量，仅说明做了两组任务：从掩模版图预测空间像（aerial image）、从空间像预测光刻胶像（resist image），并与其它架构对比了预测误差和参数效率，定性展示了等变性与空间自适应性。</dd>
+        <dt>为什么值得关注</dt><dd>光刻仿真是芯片制造里计算量极大的 PDE（偏微分方程）求解问题，正是科学机器学习做代理模型的典型场景；其「等变+多尺度自适应」的算子设计思路，对分子动力学、材料设计、气候建模等同样需要几何对称性与变分辨率泛化的方向有迁移价值。</dd>
+      </dl>
+      <footer class="card-foot">
+        <span class="date">2026-11-05</span>
+        
+        
+        <a class="cta" href="https://arxiv.org/abs/2611.08001v1" target="_blank" rel="noopener">阅读原文 →</a>
+      </footer>
+    </article>
+    <article class="card" data-url="https://arxiv.org/abs/2611.07998v1" data-field="materials">
+      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2611.07998v1" onclick="toggleStar(this)">☆</button>
+      <div class="card-head">
+        <h2><a href="https://arxiv.org/abs/2611.07998v1" target="_blank" rel="noopener">Towards Multiscale Molecular Representation Learning through Geometry-Based Fragmentation for Polymer Property Prediction</a></h2>
+        <div class="badges">
+          <span class="score mid">7</span>
+          <span class="source cat-paper" title="arxiv:arxiv-physchem">arXiv · 物化</span>
+          
+          <span class="field" title="子领域">材料科学</span>
+          
+        </div>
+      </div>
+      
+      <div class="tags">
+        <span class="tag">materials</span><span class="tag">scientific machine learning</span><span class="tag">molecular representation</span><span class="tag">polymer</span>
+      </div>
+      
+      <p class="innovation">把分子拆成片段这件事从「按化学规则切」改成「按几何半径切」，片段大小可调、不依赖预设化学知识，并用注意力机制把多尺度片段信息与 3D 构象结合，用于聚合物性质预测。</p>
+      <dl class="details">
+        <dt>技术方案</dt><dd>作者把分子片段化建模成一个半径约束的优化问题（借鉴 k-center 聚类思路）：不预先指定要切几块，而是给定一个半径，让片段数量和大小由半径自然决定，切分时主要用几何信息而非化学规则。这样同一分子可以在不同半径下得到由粗到细的多尺度片段表示。在此基础上设计了几何片段注意力机制，把多尺度结构信息整合进一个多模态模型，输入同时包含 p-SMILES（聚合物简化序列表示）和 3D 构象信息。与依赖预定义化学规则的传统片段方法相比，它不依赖人工规则、对未见过的结构更灵活，并且显式建模了多尺度。</dd>
+        <dt>关键数据</dt><dd>在聚合物基准数据集上，加入 3D 构象信息后，多个性质的预测精度相比仅用 p-SMILES 的模型有提升；论文未给出具体提升幅度数字。另通过可解释性分析（XAI）讨论了所学表示的物理相关性。</dd>
+        <dt>为什么值得关注</dt><dd>面向材料设计和高分子性质预测，提供了一种不依赖化学规则、可多尺度调节的分子表示方法，对关注 scientific machine learning、分子表示学习与材料信息学的读者有直接参考价值；其几何片段化思路也可能迁移到其他分子/材料体系。</dd>
+      </dl>
+      <footer class="card-foot">
+        <span class="date">2026-11-05</span>
+        
+        
+        <a class="cta" href="https://arxiv.org/abs/2611.07998v1" target="_blank" rel="noopener">阅读原文 →</a>
+      </footer>
+    </article>
+    <article class="card" data-url="https://github.com/unum-science/USearchMolecules" data-field="drug">
+      <button class="star" aria-label="收藏" data-url="https://github.com/unum-science/USearchMolecules" onclick="toggleStar(this)">☆</button>
+      <div class="card-head">
+        <h2><a href="https://github.com/unum-science/USearchMolecules" target="_blank" rel="noopener">unum-science/USearchMolecules</a></h2>
+        <div class="badges">
+          <span class="score mid">7</span>
+          <span class="source cat-github" title="github:github-trending-drugdiscovery">GitHub · drug</span>
+          
+          <span class="field" title="子领域">药物发现</span>
+          
+        </div>
+      </div>
+      
+      <div class="tags">
+        <span class="tag">drug-discovery</span><span class="tag">dataset</span><span class="tag">molecular-dynamics</span>
+      </div>
+      
+      <p class="innovation">一个面向药物发现的开源化学信息数据集，规模达 70 亿以上分子，每个分子同时带指纹（结构特征编码）和 3D 构象（真实空间形状），把过去分散的「结构库」和「构象库」合成一份。</p>
+      <dl class="details">
+        <dt>技术方案</dt><dd>做法是把海量分子统一整理成多模态记录：一条数据里既有二维指纹（便于快速检索和相似性匹配），也有三维构象（便于对接、构象分析和机器学习建模）。相比以往数据集通常只给 SMILES 字符串或只给部分分子的 3D 结构，它强调「大规模 + 双模态对齐」，让同一分子在两种表示间可直接配对使用，省去研究者自己生成构象和清洗对齐的工程成本。</dd>
+        <dt>关键数据</dt><dd>规模为 7B+（70 亿以上）分子，同时覆盖指纹与 3D 构象两种模态；其余如构象生成方法、数据来源构成、质量过滤比例等未披露。相对意义在于：公开可用的带 3D 构象分子集合通常停留在百万到千万量级，这一数量级提升主要影响大规模预训练和检索式筛选的可行性。</dd>
+        <dt>为什么值得关注</dt><dd>对做 drug discovery、分子表示学习和科学机器学习的读者，这类「分子 + 3D 构象」大规模数据集是训练分子模型、做虚拟筛选和构象相关任务的基础设施；若你关注 protein structure prediction 与分子对接的结合，它也能提供配体侧的规模化数据来源。</dd>
+      </dl>
+      <footer class="card-foot">
+        <span class="date">2026-11-05</span>
+        
+        
+        <a class="cta" href="https://github.com/unum-science/USearchMolecules" target="_blank" rel="noopener">阅读原文 →</a>
+      </footer>
+    </article>
+    <article class="card" data-url="https://arxiv.org/abs/2611.07784v1" data-field="climate">
+      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2611.07784v1" onclick="toggleStar(this)">☆</button>
+      <div class="card-head">
+        <h2><a href="https://arxiv.org/abs/2611.07784v1" target="_blank" rel="noopener">EnergyBench: a live, gate-aligned benchmark of day-ahead forecasts for European power markets</a></h2>
+        <div class="badges">
+          <span class="score mid">7</span>
+          <span class="source cat-paper" title="arxiv:arxiv-ml">arXiv · ML</span>
+          
+          <span class="field" title="子领域">气候地球</span>
+          
+        </div>
+      </div>
+      
+      <div class="tags">
+        <span class="tag">benchmark</span><span class="tag">climate</span><span class="tag">dataset</span><span class="tag">code</span>
+      </div>
+      
+      <p class="innovation">首个按真实日前市场截止时间「实盘」评测的能源预测基准：每天在 SDAC 关口前 30 分钟冻结信息集并公开，模型自己跑，避免回测偷看未来数据和固定测试集被过拟合。</p>
+      <dl class="details">
+        <dt>技术方案</dt><dd>EnergyBench 每天 11:30 CET/CEST（日前市场关闸前半小时）冻结一份信息集并发布，其中包含三个数值天气预报模型；随后由基准方统一运行所有参赛模型，对六个竞价区（BE、NL、FR、DE-LU、DK1、DK2）次日 15 分钟粒度的电价、风电、光伏和负荷做预测。与常见回测或固定公开数据集不同，它消除了「用了当时还不存在的数据」和「测试集进了预训练语料」两类漏洞，并让基础模型在有无同一套气象协变量的条件下公平对比。误差按序列对季节朴素基线做汇总，排名用 Elo 量表的 Bradley-Terry 评分加按天 bootstrap 区间。</dd>
+        <dt>关键数据</dt><dd>前 32 个实盘日、匹配赛次上，加入气象协变量使 10 个基础模型的误差降低 37-51%（风电 64-73%，光伏 48-61%）；零样本使用即可追平或超过同协变量训练的 LightGBM；模型规模 3M 到 331M 参数影响小得多；协变量模型的中位数集成排名最高；电网运营商关闸前预测在风电和光伏上仍领先，最佳单基础模型误差高 16-22%，负荷上差距 4-6% 且在区间内。</dd>
+        <dt>为什么值得关注</dt><dd>对关心科学机器学习、气候建模和时间序列基础模型的读者，它提供了一个「防泄漏、按真实截止时间运行」的评测范式，直接回答基础模型在能源预测上到底比传统梯度提升强多少、气象协变量贡献多大。</dd>
+      </dl>
+      <footer class="card-foot">
+        <span class="date">2026-11-05</span>
+        
+        
+        <a class="cta" href="https://arxiv.org/abs/2611.07784v1" target="_blank" rel="noopener">阅读原文 →</a>
+      </footer>
+    </article>
+        </div>
+      
+      <p class="empty filter-empty" style="display:none">该子领域暂无匹配内容。</p>
+    </section>
+
+    <section class="band archive" id="archive" data-band="archive">
+      <h2 class="band-title">归档（最近 30 天）<span class="n" id="archive-count">(290)</span></h2>
+      
+        
+          <details class="date-group" id="archive-2026-11-05" open>
+            <summary>2026-11-05 <span class="n">10 条</span></summary>
+            <div class="cards">
+              
     <article class="card" data-url="https://arxiv.org/abs/2611.06237v1" data-field="molsim">
       <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2611.06237v1" onclick="toggleStar(this)">☆</button>
       <div class="card-head">
@@ -319,246 +632,6 @@
         
         
         <a class="cta" href="https://arxiv.org/abs/2611.06237v1" target="_blank" rel="noopener">阅读原文 →</a>
-      </footer>
-    </article>
-    <article class="card" data-url="https://arxiv.org/abs/2611.06382v1" data-field="climate">
-      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2611.06382v1" onclick="toggleStar(this)">☆</button>
-      <div class="card-head">
-        <h2><a href="https://arxiv.org/abs/2611.06382v1" target="_blank" rel="noopener">From hydrological laws to catchment models: A process-based model matches deep-learning accuracy on three continents</a></h2>
-        <div class="badges">
-          <span class="score high">8</span>
-          <span class="source cat-paper" title="arxiv:arxiv-climate">arXiv · 地球</span>
-          
-          <span class="field" title="子领域">气候地球</span>
-          
-        </div>
-      </div>
-      
-      <div class="tags">
-        <span class="tag">climate</span><span class="tag">hydrology</span><span class="tag">process-based-model</span><span class="tag">scientific-machine-learning</span>
-      </div>
-      
-      <p class="innovation">用物理定律约束的低维流域模型 CaRT+，在英、美、澳三大洲的径流预测上追平甚至局部超过 LSTM（长短期记忆网络），说明流域尺度可能存在「形式定律」，而非纯靠黑箱拟合。</p>
-      <dl class="details">
-        <dt>技术方案</dt><dd>作者从三条水文定律出发：守恒让模型成为通量连接的储水网络，耗散固定每个通量的方向，聚合决定未解析的小尺度过程如何通过阈值分布和记忆效应进入通量。据此构建每流域仅 11 个参数的简约模型 CaRT，再用 AI 代理辅助的迭代循环，针对观测到的预测缺陷、从文献中提出假设并逐项改进，最终得到 14 个状态、每流域 35 个参数的 CaRT+，全程不依赖逐日神经网络。与过去纯数据驱动的 LSTM 不同，它把物理结构写进模型，只学习本构关系的参数。</dd>
-        <dt>关键数据</dt><dd>在英国 602 个、美国 593 个有观测流域的留出年份上，单个 CaRT+ 模型中位 NSE（纳什效率系数，越接近 1 越好）分别为 0.863 和 0.765；有状态 LSTM 为 0.869 和 0.751，实体感知 LSTM 为 0.862 和 0.754。三种子 LSTM 集成在中位配对 NSE 上仍领先 CaRT+ 集成 0.003–0.012。在未参与开发的澳大利亚 505 个较干旱流域上，单个 CaRT+ 达 0.778，高于两种 LSTM 的 0.762 和 0.753。</dd>
-        <dt>为什么值得关注</dt><dd>对关心科学机器学习、PDE（偏微分方程）与气候建模的读者，这条提供了「物理约束 + 低维结构」在真实流域尺度上对标深度学习的量化证据，也直接关联水文与气候影响评估中的可解释建模路线。</dd>
-      </dl>
-      <footer class="card-foot">
-        <span class="date">2026-11-04</span>
-        
-        
-        <a class="cta" href="https://arxiv.org/abs/2611.06382v1" target="_blank" rel="noopener">阅读原文 →</a>
-      </footer>
-    </article>
-    <article class="card" data-url="https://arxiv.org/abs/2611.06157v1" data-field="molsim">
-      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2611.06157v1" onclick="toggleStar(this)">☆</button>
-      <div class="card-head">
-        <h2><a href="https://arxiv.org/abs/2611.06157v1" target="_blank" rel="noopener">Neural Stochastic Forecasting for Lateral Molecular Diffusion Simulations</a></h2>
-        <div class="badges">
-          <span class="score high">8</span>
-          <span class="source cat-paper" title="arxiv:arxiv-ml">arXiv · ML</span>
-          
-          <span class="field" title="子领域">分子模拟</span>
-          
-        </div>
-      </div>
-      
-      <div class="tags">
-        <span class="tag">molecular-dynamics</span><span class="tag">protein</span><span class="tag">foundation-model</span><span class="tag">scientific-machine-learning</span>
-      </div>
-      
-      <p class="innovation">用神经网络随机模型替代昂贵MD模拟，从短轨迹外推膜蛋白长时扩散，能生成4万帧轨迹并复现MD测得的异常扩散指数，比此前变分自回归模型更准。</p>
-      <dl class="details">
-        <dt>技术方案</dt><dd>模型输入粗粒化MD轨迹，用Transformer编码蛋白构型，多时间尺度循环网络捕捉快慢动态，再加带学习记忆的随机隐过程；解码器用交叉注意力同时生成多个蛋白的关联位移，并显式考虑瞬时几何和周期性边界条件。与过去只做单点预测或变分自回归生成的做法不同，它把随机性和多尺度记忆结合，专门生成统计特征正确的长轨迹。</dd>
-        <dt>关键数据</dt><dd>在7个PIEZO通道体系中复现MD的异常扩散指数α≈1，而此前变分自回归模型呈超扩散；可生成最长40,000帧轨迹；混合体系中能区分7个PIEZO与10个TREK通道的扩散差异；时间平均均方位移、Van Hove位移分布和非高斯参数与MD统计特征一致。</dd>
-        <dt>为什么值得关注</dt><dd>对做分子动力学、膜蛋白扩散和科学机器学习的读者，这条展示了用生成模型外推MD长时统计的可行路径，能绕开MD算不起、实验跟踪时间有限的问题，对药物发现中膜蛋白行为建模也有参考价值。</dd>
-      </dl>
-      <footer class="card-foot">
-        <span class="date">2026-11-04</span>
-        
-        
-        <a class="cta" href="https://arxiv.org/abs/2611.06157v1" target="_blank" rel="noopener">阅读原文 →</a>
-      </footer>
-    </article>
-    <article class="card" data-url="https://github.com/AI4Science-WestlakeU/RealPDEBench" data-field="ai4math">
-      <button class="star" aria-label="收藏" data-url="https://github.com/AI4Science-WestlakeU/RealPDEBench" onclick="toggleStar(this)">☆</button>
-      <div class="card-head">
-        <h2><a href="https://github.com/AI4Science-WestlakeU/RealPDEBench" target="_blank" rel="noopener">AI4Science-WestlakeU/RealPDEBench</a></h2>
-        <div class="badges">
-          <span class="score high">8</span>
-          <span class="source cat-github" title="github:github-trending-scientific-ml">GitHub · SciML</span>
-          
-          <span class="field" title="子领域">AI4Math/PDE</span>
-          
-        </div>
-      </div>
-      
-      <div class="tags">
-        <span class="tag">pde</span><span class="tag">benchmark</span><span class="tag">dataset</span><span class="tag">code</span>
-      </div>
-      
-      <p class="innovation">ICLR26 Oral 论文发布 RealPDEBench，首个把「真实实验测量」与「仿真数据」成对配齐的复杂物理系统基准，直指 AI 求解偏微分方程时「仿真刷分高、落地就崩」的老问题。</p>
-      <dl class="details">
-        <dt>技术方案</dt><dd>做法是给同一套物理系统同时采集真实世界观测和对应仿真结果，形成成对样本，让模型在真实数据上训练和评测，而不是只拟合仿真器。相比过去 PDE 基准几乎全用数值求解器生成数据、真实噪声与边界条件缺失，它把「仿真到现实」的差距本身变成可量化的评测维度，覆盖复杂物理系统而非单一方程。</dd>
-        <dt>关键数据</dt><dd>具体数据未披露（仓库与论文细节待公开）；定性意义在于提供首个成对真实-仿真评测口径，可衡量模型从仿真迁移到现实时的性能落差，而非仅报仿真集上的误差。</dd>
-        <dt>为什么值得关注</dt><dd>对做 PDE 求解、科学机器学习、物理仿真的读者，它提供了检验「模型能否用于真实系统」的基准，直接关系到 AI4S 从论文走向实验与工程的可靠性评估。</dd>
-      </dl>
-      <footer class="card-foot">
-        <span class="date">2026-11-04</span>
-        
-        
-        <a class="cta" href="https://github.com/AI4Science-WestlakeU/RealPDEBench" target="_blank" rel="noopener">阅读原文 →</a>
-      </footer>
-    </article>
-    <article class="card" data-url="https://www.nature.com/articles/s41586-026-11228-6" data-field="protein">
-      <button class="star" aria-label="收藏" data-url="https://www.nature.com/articles/s41586-026-11228-6" onclick="toggleStar(this)">☆</button>
-      <div class="card-head">
-        <h2><a href="https://www.nature.com/articles/s41586-026-11228-6" target="_blank" rel="noopener">An AI-native experimental laboratory for autonomous biomolecular operations</a></h2>
-        <div class="badges">
-          <span class="score high">8</span>
-          <span class="source cat-paper" title="rss:nature">Nature</span>
-          
-          <span class="field" title="子领域">蛋白质/结构</span>
-          
-        </div>
-      </div>
-      
-      <div class="tags">
-        <span class="tag">foundation-model</span><span class="tag">benchmark</span><span class="tag">code</span><span class="tag">protein</span>
-      </div>
-      
-      <p class="innovation">AutoDNA 把「AI 决策 + 多仪器自动化实验」做成一个闭环、多用户共用的生物分子工程实验室，让 AI 与自动化系统在真实实验里互相迭代，而不只是单点自动化或离线预测。</p>
-      <dl class="details">
-        <dt>技术方案</dt><dd>核心是一个 AI 原生（AI-native）的实验编排框架：AI 根据实验目标决定下一轮做什么，调度多种不同仪器执行分子构建、表征等操作，再把结果回灌给模型更新策略，形成 AI 与自动化系统的共同演化。与过去常见的「单台液体处理机器人 + 固定流程脚本」不同，它面向多目标优化，跨异构仪器协同，并支持端到端、多用户共享的实验室运行模式。</dd>
-        <dt>关键数据</dt><dd>未披露。原文摘要未给出通量、成功率、迭代轮数或成本等量化指标，其意义目前是定性层面：提出并实现了一个可多用户运行、AI 与自动化共同演化的端到端生物分子实验平台范式。</dd>
-        <dt>为什么值得关注</dt><dd>对关注蛋白质结构预测、药物发现、科学机器学习与 AI for Science 的读者，这条展示的是「AI 不只做预测，还直接驱动湿实验闭环」的基础设施方向，是自驱动实验室（self-driving lab）路线在生物分子工程上的落地样本。</dd>
-      </dl>
-      <footer class="card-foot">
-        <span class="date">2026-11-04</span>
-        
-        
-        <a class="cta" href="https://www.nature.com/articles/s41586-026-11228-6" target="_blank" rel="noopener">阅读原文 →</a>
-      </footer>
-    </article>
-    <article class="card" data-url="https://www.nature.com/articles/s41586-026-11210-2" data-field="protein">
-      <button class="star" aria-label="收藏" data-url="https://www.nature.com/articles/s41586-026-11210-2" onclick="toggleStar(this)">☆</button>
-      <div class="card-head">
-        <h2><a href="https://www.nature.com/articles/s41586-026-11210-2" target="_blank" rel="noopener">An open structure-guided RNA foundation model for generalizable prediction</a></h2>
-        <div class="badges">
-          <span class="score high">8</span>
-          <span class="source cat-paper" title="rss:nature">Nature</span>
-          
-          <span class="field" title="子领域">蛋白质/结构</span>
-          
-        </div>
-      </div>
-      
-      <div class="tags">
-        <span class="tag">foundation-model</span><span class="tag">protein</span><span class="tag">benchmark</span>
-      </div>
-      
-      <p class="innovation">首个以「结构」为引导、在2100万条RNA序列-结构配对上预训练的开放RNA基础模型structRFM，把蛋白质领域AlphaFold式的结构监督思路搬到RNA，且模型与数据对外开放。</p>
-      <dl class="details">
-        <dt>技术方案</dt><dd>研究团队先构建了约2100万条RNA序列与其结构配对的训练集，让模型在预训练阶段同时学习序列信息和结构信息，形成多模态表示；再把这些表示迁移到下游任务，包括RNA二级结构预测、三级（空间）结构预测、功能推断，以及在未见过的RNA家族上的零样本泛化。与过去主要依赖序列或单一任务小模型的做法不同，它走的是「大规模结构监督预训练 + 通用表示 + 下游微调/零样本」的路线，思路接近蛋白质基础模型。</dd>
-        <dt>关键数据</dt><dd>摘要仅披露预训练规模为2100万条序列-结构配对，具体精度提升幅度、对比基线分数、参数规模与训练成本均未披露；其定性意义在于首次系统验证结构引导的RNA基础模型可跨二级/三级结构与功能任务泛化，但量化优势需看正文。</dd>
-        <dt>为什么值得关注</dt><dd>对关注protein structure prediction、scientific machine learning与AI for Science的读者，这是「结构监督基础模型」从蛋白质向RNA延伸的代表性工作，直接关系到RNA结构预测、RNA靶向药物发现与核酸材料设计的可迁移方法。</dd>
-      </dl>
-      <footer class="card-foot">
-        <span class="date">2026-11-04</span>
-        
-        
-        <a class="cta" href="https://www.nature.com/articles/s41586-026-11210-2" target="_blank" rel="noopener">阅读原文 →</a>
-      </footer>
-    </article>
-    <article class="card" data-url="https://arxiv.org/abs/2611.05270v1" data-field="protein">
-      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2611.05270v1" onclick="toggleStar(this)">☆</button>
-      <div class="card-head">
-        <h2><a href="https://arxiv.org/abs/2611.05270v1" target="_blank" rel="noopener">iGC: Antibody Optimization via Reinforcement Learning over a Learned Somatic Hypermutation Prior</a></h2>
-        <div class="badges">
-          <span class="score high">8</span>
-          <span class="source cat-paper" title="arxiv:arxiv-qbio">arXiv · 生命</span>
-          
-          <span class="field" title="子领域">蛋白质/结构</span>
-          
-        </div>
-      </div>
-      
-      <div class="tags">
-        <span class="tag">protein</span><span class="tag">drug-discovery</span><span class="tag">reinforcement-learning</span><span class="tag">antibody</span>
-      </div>
-      
-      <p class="innovation">把「B细胞在生发中心里反复突变+筛选」这一自然过程拆成两阶段强化学习：先学真实体细胞超突变（SHM，抗体成熟时的突变模式）先验，再在抗原特异性奖励下优化结合力，兼顾「突变像真的」和「结合更强」。</p>
-      <dl class="details">
-        <dt>技术方案</dt><dd>iGC 分两步：第一步从B细胞谱系树的亲子序列对里学一个SHM突变先验，并在目标亲和力成熟数据集上微调；第二步用这个先验初始化强化学习策略，以KL正则把它拴在冻结的先验附近，避免优化跑偏。为防止策略钻奖励空子（比如反复刷高奖励替换、或在框架区做结构上能容忍但无用的突变），作者加了Reward-Tax元梯度目标：RewardNet平滑亲和力地形，TaxNet惩罚过度榨取奖励，两者合成元奖励供策略优化。与过去相比，突变模型不直接优化结合、亲和力优化又常忽略真实突变轨迹，iGC把两者接在一起。</dd>
-        <dt>关键数据</dt><dd>突变位点预测上，学到的突变先验比最强基线提升一倍以上（more than doubles）；RL优化后仍保持SHM序列结构，并在不同候选筛选阈值下取得有竞争力的「奖励×多样性」乘积。具体数值未披露。</dd>
-        <dt>为什么值得关注</dt><dd>对关心蛋白质结构预测、药物发现和科学机器学习的读者，这条把抗体亲和力成熟做成可迭代的in silico（计算模拟）框架，且用强化学习+先验正则解决「优化结合力但突变不真实」的老问题，是AI辅助抗体设计值得跟进的方向。</dd>
-      </dl>
-      <footer class="card-foot">
-        <span class="date">2026-11-03</span>
-        
-        
-        <a class="cta" href="https://arxiv.org/abs/2611.05270v1" target="_blank" rel="noopener">阅读原文 →</a>
-      </footer>
-    </article>
-    <article class="card" data-url="https://arxiv.org/abs/2611.04517v1" data-field="climate">
-      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2611.04517v1" onclick="toggleStar(this)">☆</button>
-      <div class="card-head">
-        <h2><a href="https://arxiv.org/abs/2611.04517v1" target="_blank" rel="noopener">GeoSim: Benchmarking Multi-Field Neural Operators for Geodynamics</a></h2>
-        <div class="badges">
-          <span class="score high">8</span>
-          <span class="source cat-paper" title="arxiv:arxiv-climate">arXiv · 地球</span>
-          
-          <span class="field" title="子领域">气候地球</span>
-          
-        </div>
-      </div>
-      
-      <div class="tags">
-        <span class="tag">benchmark</span><span class="tag">neural-operator</span><span class="tag">geodynamics</span><span class="tag">dataset</span>
-      </div>
-      
-      <p class="innovation">首个针对地幔柱（mantle plume）多场耦合模拟的神经算子基准，用237条高分辨率轨迹揭示「标量场准、速度场差」的系统性偏差，并给出多场联合建模的改进基线。</p>
-      <dl class="details">
-        <dt>技术方案</dt><dd>作者用I2VIS生成二维地幔柱高分辨率模拟，覆盖两套参数区间共237条轨迹，每条含6个耦合物理场和时间戳，并按轨迹划分训练/测试集。基准定义两类任务：短窗口预测和自主长时滚动（rollout），逐场评估代表性神经算子。还提出MFGNO（多场图神经算子），把多个物理场放在一张图上联合建模，而非各场独立训练。</dd>
-        <dt>关键数据</dt><dd>在GeoSim-Plume1上，固定每场目标函数时，MFGNO相比独立场图基线将水平速度误差降低58.4%、垂直速度误差降低38.5%；显式加入场间差分输入在该规模下无可测收益。基准共237条轨迹、6个耦合场，并观察到标量场重建准确但速度场误差大的「标量—速度鸿沟」，且短窗口精度不能保证长时滚动稳定。</dd>
-        <dt>为什么值得关注</dt><dd>对做科学机器学习、PDE代理模型和气候/地球建模的读者，这条提供了少见的「多场耦合+长时稳定性」评测视角，直接指出速度场这类关键变量才是代理模型的短板，对设计更可靠的物理代理模型有参考价值。</dd>
-      </dl>
-      <footer class="card-foot">
-        <span class="date">2026-11-03</span>
-        
-        
-        <a class="cta" href="https://arxiv.org/abs/2611.04517v1" target="_blank" rel="noopener">阅读原文 →</a>
-      </footer>
-    </article>
-    <article class="card" data-url="https://arxiv.org/abs/2611.04287v2" data-field="protein">
-      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2611.04287v2" onclick="toggleStar(this)">☆</button>
-      <div class="card-head">
-        <h2><a href="https://arxiv.org/abs/2611.04287v2" target="_blank" rel="noopener">Predicting protein structures at any folding stage from sequence</a></h2>
-        <div class="badges">
-          <span class="score high">8</span>
-          <span class="source cat-paper" title="arxiv:arxiv-qbio">arXiv · 生命</span>
-          
-          <span class="field" title="子领域">蛋白质/结构</span>
-          
-        </div>
-      </div>
-      
-      <div class="tags">
-        <span class="tag">protein</span><span class="tag">foundation-model</span><span class="tag">dataset</span><span class="tag">code</span>
-      </div>
-      
-      <p class="innovation">FoldScape 把蛋白质结构预测从「只给最终折叠态」扩展到「按折叠进度 Q 生成任意阶段的构象集合」，无需在推理时跑分子动力学，就能从序列直接采样未折叠态、中间态到天然态。</p>
-      <dl class="details">
-        <dt>技术方案</dt><dd>它用约 1 万个蛋白质序列、100 万个构象训练一个以序列和折叠分数 Q 为条件的深度学习框架，训练数据混合了粗粒化折叠轨迹和全原子机械拉伸轨迹。生成时先通过分层滑窗回归预测残基间距离，再做链级组装，最后用 rectified-flow 解码器重建三维 Cα 链。与 AlphaFold 3 等只输出单一天然构象的模型不同，它把「折叠进度」作为可控输入，推理阶段不需要针对每个蛋白单独跑分子动力学模拟。</dd>
-        <dt>关键数据</dt><dd>在匹配样本比较中，FoldScape 在回转半径、天然接触分数 Q、二级结构分数三个维度上的构象空间覆盖率中位数分别为 0.989、0.722、0.877，而种子变化的 AlphaFold 3 集成仅 0.05、0.05、0.10；覆盖率优势在评估蛋白上一致且对分箱选择稳健。重建精度在折叠轨迹各阶段大致稳定，步长为 1 的裁剪-叠加推理可把预测扩展到单次通过长度上限数倍长的链。</dd>
-        <dt>为什么值得关注</dt><dd>对关心蛋白质结构预测、分子动力学和药物发现的读者，这条提供了「不跑 MD 也能生成折叠全路径构象集合」的新路线，直接关系到用 AI 替代昂贵模拟来研究折叠中间态和构象系综的可行性。</dd>
-      </dl>
-      <footer class="card-foot">
-        <span class="date">2026-11-03</span>
-        
-        
-        <a class="cta" href="https://arxiv.org/abs/2611.04287v2" target="_blank" rel="noopener">阅读原文 →</a>
       </footer>
     </article>
     <article class="card" data-url="https://arxiv.org/abs/2611.02460v1" data-field="climate">
@@ -591,16 +664,250 @@
         <a class="cta" href="https://arxiv.org/abs/2611.02460v1" target="_blank" rel="noopener">阅读原文 →</a>
       </footer>
     </article>
+    <article class="card" data-url="https://arxiv.org/abs/2611.04287v2" data-field="protein">
+      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2611.04287v2" onclick="toggleStar(this)">☆</button>
+      <div class="card-head">
+        <h2><a href="https://arxiv.org/abs/2611.04287v2" target="_blank" rel="noopener">Predicting protein structures at any folding stage from sequence</a></h2>
+        <div class="badges">
+          <span class="score high">8</span>
+          <span class="source cat-paper" title="arxiv:arxiv-qbio">arXiv · 生命</span>
+          
+          <span class="field" title="子领域">蛋白质/结构</span>
+          
         </div>
+      </div>
       
-      <p class="empty filter-empty" style="display:none">该子领域暂无匹配内容。</p>
-    </section>
-
-    <section class="band archive" id="archive" data-band="archive">
-      <h2 class="band-title">归档（最近 30 天）<span class="n" id="archive-count">(290)</span></h2>
+      <div class="tags">
+        <span class="tag">protein</span><span class="tag">foundation-model</span><span class="tag">dataset</span><span class="tag">code</span>
+      </div>
       
+      <p class="innovation">FoldScape 把蛋白质结构预测从「只给最终折叠态」扩展到「按折叠进度 Q 生成任意阶段的构象集合」，无需在推理时跑分子动力学，就能从序列直接采样未折叠态、中间态到天然态。</p>
+      <dl class="details">
+        <dt>技术方案</dt><dd>它用约 1 万个蛋白质序列、100 万个构象训练一个以序列和折叠分数 Q 为条件的深度学习框架，训练数据混合了粗粒化折叠轨迹和全原子机械拉伸轨迹。生成时先通过分层滑窗回归预测残基间距离，再做链级组装，最后用 rectified-flow 解码器重建三维 Cα 链。与 AlphaFold 3 等只输出单一天然构象的模型不同，它把「折叠进度」作为可控输入，推理阶段不需要针对每个蛋白单独跑分子动力学模拟。</dd>
+        <dt>关键数据</dt><dd>在匹配样本比较中，FoldScape 在回转半径、天然接触分数 Q、二级结构分数三个维度上的构象空间覆盖率中位数分别为 0.989、0.722、0.877，而种子变化的 AlphaFold 3 集成仅 0.05、0.05、0.10；覆盖率优势在评估蛋白上一致且对分箱选择稳健。重建精度在折叠轨迹各阶段大致稳定，步长为 1 的裁剪-叠加推理可把预测扩展到单次通过长度上限数倍长的链。</dd>
+        <dt>为什么值得关注</dt><dd>对关心蛋白质结构预测、分子动力学和药物发现的读者，这条提供了「不跑 MD 也能生成折叠全路径构象集合」的新路线，直接关系到用 AI 替代昂贵模拟来研究折叠中间态和构象系综的可行性。</dd>
+      </dl>
+      <footer class="card-foot">
+        <span class="date">2026-11-03</span>
         
-          <details class="date-group" id="archive-2026-11-04" open>
+        
+        <a class="cta" href="https://arxiv.org/abs/2611.04287v2" target="_blank" rel="noopener">阅读原文 →</a>
+      </footer>
+    </article>
+    <article class="card" data-url="https://arxiv.org/abs/2611.04517v1" data-field="climate">
+      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2611.04517v1" onclick="toggleStar(this)">☆</button>
+      <div class="card-head">
+        <h2><a href="https://arxiv.org/abs/2611.04517v1" target="_blank" rel="noopener">GeoSim: Benchmarking Multi-Field Neural Operators for Geodynamics</a></h2>
+        <div class="badges">
+          <span class="score high">8</span>
+          <span class="source cat-paper" title="arxiv:arxiv-climate">arXiv · 地球</span>
+          
+          <span class="field" title="子领域">气候地球</span>
+          
+        </div>
+      </div>
+      
+      <div class="tags">
+        <span class="tag">benchmark</span><span class="tag">neural-operator</span><span class="tag">geodynamics</span><span class="tag">dataset</span>
+      </div>
+      
+      <p class="innovation">首个针对地幔柱（mantle plume）多场耦合模拟的神经算子基准，用237条高分辨率轨迹揭示「标量场准、速度场差」的系统性偏差，并给出多场联合建模的改进基线。</p>
+      <dl class="details">
+        <dt>技术方案</dt><dd>作者用I2VIS生成二维地幔柱高分辨率模拟，覆盖两套参数区间共237条轨迹，每条含6个耦合物理场和时间戳，并按轨迹划分训练/测试集。基准定义两类任务：短窗口预测和自主长时滚动（rollout），逐场评估代表性神经算子。还提出MFGNO（多场图神经算子），把多个物理场放在一张图上联合建模，而非各场独立训练。</dd>
+        <dt>关键数据</dt><dd>在GeoSim-Plume1上，固定每场目标函数时，MFGNO相比独立场图基线将水平速度误差降低58.4%、垂直速度误差降低38.5%；显式加入场间差分输入在该规模下无可测收益。基准共237条轨迹、6个耦合场，并观察到标量场重建准确但速度场误差大的「标量—速度鸿沟」，且短窗口精度不能保证长时滚动稳定。</dd>
+        <dt>为什么值得关注</dt><dd>对做科学机器学习、PDE代理模型和气候/地球建模的读者，这条提供了少见的「多场耦合+长时稳定性」评测视角，直接指出速度场这类关键变量才是代理模型的短板，对设计更可靠的物理代理模型有参考价值。</dd>
+      </dl>
+      <footer class="card-foot">
+        <span class="date">2026-11-03</span>
+        
+        
+        <a class="cta" href="https://arxiv.org/abs/2611.04517v1" target="_blank" rel="noopener">阅读原文 →</a>
+      </footer>
+    </article>
+    <article class="card" data-url="https://arxiv.org/abs/2611.05270v1" data-field="protein">
+      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2611.05270v1" onclick="toggleStar(this)">☆</button>
+      <div class="card-head">
+        <h2><a href="https://arxiv.org/abs/2611.05270v1" target="_blank" rel="noopener">iGC: Antibody Optimization via Reinforcement Learning over a Learned Somatic Hypermutation Prior</a></h2>
+        <div class="badges">
+          <span class="score high">8</span>
+          <span class="source cat-paper" title="arxiv:arxiv-qbio">arXiv · 生命</span>
+          
+          <span class="field" title="子领域">蛋白质/结构</span>
+          
+        </div>
+      </div>
+      
+      <div class="tags">
+        <span class="tag">protein</span><span class="tag">drug-discovery</span><span class="tag">reinforcement-learning</span><span class="tag">antibody</span>
+      </div>
+      
+      <p class="innovation">把「B细胞在生发中心里反复突变+筛选」这一自然过程拆成两阶段强化学习：先学真实体细胞超突变（SHM，抗体成熟时的突变模式）先验，再在抗原特异性奖励下优化结合力，兼顾「突变像真的」和「结合更强」。</p>
+      <dl class="details">
+        <dt>技术方案</dt><dd>iGC 分两步：第一步从B细胞谱系树的亲子序列对里学一个SHM突变先验，并在目标亲和力成熟数据集上微调；第二步用这个先验初始化强化学习策略，以KL正则把它拴在冻结的先验附近，避免优化跑偏。为防止策略钻奖励空子（比如反复刷高奖励替换、或在框架区做结构上能容忍但无用的突变），作者加了Reward-Tax元梯度目标：RewardNet平滑亲和力地形，TaxNet惩罚过度榨取奖励，两者合成元奖励供策略优化。与过去相比，突变模型不直接优化结合、亲和力优化又常忽略真实突变轨迹，iGC把两者接在一起。</dd>
+        <dt>关键数据</dt><dd>突变位点预测上，学到的突变先验比最强基线提升一倍以上（more than doubles）；RL优化后仍保持SHM序列结构，并在不同候选筛选阈值下取得有竞争力的「奖励×多样性」乘积。具体数值未披露。</dd>
+        <dt>为什么值得关注</dt><dd>对关心蛋白质结构预测、药物发现和科学机器学习的读者，这条把抗体亲和力成熟做成可迭代的in silico（计算模拟）框架，且用强化学习+先验正则解决「优化结合力但突变不真实」的老问题，是AI辅助抗体设计值得跟进的方向。</dd>
+      </dl>
+      <footer class="card-foot">
+        <span class="date">2026-11-03</span>
+        
+        
+        <a class="cta" href="https://arxiv.org/abs/2611.05270v1" target="_blank" rel="noopener">阅读原文 →</a>
+      </footer>
+    </article>
+    <article class="card" data-url="https://arxiv.org/abs/2611.06157v1" data-field="molsim">
+      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2611.06157v1" onclick="toggleStar(this)">☆</button>
+      <div class="card-head">
+        <h2><a href="https://arxiv.org/abs/2611.06157v1" target="_blank" rel="noopener">Neural Stochastic Forecasting for Lateral Molecular Diffusion Simulations</a></h2>
+        <div class="badges">
+          <span class="score high">8</span>
+          <span class="source cat-paper" title="arxiv:arxiv-ml">arXiv · ML</span>
+          
+          <span class="field" title="子领域">分子模拟</span>
+          
+        </div>
+      </div>
+      
+      <div class="tags">
+        <span class="tag">molecular-dynamics</span><span class="tag">protein</span><span class="tag">foundation-model</span><span class="tag">scientific-machine-learning</span>
+      </div>
+      
+      <p class="innovation">用神经网络随机模型替代昂贵MD模拟，从短轨迹外推膜蛋白长时扩散，能生成4万帧轨迹并复现MD测得的异常扩散指数，比此前变分自回归模型更准。</p>
+      <dl class="details">
+        <dt>技术方案</dt><dd>模型输入粗粒化MD轨迹，用Transformer编码蛋白构型，多时间尺度循环网络捕捉快慢动态，再加带学习记忆的随机隐过程；解码器用交叉注意力同时生成多个蛋白的关联位移，并显式考虑瞬时几何和周期性边界条件。与过去只做单点预测或变分自回归生成的做法不同，它把随机性和多尺度记忆结合，专门生成统计特征正确的长轨迹。</dd>
+        <dt>关键数据</dt><dd>在7个PIEZO通道体系中复现MD的异常扩散指数α≈1，而此前变分自回归模型呈超扩散；可生成最长40,000帧轨迹；混合体系中能区分7个PIEZO与10个TREK通道的扩散差异；时间平均均方位移、Van Hove位移分布和非高斯参数与MD统计特征一致。</dd>
+        <dt>为什么值得关注</dt><dd>对做分子动力学、膜蛋白扩散和科学机器学习的读者，这条展示了用生成模型外推MD长时统计的可行路径，能绕开MD算不起、实验跟踪时间有限的问题，对药物发现中膜蛋白行为建模也有参考价值。</dd>
+      </dl>
+      <footer class="card-foot">
+        <span class="date">2026-11-04</span>
+        
+        
+        <a class="cta" href="https://arxiv.org/abs/2611.06157v1" target="_blank" rel="noopener">阅读原文 →</a>
+      </footer>
+    </article>
+    <article class="card" data-url="https://arxiv.org/abs/2611.06382v1" data-field="climate">
+      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2611.06382v1" onclick="toggleStar(this)">☆</button>
+      <div class="card-head">
+        <h2><a href="https://arxiv.org/abs/2611.06382v1" target="_blank" rel="noopener">From hydrological laws to catchment models: A process-based model matches deep-learning accuracy on three continents</a></h2>
+        <div class="badges">
+          <span class="score high">8</span>
+          <span class="source cat-paper" title="arxiv:arxiv-climate">arXiv · 地球</span>
+          
+          <span class="field" title="子领域">气候地球</span>
+          
+        </div>
+      </div>
+      
+      <div class="tags">
+        <span class="tag">climate</span><span class="tag">hydrology</span><span class="tag">process-based-model</span><span class="tag">scientific-machine-learning</span>
+      </div>
+      
+      <p class="innovation">用物理定律约束的低维流域模型 CaRT+，在英、美、澳三大洲的径流预测上追平甚至局部超过 LSTM（长短期记忆网络），说明流域尺度可能存在「形式定律」，而非纯靠黑箱拟合。</p>
+      <dl class="details">
+        <dt>技术方案</dt><dd>作者从三条水文定律出发：守恒让模型成为通量连接的储水网络，耗散固定每个通量的方向，聚合决定未解析的小尺度过程如何通过阈值分布和记忆效应进入通量。据此构建每流域仅 11 个参数的简约模型 CaRT，再用 AI 代理辅助的迭代循环，针对观测到的预测缺陷、从文献中提出假设并逐项改进，最终得到 14 个状态、每流域 35 个参数的 CaRT+，全程不依赖逐日神经网络。与过去纯数据驱动的 LSTM 不同，它把物理结构写进模型，只学习本构关系的参数。</dd>
+        <dt>关键数据</dt><dd>在英国 602 个、美国 593 个有观测流域的留出年份上，单个 CaRT+ 模型中位 NSE（纳什效率系数，越接近 1 越好）分别为 0.863 和 0.765；有状态 LSTM 为 0.869 和 0.751，实体感知 LSTM 为 0.862 和 0.754。三种子 LSTM 集成在中位配对 NSE 上仍领先 CaRT+ 集成 0.003–0.012。在未参与开发的澳大利亚 505 个较干旱流域上，单个 CaRT+ 达 0.778，高于两种 LSTM 的 0.762 和 0.753。</dd>
+        <dt>为什么值得关注</dt><dd>对关心科学机器学习、PDE（偏微分方程）与气候建模的读者，这条提供了「物理约束 + 低维结构」在真实流域尺度上对标深度学习的量化证据，也直接关联水文与气候影响评估中的可解释建模路线。</dd>
+      </dl>
+      <footer class="card-foot">
+        <span class="date">2026-11-04</span>
+        
+        
+        <a class="cta" href="https://arxiv.org/abs/2611.06382v1" target="_blank" rel="noopener">阅读原文 →</a>
+      </footer>
+    </article>
+    <article class="card" data-url="https://github.com/AI4Science-WestlakeU/RealPDEBench" data-field="ai4math">
+      <button class="star" aria-label="收藏" data-url="https://github.com/AI4Science-WestlakeU/RealPDEBench" onclick="toggleStar(this)">☆</button>
+      <div class="card-head">
+        <h2><a href="https://github.com/AI4Science-WestlakeU/RealPDEBench" target="_blank" rel="noopener">AI4Science-WestlakeU/RealPDEBench</a></h2>
+        <div class="badges">
+          <span class="score high">8</span>
+          <span class="source cat-github" title="github:github-trending-scientific-ml">GitHub · SciML</span>
+          
+          <span class="field" title="子领域">AI4Math/PDE</span>
+          
+        </div>
+      </div>
+      
+      <div class="tags">
+        <span class="tag">pde</span><span class="tag">benchmark</span><span class="tag">dataset</span><span class="tag">code</span>
+      </div>
+      
+      <p class="innovation">ICLR26 Oral 论文发布 RealPDEBench，首个把「真实实验测量」与「仿真数据」成对配齐的复杂物理系统基准，直指 AI 求解偏微分方程时「仿真刷分高、落地就崩」的老问题。</p>
+      <dl class="details">
+        <dt>技术方案</dt><dd>做法是给同一套物理系统同时采集真实世界观测和对应仿真结果，形成成对样本，让模型在真实数据上训练和评测，而不是只拟合仿真器。相比过去 PDE 基准几乎全用数值求解器生成数据、真实噪声与边界条件缺失，它把「仿真到现实」的差距本身变成可量化的评测维度，覆盖复杂物理系统而非单一方程。</dd>
+        <dt>关键数据</dt><dd>具体数据未披露（仓库与论文细节待公开）；定性意义在于提供首个成对真实-仿真评测口径，可衡量模型从仿真迁移到现实时的性能落差，而非仅报仿真集上的误差。</dd>
+        <dt>为什么值得关注</dt><dd>对做 PDE 求解、科学机器学习、物理仿真的读者，它提供了检验「模型能否用于真实系统」的基准，直接关系到 AI4S 从论文走向实验与工程的可靠性评估。</dd>
+      </dl>
+      <footer class="card-foot">
+        <span class="date">2026-11-04</span>
+        
+        
+        <a class="cta" href="https://github.com/AI4Science-WestlakeU/RealPDEBench" target="_blank" rel="noopener">阅读原文 →</a>
+      </footer>
+    </article>
+    <article class="card" data-url="https://www.nature.com/articles/s41586-026-11210-2" data-field="protein">
+      <button class="star" aria-label="收藏" data-url="https://www.nature.com/articles/s41586-026-11210-2" onclick="toggleStar(this)">☆</button>
+      <div class="card-head">
+        <h2><a href="https://www.nature.com/articles/s41586-026-11210-2" target="_blank" rel="noopener">An open structure-guided RNA foundation model for generalizable prediction</a></h2>
+        <div class="badges">
+          <span class="score high">8</span>
+          <span class="source cat-paper" title="rss:nature">Nature</span>
+          
+          <span class="field" title="子领域">蛋白质/结构</span>
+          
+        </div>
+      </div>
+      
+      <div class="tags">
+        <span class="tag">foundation-model</span><span class="tag">protein</span><span class="tag">benchmark</span>
+      </div>
+      
+      <p class="innovation">首个以「结构」为引导、在2100万条RNA序列-结构配对上预训练的开放RNA基础模型structRFM，把蛋白质领域AlphaFold式的结构监督思路搬到RNA，且模型与数据对外开放。</p>
+      <dl class="details">
+        <dt>技术方案</dt><dd>研究团队先构建了约2100万条RNA序列与其结构配对的训练集，让模型在预训练阶段同时学习序列信息和结构信息，形成多模态表示；再把这些表示迁移到下游任务，包括RNA二级结构预测、三级（空间）结构预测、功能推断，以及在未见过的RNA家族上的零样本泛化。与过去主要依赖序列或单一任务小模型的做法不同，它走的是「大规模结构监督预训练 + 通用表示 + 下游微调/零样本」的路线，思路接近蛋白质基础模型。</dd>
+        <dt>关键数据</dt><dd>摘要仅披露预训练规模为2100万条序列-结构配对，具体精度提升幅度、对比基线分数、参数规模与训练成本均未披露；其定性意义在于首次系统验证结构引导的RNA基础模型可跨二级/三级结构与功能任务泛化，但量化优势需看正文。</dd>
+        <dt>为什么值得关注</dt><dd>对关注protein structure prediction、scientific machine learning与AI for Science的读者，这是「结构监督基础模型」从蛋白质向RNA延伸的代表性工作，直接关系到RNA结构预测、RNA靶向药物发现与核酸材料设计的可迁移方法。</dd>
+      </dl>
+      <footer class="card-foot">
+        <span class="date">2026-11-04</span>
+        
+        
+        <a class="cta" href="https://www.nature.com/articles/s41586-026-11210-2" target="_blank" rel="noopener">阅读原文 →</a>
+      </footer>
+    </article>
+    <article class="card" data-url="https://www.nature.com/articles/s41586-026-11228-6" data-field="protein">
+      <button class="star" aria-label="收藏" data-url="https://www.nature.com/articles/s41586-026-11228-6" onclick="toggleStar(this)">☆</button>
+      <div class="card-head">
+        <h2><a href="https://www.nature.com/articles/s41586-026-11228-6" target="_blank" rel="noopener">An AI-native experimental laboratory for autonomous biomolecular operations</a></h2>
+        <div class="badges">
+          <span class="score high">8</span>
+          <span class="source cat-paper" title="rss:nature">Nature</span>
+          
+          <span class="field" title="子领域">蛋白质/结构</span>
+          
+        </div>
+      </div>
+      
+      <div class="tags">
+        <span class="tag">foundation-model</span><span class="tag">benchmark</span><span class="tag">code</span><span class="tag">protein</span>
+      </div>
+      
+      <p class="innovation">AutoDNA 把「AI 决策 + 多仪器自动化实验」做成一个闭环、多用户共用的生物分子工程实验室，让 AI 与自动化系统在真实实验里互相迭代，而不只是单点自动化或离线预测。</p>
+      <dl class="details">
+        <dt>技术方案</dt><dd>核心是一个 AI 原生（AI-native）的实验编排框架：AI 根据实验目标决定下一轮做什么，调度多种不同仪器执行分子构建、表征等操作，再把结果回灌给模型更新策略，形成 AI 与自动化系统的共同演化。与过去常见的「单台液体处理机器人 + 固定流程脚本」不同，它面向多目标优化，跨异构仪器协同，并支持端到端、多用户共享的实验室运行模式。</dd>
+        <dt>关键数据</dt><dd>未披露。原文摘要未给出通量、成功率、迭代轮数或成本等量化指标，其意义目前是定性层面：提出并实现了一个可多用户运行、AI 与自动化共同演化的端到端生物分子实验平台范式。</dd>
+        <dt>为什么值得关注</dt><dd>对关注蛋白质结构预测、药物发现、科学机器学习与 AI for Science 的读者，这条展示的是「AI 不只做预测，还直接驱动湿实验闭环」的基础设施方向，是自驱动实验室（self-driving lab）路线在生物分子工程上的落地样本。</dd>
+      </dl>
+      <footer class="card-foot">
+        <span class="date">2026-11-04</span>
+        
+        
+        <a class="cta" href="https://www.nature.com/articles/s41586-026-11228-6" target="_blank" rel="noopener">阅读原文 →</a>
+      </footer>
+    </article>
+            </div>
+          </details>
+        
+          <details class="date-group" id="archive-2026-11-04">
             <summary>2026-11-04 <span class="n">10 条</span></summary>
             <div class="cards">
               
@@ -9205,315 +9512,6 @@
         
         
         <a class="cta" href="https://arxiv.org/abs/2610.10513v1" target="_blank" rel="noopener">阅读原文 →</a>
-      </footer>
-    </article>
-            </div>
-          </details>
-        
-          <details class="date-group" id="archive-2026-10-07">
-            <summary>2026-10-07 <span class="n">10 条</span></summary>
-            <div class="cards">
-              
-    <article class="card" data-url="https://arxiv.org/abs/2610.06227v1" data-field="drug">
-      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2610.06227v1" onclick="toggleStar(this)">☆</button>
-      <div class="card-head">
-        <h2><a href="https://arxiv.org/abs/2610.06227v1" target="_blank" rel="noopener">APOD: reasoning-guided agentic population ordinary differential equation discovery for pharmacological digital twins</a></h2>
-        <div class="badges">
-          <span class="score high">8</span>
-          <span class="source cat-paper" title="arxiv:arxiv-qbio">arXiv · 生命</span>
-          
-          <span class="field" title="子领域">药物发现</span>
-          
-        </div>
-      </div>
-      
-      <div class="tags">
-        <span class="tag">drug-discovery</span><span class="tag">foundation-model</span><span class="tag">pde</span><span class="tag">code</span>
-      </div>
-      
-      <p class="innovation">用语言模型智能体自动从稀疏、带噪的人群数据里「推」出常微分方程（ODE，描述系统随时间变化的方程），构建带个体差异的药理学数字孪生，把过去靠专家手工建模的慢活变成开放式自动搜索。</p>
-      <dl class="details">
-        <dt>技术方案</dt><dd>APOD 让一个语言模型智能体反复「推理」：一边调用生物学知识，一边看拟合诊断结果，在不受限的模型空间里迭代提出并修正 ODE 结构，最终得到一个共享方程系统加个体间变异（between-subject variability）的人群数字孪生（PDT）。与以往自动化方法不同，它不局限于预设的模型库，也不忽略个体差异，而是把知识推理和数值拟合反馈结合起来做开放式搜索。</dd>
-        <dt>关键数据</dt><dd>在合成的药代动力学和肿瘤动力学基准上，APOD 在 94-100% 的运行中恢复了真实方程结构，中位耗时比基于模型库的既有搜索方法快 12 倍。在真实队列数据上也能收敛到有效结构，并针对放射性配体治疗引起的血小板动态提出一个 PDT，仅用第一周期数据即可预测血小板减少症，并模拟不同给药方案以降低预测的毒性风险。</dd>
-        <dt>为什么值得关注</dt><dd>这条直接落在 AI for Science 的「科学机器学习 + 药物发现」交叉点上：ODE 建模和数字孪生是药理学、临床剂量优化的基础工具，而用 LLM 智能体做开放式方程发现，为从稀疏 noisy 数据中自动构建可解释模型提供了新范式，对关心 drug discovery、scientific machine learning 和 PDE/ODE 建模的读者有参考价值。</dd>
-      </dl>
-      <footer class="card-foot">
-        <span class="date">2026-10-05</span>
-        
-        
-        <a class="cta" href="https://arxiv.org/abs/2610.06227v1" target="_blank" rel="noopener">阅读原文 →</a>
-      </footer>
-    </article>
-    <article class="card" data-url="https://arxiv.org/abs/2610.06467v1" data-field="materials">
-      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2610.06467v1" onclick="toggleStar(this)">☆</button>
-      <div class="card-head">
-        <h2><a href="https://arxiv.org/abs/2610.06467v1" target="_blank" rel="noopener">Quantum spectral thermodynamics and active learning enable million-scale exploration of high-entropy ceramics</a></h2>
-        <div class="badges">
-          <span class="score high">8</span>
-          <span class="source cat-paper" title="arxiv:arxiv-physchem">arXiv · 物化</span>
-          
-          <span class="field" title="子领域">材料科学</span>
-          
-        </div>
-      </div>
-      
-      <div class="tags">
-        <span class="tag">materials</span><span class="tag">active-learning</span><span class="tag">dft</span><span class="tag">high-entropy-ceramics</span>
-      </div>
-      
-      <p class="innovation">把「量子谱热力学」和主动学习结合，在 770 万种高熵陶瓷配方里做第一性原理级别的筛选，速度提升 10 万倍，并首次量化出约 12 at.% 的溶质阈值。</p>
-      <dl class="details">
-        <dt>技术方案</dt><dd>作者先建立一个理论框架：化学无序会让声子谱线变宽（声子自能效应），这种展宽会贡献额外的振动自由能，从而在理想构型熵之外提供热力学稳定化。然后他们用不确定性引导的主动学习，在密度泛函理论（DFT，第一性原理计算）精度下迭代挑选最有信息量的候选成分，而不是穷举全部 770 万种构型。相比过去只算理想混合熵或只做小规模枚举的做法，这套流程把可探索的化学空间放大了几个数量级。</dd>
-        <dt>关键数据</dt><dd>探索了 770 万（7.7 million）种高熵陶瓷构型，达到 DFT 精度，实现 10^5（十万）倍加速；发现约 12 at.% 的溶质阈值，区分强化与软化区间；无序还带来高温高刚度与低热导率的组合，以及异常的温度依赖晶格热输运。</dd>
-        <dt>为什么值得关注</dt><dd>对关心 materials design、scientific machine learning 和 AI for Science 的读者，这条展示了主动学习如何把第一性原理计算推到百万级化学空间，并且用声子谱这种量子层面的物理量解释相稳定性，是「AI 加速材料发现」的一个可复用范式。</dd>
-      </dl>
-      <footer class="card-foot">
-        <span class="date">2026-10-05</span>
-        
-        
-        <a class="cta" href="https://arxiv.org/abs/2610.06467v1" target="_blank" rel="noopener">阅读原文 →</a>
-      </footer>
-    </article>
-    <article class="card" data-url="https://arxiv.org/abs/2610.06509v1" data-field="climate">
-      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2610.06509v1" onclick="toggleStar(this)">☆</button>
-      <div class="card-head">
-        <h2><a href="https://arxiv.org/abs/2610.06509v1" target="_blank" rel="noopener">Xaurora: Generative Weather Forecasting with Denoising Stochastic Interpolants from a Foundation Model Prior</a></h2>
-        <div class="badges">
-          <span class="score high">8</span>
-          <span class="source cat-paper" title="arxiv:arxiv-climate">arXiv · 地球</span>
-          
-          <span class="field" title="子领域">气候地球</span>
-          
-        </div>
-      </div>
-      
-      <div class="tags">
-        <span class="tag">climate</span><span class="tag">foundation-model</span><span class="tag">generative-model</span><span class="tag">code</span>
-      </div>
-      
-      <p class="innovation">把已有的确定性天气预报大模型 Aurora 改造成能生成「集合预报」的随机模型 Xaurora，用少量微调就接近甚至比肩更大版本 Aurora 的全球集合预报水平。</p>
-      <dl class="details">
-        <dt>技术方案</dt><dd>核心是提出一种叫「去噪随机插值」（Denoising Stochastic Interpolants）的生成方法，配合一个回放缓冲区（replay buffer）来做随机微分方程（SDE）的轨迹采样，从而对 SDE 路径进行概率化训练。做法上不是从零训练新模型，而是拿预训练好的确定性 Aurora 小模型当先验，微调成能输出多个可能天气情景的随机模型。与过去确定性模型只能给单一预报、或从头训练集合模型成本高昂不同，它复用已有基础模型，参数和样本效率都更高。</dd>
-        <dt>关键数据</dt><dd>基于 Aurora 小版本微调，在全球集合预报指标上接近当前最优水平，并与 Aurora 大版本相当；可在 13 分钟内生成有技巧的 15 天预报；论文强调参数与样本效率高。具体指标数值未在摘要中披露。</dd>
-        <dt>为什么值得关注</dt><dd>对关心气候建模和科学机器学习的读者，这条展示了如何把确定性基础模型低成本转成概率集合预报，直接关系到极端天气风险评估和不确定性量化，也体现了 AI4S 中「复用预训练模型 + 生成式方法」的实用路线。</dd>
-      </dl>
-      <footer class="card-foot">
-        <span class="date">2026-10-05</span>
-        
-        
-        <a class="cta" href="https://arxiv.org/abs/2610.06509v1" target="_blank" rel="noopener">阅读原文 →</a>
-      </footer>
-    </article>
-    <article class="card" data-url="https://arxiv.org/abs/2610.06577v1" data-field="molsim">
-      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2610.06577v1" onclick="toggleStar(this)">☆</button>
-      <div class="card-head">
-        <h2><a href="https://arxiv.org/abs/2610.06577v1" target="_blank" rel="noopener">Optimizing the Optimizer: Language Models Discover Faster Molecular Relaxation</a></h2>
-        <div class="badges">
-          <span class="score high">8</span>
-          <span class="source cat-paper" title="arxiv:arxiv-physchem">arXiv · 物化</span>
-          
-          <span class="field" title="子领域">分子模拟</span>
-          
-        </div>
-      </div>
-      
-      <div class="tags">
-        <span class="tag">molecular-dynamics</span><span class="tag">foundation-model</span><span class="tag">code</span><span class="tag">benchmark</span>
-      </div>
-      
-      <p class="innovation">让语言模型自己改写分子几何优化器，在不用任何 DFT（密度泛函）梯度的前提下，把最优开源优化器 Sella 的力评估次数最多降到 40.2%，直接省下量子化学流程中最贵的一环。</p>
-      <dl class="details">
-        <dt>技术方案</dt><dd>作者把「改进优化器」本身当成一个自动研究任务：让一个语言模型智能体反复重写优化器的代码，目标是减少达到同样能量下降所需的力评估次数。为防止作弊，设了两道准入关卡——一是拒绝「提前停止」这种假收敛，二是拒绝只在训练分子上有效、换分子就失效的改动。搜索从当时最快的开源优化器 Sella 出发，最终得到两个变体，合称 AutoSella。与过去靠人工设计或调参不同，这里是模型自主改写算法逻辑，且搜索过程中完全没有使用 DFT 梯度。</dd>
-        <dt>关键数据</dt><dd>在未参与搜索的分子基准和势函数上，AutoSella 两个变体相对 Sella 都稳定减少力评估次数。最突出的是在 r2SCAN-3c 这一 DFT 级别下，最佳变体只需 Sella 力评估次数的 40.2%–77.2%，同时达到相同的能量下降幅度；而搜索过程中智能体并未接触任何 DFT 梯度。</dd>
-        <dt>为什么值得关注</dt><dd>几何优化是 drug discovery、materials design 里量子化学工作流的常见瓶颈，力评估次数直接决定算力成本；这条展示了 scientific machine learning 与语言模型自动研究如何改造底层数值算法，对关心 AI for Science、分子模拟和科学计算效率的读者有直接参考价值。</dd>
-      </dl>
-      <footer class="card-foot">
-        <span class="date">2026-10-05</span>
-        
-        
-        <a class="cta" href="https://arxiv.org/abs/2610.06577v1" target="_blank" rel="noopener">阅读原文 →</a>
-      </footer>
-    </article>
-    <article class="card" data-url="https://arxiv.org/abs/2610.07607v1" data-field="protein">
-      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2610.07607v1" onclick="toggleStar(this)">☆</button>
-      <div class="card-head">
-        <h2><a href="https://arxiv.org/abs/2610.07607v1" target="_blank" rel="noopener">Linear Fitness Subspace in Protein Language Models Enables Sample-Efficient Directed Evolution</a></h2>
-        <div class="badges">
-          <span class="score high">8</span>
-          <span class="source cat-paper" title="arxiv:arxiv-qbio">arXiv · 生命</span>
-          
-          <span class="field" title="子领域">蛋白质/结构</span>
-          
-        </div>
-      </div>
-      
-      <div class="tags">
-        <span class="tag">protein</span><span class="tag">foundation-model</span><span class="tag">drug-discovery</span><span class="tag">code</span>
-      </div>
-      
-      <p class="innovation">提出「线性适应度子空间（LFS）」假设：蛋白质语言模型的表示变化中，只有少数与特定实验相关的方向决定适应度，据此可在极少标注样本下高效做定向进化。</p>
-      <dl class="details">
-        <dt>技术方案</dt><dd>作者先观察突变引起的残基级表示变化，假设其中存在一个紧凑的、与具体实验（assay）相关的方向子空间，使适应度变化在该子空间内近似线性可读。基于此提出 SGES（子空间引导进化搜索）：先用少量标注变体估计这个子空间，再在其中做代理模型、不确定性估计和采集决策，而不是在原始高维嵌入里直接搜索。与零样本 PLM 打分和常规监督式嵌入搜索相比，关键区别是把搜索维度压到与适应度对齐的低维坐标上，从而减少所需实验预算。</dd>
-        <dt>关键数据</dt><dd>在 10 个核心 ProteinGym 实验、87 个扩展静态验证实验和 18 个预算受限搜索评估上，SGES 在适应度预测和搜索效率上优于零样本 PLM 及近期机器学习引导的蛋白质优化基线。对照实验（PCA、随机投影、标签打乱的 PLS、经典突变特征、采集函数消融）进一步表明收益来自与适应度对齐的位点-变化坐标，而非单纯降维。具体提升幅度未在摘要中披露。</dd>
-        <dt>为什么值得关注</dt><dd>直接面向蛋白质定向进化和药物发现中的低预算优化问题，说明如何用蛋白质语言模型表示加轻量监督，在少量实验下找到高适应度变体，对关心 AI for Science、蛋白质结构/功能预测和实验闭环的读者有参考价值。</dd>
-      </dl>
-      <footer class="card-foot">
-        <span class="date">2026-10-06</span>
-        
-        
-        <a class="cta" href="https://arxiv.org/abs/2610.07607v1" target="_blank" rel="noopener">阅读原文 →</a>
-      </footer>
-    </article>
-    <article class="card" data-url="https://arxiv.org/abs/2610.08020v1" data-field="molsim">
-      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2610.08020v1" onclick="toggleStar(this)">☆</button>
-      <div class="card-head">
-        <h2><a href="https://arxiv.org/abs/2610.08020v1" target="_blank" rel="noopener">Learning consistent molecular mechanics force fields from first principles</a></h2>
-        <div class="badges">
-          <span class="score high">8</span>
-          <span class="source cat-paper" title="arxiv:arxiv-physchem">arXiv · 物化</span>
-          
-          <span class="field" title="子领域">分子模拟</span>
-          
-        </div>
-      </div>
-      
-      <div class="tags">
-        <span class="tag">molecular-dynamics</span><span class="tag">force-field</span><span class="tag">machine-learning</span><span class="tag">code</span>
-      </div>
-      
-      <p class="innovation">首次把分子力场中的「键合参数」和「非键合参数」放在同一个框架里，从第一性原理数据中一致地学出来，不再依赖人工指定的经验非键合参数。</p>
-      <dl class="details">
-        <dt>技术方案</dt><dd>传统力场（FF）把体系总能量拆成简单相互作用，参数按原子或键的类型查表，效率高但难以跨构型迁移；近期机器学习方法只改进了键合参数，非键合部分仍靠经验值。作者提出 grappa-fullFF，把键合与非键合参数同时作为局部原子环境的函数来学习，并加入物理启发的正则化——用电势监督约束静电部分，同时设计便于电荷平衡的网络结构，从而让两类参数彼此自洽。</dd>
-        <dt>关键数据</dt><dd>论文称在几何优化基准上达到当前最优精度，能复现经典力场和已有机器学习力场的构象采样行为，并恢复准确的电响应性质；具体数值（误差、加速比、训练成本等）未披露。</dd>
-        <dt>为什么值得关注</dt><dd>对做分子动力学（MD）、药物发现和材料设计的读者来说，力场精度和可迁移性直接决定模拟可信度；这条把非键合参数也纳入机器学习、且从第一性原理一致学习，可能减少人工调参、提升跨体系泛化，是 AI for Science 在分子模拟方向值得关注的一步。</dd>
-      </dl>
-      <footer class="card-foot">
-        <span class="date">2026-10-06</span>
-        
-        
-        <a class="cta" href="https://arxiv.org/abs/2610.08020v1" target="_blank" rel="noopener">阅读原文 →</a>
-      </footer>
-    </article>
-    <article class="card" data-url="https://arxiv.org/abs/2610.08296v1" data-field="materials">
-      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2610.08296v1" onclick="toggleStar(this)">☆</button>
-      <div class="card-head">
-        <h2><a href="https://arxiv.org/abs/2610.08296v1" target="_blank" rel="noopener">OxiGen: Oxidation-State-Aware Crystal Generation</a></h2>
-        <div class="badges">
-          <span class="score high">8</span>
-          <span class="source cat-paper" title="arxiv:arxiv-physchem">arXiv · 物化</span>
-          
-          <span class="field" title="子领域">材料科学</span>
-          
-        </div>
-      </div>
-      
-      <div class="tags">
-        <span class="tag">materials</span><span class="tag">generative-model</span><span class="tag">code</span>
-      </div>
-      
-      <p class="innovation">把「氧化态」显式写进晶体生成模型，让 AI 造出的无机材料在电荷配比上更接近真实可合成的晶体，而不只是勉强电荷中性。</p>
-      <dl class="details">
-        <dt>技术方案</dt><dd>OxiGen 是一个扩散模型（逐步去噪生成结构的生成模型），在生成晶体的同时为每个原子显式预测其氧化态。它用一个结构化输出层，把「整体电荷必须为零」这一约束编码成有限状态自动机（一种按规则逐步转移状态的模型），在推理时做精确求解，从而保证生成的电荷配比天然合法，而不是事后修补。与以往只保证电荷中性的生成模型相比，它进一步对齐真实合成材料中氧化态的分布。</dd>
-        <dt>关键数据</dt><dd>论文称在氧化态保真度上有大幅提升，在受评估方法中生成「稳定、唯一且新颖」晶体的比例最高，并且在带性质条件（property conditioning）生成时仍保持较高的组分合法性；具体数值未披露。</dd>
-        <dt>为什么值得关注</dt><dd>对做材料设计、无机材料逆向设计和科学机器学习（scientific ML）的读者，这条把物理约束（电荷守恒）直接嵌进生成模型，是「AI 生成候选材料能否真被合成」这一痛点的直接改进，值得关注其后续在药物/材料发现流程中的落地。</dd>
-      </dl>
-      <footer class="card-foot">
-        <span class="date">2026-10-06</span>
-        
-        
-        <a class="cta" href="https://arxiv.org/abs/2610.08296v1" target="_blank" rel="noopener">阅读原文 →</a>
-      </footer>
-    </article>
-    <article class="card" data-url="https://arxiv.org/abs/2610.08400v1" data-field="molsim">
-      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2610.08400v1" onclick="toggleStar(this)">☆</button>
-      <div class="card-head">
-        <h2><a href="https://arxiv.org/abs/2610.08400v1" target="_blank" rel="noopener">Atom-JEPA: Joint-Embedding Predictive Architecture for 3D Atomistic Systems</a></h2>
-        <div class="badges">
-          <span class="score high">8</span>
-          <span class="source cat-paper" title="arxiv:arxiv-physchem">arXiv · 物化</span>
-          
-          <span class="field" title="子领域">分子模拟</span>
-          
-        </div>
-      </div>
-      
-      <div class="tags">
-        <span class="tag">foundation-model</span><span class="tag">materials</span><span class="tag">molecular-dynamics</span><span class="tag">code</span>
-      </div>
-      
-      <p class="innovation">把在语言和视觉领域大获成功的 JEPA（联合嵌入预测架构，即在隐空间做预测而非重建原始数据）首次系统性地搬到 3D 原子体系上，用纯无标注结构数据预训练，在分子 ADMET（药物吸收、分布、代谢、排泄、毒性）和量子化学性质预测上做到当前最好水平。</p>
-      <dl class="details">
-        <dt>技术方案</dt><dd>Atom-JEPA 的核心是不重建原子坐标，而是在隐空间里做预测：给模型一部分原子或子结构，让它预测另一部分原子/子结构的隐表示。它设计了两个互补目标——原子级和子结构级（把分子或晶体切成小片段）——分别捕捉局部化学环境和更大尺度的结构模式。预训练数据是大量无标注的分子和晶体 3D 结构，之后只需少量标注数据微调即可迁移到性质预测任务。与过去在原子体系里常用的「掩码重建坐标」或「对比学习」路线不同，它避免了重建原始坐标带来的噪声敏感问题，更强调学到的表示本身是否可预测、可迁移。</dd>
-        <dt>关键数据</dt><dd>论文称在分子 ADMET 和量子化学性质预测任务上达到 state-of-the-art（当前最优），在晶体材料物理性质预测上「极具竞争力」；具体数值、预训练数据规模、模型参数量和训练成本未在摘要中披露。代码和预训练权重已公开，可复现验证。</dd>
-        <dt>为什么值得关注</dt><dd>对关心 AI for Science 的读者来说，这条直接对应 protein structure prediction、drug discovery、materials design 和 scientific machine learning：它验证了「只靠无标注 3D 结构就能预训练出通用原子表示」这条路，意味着药物分子性质筛选和材料性质预测可能不再需要每个任务都从头标注大量数据。</dd>
-      </dl>
-      <footer class="card-foot">
-        <span class="date">2026-10-06</span>
-        
-        
-        <span class="links">补充：<a href="https://github.com/khelverskovp/atom-jepa" target="_blank" rel="noopener">https://github.com/khelverskovp/atom-jepa</a></span>
-        
-        <a class="cta" href="https://arxiv.org/abs/2610.08400v1" target="_blank" rel="noopener">阅读原文 →</a>
-      </footer>
-    </article>
-    <article class="card" data-url="https://arxiv.org/abs/2610.08495v1" data-field="drug">
-      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2610.08495v1" onclick="toggleStar(this)">☆</button>
-      <div class="card-head">
-        <h2><a href="https://arxiv.org/abs/2610.08495v1" target="_blank" rel="noopener">Information-Dense Synthesis for Molecular Discovery</a></h2>
-        <div class="badges">
-          <span class="score high">8</span>
-          <span class="source cat-paper" title="arxiv:arxiv-qbio">arXiv · 生命</span>
-          
-          <span class="field" title="子领域">药物发现</span>
-          
-        </div>
-      </div>
-      
-      <div class="tags">
-        <span class="tag">drug-discovery</span><span class="tag">molecular-design</span><span class="tag">scientific-machine-learning</span><span class="tag">code</span>
-      </div>
-      
-      <p class="innovation">把「逐个设计-合成-测试分子」换成「合成复杂混合物、整池测试、再反解活性归属」，理论上把在 d 个候选分子中找最优所需的实验次数从 O(d) 降到 O(log d) 甚至 O(1)。</p>
-      <dl class="details">
-        <dt>技术方案</dt><dd>核心是用算法控制的随机合成（stochastic synthesis）来「编码信息」：不再一次只造一个分子，而是刻意设计并合成一批复杂混合物，把多个分子混在一起做池化测试，再通过反卷积（deconvolution）把整体活性拆解回单个分子。关键设计是让合成方案最大化信息量，使每次实验能同时排除大量候选。与过去贝叶斯优化（Bayesian optimization）逐个分子迭代的做法不同，它把搜索从「逐点试探」变成「批量编码-解码」。</dd>
-        <dt>关键数据</dt><dd>理论上，在 d 个候选分子中找最优分子的实验次数可从 O(d) 降到 O(log d) 或 O(1)；在基于估计的蛋白质适应度景观（protein fitness landscape，衡量蛋白功能强弱的打分面）的模拟中，找到活性分子所需实验次数比现有贝叶斯优化方法少一个数量级（约 10 倍）。</dd>
-        <dt>为什么值得关注</dt><dd>对做 drug discovery（药物发现）和 protein structure/function 相关搜索的读者，这条直接关系到「稀有活性分子」这种稀疏场景下实验成本能否大幅下降；其「池化测试+反卷积」思路也可能迁移到 materials design（材料设计）等需要高通量筛选的方向。</dd>
-      </dl>
-      <footer class="card-foot">
-        <span class="date">2026-10-06</span>
-        
-        
-        <a class="cta" href="https://arxiv.org/abs/2610.08495v1" target="_blank" rel="noopener">阅读原文 →</a>
-      </footer>
-    </article>
-    <article class="card" data-url="https://arxiv.org/abs/2610.08693v1" data-field="ai4math">
-      <button class="star" aria-label="收藏" data-url="https://arxiv.org/abs/2610.08693v1" onclick="toggleStar(this)">☆</button>
-      <div class="card-head">
-        <h2><a href="https://arxiv.org/abs/2610.08693v1" target="_blank" rel="noopener">Neural-Operator-Predicted Time-Dependent Reduced Subspaces for Projection-Based Simulation of Nonlinear PDEs</a></h2>
-        <div class="badges">
-          <span class="score high">8</span>
-          <span class="source cat-paper" title="arxiv:arxiv-physchem">arXiv · 物化</span>
-          
-          <span class="field" title="子领域">AI4Math/PDE</span>
-          
-        </div>
-      </div>
-      
-      <div class="tags">
-        <span class="tag">pde</span><span class="tag">neural-operator</span><span class="tag">scientific machine learning</span><span class="tag">code</span>
-      </div>
-      
-      <p class="innovation">把神经算子（学习 PDE 解算子的网络）和投影降阶模型（把高维方程压到低维求解）结合：网络只预测随时间变化的低维子空间，物理方程仍由求解器演化，兼顾速度与物理一致性。</p>
-      <dl class="details">
-        <dt>技术方案</dt><dd>先用神经算子学习从初始条件到「随时间变化的低维试验子空间」的映射，而不是直接输出整条解轨迹；随后在线求解时，把原始非线性 PDE 投影到这个学到的移动子空间上，只演化低维坐标。与纯数据驱动的黑箱代理模型不同，它的预测仍受控制方程约束；与经典降阶模型不同，子空间不再固定或靠人工选取，而是由网络按初始条件自适应生成。</dd>
-        <dt>关键数据</dt><dd>在粘性 Burgers 方程和 Fisher–KPP 反应扩散方程两个非线性 PDE 上测试，相对全阶求解器取得明显墙钟时间加速（论文未给出具体倍数），在测试的各分辨率下相对误差维持在 10^-2 到 10^-1 量级。</dd>
-        <dt>为什么值得关注</dt><dd>对关心 PDE（偏微分方程）求解、科学机器学习、AI for Science 的读者，这条给出了一条「数据驱动加速 + 物理约束保底」的折中路线，思路可迁移到分子动力学、材料设计、气候建模等需要反复求解演化方程的场景。</dd>
-      </dl>
-      <footer class="card-foot">
-        <span class="date">2026-10-06</span>
-        
-        
-        <a class="cta" href="https://arxiv.org/abs/2610.08693v1" target="_blank" rel="noopener">阅读原文 →</a>
       </footer>
     </article>
             </div>
