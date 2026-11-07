@@ -79,12 +79,12 @@
     <div class="brand">AI4S-DAILY</div>
     
     <h1 class="title">AI4S 周报 · 11-02 ~ 11-08</h1>
-    <p class="slogan">「从预测到重建，从仿真到实盘」</p>
-    <p class="range">2026-11-02 ~ 2026-11-08 · 2026-11-06 17:14 (北京时间 UTC+8)</p>
+    <p class="slogan">「从预测走向可执行与可验证」</p>
+    <p class="range">2026-11-02 ~ 2026-11-08 · 2026-11-07 10:38 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期 AI4S 的主线是「从预测走向重建与闭环」：分子模拟不再满足于能量和力，开始重建完整波函数与任意折叠阶段的构象；材料领域密集出现覆盖周期表、四元体系、跨任务统一框架的通用势与工具包；气候与能源评测转向「实盘」和物理约束，用低维模型追平深度学习、用可微分模式压住漂移。同时，自动化实验与强化学习把 AI 从「算」推进到「做」，RNA 结构基础模型和 70 亿分子数据集则继续抬高数据与预训练的门槛。</p>
+  <p class="overview">本期最鲜明的信号是「评测与验证」走上前台：RealPDEBench 把真实实验与仿真成对配齐，Fracture-Bench、GeoSim、BILBY-PRO 分别拆穿代理模型、神经算子与蛋白回折在平均指标下被掩盖的偏差。分子模拟侧继续把机器学习力场推向「一套模型覆盖周期表」与「重建完整波函数」，并密集补齐 GPU 原生、增强采样与自由能学习的工程底座。材料与气候方向则从「刷仿真分数」转向可解释公式、真实市场关口与物理约束下的混合建模。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -137,6 +137,24 @@
   
   <div class="hl">
     <div class="hl-head">
+      <span class="field">🧠 科学基础模型</span>
+      <span class="score">8.0</span>
+    </div>
+    <h3>Scientist World: Grow a Research World for AI-Scientists</h3>
+    <p>把每篇论文变成可执行环境，让 AI 科学家在真实研究问题上与人类作者同台竞技；首批 1000 个环境上，前沿 AI 已有 74% 概率超过人类研究者。</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">⚛️ 分子模拟</span>
+      <span class="score">8.0</span>
+    </div>
+    <h3>Machine learning quantum data to accelerate quantum Monte Carlo</h3>
+    <p>把量子测量数据压缩成机器学习模型，让量子-经典混合的量子蒙特卡洛（QMC，一种用随机采样求解量子多体问题的方法）提速数个数量级，并在 40 个量子比特上做到化学…</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
       <span class="field">⚛️ 分子模拟</span>
       <span class="score">8.0</span>
     </div>
@@ -146,20 +164,11 @@
   
   <div class="hl">
     <div class="hl-head">
-      <span class="field">⚛️ 分子模拟</span>
-      <span class="score">8.0</span>
-    </div>
-    <h3>Neural Stochastic Forecasting for Lateral Molecular Diffusion Simulations</h3>
-    <p>用神经网络随机模型替代昂贵MD模拟，从短轨迹外推膜蛋白长时扩散，能生成4万帧轨迹并复现MD测得的异常扩散指数，比此前变分自回归模型更准。</p>
-  </div>
-  
-  <div class="hl">
-    <div class="hl-head">
       <span class="field">💊 药物发现</span>
       <span class="score">7.0</span>
     </div>
-    <h3>unum-science/USearchMolecules</h3>
-    <p>一个面向药物发现的开源化学信息数据集，规模达 70 亿以上分子，每个分子同时带指纹（结构特征编码）和 3D 构象（真实空间形状），把过去分散的「结构库」和「构象…</p>
+    <h3>On the limitations of molecular representations</h3>
+    <p>系统性地质疑了分子表征的现状：在聚类、数据划分、虚拟筛选等任务上，当前最先进的分子嵌入模型在捕捉图结构、3D 形状和 ADMET（吸收、分布、代谢、排泄、毒性）…</p>
   </div>
   
   <div class="hl">
@@ -167,8 +176,8 @@
       <span class="field">🧫 生物信息</span>
       <span class="score">7.0</span>
     </div>
-    <h3>Do Language Models Know What Compelling Scientific Evidence Looks Like?</h3>
-    <p>首个用真实生物学数据检验语言模型「证据权衡」能力的基准 EDB-Bio，揭示前沿模型在科学证据判断上系统性信心不足，经校准训练后可反超。</p>
+    <h3>MUSS: A Multi-scale and Sequence-based Model for Single-cell Gene Regulation</h3>
+    <p>首个把 DNA 序列级信息与单细胞分辨率同时保留的基因调控模型，让模型既能读懂 DNA 调控语法，又能区分不同细胞类型，且能预测训练中没见过的基因和调控峰。</p>
   </div>
   
   </div>
@@ -176,38 +185,38 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期出现三个明显变化：一是分子模拟从「预测能量和力」转向「重建电子结构与折叠路径」，波函数重建和任意折叠阶段生成同时出现；二是材料领域密集发布通用势与统一工具包（覆盖 85 种元素、四元体系、六类任务），并开始系统处理分布外不确定性；三是评测范式从静态回测转向「实盘」与「真实实验配对」，EnergyBench 和 RealPDEBench 分别从市场截止时间和实验测量两端收紧评测口径。</p>
+  <p class="trend">与上一期相比，本期从「模型能力展示」明显转向「评测与验证基础设施」：RealPDEBench、Fracture-Bench、GeoSim、BILBY-PRO、EnergyBench 集中出现，且多篇结论是「平均指标掩盖了系统性偏差」。同时分子模拟侧出现一批 GPU 原生与 JAX 化工程工作（PLUMED-JAX、GPU ML/MM、LAMMPS NPT 跨厂商 GPU），说明落地瓶颈正从算法转向可复现、可部署的算力底座。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">6705</span><small>抓取条目</small></div>
-      <div><span class="num">460</span><small>总结</small></div>
-      <div><span class="num">460</span><small>已上墙</small></div>
+      <div><span class="num">6723</span><small>抓取条目</small></div>
+      <div><span class="num">470</span><small>总结</small></div>
+      <div><span class="num">470</span><small>已上墙</small></div>
     </div>
     <div class="fields">
       
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
         <div class="fbar"><div class="fbar-fill" style="width: 13%"></div></div>
-        <b>58</b>
+        <b>57</b>
       </div>
       
       <div class="frow">
         <span class="flabel">💊 药物发现</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 12%"></div></div>
-        <b>51</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 11%"></div></div>
+        <b>49</b>
       </div>
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
         <div class="fbar"><div class="fbar-fill" style="width: 52%"></div></div>
-        <b>226</b>
+        <b>225</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 72%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 73%"></div></div>
         <b>312</b>
       </div>
       
@@ -220,19 +229,19 @@
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
         <div class="fbar"><div class="fbar-fill" style="width: 36%"></div></div>
-        <b>155</b>
+        <b>156</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>435</b>
+        <b>429</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 31%"></div></div>
-        <b>137</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 33%"></div></div>
+        <b>143</b>
       </div>
       
     </div>

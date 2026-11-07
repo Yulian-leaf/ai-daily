@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="weekly.html">周报 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-11-06 17:14 (北京时间 UTC+8)
+      生成于 2026-11-07 10:38 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 双周报告 · 10-26 ~ 11-08</h2>
       <p class="r-range">2026-10-26 ~ 2026-11-08</p>
-      <p class="r-overview">这两周 AI4S 的主旋律是「闭环化」与「真实化」：分子模拟领域集中出现把采样、训练、部署串成在线闭环的工作（VESPER、PULSES、WASABI），材料领域则从「生成候选」转向「可造、可验、可溯源」的逆向设计与基准建设。第一周以方法学铺量为主，大量神经算子、扩散采样、等变架构的改进集中发布；第二周明显转向系统级整合——覆盖周期表的通用力场、端到端材料工具包、真实实验配对的 PDE 基准、AI 原生自动化实验室相继出现，单点模型的边际收益开始让位于「数据+流程+验证」的整体设计。同时，评测意识显著增强：RealPDEBench、Fracture-Bench、GeoSim、EnergyBench 等基准密集发布，直指「仿真刷分」与「回测偷看未来」两类老问题。</p>
+      <p class="r-overview">这两周 AI4S 的主旋律是「闭环化」与「真实化」：分子模拟领域密集出现把机器学习势、增强采样、自由能学习串成在线闭环的工作（VESPER、WASABI、PLUMED-JAX、GPU ML/MM），材料领域则从「预测性质」转向「生成—筛选—验证」全流水线（Agentic inverse design、生成式双金属催化剂、Crystoria 百万级动力学稳定性数据集）。第一周（10-26 ~ 11-01）以方法学铺陈为主，大量神经算子、扩散采样、等变架构的改进集中在 arXiv 批量放出；第二周（11-02 ~ 11-08）明显转向「系统级验证与基准建设」——RealPDEBench 用真实实验配对数据直指仿真刷榜、Scientist World 让 AI 科学家与人类作者同台、Fracture-Bench 与 GeoSim 揭示架构排名随任务漂移。另一个跨周信号是「基础模型下沉到具体科学任务」：structRFM 把结构监督搬到 RNA、FilterFM 做零样本贝叶斯滤波、UMA 在 LAMMPS 里跑通 NPT 并跨 NVIDIA/Intel GPU。整体看，AI4S 正从「单点精度竞赛」进入「闭环可靠性、跨体系泛化、真实数据对齐」的深水区。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -103,74 +103,74 @@
         
         <article class="card">
           <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2611.06237v1" target="_blank" rel="noopener">SO3LR Tauri: Generally Applicable Force Fields for Reactive (Bio)Molecular Simulations Covering the Periodic Table</a></h2>
-          <p>单一机器学习力场覆盖 85 种元素，用同一套模型同时处理有机反应、蛋白质、核酸、膜与金属酶，不再逐体系定制。</p>
+          <h2><a href="https://arxiv.org/abs/2611.06237v1" target="_blank" rel="noopener">SO3LR Tauri: 覆盖元素周期表 85 种元素的通用反应性力场</a></h2>
+          <p>同一套神经网络力场同时处理有机反应、蛋白质、核酸、膜和金属酶，无需按体系定制，把「通用反应性」推到周期表尺度。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2611.06779v1" target="_blank" rel="noopener">Machine Learning the Complete Active-Space Wavefunction Reconstruction</a></h2>
-          <p>把机器学习势从「预测能量和力」升级为重建完整电子波函数，多参考态反应动力学首次能逐帧看到电子层面演化。</p>
+          <h2><a href="https://arxiv.org/abs/2611.08151v1" target="_blank" rel="noopener">机器学习量子数据加速量子蒙特卡洛</a></h2>
+          <p>把量子测量数据压缩成 ML 模型，让量子-经典混合 QMC 提速数个数量级，并在 40 量子比特上达到化学精度。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2611.07695v1" target="_blank" rel="noopener">Equivariant Deep Learning in Direct-Product Space for Electronic-Structure Hamiltonian Prediction</a></h2>
-          <p>等变网络直接在直积空间操作哈密顿量矩阵块，绕开球张量分解，并配套 11 万结构的 MP-HAM-110K 数据集。</p>
+          <h2><a href="https://arxiv.org/abs/2611.07695v1" target="_blank" rel="noopener">直积空间等变深度学习预测电子结构哈密顿量</a></h2>
+          <p>绕开球张量分解直接在直积空间操作哈密顿量矩阵块，并发布 11 万结构的 MP-HAM-110K 大规模数据集。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2611.03795v1" target="_blank" rel="noopener">Agentic inverse design of spatially programmed materials</a></h2>
-          <p>用 LLM 智能体把目标空间结构反推成工艺配方，让空间结构成为可编程变量而非试错结果。</p>
+          <p>用 LLM 智能体把目标空间结构直接反推成工艺配方，让空间结构成为可编程变量而非试错对象。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
-          <h2><a href="https://www.nature.com/articles/s41586-026-11210-2" target="_blank" rel="noopener">An open structure-guided RNA foundation model for generalizable prediction</a></h2>
-          <p>首个以结构为引导、在 2100 万条 RNA 序列-结构配对上预训练的开放基础模型 structRFM，把 AlphaFold 式结构监督搬到 RNA。</p>
+          <h2><a href="https://www.nature.com/articles/s41586-026-11210-2" target="_blank" rel="noopener">首个结构引导的开放 RNA 基础模型 structRFM</a></h2>
+          <p>在 2100 万条 RNA 序列-结构配对上预训练，把 AlphaFold 式结构监督思路搬到 RNA，开放权重。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
-          <h2><a href="https://arxiv.org/abs/2611.04287v2" target="_blank" rel="noopener">Predicting protein structures at any folding stage from sequence</a></h2>
-          <p>FoldScape 按折叠进度 Q 从序列直接采样任意阶段构象，补上松散链到近天然态之间的连续路径，推理时无需跑 MD。</p>
+          <h2><a href="https://arxiv.org/abs/2611.04287v2" target="_blank" rel="noopener">FoldScape: 从序列预测任意折叠阶段的蛋白构象</a></h2>
+          <p>按折叠进度 Q 生成从松散链到近天然态的连续构象集合，推理时无需跑分子动力学。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2611.06382v1" target="_blank" rel="noopener">From hydrological laws to catchment models: A process-based model matches deep-learning accuracy on three continents</a></h2>
-          <p>物理约束的低维流域模型 CaRT+ 在英、美、澳三大洲径流预测上追平甚至局部超过 LSTM，提示流域尺度可能存在「形式定律」。</p>
+          <h2><a href="https://arxiv.org/abs/2611.06382v1" target="_blank" rel="noopener">物理定律约束的流域模型 CaRT+ 在三大洲追平 LSTM</a></h2>
+          <p>低维过程模型在英、美、澳径流预测上追平甚至局部超过深度学习，暗示流域尺度存在「形式定律」。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2611.01614v1" target="_blank" rel="noopener">Sonny-ENS: demystifying machine-learning ensemble weather forecasting</a></h2>
-          <p>不到 3 块 GPU 天训练的小型集合预报模型，在 96% 指标上超过 ECMWF 业务集合预报，把概率天气预报门槛拉到单卡级。</p>
+          <h2><a href="https://arxiv.org/abs/2611.01614v1" target="_blank" rel="noopener">Sonny-ENS: 不到 3 块 GPU 天训练出超越 ECMWF 的集合预报</a></h2>
+          <p>小型集合预报模型在 96% 指标上超过 ECMWF 业务集合预报，把概率天气预报门槛拉到单台 GPU。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://github.com/AI4Science-WestlakeU/RealPDEBench" target="_blank" rel="noopener">AI4Science-WestlakeU/RealPDEBench</a></h2>
-          <p>首个把真实实验测量与仿真数据成对配齐的复杂物理系统基准，直指 AI 求解 PDE 时「仿真刷分」的评测盲区。</p>
+          <h2><a href="https://github.com/AI4Science-WestlakeU/RealPDEBench" target="_blank" rel="noopener">RealPDEBench: 真实实验与仿真成对配齐的 PDE 基准</a></h2>
+          <p>ICLR26 Oral，首个把真实测量与仿真数据配对，直指 AI 求解 PDE 时「仿真刷榜、真实拉胯」的痛点。</p>
         </article>
         
         <article class="card">
           <span class="field">科学基础模型</span>
-          <h2><a href="https://arxiv.org/abs/2610.40437v1" target="_blank" rel="noopener">A Pretrained Model for Bayesian Filtering in Heterogeneous Dynamical Systems</a></h2>
-          <p>FilterFM 用单一权重跨异构动力系统估计隐状态，首次实现未见动力学上的零样本贝叶斯滤波。</p>
+          <h2><a href="https://arxiv.org/abs/2611.08478v1" target="_blank" rel="noopener">Scientist World: 让 AI 科学家在可执行论文环境中与人类同台</a></h2>
+          <p>把每篇论文变成可执行环境，首批 1000 个环境上前沿 AI 已有 74% 概率超过人类研究者。</p>
         </article>
         
         <article class="card">
           <span class="field">生物信息</span>
-          <h2><a href="https://arxiv.org/abs/2610.40556v1" target="_blank" rel="noopener">Advancing Clinical Genomic Analysis with a Skill-Centred Agent</a></h2>
-          <p>把临床基因组分析拆成 105 个可执行技能由大模型编排，时间外推病例上与专家结论一致率从 45.7% 提到 71.7%。</p>
+          <h2><a href="https://arxiv.org/abs/2611.08086v1" target="_blank" rel="noopener">MUSS: 同时保留序列级与单细胞分辨率的基因调控模型</a></h2>
+          <p>首个把 DNA 序列语法与细胞类型区分放进同一模型，可预测训练中未见的基因和调控峰。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
-          <h2><a href="https://github.com/unum-science/USearchMolecules" target="_blank" rel="noopener">unum-science/USearchMolecules</a></h2>
-          <p>70 亿以上分子的开源化学信息数据集，每个分子同时带指纹与 3D 构象，把结构库与构象库合并到同一检索空间。</p>
+          <h2><a href="https://arxiv.org/abs/2611.08420v1" target="_blank" rel="noopener">On the limitations of molecular representations</a></h2>
+          <p>系统质疑当前分子嵌入在聚类、数据划分、虚拟筛选和 ADMET 任务上对图结构、3D 形状的捕捉能力。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>分子模拟（molsim）仍是绝对主力，两周合计约 30 条，但内部结构在变：第一周以采样与自由能方法为主（WASABI、VESPER、Restrained Diffusion Bridges、PLUMED-JAX），第二周明显转向「通用势+工程化」（SO3LR Tauri 覆盖 85 元素、UMA 跑通 NPT、FACTO 推理加速、GPU 原生 ML/MM），说明该领域正从算法创新期进入基础设施整合期。材料（materials）约 25 条，热度持平但重心从「生成模型」移向「评测与数据」：第一周多为生成/筛选管线，第二周出现 Fracture-Bench、Crystoria、MP-HAM-110K、PaddleMaterials 等基准与数据集，且逆向设计的边界被系统量化（1460 万晶体统一库）。气候（climate）约 15 条，从第一周的混合建模与可微分模式（NeuralPOM、WRF-JAX、FASST）转向第二周的「业务化验证」（HRRRCast 一年实测、EnergyBench 实盘评测、Sonny-ENS 低成本集合），评测口径明显收紧。蛋白质（protein）约 8 条，结构预测从「终态」扩展到「折叠路径」（FoldScape）与「复合物识别」（GlycoWeave 71.9% vs AlphaFold 3 的 19.2%），RNA 基础模型首次以结构监督登场。AI4Math/PDE 约 12 条，第一周偏理论（迁移学习界、半线性 PDE 下界），第二周转向基准与工具（RealPDEBench、AMOR、ngo），「可验证」成为关键词。科学基础模型（scifm）条目少但方向新：FilterFM 零样本滤波、world2vec 少一个数量级参数、tNTK 把主动学习扩展到分布输出，显示「预训练+跨系统迁移」正在向非视觉、非语言的科学状态估计渗透。药物（drug）与生物信息（bioinfo）条目最少（各约 5 条），但出现 D2ML（免纯化数据直接训练）与技能化临床智能体两个「数据/流程创新」样本，值得关注。总体看，第一周是「方法密度高、验证弱」，第二周是「系统整合强、评测硬」，两周之间形成明显的「从刷分到可复现」的转向。</p>
+      <p>跨周对比看，molsim 是绝对主力：两周合计约 40 条，且第二周从「单点方法改进」转向「闭环系统」——第一周以 WASABI、VESPER、PLUMED-JAX 等采样/自由能工具为主，第二周则出现 SO3LR Tauri 通用反应性力场、ML 加速 QMC、完整活性空间波函数重建等「把电子结构信息接进模拟」的工作，说明分子模拟正在从「更快算力」走向「更准物理」。materials 热度稳中有升，第一周偏生成与筛选（Crystoria、AtomSteer、生成式双金属催化剂），第二周明显转向「基准与可解释性」（Fracture-Bench、GeoSim 式的受控对比、Graph Symbolic Distillation），并出现 Agentic inverse design 这类把 LLM 智能体接入材料工艺的方向。climate 从第一周的「混合建模与可微分模式」（NeuralPOM、WRF-JAX、FASST）转向第二周的「业务化验证与基准」（HRRRCast 一年业务运行、EnergyBench 实盘评测、Sonny-ENS 低成本集合预报），工程落地信号增强。protein 两周合计约 10 条，第二周 structRFM 与 FoldScape 把「结构监督」和「折叠路径」两个新维度带入，同时 BILBY-PRO 揭示静态回折与动态稳定性的鸿沟。ai4math 从第一周的算子学习理论（AMOR、迁移学习界、PDE 网络逼近下界）转向第二周的「基准与不确定性」（RealPDEBench、Conformal Prediction 时效性、Lie 对称性发现），评价体系正在补课。scifm 条目不多但质量高，Scientist World 与 FilterFM 分别代表「AI 科学家环境」和「预训练滤波基础模型」两个新浮现方向。drug 与 bioinfo 相对降温，drug 两周约 6 条且以反思性工作为主（分子表征局限、D2ML 直接生物测试），bioinfo 约 5 条，MUSS 与谱系上下文建模是亮点。总体判断：热度从「模型架构创新」向「基准、闭环、真实数据对齐」迁移，molsim 与 materials 的「系统级整合」是这两周最明确的方向性变化。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下两周重点跟踪三条线：一是通用力场（SO3LR Tauri、UMA、FACTO）在真实反应与生物体系上的独立复现与失败案例；二是 RealPDEBench、Fracture-Bench、EnergyBench 这类「防刷分」基准能否被社区采纳为默认评测口径；三是 FoldScape、structRFM 代表的「路径/结构监督」思路是否会从蛋白质外溢到 RNA 与小分子复合物。</p>
+      <p>下两周重点跟踪三条线：一是通用反应性力场（SO3LR Tauri）与电子结构信息注入模拟（波函数重建、ML-QMC）能否在真实体系上闭环验证；二是 RealPDEBench、Scientist World 这类「真实数据/可执行环境」基准是否会引发一轮对现有仿真刷榜工作的复检；三是 LLM 智能体在材料反设计与自主实验（AutoDNA、QUANTA）中的闭环稳定性，尤其是跨任务经验复用是否成立。</p>
       
     </section>
     

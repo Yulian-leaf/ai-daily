@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-11-06 17:14 (北京时间 UTC+8)
+      生成于 2026-11-07 10:37 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 11-02 ~ 11-08</h2>
       <p class="r-range">2026-11-02 ~ 2026-11-08</p>
-      <p class="r-overview">本期 AI4S 的主线是「从预测走向重建与闭环」：分子模拟不再满足于能量和力，开始重建完整波函数与任意折叠阶段的构象；材料领域密集出现覆盖周期表、四元体系、跨任务统一框架的通用势与工具包；气候与能源评测转向「实盘」和物理约束，用低维模型追平深度学习、用可微分模式压住漂移。同时，自动化实验与强化学习把 AI 从「算」推进到「做」，RNA 结构基础模型和 70 亿分子数据集则继续抬高数据与预训练的门槛。</p>
+      <p class="r-overview">本期最鲜明的信号是「评测与验证」走上前台：RealPDEBench 把真实实验与仿真成对配齐，Fracture-Bench、GeoSim、BILBY-PRO 分别拆穿代理模型、神经算子与蛋白回折在平均指标下被掩盖的偏差。分子模拟侧继续把机器学习力场推向「一套模型覆盖周期表」与「重建完整波函数」，并密集补齐 GPU 原生、增强采样与自由能学习的工程底座。材料与气候方向则从「刷仿真分数」转向可解释公式、真实市场关口与物理约束下的混合建模。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -104,73 +104,73 @@
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2611.06237v1" target="_blank" rel="noopener">SO3LR Tauri: Generally Applicable Force Fields for Reactive (Bio)Molecular Simulations Covering the Periodic Table</a></h2>
-          <p>一套机器学习力场覆盖周期表 85 种元素，用同一模型同时处理有机反应、蛋白质、核酸、膜和金属酶，无需按体系定制。</p>
+          <p>单一机器学习力场覆盖 85 种元素，用同一套模型处理有机反应、蛋白质、核酸、膜与金属酶，无需按体系定制。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2611.06779v1" target="_blank" rel="noopener">Machine Learning the Complete Active-Space Wavefunction Reconstruction</a></h2>
-          <p>把机器学习势从预测能量和力升级为重建反应全程完整电子结构（波函数），无需反复做昂贵轨道优化，让多参考态反应动力学首次能逐帧看到电子层面变化。</p>
+          <p>把机器学习势从只预测能量和力，升级为重建反应全程完整电子波函数，且免去反复昂贵的轨道优化。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2611.07695v1" target="_blank" rel="noopener">Equivariant Deep Learning in Direct-Product Space for Electronic-Structure Hamiltonian Prediction</a></h2>
-          <p>首次让等变深度学习直接在直积空间操作哈密顿量矩阵块，绕开传统球张量分解，并发布 11 万材料结构的 MP-HAM-110K 数据集。</p>
+          <p>首次让等变网络直接在直积空间操作哈密顿量矩阵块，绕开球张量分解，并发布 11 万结构的 MP-HAM-110K 数据集。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2611.03276v1" target="_blank" rel="noopener">FACTO: fast atom-centered tensor operator for accurate and efficient foundational machine-learned interatomic potentials</a></h2>
-          <p>把等变机器学习原子间势的推理速度推到新高度，同时保持 FP32 级能量守恒，在 Matbench Discovery 的 46 个完整评分模型中综合表现领先。</p>
+          <h2><a href="https://arxiv.org/abs/2611.03473v1" target="_blank" rel="noopener">Fracture-Bench: A Controlled Benchmark Suite for Machine Learning Surrogates in Phase-Field Fracture Mechanics</a></h2>
+          <p>首个相场断裂代理模型受控基准，用固定划分对比五种架构，揭示「架构排名随任务而变」被平均误差掩盖。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://www.nature.com/articles/s41586-026-11210-2" target="_blank" rel="noopener">An open structure-guided RNA foundation model for generalizable prediction</a></h2>
-          <p>首个以结构为引导、在 2100 万条 RNA 序列-结构配对上预训练的开放 RNA 基础模型 structRFM，把 AlphaFold 式结构监督搬到 RNA。</p>
+          <p>首个以结构为引导、在 2100 万条 RNA 序列-结构配对上预训练的开放 RNA 基础模型 structRFM。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
-          <h2><a href="https://arxiv.org/abs/2611.04287v2" target="_blank" rel="noopener">Predicting protein structures at any folding stage from sequence</a></h2>
-          <p>FoldScape 按折叠进度 Q 从序列直接采样任意阶段构象集合，无需推理时跑分子动力学，补上从松散链到近天然态的连续路径。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">药物发现</span>
-          <h2><a href="https://github.com/unum-science/USearchMolecules" target="_blank" rel="noopener">unum-science/USearchMolecules</a></h2>
-          <p>开源化学信息数据集规模达 70 亿以上分子，每个分子同时带指纹和 3D 构象，把分散的结构库与构象库合并成可检索资源。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">药物发现</span>
-          <h2><a href="https://arxiv.org/abs/2611.05270v1" target="_blank" rel="noopener">iGC: Antibody Optimization via Reinforcement Learning over a Learned Somatic Hypermutation Prior</a></h2>
-          <p>把 B 细胞体细胞超突变拆成两阶段强化学习：先学真实 SHM 先验，再在抗原特异性奖励下优化结合力。</p>
+          <h2><a href="https://arxiv.org/abs/2611.07723v1" target="_blank" rel="noopener">Static Recovery Is Not Dynamic Stability: Dynamics-Aware Benchmarking of Protein Motif Scaffolding</a></h2>
+          <p>新基准 BILBY-PRO 覆盖 220 个功能 motif，用全原子 MD 复核发现 55 个静态回折解中仅少数具备动态稳定性。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2611.06382v1" target="_blank" rel="noopener">From hydrological laws to catchment models: A process-based model matches deep-learning accuracy on three continents</a></h2>
-          <p>物理定律约束的低维流域模型 CaRT+ 在英、美、澳三大洲径流预测上追平甚至局部超过 LSTM，提示流域尺度可能存在「形式定律」。</p>
+          <p>物理约束的低维流域模型 CaRT+ 在英、美、澳三大洲径流预测上追平甚至局部超过 LSTM。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2611.07784v1" target="_blank" rel="noopener">EnergyBench: a live, gate-aligned benchmark of day-ahead forecasts for European power markets</a></h2>
-          <p>首个按真实日前市场截止时间实盘评测的能源预测基准，每天在 SDAC 关口前 30 分钟冻结信息集并公开，避免回测偷看未来数据。</p>
+          <p>首个按真实日前市场截止时间实盘评测的能源预测基准，每日在 SDAC 关口前 30 分钟冻结信息集并公开。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://github.com/AI4Science-WestlakeU/RealPDEBench" target="_blank" rel="noopener">AI4Science-WestlakeU/RealPDEBench</a></h2>
-          <p>ICLR26 Oral 论文发布 RealPDEBench，首个把真实实验测量与仿真数据成对配齐的复杂物理系统基准，直指 AI 求解 PDE 时仿真刷分的问题。</p>
+          <p>ICLR26 Oral 论文发布首个把真实实验测量与仿真数据成对配齐的复杂物理系统基准，直指 PDE 求解器刷仿真分数的问题。</p>
         </article>
         
         <article class="card">
-          <span class="field">生物信息</span>
-          <h2><a href="https://arxiv.org/abs/2610.41015v1" target="_blank" rel="noopener">Do Language Models Know What Compelling Scientific Evidence Looks Like?</a></h2>
-          <p>首个用真实生物学数据检验语言模型证据权衡能力的基准 EDB-Bio，揭示前沿模型在科学证据判断上系统性信心不足，经校准训练后可反超。</p>
+          <span class="field">AI4Math/PDE</span>
+          <h2><a href="https://arxiv.org/abs/2611.08409v1" target="_blank" rel="noopener">Conformal Prediction for Time-Dependent PDEs</a></h2>
+          <p>首次系统证明含时 PDE 代理模型的传统 conformal prediction 覆盖率保证会随时间失效，并给出修正方案。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">科学基础模型</span>
+          <h2><a href="https://arxiv.org/abs/2611.08478v1" target="_blank" rel="noopener">Scientist World: Grow a Research World for AI-Scientists</a></h2>
+          <p>把每篇论文变成可执行环境，首批 1000 个环境上前沿 AI 已有 74% 概率超过人类研究者。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">药物发现</span>
+          <h2><a href="https://arxiv.org/abs/2611.08420v1" target="_blank" rel="noopener">On the limitations of molecular representations</a></h2>
+          <p>系统质疑当前分子嵌入在聚类、数据划分、虚拟筛选与 ADMET 任务上对图结构、3D 形状的捕捉能力。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期出现三个明显变化：一是分子模拟从「预测能量和力」转向「重建电子结构与折叠路径」，波函数重建和任意折叠阶段生成同时出现；二是材料领域密集发布通用势与统一工具包（覆盖 85 种元素、四元体系、六类任务），并开始系统处理分布外不确定性；三是评测范式从静态回测转向「实盘」与「真实实验配对」，EnergyBench 和 RealPDEBench 分别从市场截止时间和实验测量两端收紧评测口径。</p>
+      <p>与上一期相比，本期从「模型能力展示」明显转向「评测与验证基础设施」：RealPDEBench、Fracture-Bench、GeoSim、BILBY-PRO、EnergyBench 集中出现，且多篇结论是「平均指标掩盖了系统性偏差」。同时分子模拟侧出现一批 GPU 原生与 JAX 化工程工作（PLUMED-JAX、GPU ML/MM、LAMMPS NPT 跨厂商 GPU），说明落地瓶颈正从算法转向可复现、可部署的算力底座。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注：覆盖周期表的通用反应性力场能否在真实酶催化与金属体系上给出可复现的精度边界，以及「实盘」评测和真实实验配对基准是否会成为气候与 PDE 领域的新默认口径。</p>
+      <p>下期值得关注真实实验配对基准是否被更多 PDE 与材料代理模型采用，以及覆盖周期表的通用反应性力场在生物体系上的独立复现结果。</p>
       
     </section>
     
