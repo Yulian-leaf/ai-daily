@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="weekly.html">周报 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-11-07 14:27 (北京时间 UTC+8)
+      生成于 2026-11-07 16:40 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 双周报告 · 10-26 ~ 11-08</h2>
       <p class="r-range">2026-10-26 ~ 2026-11-08</p>
-      <p class="r-overview">这两周 AI4S 的主旋律是「闭环化」与「真实化」：AI 不再只做单点预测，而是被嵌入实验、模拟、优化的完整回路。第一周（10-26 ~ 11-01）以方法创新为主，大量工作集中在可微分模拟、增强采样、算子学习与不确定性量化，强调「让模型更准、更快、更可解释」。第二周（11-01 ~ 11-08）明显转向系统级整合与真实场景验证：出现覆盖元素周期表的通用力场、把论文变成可执行环境的 AI 科学家平台、真实实验配对的 PDE 基准、以及业务化运行的区域天气模型。跨周看，分子模拟与材料科学仍是数量主力，但气候地球与科学基础模型在第二周集中出现「业务化/基准化」信号，AI4Math 则从纯理论向「可迁移、可校准」的工程化方向靠拢。</p>
+      <p class="r-overview">这两周 AI4S 的主旋律是「闭环化」与「真实化」：分子模拟领域密集出现把机器学习势、增强采样、自由能学习串成在线闭环的工作（VESPER、WASABI、PLUMED-JAX、GPU 原生 ML/MM），材料领域则从「预测性质」转向「生成—筛选—验证」全流水线（Agentic inverse design、生成式双金属催化剂、Crystoria 百万级动力学稳定性数据集）。第一周（10-26 ~ 11-01）以方法学基础设施为主，大量神经算子、可微分求解器、数据集与基准集中发布；第二周（11-02 ~ 11-08）明显转向「系统级整合」——覆盖周期表 85 种元素的通用反应力场 SO3LR Tauri、让 AI 科学家与人类同台竞技的 Scientist World、AI 原生自动化生物实验室 AutoDNA、结构引导 RNA 基础模型 structRFM 等，均强调端到端可用而非单点精度。另一个清晰信号是「真实实验数据」开始压过「仿真刷榜」：RealPDEBench 把真实测量与仿真成对配齐，Fracture-Bench 揭示架构排名随任务而变，BILBY-PRO 发现 55 个静态回折解中仅少数动态稳定。整体看，AI4S 正从「更快更准的代理模型」阶段，进入「可闭环、可验证、可溯源」的系统工程阶段。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -104,73 +104,73 @@
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2611.06237v1" target="_blank" rel="noopener">SO3LR Tauri: Generally Applicable Force Fields for Reactive (Bio)Molecular Simulations Covering the Periodic Table</a></h2>
-          <p>一个机器学习力场试图覆盖元素周期表 85 种元素，用同一套模型同时处理有机反应、蛋白质、核酸、膜和金属酶，无需针对具体体系调参。</p>
+          <p>一个机器学习力场覆盖周期表 85 种元素，同一套模型同时处理有机反应、蛋白质、核酸、膜与金属酶，无需按体系定制。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2611.06779v1" target="_blank" rel="noopener">Machine Learning the Complete Active-Space Wavefunction Reconstruction</a></h2>
-          <p>把机器学习势函数从只预测能量和力，升级为能重建反应过程中完整电子结构（波函数），且无需反复做昂贵的轨道优化。</p>
+          <p>把机器学习势从「只预测能量和力」升级为重建反应全程完整电子波函数，且无需反复做昂贵轨道优化。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2611.07695v1" target="_blank" rel="noopener">Equivariant Deep Learning in Direct-Product Space for Electronic-Structure Hamiltonian Prediction</a></h2>
-          <p>首次让等变深度学习直接在直积空间操作哈密顿量矩阵块，绕开传统球张量分解，并发布 11 万材料结构的大规模哈密顿量数据集 MP-HAM-110K。</p>
+          <p>首次让等变深度学习直接在直积空间操作哈密顿量矩阵块，绕开球张量分解，并发布 11 万结构 MP-HAM-110K 数据集。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2611.03276v1" target="_blank" rel="noopener">FACTO: fast atom-centered tensor operator for accurate and efficient foundational machine-learned interatomic potentials</a></h2>
-          <p>把等变机器学习原子间势的推理速度推到新高度，同时保持 FP32 级能量守恒，在 Matbench Discovery 的 46 个完整评分模型中综合表现领先。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2611.06382v1" target="_blank" rel="noopener">From hydrological laws to catchment models: A process-based model matches deep-learning accuracy on three continents</a></h2>
-          <p>用物理定律约束的低维流域模型 CaRT+，在英、美、澳三大洲的径流预测上追平甚至局部超过 LSTM，说明流域尺度可能存在形式定律。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2611.01614v1" target="_blank" rel="noopener">Sonny-ENS: demystifying machine-learning ensemble weather forecasting</a></h2>
-          <p>用不到 3 块 GPU 天训练出的小型集合预报模型，在 96% 的指标上超过欧洲中期天气预报中心的业务集合预报。</p>
+          <h2><a href="https://arxiv.org/abs/2611.03795v1" target="_blank" rel="noopener">Agentic inverse design of spatially programmed materials</a></h2>
+          <p>用 LLM 智能体把「想要的空间结构」直接反推成「怎么造」的工艺配方，让空间结构成为可编程变量。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://www.nature.com/articles/s41586-026-11210-2" target="_blank" rel="noopener">An open structure-guided RNA foundation model for generalizable prediction</a></h2>
-          <p>首个以结构为引导、在 2100 万条 RNA 序列-结构配对上预训练的开放 RNA 基础模型 structRFM，把蛋白质领域 AlphaFold 式的结构监督思路搬到 RNA。</p>
+          <p>首个以结构为引导、在 2100 万条 RNA 序列-结构配对上预训练的开放 RNA 基础模型 structRFM，把 AlphaFold 式结构监督搬到 RNA。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
-          <h2><a href="https://arxiv.org/abs/2611.04287v2" target="_blank" rel="noopener">Predicting protein structures at any folding stage from sequence</a></h2>
-          <p>FoldScape 把蛋白质结构预测从只给最终折叠态扩展到按折叠进度 Q 生成任意阶段构象集合，无需推理时跑分子动力学。</p>
+          <h2><a href="https://www.nature.com/articles/s41586-026-11228-6" target="_blank" rel="noopener">An AI-native experimental laboratory for autonomous biomolecular operations</a></h2>
+          <p>AutoDNA 把 AI 决策与多仪器自动化实验做成闭环、多用户共用的生物分子工程实验室，让 AI 与自动化系统在真实实验中互相迭代。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">气候地球</span>
+          <h2><a href="https://arxiv.org/abs/2611.06382v1" target="_blank" rel="noopener">From hydrological laws to catchment models: A process-based model matches deep-learning accuracy on three continents</a></h2>
+          <p>物理定律约束的低维流域模型 CaRT+ 在英、美、澳三大洲径流预测上追平甚至局部超过 LSTM，提示流域尺度可能存在「形式定律」。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">气候地球</span>
+          <h2><a href="https://arxiv.org/abs/2611.01614v1" target="_blank" rel="noopener">Sonny-ENS: demystifying machine-learning ensemble weather forecasting</a></h2>
+          <p>不到 3 块 GPU 天训练的小型集合预报模型，在 96% 指标上超过 ECMWF 业务集合预报，把高精度概率预报门槛拉到单台 GPU。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://github.com/AI4Science-WestlakeU/RealPDEBench" target="_blank" rel="noopener">AI4Science-WestlakeU/RealPDEBench</a></h2>
-          <p>ICLR26 Oral 论文发布 RealPDEBench，首个把真实实验测量与仿真数据成对配齐的复杂物理系统基准，直指 AI 求解偏微分方程时仿真刷分的问题。</p>
+          <p>ICLR26 Oral 论文发布 RealPDEBench，首个把真实实验测量与仿真数据成对配齐的复杂物理系统基准，直指 AI 求解 PDE 时「仿真刷榜」问题。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2611.08409v1" target="_blank" rel="noopener">Conformal Prediction for Time-Dependent PDEs</a></h2>
-          <p>首次系统证明对含时 PDE 代理模型，传统 conformal prediction 的覆盖率保证会随时间失效，并给出修正方案。</p>
+          <h2><a href="https://arxiv.org/abs/2610.35617v1" target="_blank" rel="noopener">Distilling neural networks into equations to predict planetary instability</a></h2>
+          <p>把神经网络蒸馏成可读代数公式，首次给出预测多行星系统何时失稳的解析方程，300 年未解动力学难题有了新答案。</p>
         </article>
         
         <article class="card">
           <span class="field">科学基础模型</span>
           <h2><a href="https://arxiv.org/abs/2611.08478v1" target="_blank" rel="noopener">Scientist World: Grow a Research World for AI-Scientists</a></h2>
-          <p>把每篇论文变成可执行环境，让 AI 科学家在真实研究问题上与人类作者同台竞技；首批 1000 个环境上，前沿 AI 已有 74% 概率超过人类研究者。</p>
+          <p>把每篇论文变成可执行环境，让 AI 科学家在真实研究问题上与人类作者同台竞技；首批 1000 个环境上前沿 AI 已有 74% 概率超过人类研究者。</p>
         </article>
         
         <article class="card">
           <span class="field">生物信息</span>
           <h2><a href="https://arxiv.org/abs/2611.08086v1" target="_blank" rel="noopener">MUSS: A Multi-scale and Sequence-based Model for Single-cell Gene Regulation</a></h2>
-          <p>首个把 DNA 序列级信息与单细胞分辨率同时保留的基因调控模型，能预测训练中没见过的基因和调控峰。</p>
+          <p>首个同时保留 DNA 序列级信息与单细胞分辨率的基因调控模型，能区分细胞类型并预测训练中未见的基因和调控峰。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>跨周对比看，分子模拟（molsim）两周合计约 30 条，仍是绝对主力，但第二周明显从「增强采样/自由能方法」转向「通用力场与电子结构重建」，如 SO3LR Tauri 覆盖 85 种元素、波函数重建、反应性力场冲击加载等，说明社区在追求「一个模型通吃多体系」。材料科学（materials）两周约 25 条，第一周偏生成与筛选（晶体生成、合金催化剂），第二周集中出现「电子结构/哈密顿量预测」与「基准建设」（MP-HAM-110K、Fracture-Bench、Crystoria），从「造材料」转向「算准电子结构」。气候地球（climate）两周约 15 条，第二周出现业务化信号：Sonny-ENS 以 3 GPU 天超越 ECMWF 集合预报、SD3 用 24576 块 GPU 跑全球公里级模式、HRRRCast 近实时运行一年，从「刷指标」转向「上业务」。AI4Math/PDE 两周约 15 条，第二周从纯算子学习理论转向「可迁移、可校准、可基准」：RealPDEBench 强调真实实验配对、Conformal Prediction 指出覆盖率失效、迁移学习给出非渐近界。蛋白质/结构（protein）两周约 10 条，第二周出现 RNA 基础模型与折叠路径生成，从「静态结构」转向「动态过程」。科学基础模型（scifm）两周约 6 条，第二周出现 Scientist World 与 FilterFM，从「预训练模型」转向「可执行研究环境与零样本滤波」。药物发现（drug）两周约 8 条，第二周偏「表征反思」与「数据规模」：质疑分子表征现状、发布 70 亿分子数据集。生物信息（bioinfo）两周约 6 条，第二周出现单细胞基因调控与临床基因组智能体，从「方法」转向「临床落地」。整体看，第二周比第一周更强调「真实数据、业务运行、闭环系统」，纯方法论文占比下降。</p>
+      <p>按子领域统计条目数：molsim 从第一周约 22 条增至第二周约 14 条（仍为最大板块，但第二周更偏系统整合而非单点方法），materials 从约 18 条降至约 10 条（第一周密集发布数据集与基准，第二周转向生成与逆设计），climate 从约 12 条降至约 6 条（第一周有 SD3、WRF-JAX、FASST 等基础设施级工作，第二周以应用与基准为主），protein 从约 5 条增至约 7 条（第二周出现 structRFM、AutoDNA、iGC 等系统级工作，热度上升），ai4math 从约 10 条降至约 5 条（第一周理论/算子学习密集，第二周转向可解释与不确定性），scifm 从约 4 条增至约 3 条但质量提升（Scientist World、FilterFM、world2vec 均为方向性工作），drug 从约 5 条降至约 3 条（第一周有 USearchMolecules 70 亿分子数据集、D2ML 等，第二周偏表征反思），bioinfo 从约 4 条降至约 2 条。新浮现方向：①「AI 科学家/智能体闭环」从概念走向可执行环境（Scientist World、AutoDNA、QUANTA、PULSES、WxCrop），两周合计 6+ 条；②「真实实验数据基准」集中出现（RealPDEBench、Fracture-Bench、BILBY-PRO、EnergyBench），直指仿真刷榜；③「热力学/物理约束内嵌」成为材料与分子模拟的共同语言（热力学修正层、GC-MACE、ROSE、粒子-空穴展开）。降温方向：纯神经算子架构创新（第一周 AMOR、DANO、NEOPIC 等密集，第二周明显减少），以及纯分子表征学习（第二周出现「On the limitations of molecular representations」的反思性工作）。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下两周值得重点跟踪：通用机器学习力场（覆盖周期表多元素、反应性体系）能否在真实生物/材料体系中复现精度；以及以 RealPDEBench、Scientist World 为代表的「真实配对基准/可执行研究环境」是否会成为 AI4S 评测的新默认标准。</p>
+      <p>下两周重点跟踪三条线：一是「AI 科学家可执行环境」能否从 1000 个论文环境扩展到可复现的科研闭环（Scientist World 的 74% 胜率需要独立验证）；二是通用反应力场 SO3LR Tauri 与 GC-MACE 在真实电化学/生物体系上的外推误差与热力学自洽性；三是 RealPDEBench、Fracture-Bench、BILBY-PRO 这类「真实数据基准」是否会催生新一轮以实验验证为准绳的模型重排。</p>
       
     </section>
     

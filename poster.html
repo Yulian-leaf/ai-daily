@@ -80,11 +80,11 @@
     
     <h1 class="title">AI4S 周报 · 11-02 ~ 11-08</h1>
     <p class="slogan">「从预测走向可执行、可验证」</p>
-    <p class="range">2026-11-02 ~ 2026-11-08 · 2026-11-07 14:27 (北京时间 UTC+8)</p>
+    <p class="range">2026-11-02 ~ 2026-11-08 · 2026-11-07 16:40 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期最鲜明的变化是 AI4S 从「预测得更准」转向「能执行、能验证、能闭环」：Scientist World 把论文变成可执行环境，AutoDNA 把 AI 决策接进真实实验台，RealPDEBench 用真实测量给 PDE 代理模型立规矩。分子模拟侧，机器学习力场开始追求「一套模型覆盖周期表 85 种元素」与「重建完整波函数」，而不只是拟合能量和力。材料与气候方向则集中补齐基准与不确定性：Fracture-Bench、GeoSim、EnergyBench 都在追问「换任务、换分布还准不准」。同时，GPU 原生与 JAX 化成为工程主线，PLUMED-JAX、ML/MM 全 GPU 框架、UMA 在 LAMMPS 跑 NPT 都在压低算力门槛。</p>
+  <p class="overview">本期最鲜明的变化是「评测与验证」被推到台前：RealPDEBench 用真实实验配对仿真数据，Fracture-Bench、GeoSim、BILBY-PRO 分别把断裂力学、地幔对流、蛋白 motif 的「静态成功」与「动态可用」拆开检验。分子模拟侧继续向「通用性 + 工程可用」推进，覆盖 85 元素的 SO3LR、跑通 NPT 的 UMA、GPU 原生 PLUMED-JAX 与 ML/MM 框架，把方法落到可跑规模。材料与气候方向则出现「小模型高效能」与「物理约束追平深度学习」两条并行路线。AI 科学家与自主实验室开始以「可执行环境 + 闭环实验」的形态出现，AI4S 的产出正从单点预测转向可复现的工作流。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -185,12 +185,12 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期从「单点模型刷榜」明显转向三类新动作：一是可执行与闭环验证，Scientist World、AutoDNA、RealPDEBench 分别把论文、实验、基准变成可运行、可对照的对象；二是基准开始拆穿平均分，Fracture-Bench 指出架构排名随任务翻转，BILBY-PRO 把静态回折与动态稳定性分开，GeoSim 暴露速度场系统性偏差；三是工程侧集体 JAX/GPU 原生，PLUMED-JAX、全 GPU ML/MM、UMA 跑 NPT 都在把增强采样与基础势的门槛往下压。</p>
+  <p class="trend">与上一期相比，本期从「新模型刷指标」明显转向「基准与验证」：RealPDEBench、Fracture-Bench、GeoSim、BILBY-PRO、EnergyBench 集中出现，且多篇工作把「静态指标」与「动态/真实可用性」拆开评估。另一新方向是「通用性工程化」——单模型覆盖周期表、跨 NVIDIA/Intel GPU、GPU 原生增强采样与 ML/MM 框架，方法开始以可跑、可复用的基础设施形态交付。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">6724</span><small>抓取条目</small></div>
+      <div><span class="num">6731</span><small>抓取条目</small></div>
       <div><span class="num">470</span><small>总结</small></div>
       <div><span class="num">470</span><small>已上墙</small></div>
     </div>
@@ -198,49 +198,49 @@
       
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 14%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 13%"></div></div>
         <b>58</b>
       </div>
       
       <div class="frow">
         <span class="flabel">💊 药物发现</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 12%"></div></div>
-        <b>49</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 11%"></div></div>
+        <b>48</b>
       </div>
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 53%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 52%"></div></div>
         <b>225</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 74%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 73%"></div></div>
         <b>312</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
         <div class="fbar"><div class="fbar-fill" style="width: 36%"></div></div>
-        <b>152</b>
+        <b>153</b>
       </div>
       
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 37%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 36%"></div></div>
         <b>156</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>424</b>
+        <b>430</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 34%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 33%"></div></div>
         <b>143</b>
       </div>
       
