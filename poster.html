@@ -79,12 +79,12 @@
     <div class="brand">AI4S-DAILY</div>
     
     <h1 class="title">AI4S 周报 · 11-02 ~ 11-08</h1>
-    <p class="slogan">「从预测到重建，从仿真到实盘」</p>
-    <p class="range">2026-11-02 ~ 2026-11-08 · 2026-11-08 10:08 (北京时间 UTC+8)</p>
+    <p class="slogan">「从预测走向可执行与可验证」</p>
+    <p class="range">2026-11-02 ~ 2026-11-08 · 2026-11-08 14:33 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期最鲜明的信号是「从预测走向重建与闭环」：分子模拟不再满足于能量和力，开始重建完整波函数与任意折叠阶段的构象；蛋白质与药物方向把静态结构预测推进到动态稳定性检验和端到端自主实验。评测侧同样在纠偏——RealPDEBench 把真实实验与仿真配对，EnergyBench 按真实市场截止时间实盘评测，直指「仿真刷分」与「回测偷看」。工程侧则是一轮 GPU 原生与工具链整合：PLUMED-JAX、全 GPU ML/MM、PaddleMaterials、SO3LR 仓库，把方法变成可跑的基础设施。</p>
+  <p class="overview">本期最鲜明的信号是 AI4S 正从「预测精度竞赛」转向「可执行、可验证、可闭环」：Scientist World 把论文变成可执行环境，AutoDNA 与 PharmAgents2 把 AI 决策接入真实实验闭环，RealPDEBench 则用真实测量数据检验仿真模型。分子模拟方向继续在通用性与效率上推进，SO3LR Tauri 试图用一套力场覆盖 85 种元素，FACTO 与 PLUMED-JAX 分别从推理速度和 GPU 原生增强采样两端压低成本。材料与气候领域则密集出现「基准与数据集」类工作，如 Fracture-Bench、GeoSim、EnergyBench，说明社区开始系统性地追问「模型在真实分布外是否可信」。与此同时，不确定性量化与可解释性成为跨领域共性议题，从 MLIP 的 OOD 不确定性到图神经网络的符号蒸馏，都在试图让模型输出可被科学检验。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -185,7 +185,7 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期出现三个新方向：一是「动态与过程」取代「静态终态」，FoldScape 按折叠进度生成构象、BILBY-PRO 用全原子 MD 复核 motif 动态稳定性、晶粒长大预测扩展到任意变温路径；二是评测从「刷分」转向「实盘与配对」，RealPDEBench 配对真实实验与仿真、EnergyBench 按市场截止时间冻结信息集、FlowReconBench 系统对比学习型与经典流场重建；三是 GPU 原生与工具链整合密集落地，PLUMED-JAX、全 GPU ML/MM、PaddleMaterials、SO3LR 仓库把方法变成开箱即用的基础设施。</p>
+  <p class="trend">与上一期相比，本期最明显的新方向是「可执行环境与实盘基准」的集中出现：Scientist World 把论文变成可执行环境，EnergyBench 按真实市场截止时间实盘评测，RealPDEBench 用真实测量配对仿真数据，Fracture-Bench 与 GeoSim 则用受控基准暴露架构排名随任务变化的问题。另一个变化是分子模拟开始系统性地处理「通用性」与「长时程/大尺度」：SO3LR Tauri 覆盖 85 种元素，Shadow Molecular Dynamics 把柔性电荷模型推到十万原子规模，Neural Stochastic Forecasting 从短轨迹外推膜蛋白长时扩散。此外，不确定性量化与可解释性从零散工作变成跨领域共性议题，覆盖 MLIP 的 OOD 不确定性、含时 PDE 的 conformal prediction 失效、以及图神经网络的符号蒸馏。</p>
   
 
   <div class="stats">

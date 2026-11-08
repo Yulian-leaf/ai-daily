@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-11-08 10:08 (北京时间 UTC+8)
+      生成于 2026-11-08 14:33 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,28 +95,22 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 11-02 ~ 11-08</h2>
       <p class="r-range">2026-11-02 ~ 2026-11-08</p>
-      <p class="r-overview">本期最鲜明的信号是「从预测走向重建与闭环」：分子模拟不再满足于能量和力，开始重建完整波函数与任意折叠阶段的构象；蛋白质与药物方向把静态结构预测推进到动态稳定性检验和端到端自主实验。评测侧同样在纠偏——RealPDEBench 把真实实验与仿真配对，EnergyBench 按真实市场截止时间实盘评测，直指「仿真刷分」与「回测偷看」。工程侧则是一轮 GPU 原生与工具链整合：PLUMED-JAX、全 GPU ML/MM、PaddleMaterials、SO3LR 仓库，把方法变成可跑的基础设施。</p>
+      <p class="r-overview">本期最鲜明的信号是 AI4S 正从「预测精度竞赛」转向「可执行、可验证、可闭环」：Scientist World 把论文变成可执行环境，AutoDNA 与 PharmAgents2 把 AI 决策接入真实实验闭环，RealPDEBench 则用真实测量数据检验仿真模型。分子模拟方向继续在通用性与效率上推进，SO3LR Tauri 试图用一套力场覆盖 85 种元素，FACTO 与 PLUMED-JAX 分别从推理速度和 GPU 原生增强采样两端压低成本。材料与气候领域则密集出现「基准与数据集」类工作，如 Fracture-Bench、GeoSim、EnergyBench，说明社区开始系统性地追问「模型在真实分布外是否可信」。与此同时，不确定性量化与可解释性成为跨领域共性议题，从 MLIP 的 OOD 不确定性到图神经网络的符号蒸馏，都在试图让模型输出可被科学检验。</p>
 
       
       <h3 class="sub">本期亮点</h3>
       <div class="cards">
         
         <article class="card">
-          <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2611.06779v1" target="_blank" rel="noopener">Machine Learning the Complete Active-Space Wavefunction Reconstruction</a></h2>
-          <p>把机器学习势从只预测能量和力，升级为重建反应过程中完整电子结构（波函数），且无需反复做昂贵的轨道优化。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2611.06237v1" target="_blank" rel="noopener">SO3LR Tauri: Generally Applicable Force Fields for Reactive (Bio)Molecular Simulations Covering the Periodic Table</a></h2>
-          <p>一个机器学习力场试图覆盖周期表 85 种元素，用同一套模型同时处理有机反应、蛋白质、核酸、膜和金属酶。</p>
+          <span class="field">科学基础模型</span>
+          <h2><a href="https://arxiv.org/abs/2611.08478v1" target="_blank" rel="noopener">Scientist World: Grow a Research World for AI-Scientists</a></h2>
+          <p>把每篇论文变成可执行环境，首批 1000 个环境上前沿 AI 已有 74% 概率超过人类研究者。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
-          <h2><a href="https://arxiv.org/abs/2611.04287v2" target="_blank" rel="noopener">Predicting protein structures at any folding stage from sequence</a></h2>
-          <p>FoldScape 按折叠进度 Q 生成任意阶段构象集合，无需推理时跑分子动力学，补上从松散链到近天然态的连续路径。</p>
+          <h2><a href="https://www.nature.com/articles/s41586-026-11228-6" target="_blank" rel="noopener">An AI-native experimental laboratory for autonomous biomolecular operations</a></h2>
+          <p>AutoDNA 把 AI 决策与多仪器自动化实验做成闭环、多用户共用的生物分子工程实验室。</p>
         </article>
         
         <article class="card">
@@ -134,19 +128,31 @@
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2611.08420v1" target="_blank" rel="noopener">On the limitations of molecular representations</a></h2>
-          <p>系统质疑当前分子表征：在聚类、数据划分、虚拟筛选等任务上，先进嵌入模型对图结构、3D 形状和 ADMET 的捕捉仍有限。</p>
+          <p>系统质疑当前分子嵌入在聚类、数据划分、虚拟筛选与 ADMET 任务上对图结构与 3D 形状的捕捉能力。</p>
         </article>
         
         <article class="card">
-          <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2611.07695v1" target="_blank" rel="noopener">Equivariant Deep Learning in Direct-Product Space for Electronic-Structure Hamiltonian Prediction</a></h2>
-          <p>首次让等变深度学习直接在直积空间操作哈密顿量矩阵块，绕开球张量分解，并发布 11 万结构的 MP-HAM-110K 数据集。</p>
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2611.06237v1" target="_blank" rel="noopener">SO3LR Tauri: Generally Applicable Force Fields for Reactive (Bio)Molecular Simulations Covering the Periodic Table</a></h2>
+          <p>一套机器学习力场试图覆盖周期表 85 种元素，同时处理有机反应、蛋白质、核酸、膜与金属酶。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2611.08151v1" target="_blank" rel="noopener">Machine learning quantum data to accelerate quantum Monte Carlo</a></h2>
+          <p>把量子测量数据压缩成机器学习模型，让量子-经典混合 QMC 提速数个数量级，并在 40 量子比特上做到化学精度。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2611.03276v1" target="_blank" rel="noopener">FACTO: fast atom-centered tensor operator for accurate and efficient foundational machine-learned interatomic potentials</a></h2>
-          <p>把等变机器学习原子间势推理速度推到新高度，同时保持 FP32 级能量守恒，在 Matbench Discovery 46 个完整评分模型中综合领先。</p>
+          <p>把等变 MLIP 推理速度推到新高度，同时保持 FP32 级能量守恒，在 Matbench Discovery 46 个完整评分模型中综合领先。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">材料科学</span>
+          <h2><a href="https://arxiv.org/abs/2611.03473v1" target="_blank" rel="noopener">Fracture-Bench: A Controlled Benchmark Suite for Machine Learning Surrogates in Phase-Field Fracture Mechanics</a></h2>
+          <p>首个相场断裂力学 ML 代理模型受控基准，揭示「架构排名随任务而变」这一被平均误差掩盖的关键事实。</p>
         </article>
         
         <article class="card">
@@ -167,22 +173,16 @@
           <p>ICLR26 Oral 论文发布 RealPDEBench，首个把真实实验测量与仿真数据成对配齐的复杂物理系统基准。</p>
         </article>
         
-        <article class="card">
-          <span class="field">科学基础模型</span>
-          <h2><a href="https://arxiv.org/abs/2611.08478v1" target="_blank" rel="noopener">Scientist World: Grow a Research World for AI-Scientists</a></h2>
-          <p>把每篇论文变成可执行环境，首批 1000 个环境上前沿 AI 已有 74% 概率超过人类研究者。</p>
-        </article>
-        
       </div>
       
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期出现三个新方向：一是「动态与过程」取代「静态终态」，FoldScape 按折叠进度生成构象、BILBY-PRO 用全原子 MD 复核 motif 动态稳定性、晶粒长大预测扩展到任意变温路径；二是评测从「刷分」转向「实盘与配对」，RealPDEBench 配对真实实验与仿真、EnergyBench 按市场截止时间冻结信息集、FlowReconBench 系统对比学习型与经典流场重建；三是 GPU 原生与工具链整合密集落地，PLUMED-JAX、全 GPU ML/MM、PaddleMaterials、SO3LR 仓库把方法变成开箱即用的基础设施。</p>
+      <p>与上一期相比，本期最明显的新方向是「可执行环境与实盘基准」的集中出现：Scientist World 把论文变成可执行环境，EnergyBench 按真实市场截止时间实盘评测，RealPDEBench 用真实测量配对仿真数据，Fracture-Bench 与 GeoSim 则用受控基准暴露架构排名随任务变化的问题。另一个变化是分子模拟开始系统性地处理「通用性」与「长时程/大尺度」：SO3LR Tauri 覆盖 85 种元素，Shadow Molecular Dynamics 把柔性电荷模型推到十万原子规模，Neural Stochastic Forecasting 从短轨迹外推膜蛋白长时扩散。此外，不确定性量化与可解释性从零散工作变成跨领域共性议题，覆盖 MLIP 的 OOD 不确定性、含时 PDE 的 conformal prediction 失效、以及图神经网络的符号蒸馏。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注：波函数级机器学习势能否在真实反应动力学中稳定跑通，以及实盘/配对基准是否会催生一批「去仿真刷分」的新模型。</p>
+      <p>下期值得关注「可执行环境 + 实盘基准」是否会从单点工作演化为社区基础设施，以及通用机器学习力场在覆盖周期表后的实际外推误差与失败模式。</p>
       
     </section>
     
