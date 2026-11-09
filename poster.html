@@ -78,13 +78,13 @@
   <div class="hero">
     <div class="brand">AI4S-DAILY</div>
     
-    <h1 class="title">AI4S 周报 · 11-02 ~ 11-08</h1>
-    <p class="slogan">「从预测到重建，从仿真到实盘」</p>
-    <p class="range">2026-11-02 ~ 2026-11-08 · 2026-11-08 16:53 (北京时间 UTC+8)</p>
+    <h1 class="title">AI4S 周报 · 11-09 ~ 11-15</h1>
+    <p class="slogan">「给模型装上误差棒与物理约束」</p>
+    <p class="range">2026-11-09 ~ 2026-11-15 · 2026-11-09 10:29 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期最鲜明的信号是 AI4S 正从「预测标量」走向「重建完整物理对象」：机器学习力场开始重建反应全程波函数，蛋白质模型按折叠进度生成连续构象，材料模型直接输出哈密顿量矩阵块。与此同时，评测体系密集补位——真实实验配对的 PDE 基准、实盘冻结的能源预测基准、动态稳定性复核的蛋白基准，直指「仿真刷分」与「静态回折」的虚高。工程侧 GPU 原生框架与开箱即用工具链集中出现，把等变势、增强采样、ML/MM 的落地成本压到单卡级别。</p>
+  <p class="overview">本期 AI4S 的主旋律是「把不确定性说清楚、把物理约束装进去」。材料与分子模拟方向集中出现两类工作：一是用随机传播、局部邻域幅值等手段把声子、蛋白质柔性等计算从三次方复杂度压到线性；二是用刀切法加保形校准给机器学习原子势配上可校准的误差棒。AI4Math 方向则从网络结构与优化器两端同时改进 PDE 求解：空间-频谱双分支网络在更少参数下降低预测误差，任务贡献度分析催生的 GMAdam 在多个 PDE 基准上稳定优于 Adam。科学基础模型与生物信息方向继续向跨域、跨模态扩展，电网基础模型首次实现跨电网暂态迁移，单 GPU 比单核数值仿真器快 924–1232 倍。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -92,83 +92,56 @@
   
   <div class="hl">
     <div class="hl-head">
-      <span class="field">⚛️ 分子模拟</span>
-      <span class="score">9.0</span>
+      <span class="field">🧬 蛋白质/结构</span>
+      <span class="score">7.0</span>
     </div>
-    <h3>SO3LR Tauri: Generally Applicable Force Fields for Reactive (Bio)Molecular Simulations Covering the Periodic Table</h3>
-    <p>一个机器学习力场（用神经网络近似量子力学计算）试图覆盖元素周期表上的 85 种元素，并用同一套模型同时处理有机反应、蛋白质、核酸、膜和金属酶，无需针对具体体系调…</p>
+    <h3>Protein B-factor modeling with local magnitude</h3>
+    <p>把蛋白质柔性建模中的「全局拓扑幅值」换成「局部邻域幅值」，在拟合精度基本持平（PCC 0.725→0.728）的同时，把特征提取复杂度从 O(N³) 降到 O(…</p>
   </div>
   
   <div class="hl">
     <div class="hl-head">
-      <span class="field">🧬 蛋白质/结构</span>
-      <span class="score">8.0</span>
+      <span class="field">⚛️ 分子模拟</span>
+      <span class="score">7.0</span>
     </div>
-    <h3>An AI-native experimental laboratory for autonomous biomolecular operations</h3>
-    <p>AutoDNA 把「AI 决策 + 多仪器自动化实验」做成一个闭环、多用户共用的生物分子工程实验室，让 AI 与自动化系统在真实实验里互相迭代，而不只是单点自动…</p>
+    <h3>Geometry-Aware Score-Repellent Monte Carlo</h3>
+    <p>把 MCMC 采样中「排斥强度」从单一标量升级为按几何方向自适应的矩阵，理论证明最优矩阵正比于逆 Fisher 信息，且在线估计不增加额外计算成本。</p>
   </div>
   
   <div class="hl">
     <div class="hl-head">
       <span class="field">🧪 材料科学</span>
-      <span class="score">8.0</span>
+      <span class="score">7.0</span>
     </div>
-    <h3>Equivariant Deep Learning in Direct-Product Space for Electronic-Structure Hamiltonian Prediction</h3>
-    <p>首次让等变深度学习直接在「直积空间」里操作哈密顿量矩阵块，绕开传统球张量分解，同时提出 11 万材料结构的大规模哈密顿量数据集 MP-HAM-110K。</p>
+    <h3>A stochastic propagation method for large-scale phonon calculations</h3>
+    <p>把原本用于电子结构计算的随机传播方法（sPM）搬到晶格动力学上，绕开声子计算中全对角化的三次方成本，让复杂结构材料的声子频率估算随原子数线性增长。</p>
   </div>
   
   <div class="hl">
     <div class="hl-head">
       <span class="field">🌍 气候地球</span>
-      <span class="score">8.0</span>
+      <span class="score">7.0</span>
     </div>
-    <h3>From hydrological laws to catchment models: A process-based model matches deep-learning accuracy on three continents</h3>
-    <p>用物理定律约束的低维流域模型 CaRT+，在英、美、澳三大洲的径流预测上追平甚至局部超过 LSTM（长短期记忆网络），说明流域尺度可能存在「形式定律」，而非纯靠…</p>
+    <h3>Reconstruction of Global Groundwater Storage Anomaly from GRACE Satellite Gravimetry Using a Physics-Constrained Decomposition LSTM</h3>
+    <p>首次用物理约束的分解式 LSTM 重建 2002–2022 年全球地下水储量变化，把 GRACE 卫星只能测到的「总水储量」拆出地下水信号，并给出全球地下水净亏…</p>
   </div>
   
   <div class="hl">
     <div class="hl-head">
       <span class="field">📐 AI4Math/PDE</span>
-      <span class="score">8.0</span>
+      <span class="score">7.0</span>
     </div>
-    <h3>AI4Science-WestlakeU/RealPDEBench</h3>
-    <p>ICLR26 Oral 论文发布 RealPDEBench，首个把「真实实验测量」与「仿真数据」成对配齐的复杂物理系统基准，直指 AI 求解偏微分方程时「仿真刷…</p>
+    <h3>SSF-Net: A Spatial-Spectral Fusion Network for Accurate PDE Operator Learning</h3>
+    <p>用「空间+频谱」双分支网络同时捕捉偏微分方程（PDE）的局部传播与全局耦合，在参数更少的情况下预测误差低于注意力/卷积基线，且复杂度接近线性。</p>
   </div>
   
   <div class="hl">
     <div class="hl-head">
       <span class="field">🧠 科学基础模型</span>
-      <span class="score">8.0</span>
-    </div>
-    <h3>Scientist World: Grow a Research World for AI-Scientists</h3>
-    <p>把每篇论文变成可执行环境，让 AI 科学家在真实研究问题上与人类作者同台竞技；首批 1000 个环境上，前沿 AI 已有 74% 概率超过人类研究者。</p>
-  </div>
-  
-  <div class="hl">
-    <div class="hl-head">
-      <span class="field">⚛️ 分子模拟</span>
-      <span class="score">8.0</span>
-    </div>
-    <h3>Machine learning quantum data to accelerate quantum Monte Carlo</h3>
-    <p>把量子测量数据压缩成机器学习模型，让量子-经典混合的量子蒙特卡洛（QMC，一种用随机采样求解量子多体问题的方法）提速数个数量级，并在 40 个量子比特上做到化学…</p>
-  </div>
-  
-  <div class="hl">
-    <div class="hl-head">
-      <span class="field">⚛️ 分子模拟</span>
-      <span class="score">8.0</span>
-    </div>
-    <h3>Machine Learning the Complete Active-Space Wavefunction Reconstruction</h3>
-    <p>把「机器学习势函数」从只会预测能量和力，升级为能重建反应过程中完整电子结构（波函数），且无需反复做昂贵的轨道优化，让多参考态反应动力学第一次能逐帧看到电子层面发…</p>
-  </div>
-  
-  <div class="hl">
-    <div class="hl-head">
-      <span class="field">💊 药物发现</span>
       <span class="score">7.0</span>
     </div>
-    <h3>On the limitations of molecular representations</h3>
-    <p>系统性地质疑了分子表征的现状：在聚类、数据划分、虚拟筛选等任务上，当前最先进的分子嵌入模型在捕捉图结构、3D 形状和 ADMET（吸收、分布、代谢、排泄、毒性）…</p>
+    <h3>Extending Grid Foundation Models for Phasor-Domain Dynamic Simulation</h3>
+    <p>把电网基础模型从稳态分析扩展到动态仿真，首次实现跨电网迁移的暂态学习，单 GPU 比单核数值仿真器快 924–1232 倍。</p>
   </div>
   
   <div class="hl">
@@ -176,8 +149,26 @@
       <span class="field">🧫 生物信息</span>
       <span class="score">7.0</span>
     </div>
-    <h3>MUSS: A Multi-scale and Sequence-based Model for Single-cell Gene Regulation</h3>
-    <p>首个把 DNA 序列级信息与单细胞分辨率同时保留的基因调控模型，让模型既能读懂 DNA 调控语法，又能区分不同细胞类型，且能预测训练中没见过的基因和调控峰。</p>
+    <h3>Synchronized Optimal Transport Reconstructs Coupled Transcriptomic and Chromatin Dynamics</h3>
+    <p>首次把「非平衡同步最优传输」扩展到跨模态映射，让单细胞RNA和ATAC两种不同状态空间里的发育轨迹能同步重建，而不是先压到同一个表示里再分析。</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">📐 AI4Math/PDE</span>
+      <span class="score">7.0</span>
+    </div>
+    <h3>Task-Contribution Dynamics of Adam in Physics-Informed Neural Networks: Slow-Manifold Analysis and Gradient Modulation</h3>
+    <p>首次用「任务贡献度」指标拆解 Adam 在物理信息神经网络（PINN）训练中各项损失如何此消彼长，并据此提出 GMAdam，在多个 PDE 基准上稳定优于 Ad…</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">⚛️ 分子模拟</span>
+      <span class="score">7.0</span>
+    </div>
+    <h3>Fortuitous Cancellation of Competing Effects in the Free Energy of Water Autoionization: Long-Range Electrostatics, System Size, and Nuclear Quantum Effects</h3>
+    <p>用机器学习原子间势（MLIP，用神经网络拟合量子化学计算的快速力场）首次系统拆解水自电离自由能中长程静电、体系大小、核量子效应三者的相互抵消，解释了为何模拟漏掉…</p>
   </div>
   
   </div>
@@ -185,63 +176,63 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上期相比，本期出现三个明显转向：一是「重建完整对象」取代「预测标量」成为分子模拟主线，波函数、哈密顿量矩阵块、任意折叠阶段构象都成为直接输出目标；二是评测从「刷分」转向「实盘与复核」，RealPDEBench 用真实实验配对、EnergyBench 按市场截止时间冻结信息集、BILBY-PRO 用全原子 MD 复核静态回折，评测的可信度本身成为研究对象；三是工程落地集中爆发，GPU 原生增强采样（PLUMED-JAX、GPU ML/MM）、开箱即用力场仓库（so3lr）、统一材料工具包（PaddleMaterials）把单卡可跑的门槛进一步压低。</p>
+  <p class="trend">与上一期相比，本期最明显的变化是「不确定性量化」从边缘话题变成主线：材料方向同时出现随机传播降复杂度与刀切保形校准两条路线，分子模拟则用几何自适应矩阵替代标量排斥强度。另一个新方向是基础模型开始跨出稳态、跨出单一电网：电网基础模型首次做暂态迁移，生物信息方向则用同步最优传输绕开「先压到同一表示」的旧范式。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">6737</span><small>抓取条目</small></div>
-      <div><span class="num">480</span><small>总结</small></div>
-      <div><span class="num">480</span><small>已上墙</small></div>
+      <div><span class="num">6813</span><small>抓取条目</small></div>
+      <div><span class="num">490</span><small>总结</small></div>
+      <div><span class="num">490</span><small>已上墙</small></div>
     </div>
     <div class="fields">
       
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 13%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 14%"></div></div>
         <b>58</b>
       </div>
       
       <div class="frow">
         <span class="flabel">💊 药物发现</span>
         <div class="fbar"><div class="fbar-fill" style="width: 11%"></div></div>
-        <b>47</b>
+        <b>48</b>
       </div>
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 52%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 53%"></div></div>
         <b>224</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 72%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 73%"></div></div>
         <b>311</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 35%"></div></div>
-        <b>153</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 37%"></div></div>
+        <b>158</b>
       </div>
       
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 36%"></div></div>
-        <b>156</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 37%"></div></div>
+        <b>159</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>433</b>
+        <b>426</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
         <div class="fbar"><div class="fbar-fill" style="width: 33%"></div></div>
-        <b>143</b>
+        <b>141</b>
       </div>
       
     </div>
