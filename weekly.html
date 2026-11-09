@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-11-09 15:02 (北京时间 UTC+8)
+      生成于 2026-11-09 17:37 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 11-09 ~ 11-15</h2>
       <p class="r-range">2026-11-09 ~ 2026-11-15</p>
-      <p class="r-overview">本期 AI4S 的主旋律是「把成本打下来、把不确定性标清楚」。材料与分子模拟方向集中出现绕开三次方对角化、用局部邻域替代全局拓扑、以及为机器学习势配保形误差棒的工作，目标都是让大规模计算更可行、结果更可信。AI4Math/PDE 一侧则从网络结构与优化器两端同时下手：空间-频谱双分支在更少参数下降低预测误差，任务贡献度分析把 PINN 的多损失训练拆开看。科学基础模型继续向新物理域外推，电网基础模型首次跨到动态仿真并给出千倍级加速。生物信息与气候方向则强调「拆信号」：同步最优传输分离单细胞双模态轨迹，物理约束分解 LSTM 从总水储量中剥离地下水。</p>
+      <p class="r-overview">本期 AI4S 的主旋律是「把成本打下来、把不确定性说清楚」：声子计算绕开三次方全对角化、PDE 算子学习用空间-频谱双分支把复杂度压到近线性、蛋白质柔性特征提取从 O(N³) 降到更低阶。与此同时，不确定性量化成为多条线的共同关切——线性 ACE 势用刀切法加保形校准给出可校准的力误差棒，水自电离自由能则系统拆解长程静电、体系大小与核量子效应的相互抵消。基础模型继续向新场景外推：电网基础模型从稳态走向暂态动态仿真，单 GPU 相对单核数值仿真器加速 924–1232 倍。跨模态与跨状态空间的重建也在推进，单细胞 RNA 与 ATAC 的发育轨迹首次用非平衡同步最优传输同步重建。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -104,13 +104,25 @@
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2611.08926v1" target="_blank" rel="noopener">A stochastic propagation method for large-scale phonon calculations</a></h2>
-          <p>把电子结构中的随机传播方法迁移到晶格动力学，绕开声子计算的全对角化三次方成本，使频率估算随原子数线性增长。</p>
+          <p>把电子结构中的随机传播方法搬到晶格动力学，绕开声子计算的全对角化三次方成本，声子频率估算随原子数线性增长。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2611.08678v1" target="_blank" rel="noopener">Jackknife-conformal uncertainty for linear ACE potentials: calibrated forces and silicon properties compared with Bayesian and POPS baselines</a></h2>
-          <p>用刀切法加保形校准为线性 ACE 势给出可校准的力误差棒，并与 Bayesian、POPS 基线在硅性质上对比。</p>
+          <p>用刀切法加保形校准给线性 ACE 势配可校准的力误差棒，并与 Bayesian、POPS 基线在硅性质上对比。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">AI4Math/PDE</span>
+          <h2><a href="https://arxiv.org/abs/2611.08912v1" target="_blank" rel="noopener">SSF-Net: A Spatial-Spectral Fusion Network for Accurate PDE Operator Learning</a></h2>
+          <p>空间与频谱双分支同时捕捉 PDE 的局部传播与全局耦合，参数更少而预测误差低于注意力/卷积基线，复杂度接近线性。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">AI4Math/PDE</span>
+          <h2><a href="https://arxiv.org/abs/2611.08910v1" target="_blank" rel="noopener">Task-Contribution Dynamics of Adam in Physics-Informed Neural Networks: Slow-Manifold Analysis and Gradient Modulation</a></h2>
+          <p>用「任务贡献度」拆解 PINN 训练中各损失项的此消彼长，据此提出 GMAdam，在多个 PDE 基准上稳定优于 Adam。</p>
         </article>
         
         <article class="card">
@@ -126,21 +138,9 @@
         </article>
         
         <article class="card">
-          <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2611.08912v1" target="_blank" rel="noopener">SSF-Net: A Spatial-Spectral Fusion Network for Accurate PDE Operator Learning</a></h2>
-          <p>空间与频谱双分支同时捕捉 PDE 的局部传播与全局耦合，参数更少而预测误差低于注意力/卷积基线，复杂度接近线性。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2611.08910v1" target="_blank" rel="noopener">Task-Contribution Dynamics of Adam in Physics-Informed Neural Networks: Slow-Manifold Analysis and Gradient Modulation</a></h2>
-          <p>用任务贡献度指标拆解 PINN 训练中各损失项的此消彼长，据此提出 GMAdam，在多个 PDE 基准上稳定优于 Adam。</p>
-        </article>
-        
-        <article class="card">
           <span class="field">科学基础模型</span>
           <h2><a href="https://arxiv.org/abs/2611.08867v1" target="_blank" rel="noopener">Extending Grid Foundation Models for Phasor-Domain Dynamic Simulation</a></h2>
-          <p>把电网基础模型从稳态分析扩展到动态仿真，首次实现跨电网暂态学习，单 GPU 比单核数值仿真器快 924–1232 倍。</p>
+          <p>把电网基础模型从稳态扩展到动态仿真，首次实现跨电网迁移的暂态学习，单 GPU 比单核数值仿真器快 924–1232 倍。</p>
         </article>
         
         <article class="card">
@@ -152,13 +152,13 @@
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2611.08832v1" target="_blank" rel="noopener">Protein B-factor modeling with local magnitude</a></h2>
-          <p>用局部邻域幅值替代全局拓扑幅值建模蛋白质柔性，拟合精度基本持平（PCC 0.725→0.728），特征提取复杂度从 O(N³) 降低。</p>
+          <p>把蛋白质柔性建模的全局拓扑幅值换成局部邻域幅值，拟合精度基本持平（PCC 0.725→0.728），特征提取复杂度从 O(N³) 降低。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2611.08567v1" target="_blank" rel="noopener">Reconstruction of Global Groundwater Storage Anomaly from GRACE Satellite Gravimetry Using a Physics-Constrained Decomposition LSTM</a></h2>
-          <p>用物理约束的分解式 LSTM 重建 2002–2022 年全球地下水储量变化，从 GRACE 总水储量信号中拆出地下水并给出净亏损估计。</p>
+          <p>用物理约束的分解式 LSTM 重建 2002–2022 年全球地下水储量变化，从 GRACE 总水储量信号中拆出地下水并给出全球净亏损估计。</p>
         </article>
         
       </div>
@@ -166,11 +166,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期最明显的变化是「不确定性量化」开始进入机器学习势与分子模拟的常规工具箱：保形校准、刀切法与贝叶斯基线同台对比，而不再只报告点预测精度。另一个新方向是复杂度工程成为显式卖点——声子计算、PDE 算子学习、蛋白质柔性建模都直接给出从三次方或全局拓扑降到线性或局部的复杂度论证。科学基础模型则从稳态外推到动态域，电网基础模型的跨电网暂态迁移是本期最典型的域外推案例。</p>
+      <p>与上一期相比，本期最明显的变化是「不确定性量化」从零散讨论变成多条子领域的共同动作：材料侧出现可校准的力误差棒，分子模拟侧用逆 Fisher 信息给出有理论保证的采样排斥矩阵。另一个新方向是基础模型的外推边界继续扩张，电网基础模型从稳态跨到暂态动态仿真，并给出跨电网迁移的量化加速比。复杂度方面，声子、PDE 算子学习与蛋白质柔性建模不约而同地把三次方或更高阶成本压到近线性，说明「可扩展性」正成为方法设计的硬指标而非附加卖点。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注保形/刀切类误差棒能否从线性 ACE 势推广到更复杂的等变势与多任务势，以及电网基础模型的动态仿真能否在真实调度数据上验证跨电网迁移的稳定性。</p>
+      <p>下期值得关注保形/刀切类不确定性方法能否从线性 ACE 势推广到非线性势与更复杂体系，以及电网、单细胞跨模态这类「跨状态空间迁移」是否出现统一的评测基准。</p>
       
     </section>
     

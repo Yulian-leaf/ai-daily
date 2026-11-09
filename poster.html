@@ -79,12 +79,12 @@
     <div class="brand">AI4S-DAILY</div>
     
     <h1 class="title">AI4S 周报 · 11-09 ~ 11-15</h1>
-    <p class="slogan">「给模型配误差棒，给仿真减复杂度」</p>
-    <p class="range">2026-11-09 ~ 2026-11-15 · 2026-11-09 15:03 (北京时间 UTC+8)</p>
+    <p class="slogan">「给模型配误差棒，给仿真降复杂度」</p>
+    <p class="range">2026-11-09 ~ 2026-11-15 · 2026-11-09 17:37 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期 AI4S 的主旋律是「把成本打下来、把不确定性标清楚」。材料与分子模拟方向集中出现绕开三次方对角化、用局部邻域替代全局拓扑、以及为机器学习势配保形误差棒的工作，目标都是让大规模计算更可行、结果更可信。AI4Math/PDE 一侧则从网络结构与优化器两端同时下手：空间-频谱双分支在更少参数下降低预测误差，任务贡献度分析把 PINN 的多损失训练拆开看。科学基础模型继续向新物理域外推，电网基础模型首次跨到动态仿真并给出千倍级加速。生物信息与气候方向则强调「拆信号」：同步最优传输分离单细胞双模态轨迹，物理约束分解 LSTM 从总水储量中剥离地下水。</p>
+  <p class="overview">本期 AI4S 的主旋律是「把成本打下来、把不确定性说清楚」：声子计算绕开三次方全对角化、PDE 算子学习用空间-频谱双分支把复杂度压到近线性、蛋白质柔性特征提取从 O(N³) 降到更低阶。与此同时，不确定性量化成为多条线的共同关切——线性 ACE 势用刀切法加保形校准给出可校准的力误差棒，水自电离自由能则系统拆解长程静电、体系大小与核量子效应的相互抵消。基础模型继续向新场景外推：电网基础模型从稳态走向暂态动态仿真，单 GPU 相对单核数值仿真器加速 924–1232 倍。跨模态与跨状态空间的重建也在推进，单细胞 RNA 与 ATAC 的发育轨迹首次用非平衡同步最优传输同步重建。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -176,12 +176,12 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期最明显的变化是「不确定性量化」开始进入机器学习势与分子模拟的常规工具箱：保形校准、刀切法与贝叶斯基线同台对比，而不再只报告点预测精度。另一个新方向是复杂度工程成为显式卖点——声子计算、PDE 算子学习、蛋白质柔性建模都直接给出从三次方或全局拓扑降到线性或局部的复杂度论证。科学基础模型则从稳态外推到动态域，电网基础模型的跨电网暂态迁移是本期最典型的域外推案例。</p>
+  <p class="trend">与上一期相比，本期最明显的变化是「不确定性量化」从零散讨论变成多条子领域的共同动作：材料侧出现可校准的力误差棒，分子模拟侧用逆 Fisher 信息给出有理论保证的采样排斥矩阵。另一个新方向是基础模型的外推边界继续扩张，电网基础模型从稳态跨到暂态动态仿真，并给出跨电网迁移的量化加速比。复杂度方面，声子、PDE 算子学习与蛋白质柔性建模不约而同地把三次方或更高阶成本压到近线性，说明「可扩展性」正成为方法设计的硬指标而非附加卖点。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">6904</span><small>抓取条目</small></div>
+      <div><span class="num">6914</span><small>抓取条目</small></div>
       <div><span class="num">490</span><small>总结</small></div>
       <div><span class="num">490</span><small>已上墙</small></div>
     </div>
@@ -189,25 +189,25 @@
       
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 14%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 13%"></div></div>
         <b>59</b>
       </div>
       
       <div class="frow">
         <span class="flabel">💊 药物发现</span>
         <div class="fbar"><div class="fbar-fill" style="width: 11%"></div></div>
-        <b>48</b>
+        <b>47</b>
       </div>
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 50%"></div></div>
-        <b>218</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 49%"></div></div>
+        <b>219</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 73%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 71%"></div></div>
         <b>317</b>
       </div>
       
@@ -219,14 +219,14 @@
       
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 34%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 33%"></div></div>
         <b>147</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>437</b>
+        <b>444</b>
       </div>
       
       <div class="frow">
