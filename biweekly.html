@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="weekly.html">周报 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-11-09 10:29 (北京时间 UTC+8)
+      生成于 2026-11-09 15:03 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,34 +95,16 @@
     <section class="latest">
       <h2 class="r-title">AI4S 双周报告 · 11-02 ~ 11-15</h2>
       <p class="r-range">2026-11-02 ~ 2026-11-15</p>
-      <p class="r-overview">这两周 AI4S 的主旋律是「闭环化」：AI 不再只做单点预测，而是被嵌入实验、模拟、优化与验证的完整回路。第一周以方法学铺底为主，大量工作集中在采样、不确定性量化、基准与表征学习；第二周明显转向系统级整合，出现自主实验室、端到端药物发现、覆盖周期表的通用力场等「平台型」工作。分子模拟仍是最大票仓，但材料与蛋白质方向在第二周集中爆发，气候方向则从纯预报转向「物理约束 vs 深度学习」的路线之争。一个值得注意的信号是：基准与评测类工作占比上升，社区开始系统性追问「仿真刷分」与「静态指标不等于动态可用」的问题。</p>
+      <p class="r-overview">这两周 AI4S 的主旋律是「从仿真刷分转向真实对账」：RealPDEBench 把真实实验与仿真成对配齐，BILBY-PRO 用全原子 MD 复核发现 55 个静态回折解里只有少数动态稳定，EnergyBench 按真实市场截止时间实盘评测，都在追问模型在真实世界里到底行不行。分子模拟侧继续向「通用+可跑」推进，SO3LR Tauri 试图用一套力场覆盖 85 种元素，FACTO、PLUMED-JAX、GPU 原生 ML/MM 则把推理与采样吞吐推到新量级。材料与气候两个方向明显从「单点预测」转向「闭环设计/业务预报」：LLM 智能体反推工艺配方、扩散模型生成晶体、Sonny-ENS 用不到 3 块 GPU 天在 96% 指标上超过 ECMWF 业务集合预报。第一周偏「基础设施与基准」（RealPDEBench、Fracture-Bench、FlowReconBench、PaddleMaterials），第二周明显转向「闭环系统与真实实验」（AutoDNA、PharmAgents2、Scientist World、Agentic inverse design），从「造工具」走向「让工具自己跑起来」。</p>
 
       
       <h3 class="sub">本期亮点</h3>
       <div class="cards">
         
         <article class="card">
-          <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2611.06237v1" target="_blank" rel="noopener">SO3LR Tauri: Generally Applicable Force Fields for Reactive (Bio)Molecular Simulations Covering the Periodic Table</a></h2>
-          <p>单一机器学习力场覆盖 85 种元素，用同一模型同时处理有机反应、蛋白质、核酸、膜与金属酶，无需按体系定制。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2611.06779v1" target="_blank" rel="noopener">Machine Learning the Complete Active-Space Wavefunction Reconstruction</a></h2>
-          <p>把机器学习势从「预测能量和力」升级为重建完整电子波函数，无需反复轨道优化，让多参考态反应动力学可逐帧观察电子结构。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2611.07695v1" target="_blank" rel="noopener">Equivariant Deep Learning in Direct-Product Space for Electronic-Structure Hamiltonian Prediction</a></h2>
-          <p>首次让等变深度学习直接在直积空间操作哈密顿量矩阵块，绕开球张量分解，并发布 11 万结构的 MP-HAM-110K 数据集。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2611.03276v1" target="_blank" rel="noopener">FACTO: fast atom-centered tensor operator for accurate and efficient foundational machine-learned interatomic potentials</a></h2>
-          <p>把等变机器学习原子间势推理速度推到新高度，保持 FP32 级能量守恒，在 Matbench Discovery 46 个完整评分模型中综合领先。</p>
+          <span class="field">蛋白质/结构</span>
+          <h2><a href="https://www.nature.com/articles/s41586-026-11228-6" target="_blank" rel="noopener">An AI-native experimental laboratory for autonomous biomolecular operations</a></h2>
+          <p>AutoDNA 把 AI 决策与多仪器自动化实验做成闭环、多用户共用的生物分子工程实验室，AI 与自动化系统在真实实验里互相迭代。</p>
         </article>
         
         <article class="card">
@@ -132,45 +114,63 @@
         </article>
         
         <article class="card">
-          <span class="field">蛋白质/结构</span>
-          <h2><a href="https://www.nature.com/articles/s41586-026-11228-6" target="_blank" rel="noopener">An AI-native experimental laboratory for autonomous biomolecular operations</a></h2>
-          <p>AutoDNA 把 AI 决策与多仪器自动化实验做成闭环、多用户共用的生物分子工程实验室，让 AI 与自动化系统在真实实验中互相迭代。</p>
-        </article>
-        
-        <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2611.07653v1" target="_blank" rel="noopener">PharmAgents2: Towards Autonomous End-to-End Drug Discovery</a></h2>
-          <p>把 AI 药物发现从单点工具推进到端到端自主系统，在三个真实项目中产出湿实验验证结果，包括一个此前未报道的变构位点。</p>
+          <p>端到端自主药物发现系统在三个真实项目里产出湿实验验证结果，包括一个此前未报道的变构位点。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
-          <h2><a href="https://arxiv.org/abs/2611.08420v1" target="_blank" rel="noopener">On the limitations of molecular representations</a></h2>
-          <p>系统质疑当前分子表征：在聚类、数据划分、虚拟筛选等任务上，最先进分子嵌入在捕捉图结构、3D 形状与 ADMET 性质上存在系统性缺陷。</p>
+          <h2><a href="https://github.com/unum-science/USearchMolecules" target="_blank" rel="noopener">unum-science/USearchMolecules</a></h2>
+          <p>70 亿以上分子的开源化学信息数据集，每个分子同时带指纹与 3D 构象，把结构库与构象库合并到同一检索空间。</p>
         </article>
         
         <article class="card">
-          <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2611.06382v1" target="_blank" rel="noopener">From hydrological laws to catchment models: A process-based model matches deep-learning accuracy on three continents</a></h2>
-          <p>物理定律约束的低维流域模型 CaRT+ 在英、美、澳三大洲径流预测上追平甚至局部超过 LSTM，提示流域尺度可能存在「形式定律」。</p>
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2611.06237v1" target="_blank" rel="noopener">SO3LR Tauri: Generally Applicable Force Fields for Reactive (Bio)Molecular Simulations Covering the Periodic Table</a></h2>
+          <p>一套机器学习力场试图覆盖周期表 85 种元素，用同一模型同时处理有机反应、蛋白质、核酸、膜和金属酶，无需按体系定制。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2611.06779v1" target="_blank" rel="noopener">Machine Learning the Complete Active-Space Wavefunction Reconstruction</a></h2>
+          <p>把机器学习势从只预测能量和力升级为重建反应过程中完整电子结构波函数，无需反复做昂贵轨道优化。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">材料科学</span>
+          <h2><a href="https://arxiv.org/abs/2611.07695v1" target="_blank" rel="noopener">Equivariant Deep Learning in Direct-Product Space for Electronic-Structure Hamiltonian Prediction</a></h2>
+          <p>首次让等变深度学习直接在直积空间操作哈密顿量矩阵块，绕开球张量分解，并发布 11 万材料结构的 MP-HAM-110K 数据集。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">材料科学</span>
+          <h2><a href="https://arxiv.org/abs/2611.03795v1" target="_blank" rel="noopener">Agentic inverse design of spatially programmed materials</a></h2>
+          <p>用 LLM 智能体把目标空间结构直接反推成工艺配方，让空间结构成为可编程变量而非靠人反复试错。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2611.01614v1" target="_blank" rel="noopener">Sonny-ENS: demystifying machine-learning ensemble weather forecasting</a></h2>
-          <p>不到 3 块 GPU 天训练的小型集合预报模型，在 96% 指标上超过 ECMWF 业务集合预报，把高精度概率天气预报门槛拉低到单台 GPU。</p>
+          <p>不到 3 块 GPU 天训练的小型集合预报模型，在 96% 指标上超过 ECMWF 业务集合预报，把高精度概率预报门槛拉到单台 GPU。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">气候地球</span>
+          <h2><a href="https://arxiv.org/abs/2611.06382v1" target="_blank" rel="noopener">From hydrological laws to catchment models: A process-based model matches deep-learning accuracy on three continents</a></h2>
+          <p>物理定律约束的低维流域模型 CaRT+ 在英、美、澳三大洲径流预测上追平甚至局部超过 LSTM，提示流域尺度可能存在形式定律。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://github.com/AI4Science-WestlakeU/RealPDEBench" target="_blank" rel="noopener">AI4Science-WestlakeU/RealPDEBench</a></h2>
-          <p>ICLR26 Oral 论文发布 RealPDEBench，首个把真实实验测量与仿真数据成对配齐的复杂物理系统基准，直指 AI 求解 PDE 时「仿真刷分」问题。</p>
+          <p>ICLR26 Oral 论文发布首个把真实实验测量与仿真数据成对配齐的复杂物理系统基准，直指 PDE 代理模型仿真刷分问题。</p>
         </article>
         
         <article class="card">
           <span class="field">科学基础模型</span>
           <h2><a href="https://arxiv.org/abs/2611.08478v1" target="_blank" rel="noopener">Scientist World: Grow a Research World for AI-Scientists</a></h2>
-          <p>把每篇论文变成可执行环境，让 AI 科学家在真实研究问题上与人类作者同台竞技；首批 1000 个环境上，前沿 AI 已有 74% 概率超过人类研究者。</p>
+          <p>把每篇论文变成可执行环境，让 AI 科学家在真实研究问题上与人类作者同台竞技，首批 1000 个环境上前沿 AI 已有 74% 概率超过人类研究者。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>分子模拟（molsim）仍是最大子领域，两周合计约 25 条，但内部结构在变：第一周集中在采样与自由能方法（WASABI、VESPER、Restrained Diffusion Bridges、PLUMED-JAX），第二周转向通用力场与电子结构耦合（SO3LR Tauri、波函数重建、ML-QMC），显示从「怎么采得更快」走向「一个模型覆盖更多化学」。材料（materials）第二周明显升温，从第一周约 8 条增至第二周约 12 条，且出现 MP-HAM-110K、PaddleMaterials、FACTO 等平台/数据集型工作。蛋白质（protein）第二周集中爆发，RNA 基础模型、AutoDNA 自主实验室、FoldScape 折叠路径、BILBY-PRO 动态稳定性基准同周出现，从「预测结构」转向「预测过程与闭环验证」。气候（climate）两周保持约 8 条，但路线之争浮现：CaRT+ 用物理模型追平 LSTM、Sonny-ENS 压低集合预报门槛，与纯神经算子代理形成对照。AI4Math/PDE 方向基准与不确定性量化类工作增多（RealPDEBench、Conformal Prediction for Time-Dependent PDEs），从「刷精度」转向「可信度」。药物发现（drug）第二周出现端到端自主系统与表征局限性质疑并存的局面，说明该方向正从「能做什么」进入「到底靠不靠谱」的反思期。</p>
+      <p>跨周对比看，molsim 仍是绝对主力（两周合计约 25 条），但重心从第一周的「采样与自由能算法」（VESPER、WASABI、Restrained Diffusion Bridges、Shadow MD）转向第二周的「通用力场与 GPU 原生基础设施」（SO3LR Tauri、FACTO、PLUMED-JAX、GPU ML/MM、LAMMPS NPT），说明社区在算法收敛后开始补工程化短板。materials 从第一周的「生成与筛选」（双金属合金催化剂、晶体生成、DANO）转向第二周的「电子结构表示与不确定性」（直积空间哈密顿量、ROSE、jackknife-conformal、预训练 OOD 不确定性），从「造新结构」转向「把底层物理算准、把误差说清」。protein 与 drug 明显升温：protein 从第一周以 FoldScape 单点为主，到第二周出现 structRFM、AutoDNA、BILBY-PRO 动态稳定性基准、iGC 强化学习抗体优化，覆盖「基础模型—自动化实验—评测」全链条；drug 从第一周的表征反思（On the limitations of molecular representations）升级为第二周的端到端系统与数据基建（PharmAgents2、OPRD-Imp、USearchMolecules、D2ML）。climate 保持稳定但方向切换：第一周偏「神经算子替代模拟器」（洪水、海洋、地幔柱），第二周转向「业务级预报与真实市场评测」（Sonny-ENS、EnergyBench、热带气旋临近预报、GRACE 地下水重建）。ai4math 从第一周的「算子学习与迁移理论」转向第二周的「PINN 训练动力学与不确定性」（GMAdam、Conformal Prediction for time-dependent PDEs、Lie 对称性发现），理论味道更浓。scifm 两周各 2 条，但第二周从「电网稳态」扩展到「动态仿真 + 科研环境」，方向从「领域基础模型」转向「AI 科学家基础设施」。新浮现方向：真实实验闭环（AutoDNA、PharmAgents2、Agentic inverse design）与「诚实评测」（RealPDEBench、BILBY-PRO、EnergyBench、FlowReconBench）在第二周集中出现，是本周期最值得注意的结构性变化。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下两周重点跟踪两条线：一是通用/基础力场（SO3LR Tauri、FACTO、UMA）能否在真实体系上兑现「一个模型覆盖周期表」的承诺；二是自主实验室与端到端智能体（AutoDNA、PharmAgents2、Scientist World）的湿实验复现率与失败模式，这将决定 AI4S 闭环叙事能否站住。</p>
+      <p>下两周重点跟踪两条线：一是「真实实验闭环」能否从单点 demo 走向可复现的基准与协议（AutoDNA、PharmAgents2 的湿实验验证细节）；二是「诚实评测」是否会倒逼 PDE 代理模型与分子表征重新对齐真实数据分布（RealPDEBench、BILBY-PRO 的后续引用与复现）。</p>
       
     </section>
     
