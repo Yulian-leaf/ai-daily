@@ -79,12 +79,12 @@
     <div class="brand">AI4S-DAILY</div>
     
     <h1 class="title">AI4S 周报 · 11-09 ~ 11-15</h1>
-    <p class="slogan">「给模型配误差棒，给仿真降复杂度」</p>
-    <p class="range">2026-11-09 ~ 2026-11-15 · 2026-11-09 17:37 (北京时间 UTC+8)</p>
+    <p class="slogan">「绕开迭代，直取结构」</p>
+    <p class="range">2026-11-09 ~ 2026-11-15 · 2026-11-10 12:32 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期 AI4S 的主旋律是「把成本打下来、把不确定性说清楚」：声子计算绕开三次方全对角化、PDE 算子学习用空间-频谱双分支把复杂度压到近线性、蛋白质柔性特征提取从 O(N³) 降到更低阶。与此同时，不确定性量化成为多条线的共同关切——线性 ACE 势用刀切法加保形校准给出可校准的力误差棒，水自电离自由能则系统拆解长程静电、体系大小与核量子效应的相互抵消。基础模型继续向新场景外推：电网基础模型从稳态走向暂态动态仿真，单 GPU 相对单核数值仿真器加速 924–1232 倍。跨模态与跨状态空间的重建也在推进，单细胞 RNA 与 ATAC 的发育轨迹首次用非平衡同步最优传输同步重建。</p>
+  <p class="overview">本期最鲜明的信号是「绕开传统数值流程」：从能带、电子密度到声子，多条工作用学习模型或随机传播替代 DFT 自洽迭代与矩阵对角化，把成本从三次方压到线性。气候方向出现「冻结 AI 天气模型当大气引擎」的地球系统模型，以及用扩散模型同时吸收多模式与观测的全球温度分布生成。分子模拟则集中修补机器学习势的物理一致性——激发态的尺寸一致性、粗粒化动力学的时间一致性、自由能中竞争效应的抵消。蛋白质与材料逆向设计继续向「零样本、可微、大尺度」推进。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -93,37 +93,55 @@
   <div class="hl">
     <div class="hl-head">
       <span class="field">🧬 蛋白质/结构</span>
-      <span class="score">7.0</span>
+      <span class="score">8.0</span>
     </div>
-    <h3>Protein B-factor modeling with local magnitude</h3>
-    <p>把蛋白质柔性建模中的「全局拓扑幅值」换成「局部邻域幅值」，在拟合精度基本持平（PCC 0.725→0.728）的同时，把特征提取复杂度从 O(N³) 降到 O(…</p>
+    <h3>Efficient and Accurate Zero Shot Generation of Symmetric Protein Complexes</h3>
+    <p>无需重新训练，就能把任意预训练的蛋白质骨架生成模型改造成对称复合物的零样本生成器，并首次生成超过1万个残基的对称组装体，规模远超以往。</p>
   </div>
   
   <div class="hl">
     <div class="hl-head">
       <span class="field">⚛️ 分子模拟</span>
-      <span class="score">7.0</span>
+      <span class="score">8.0</span>
     </div>
-    <h3>Geometry-Aware Score-Repellent Monte Carlo</h3>
-    <p>把 MCMC 采样中「排斥强度」从单一标量升级为按几何方向自适应的矩阵，理论证明最优矩阵正比于逆 Fisher 信息，且在线估计不增加额外计算成本。</p>
+    <h3>Toward universal excited-state machine-learned potentials: a local excitation Hamiltonian for size consistency and transferability</h3>
+    <p>提出 LEH-MACE，把激发态能量写成「局部激发哈密顿量」的本征值，从而让机器学习势首次严格满足尺寸一致性——两个分子离得远时，总激发态就是各自激发态的并集，…</p>
   </div>
   
   <div class="hl">
     <div class="hl-head">
       <span class="field">🧪 材料科学</span>
-      <span class="score">7.0</span>
+      <span class="score">8.0</span>
     </div>
-    <h3>A stochastic propagation method for large-scale phonon calculations</h3>
-    <p>把原本用于电子结构计算的随机传播方法（sPM）搬到晶格动力学上，绕开声子计算中全对角化的三次方成本，让复杂结构材料的声子频率估算随原子数线性增长。</p>
+    <h3>Learning Electronic Band Structures Across the s, p, d Blocks with an Empirical Pseudopotential Network</h3>
+    <p>用一个「学出来的经验赝势网络」直接输出完整能带结构，覆盖 s、p、d 区 63 种元素，绕开 DFT 自洽迭代，也绕开「先预测哈密顿量再交给 DFT 求解器」的…</p>
   </div>
   
   <div class="hl">
     <div class="hl-head">
       <span class="field">🌍 气候地球</span>
-      <span class="score">7.0</span>
+      <span class="score">8.0</span>
     </div>
-    <h3>Reconstruction of Global Groundwater Storage Anomaly from GRACE Satellite Gravimetry Using a Physics-Constrained Decomposition LSTM</h3>
-    <p>首次用物理约束的分解式 LSTM 重建 2002–2022 年全球地下水储量变化，把 GRACE 卫星只能测到的「总水储量」拆出地下水信号，并给出全球地下水净亏…</p>
+    <h3>Rescene-ESM: an Earth system model built around a frozen AI weather model</h3>
+    <p>把冻结的 2080 万参数 AI 天气模型当作大气引擎，外接物理海洋、海冰、陆地、河流、碳与能量模块，拼成一个能跑千年的地球系统模型，首次让 AI 天气模型把气…</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">🌍 气候地球</span>
+      <span class="score">8.0</span>
+    </div>
+    <h3>Guiding future global temperature distributions with simulations and observations</h3>
+    <p>用一个条件扩散模型同时学习17个CMIP6气候模型和ERA5观测，在采样时用「引导」把模拟结果往观测拉，既纠正偏差又保留模型间差异，还能免跑模拟生成大样本集合。</p>
+  </div>
+  
+  <div class="hl">
+    <div class="hl-head">
+      <span class="field">⚛️ 分子模拟</span>
+      <span class="score">8.0</span>
+    </div>
+    <h3>Spatiotemporal Energy Consistency Enables Reliable Coarse-Grained Molecular Dynamics from Diffusion Models</h3>
+    <p>指出扩散模型学到的粗粒化力场存在「空间对、时间错」的系统性偏差，并给出可精确计算的时间项监督，让粗粒化分子动力学首次在肽和蛋白上达到化学精度级别的自由能误差。</p>
   </div>
   
   <div class="hl">
@@ -153,86 +171,68 @@
     <p>首次把「非平衡同步最优传输」扩展到跨模态映射，让单细胞RNA和ATAC两种不同状态空间里的发育轨迹能同步重建，而不是先压到同一个表示里再分析。</p>
   </div>
   
-  <div class="hl">
-    <div class="hl-head">
-      <span class="field">📐 AI4Math/PDE</span>
-      <span class="score">7.0</span>
-    </div>
-    <h3>Task-Contribution Dynamics of Adam in Physics-Informed Neural Networks: Slow-Manifold Analysis and Gradient Modulation</h3>
-    <p>首次用「任务贡献度」指标拆解 Adam 在物理信息神经网络（PINN）训练中各项损失如何此消彼长，并据此提出 GMAdam，在多个 PDE 基准上稳定优于 Ad…</p>
-  </div>
-  
-  <div class="hl">
-    <div class="hl-head">
-      <span class="field">⚛️ 分子模拟</span>
-      <span class="score">7.0</span>
-    </div>
-    <h3>Fortuitous Cancellation of Competing Effects in the Free Energy of Water Autoionization: Long-Range Electrostatics, System Size, and Nuclear Quantum Effects</h3>
-    <p>用机器学习原子间势（MLIP，用神经网络拟合量子化学计算的快速力场）首次系统拆解水自电离自由能中长程静电、体系大小、核量子效应三者的相互抵消，解释了为何模拟漏掉…</p>
-  </div>
-  
   </div>
   
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期最明显的变化是「不确定性量化」从零散讨论变成多条子领域的共同动作：材料侧出现可校准的力误差棒，分子模拟侧用逆 Fisher 信息给出有理论保证的采样排斥矩阵。另一个新方向是基础模型的外推边界继续扩张，电网基础模型从稳态跨到暂态动态仿真，并给出跨电网迁移的量化加速比。复杂度方面，声子、PDE 算子学习与蛋白质柔性建模不约而同地把三次方或更高阶成本压到近线性，说明「可扩展性」正成为方法设计的硬指标而非附加卖点。</p>
+  <p class="trend">与上一期相比，本期「替代传统数值内核」从单点尝试变成跨材料、分子、气候的共性路线：能带、电子密度、声子、粗粒化动力学都在用学习模型或随机传播替换自洽迭代与全对角化。同时，物理一致性约束（尺寸一致性、时间一致性、竞争效应抵消）成为机器学习势从「拟合准」走向「可外推」的核心议题；气候方向则新出现「冻结 AI 天气模型 + 物理模块」的混合地球系统模型范式。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">6914</span><small>抓取条目</small></div>
-      <div><span class="num">490</span><small>总结</small></div>
-      <div><span class="num">490</span><small>已上墙</small></div>
+      <div><span class="num">7042</span><small>抓取条目</small></div>
+      <div><span class="num">500</span><small>总结</small></div>
+      <div><span class="num">500</span><small>已上墙</small></div>
     </div>
     <div class="fields">
       
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
         <div class="fbar"><div class="fbar-fill" style="width: 13%"></div></div>
-        <b>59</b>
+        <b>57</b>
       </div>
       
       <div class="frow">
         <span class="flabel">💊 药物发现</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 11%"></div></div>
-        <b>47</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 10%"></div></div>
+        <b>45</b>
       </div>
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
         <div class="fbar"><div class="fbar-fill" style="width: 49%"></div></div>
-        <b>219</b>
+        <b>218</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 71%"></div></div>
-        <b>317</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 73%"></div></div>
+        <b>323</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 36%"></div></div>
-        <b>159</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 37%"></div></div>
+        <b>162</b>
       </div>
       
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
         <div class="fbar"><div class="fbar-fill" style="width: 33%"></div></div>
-        <b>147</b>
+        <b>144</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>444</b>
+        <b>443</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 32%"></div></div>
-        <b>140</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 33%"></div></div>
+        <b>145</b>
       </div>
       
     </div>

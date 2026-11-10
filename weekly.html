@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-11-09 17:37 (北京时间 UTC+8)
+      生成于 2026-11-10 12:32 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 11-09 ~ 11-15</h2>
       <p class="r-range">2026-11-09 ~ 2026-11-15</p>
-      <p class="r-overview">本期 AI4S 的主旋律是「把成本打下来、把不确定性说清楚」：声子计算绕开三次方全对角化、PDE 算子学习用空间-频谱双分支把复杂度压到近线性、蛋白质柔性特征提取从 O(N³) 降到更低阶。与此同时，不确定性量化成为多条线的共同关切——线性 ACE 势用刀切法加保形校准给出可校准的力误差棒，水自电离自由能则系统拆解长程静电、体系大小与核量子效应的相互抵消。基础模型继续向新场景外推：电网基础模型从稳态走向暂态动态仿真，单 GPU 相对单核数值仿真器加速 924–1232 倍。跨模态与跨状态空间的重建也在推进，单细胞 RNA 与 ATAC 的发育轨迹首次用非平衡同步最优传输同步重建。</p>
+      <p class="r-overview">本期最鲜明的信号是「绕开传统数值流程」：从能带、电子密度到声子，多条工作用学习模型或随机传播替代 DFT 自洽迭代与矩阵对角化，把成本从三次方压到线性。气候方向出现「冻结 AI 天气模型当大气引擎」的地球系统模型，以及用扩散模型同时吸收多模式与观测的全球温度分布生成。分子模拟则集中修补机器学习势的物理一致性——激发态的尺寸一致性、粗粒化动力学的时间一致性、自由能中竞争效应的抵消。蛋白质与材料逆向设计继续向「零样本、可微、大尺度」推进。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -103,62 +103,74 @@
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2611.08926v1" target="_blank" rel="noopener">A stochastic propagation method for large-scale phonon calculations</a></h2>
-          <p>把电子结构中的随机传播方法搬到晶格动力学，绕开声子计算的全对角化三次方成本，声子频率估算随原子数线性增长。</p>
+          <h2><a href="https://arxiv.org/abs/2611.11070v1" target="_blank" rel="noopener">Learning Electronic Band Structures Across the s, p, d Blocks with an Empirical Pseudopotential Network</a></h2>
+          <p>学出来的经验赝势网络直接输出完整能带，覆盖 s、p、d 区 63 种元素，绕开 DFT 自洽迭代与「先预测哈密顿量再求解」的两段式流程。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2611.08678v1" target="_blank" rel="noopener">Jackknife-conformal uncertainty for linear ACE potentials: calibrated forces and silicon properties compared with Bayesian and POPS baselines</a></h2>
-          <p>用刀切法加保形校准给线性 ACE 势配可校准的力误差棒，并与 Bayesian、POPS 基线在硅性质上对比。</p>
+          <h2><a href="https://arxiv.org/abs/2611.09572v1" target="_blank" rel="noopener">Inverse design of superconductors and semiconductors with differentiable foundation models</a></h2>
+          <p>把预训练晶体基础模型改造成对元素种类与占位可求梯度的版本，成分、原子数、坐标、晶格一起优化，首次将超导与光伏逆向设计放进同一可微框架。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">气候地球</span>
+          <h2><a href="https://arxiv.org/abs/2611.11066v1" target="_blank" rel="noopener">Rescene-ESM: an Earth system model built around a frozen AI weather model</a></h2>
+          <p>以冻结的 2080 万参数 AI 天气模型为大气引擎，外接物理海洋、海冰、陆地、河流、碳与能量模块，拼成可跑千年的地球系统模型。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">气候地球</span>
+          <h2><a href="https://arxiv.org/abs/2611.10882v1" target="_blank" rel="noopener">Guiding future global temperature distributions with simulations and observations</a></h2>
+          <p>条件扩散模型同时学习 17 个 CMIP6 模式与 ERA5 观测，采样时用引导把结果往观测拉，既纠偏差又保留模式间差异，免跑模拟生成大样本集合。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2611.11019v1" target="_blank" rel="noopener">Toward universal excited-state machine-learned potentials: a local excitation Hamiltonian for size consistency and transferability</a></h2>
+          <p>LEH-MACE 把激发态能量写成局部激发哈密顿量的本征值，使机器学习势首次严格满足尺寸一致性：两分子远离时总激发态即各自激发态的并集。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2611.10517v1" target="_blank" rel="noopener">Spatiotemporal Energy Consistency Enables Reliable Coarse-Grained Molecular Dynamics from Diffusion Models</a></h2>
+          <p>指出扩散模型学到的粗粒化力场存在「空间对、时间错」的系统偏差，并给出可精确计算的时间项监督，在肽与蛋白上把自由能误差压到化学精度级别。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">蛋白质/结构</span>
+          <h2><a href="https://arxiv.org/abs/2611.10424v1" target="_blank" rel="noopener">Efficient and Accurate Zero Shot Generation of Symmetric Protein Complexes</a></h2>
+          <p>无需重新训练，把任意预训练蛋白质骨架生成模型改造成对称复合物的零样本生成器，首次生成超过 1 万个残基的对称组装体。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2611.08912v1" target="_blank" rel="noopener">SSF-Net: A Spatial-Spectral Fusion Network for Accurate PDE Operator Learning</a></h2>
-          <p>空间与频谱双分支同时捕捉 PDE 的局部传播与全局耦合，参数更少而预测误差低于注意力/卷积基线，复杂度接近线性。</p>
+          <p>空间与频谱双分支同时捕捉 PDE 的局部传播与全局耦合，参数更少时预测误差低于注意力/卷积基线，复杂度接近线性。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2611.08910v1" target="_blank" rel="noopener">Task-Contribution Dynamics of Adam in Physics-Informed Neural Networks: Slow-Manifold Analysis and Gradient Modulation</a></h2>
-          <p>用「任务贡献度」拆解 PINN 训练中各损失项的此消彼长，据此提出 GMAdam，在多个 PDE 基准上稳定优于 Adam。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2611.08909v1" target="_blank" rel="noopener">Geometry-Aware Score-Repellent Monte Carlo</a></h2>
-          <p>把 MCMC 的排斥强度从标量升级为按几何方向自适应的矩阵，证明最优矩阵正比于逆 Fisher 信息且在线估计不增加额外成本。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2611.08874v1" target="_blank" rel="noopener">Fortuitous Cancellation of Competing Effects in the Free Energy of Water Autoionization: Long-Range Electrostatics, System Size, and Nuclear Quantum Effects</a></h2>
-          <p>用机器学习原子间势首次系统拆解水自电离自由能中长程静电、体系大小与核量子效应三者的相互抵消。</p>
+          <p>首次用「任务贡献度」指标拆解 Adam 在 PINN 训练中各项损失如何此消彼长，据此提出 GMAdam，在多个 PDE 基准上稳定优于 Adam。</p>
         </article>
         
         <article class="card">
           <span class="field">科学基础模型</span>
           <h2><a href="https://arxiv.org/abs/2611.08867v1" target="_blank" rel="noopener">Extending Grid Foundation Models for Phasor-Domain Dynamic Simulation</a></h2>
-          <p>把电网基础模型从稳态扩展到动态仿真，首次实现跨电网迁移的暂态学习，单 GPU 比单核数值仿真器快 924–1232 倍。</p>
+          <p>把电网基础模型从稳态分析扩展到动态仿真，首次实现跨电网迁移的暂态学习，单 GPU 比单核数值仿真器快 924–1232 倍。</p>
         </article>
         
         <article class="card">
           <span class="field">生物信息</span>
           <h2><a href="https://arxiv.org/abs/2611.08853v1" target="_blank" rel="noopener">Synchronized Optimal Transport Reconstructs Coupled Transcriptomic and Chromatin Dynamics</a></h2>
-          <p>把非平衡同步最优传输扩展到跨模态映射，让单细胞 RNA 与 ATAC 两种状态空间中的发育轨迹同步重建，而非先压到同一表示。</p>
+          <p>首次把非平衡同步最优传输扩展到跨模态映射，让单细胞 RNA 与 ATAC 两种状态空间里的发育轨迹同步重建，而非先压到同一表示再分析。</p>
         </article>
         
         <article class="card">
-          <span class="field">蛋白质/结构</span>
-          <h2><a href="https://arxiv.org/abs/2611.08832v1" target="_blank" rel="noopener">Protein B-factor modeling with local magnitude</a></h2>
-          <p>把蛋白质柔性建模的全局拓扑幅值换成局部邻域幅值，拟合精度基本持平（PCC 0.725→0.728），特征提取复杂度从 O(N³) 降低。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2611.08567v1" target="_blank" rel="noopener">Reconstruction of Global Groundwater Storage Anomaly from GRACE Satellite Gravimetry Using a Physics-Constrained Decomposition LSTM</a></h2>
-          <p>用物理约束的分解式 LSTM 重建 2002–2022 年全球地下水储量变化，从 GRACE 总水储量信号中拆出地下水并给出全球净亏损估计。</p>
+          <span class="field">材料科学</span>
+          <h2><a href="https://arxiv.org/abs/2611.09153v1" target="_blank" rel="noopener">From local learning to global electronic properties in large-scale systems</a></h2>
+          <p>把局部原子环境学到的电子密度与随机传播、Kohn-Sham 哈密顿量拼接，绕开自洽迭代和矩阵对角化，将 Kohn-Sham DFT 推向大尺度体系。</p>
         </article>
         
       </div>
@@ -166,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期最明显的变化是「不确定性量化」从零散讨论变成多条子领域的共同动作：材料侧出现可校准的力误差棒，分子模拟侧用逆 Fisher 信息给出有理论保证的采样排斥矩阵。另一个新方向是基础模型的外推边界继续扩张，电网基础模型从稳态跨到暂态动态仿真，并给出跨电网迁移的量化加速比。复杂度方面，声子、PDE 算子学习与蛋白质柔性建模不约而同地把三次方或更高阶成本压到近线性，说明「可扩展性」正成为方法设计的硬指标而非附加卖点。</p>
+      <p>与上一期相比，本期「替代传统数值内核」从单点尝试变成跨材料、分子、气候的共性路线：能带、电子密度、声子、粗粒化动力学都在用学习模型或随机传播替换自洽迭代与全对角化。同时，物理一致性约束（尺寸一致性、时间一致性、竞争效应抵消）成为机器学习势从「拟合准」走向「可外推」的核心议题；气候方向则新出现「冻结 AI 天气模型 + 物理模块」的混合地球系统模型范式。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注保形/刀切类不确定性方法能否从线性 ACE 势推广到非线性势与更复杂体系，以及电网、单细胞跨模态这类「跨状态空间迁移」是否出现统一的评测基准。</p>
+      <p>下期值得关注：这类绕开迭代的模型能否在真实材料与长时序气候积分中给出可复现的误差界；以及零样本对称蛋白生成与可微基础模型逆向设计能否从演示走向实验验证。</p>
       
     </section>
     
