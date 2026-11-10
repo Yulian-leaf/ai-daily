@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-11-10 12:32 (北京时间 UTC+8)
+      生成于 2026-11-10 15:39 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 11-09 ~ 11-15</h2>
       <p class="r-range">2026-11-09 ~ 2026-11-15</p>
-      <p class="r-overview">本期最鲜明的信号是「绕开传统数值流程」：从能带、电子密度到声子，多条工作用学习模型或随机传播替代 DFT 自洽迭代与矩阵对角化，把成本从三次方压到线性。气候方向出现「冻结 AI 天气模型当大气引擎」的地球系统模型，以及用扩散模型同时吸收多模式与观测的全球温度分布生成。分子模拟则集中修补机器学习势的物理一致性——激发态的尺寸一致性、粗粒化动力学的时间一致性、自由能中竞争效应的抵消。蛋白质与材料逆向设计继续向「零样本、可微、大尺度」推进。</p>
+      <p class="r-overview">本期最鲜明的信号是「绕开传统计算瓶颈」：材料领域用学出来的经验赝势网络和随机传播方法，分别跳过 DFT 自洽迭代与声子全对角化；分子模拟则从尺寸一致性和时间一致性两个角度修补机器学习势的系统性偏差。气候地球方向继续把 AI 天气模型往地球系统模型和观测约束的集合生成上推，同时开始用稀疏自编码器拆解地球观测基础模型的可解释性。蛋白质与生物信息方向侧重零样本扩展和跨模态轨迹对齐，科学基础模型则把电网仿真从稳态推进到动态暂态。整体看，本期工作普遍强调「可计算的误差控制」和「不重训的复用」，而非单纯刷精度。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -104,55 +104,61 @@
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2611.11070v1" target="_blank" rel="noopener">Learning Electronic Band Structures Across the s, p, d Blocks with an Empirical Pseudopotential Network</a></h2>
-          <p>学出来的经验赝势网络直接输出完整能带，覆盖 s、p、d 区 63 种元素，绕开 DFT 自洽迭代与「先预测哈密顿量再求解」的两段式流程。</p>
+          <p>用一个学出来的经验赝势网络直接输出完整能带结构，覆盖 s、p、d 区 63 种元素，绕开 DFT 自洽迭代，也绕开「先预测哈密顿量再交给 DFT 求解器」的两步走。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2611.09572v1" target="_blank" rel="noopener">Inverse design of superconductors and semiconductors with differentiable foundation models</a></h2>
-          <p>把预训练晶体基础模型改造成对元素种类与占位可求梯度的版本，成分、原子数、坐标、晶格一起优化，首次将超导与光伏逆向设计放进同一可微框架。</p>
+          <p>把预训练晶体基础模型改造成可对「元素种类+占位」求梯度的版本，让成分、原子数、坐标、晶格能一起做梯度优化，首次把超导与光伏材料的逆向设计放进同一个可微框架。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2611.11066v1" target="_blank" rel="noopener">Rescene-ESM: an Earth system model built around a frozen AI weather model</a></h2>
-          <p>以冻结的 2080 万参数 AI 天气模型为大气引擎，外接物理海洋、海冰、陆地、河流、碳与能量模块，拼成可跑千年的地球系统模型。</p>
+          <p>把冻结的 2080 万参数 AI 天气模型当作大气引擎，外接物理海洋、海冰、陆地、河流、碳与能量模块，拼成一个能跑千年的地球系统模型。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2611.10882v1" target="_blank" rel="noopener">Guiding future global temperature distributions with simulations and observations</a></h2>
-          <p>条件扩散模型同时学习 17 个 CMIP6 模式与 ERA5 观测，采样时用引导把结果往观测拉，既纠偏差又保留模式间差异，免跑模拟生成大样本集合。</p>
+          <p>用一个条件扩散模型同时学习 17 个 CMIP6 气候模型和 ERA5 观测，采样时用「引导」把模拟结果往观测拉，既纠正偏差又保留模型间差异，还能免跑模拟生成大样本集合。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2611.11019v1" target="_blank" rel="noopener">Toward universal excited-state machine-learned potentials: a local excitation Hamiltonian for size consistency and transferability</a></h2>
-          <p>LEH-MACE 把激发态能量写成局部激发哈密顿量的本征值，使机器学习势首次严格满足尺寸一致性：两分子远离时总激发态即各自激发态的并集。</p>
+          <p>提出 LEH-MACE，把激发态能量写成「局部激发哈密顿量」的本征值，从而让机器学习势首次严格满足尺寸一致性——两个分子离得远时，总激发态就是各自激发态的并集。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2611.10517v1" target="_blank" rel="noopener">Spatiotemporal Energy Consistency Enables Reliable Coarse-Grained Molecular Dynamics from Diffusion Models</a></h2>
-          <p>指出扩散模型学到的粗粒化力场存在「空间对、时间错」的系统偏差，并给出可精确计算的时间项监督，在肽与蛋白上把自由能误差压到化学精度级别。</p>
+          <p>指出扩散模型学到的粗粒化力场存在「空间对、时间错」的系统性偏差，并给出可精确计算的时间项监督，让粗粒化分子动力学首次在肽和蛋白上达到化学精度级别的自由能误差。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2611.10424v1" target="_blank" rel="noopener">Efficient and Accurate Zero Shot Generation of Symmetric Protein Complexes</a></h2>
-          <p>无需重新训练，把任意预训练蛋白质骨架生成模型改造成对称复合物的零样本生成器，首次生成超过 1 万个残基的对称组装体。</p>
+          <p>无需重新训练，就能把任意预训练的蛋白质骨架生成模型改造成对称复合物的零样本生成器，并首次生成超过 1 万个残基的对称组装体，规模远超以往。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">生物信息</span>
+          <h2><a href="https://arxiv.org/abs/2611.08853v1" target="_blank" rel="noopener">Synchronized Optimal Transport Reconstructs Coupled Transcriptomic and Chromatin Dynamics</a></h2>
+          <p>首次把「非平衡同步最优传输」扩展到跨模态映射，让单细胞 RNA 和 ATAC 两种不同状态空间里的发育轨迹能同步重建，而不是先压到同一个表示里再分析。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2611.08912v1" target="_blank" rel="noopener">SSF-Net: A Spatial-Spectral Fusion Network for Accurate PDE Operator Learning</a></h2>
-          <p>空间与频谱双分支同时捕捉 PDE 的局部传播与全局耦合，参数更少时预测误差低于注意力/卷积基线，复杂度接近线性。</p>
+          <p>用「空间+频谱」双分支网络同时捕捉偏微分方程的局部传播与全局耦合，在参数更少的情况下预测误差低于注意力/卷积基线，且复杂度接近线性。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2611.08910v1" target="_blank" rel="noopener">Task-Contribution Dynamics of Adam in Physics-Informed Neural Networks: Slow-Manifold Analysis and Gradient Modulation</a></h2>
-          <p>首次用「任务贡献度」指标拆解 Adam 在 PINN 训练中各项损失如何此消彼长，据此提出 GMAdam，在多个 PDE 基准上稳定优于 Adam。</p>
+          <p>首次用「任务贡献度」指标拆解 Adam 在物理信息神经网络训练中各项损失如何此消彼长，并据此提出 GMAdam，在多个 PDE 基准上稳定优于 Adam。</p>
         </article>
         
         <article class="card">
@@ -161,28 +167,16 @@
           <p>把电网基础模型从稳态分析扩展到动态仿真，首次实现跨电网迁移的暂态学习，单 GPU 比单核数值仿真器快 924–1232 倍。</p>
         </article>
         
-        <article class="card">
-          <span class="field">生物信息</span>
-          <h2><a href="https://arxiv.org/abs/2611.08853v1" target="_blank" rel="noopener">Synchronized Optimal Transport Reconstructs Coupled Transcriptomic and Chromatin Dynamics</a></h2>
-          <p>首次把非平衡同步最优传输扩展到跨模态映射，让单细胞 RNA 与 ATAC 两种状态空间里的发育轨迹同步重建，而非先压到同一表示再分析。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2611.09153v1" target="_blank" rel="noopener">From local learning to global electronic properties in large-scale systems</a></h2>
-          <p>把局部原子环境学到的电子密度与随机传播、Kohn-Sham 哈密顿量拼接，绕开自洽迭代和矩阵对角化，将 Kohn-Sham DFT 推向大尺度体系。</p>
-        </article>
-        
       </div>
       
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期「替代传统数值内核」从单点尝试变成跨材料、分子、气候的共性路线：能带、电子密度、声子、粗粒化动力学都在用学习模型或随机传播替换自洽迭代与全对角化。同时，物理一致性约束（尺寸一致性、时间一致性、竞争效应抵消）成为机器学习势从「拟合准」走向「可外推」的核心议题；气候方向则新出现「冻结 AI 天气模型 + 物理模块」的混合地球系统模型范式。</p>
+      <p>与上一期相比，本期「绕开迭代求解器」从电子结构蔓延到声子与激发态：材料方向连续出现经验赝势网络、随机传播声子、局部学习电子密度三条路线，分子模拟则把尺寸一致性和时间一致性作为机器学习势的硬约束来修补。气候方向从「训更大的 AI 天气模型」转向「把冻结模型拼成地球系统模型」和「用观测引导扩散模型生成集合」，并首次把稀疏自编码器用于地球观测基础模型的可解释性拆解。蛋白质零样本生成开始冲击万残基级对称组装体，科学基础模型则从稳态电网分析跨到动态暂态仿真。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注：这类绕开迭代的模型能否在真实材料与长时序气候积分中给出可复现的误差界；以及零样本对称蛋白生成与可微基础模型逆向设计能否从演示走向实验验证。</p>
+      <p>下期值得关注：绕开自洽迭代的电子结构方法能否从能带扩展到力与声子并给出误差棒；以及冻结 AI 天气模型拼成的地球系统模型在千年尺度上的守恒性与漂移表现。</p>
       
     </section>
     

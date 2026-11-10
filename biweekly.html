@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="weekly.html">周报 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-11-10 12:32 (北京时间 UTC+8)
+      生成于 2026-11-10 15:39 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 双周报告 · 11-02 ~ 11-15</h2>
       <p class="r-range">2026-11-02 ~ 2026-11-15</p>
-      <p class="r-overview">这两周 AI4S 的主旋律是「从预测走向可执行、从单点走向闭环」：分子模拟侧集中解决尺寸一致性、时间一致性、自由能精度与 GPU 原生工具链，材料侧把可微基础模型、等变哈密顿量与大规模数据集串成逆向设计流水线，气候侧则把 AI 天气模型嵌入地球系统模型、用扩散模型做集合预报与降尺度。第一周以「方法补丁」为主——大量工作修补扩散模型、神经算子、MLIP 在物理一致性上的漏洞；第二周明显转向「系统集成」——出现覆盖元素周期表的通用力场、冻结 AI 天气模型驱动的千年地球系统模型、端到端自主药物发现系统与可执行论文环境。跨领域看，「可微 + 等变 + 基础模型」三件套正在成为通用底座，而「不确定性量化」与「基准建设」从配角升为主线。</p>
+      <p class="r-overview">这两周 AI4S 的主旋律是「从单点预测走向可执行、可逆推、可闭环」：分子模拟侧密集出现覆盖周期表、严格尺寸一致、在线自由能学习等「把 ML 势变成通用工具」的工作；材料侧则把可微基础模型、对称性约束生成、符号蒸馏串成逆向设计流水线。第一周以「通用性」为主——SO3LR 覆盖 85 种元素、能带网络覆盖 63 种元素、冻结 AI 天气模型拼成千年地球系统模型；第二周明显转向「可靠性与闭环」——扩散粗粒化力场补时间项监督、激发态势满足尺寸一致性、AI 科学家在 1000 个可执行论文环境上以 74% 概率超过人类、AutoDNA 把 AI 决策与多仪器自动化实验做成闭环。气候领域从「造大模型」转向「小模型+物理约束+实盘基准」，蛋白领域从「静态结构」转向「折叠路径、动态稳定性、对称组装」。整体看，评价体系（基准、不确定性、校准）的条目数明显上升，说明社区开始给前两年的生成式热潮补「可信度基础设施」。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -104,61 +104,61 @@
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2611.06237v1" target="_blank" rel="noopener">SO3LR Tauri: Generally Applicable Force Fields for Reactive (Bio)Molecular Simulations Covering the Periodic Table</a></h2>
-          <p>一个机器学习力场试图覆盖周期表 85 种元素，用同一套模型同时处理有机反应、蛋白质、核酸、膜和金属酶，无需按体系定制。</p>
+          <p>一个 ML 力场试图用同一套模型覆盖周期表 85 种元素，同时处理有机反应、蛋白质、核酸、膜和金属酶，无需按体系定制。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2611.11019v1" target="_blank" rel="noopener">Toward universal excited-state machine-learned potentials: a local excitation Hamiltonian for size consistency and transferability</a></h2>
-          <p>LEH-MACE 把激发态能量写成局部激发哈密顿量的本征值，让机器学习势首次严格满足尺寸一致性。</p>
+          <p>LEH-MACE 把激发态能量写成局部激发哈密顿量本征值，让 ML 势首次严格满足尺寸一致性，两分子远离时总激发态等于各自激发态之并。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2611.09572v1" target="_blank" rel="noopener">Inverse design of superconductors and semiconductors with differentiable foundation models</a></h2>
-          <p>把预训练晶体基础模型改造成可对元素种类与占位求梯度的版本，首次把超导与光伏材料逆向设计放进同一可微框架。</p>
+          <p>把预训练晶体基础模型改成对元素种类与占位可求梯度，让成分、原子数、坐标、晶格一起做梯度优化，首次把超导与光伏逆向设计放进同一可微框架。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2611.11070v1" target="_blank" rel="noopener">Learning Electronic Band Structures Across the s, p, d Blocks with an Empirical Pseudopotential Network</a></h2>
-          <p>用学出来的经验赝势网络直接输出完整能带结构，覆盖 s、p、d 区 63 种元素，绕开 DFT 自洽迭代。</p>
+          <p>学出来的经验赝势网络直接输出完整能带，覆盖 s、p、d 区 63 种元素，绕开 DFT 自洽迭代与「先预测哈密顿量再求解」的两段式流程。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2611.11066v1" target="_blank" rel="noopener">Rescene-ESM: an Earth system model built around a frozen AI weather model</a></h2>
-          <p>把冻结的 2080 万参数 AI 天气模型当作大气引擎，外接物理海洋、海冰、陆地、河流、碳与能量模块，拼成能跑千年的地球系统模型。</p>
+          <p>把冻结的 2080 万参数 AI 天气模型当大气引擎，外接物理海洋、海冰、陆地、河流、碳与能量模块，拼成能跑千年的地球系统模型。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2611.10882v1" target="_blank" rel="noopener">Guiding future global temperature distributions with simulations and observations</a></h2>
-          <p>用条件扩散模型同时学习 17 个 CMIP6 模型和 ERA5 观测，采样时用引导把模拟往观测拉，既纠偏又保留模型间差异。</p>
+          <h2><a href="https://arxiv.org/abs/2611.01614v1" target="_blank" rel="noopener">Sonny-ENS: demystifying machine-learning ensemble weather forecasting</a></h2>
+          <p>不到 3 块 GPU 天训练的小型集合预报模型，在 96% 指标上超过 ECMWF 业务集合预报，把高精度概率天气预报门槛拉到单台 GPU。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2611.10424v1" target="_blank" rel="noopener">Efficient and Accurate Zero Shot Generation of Symmetric Protein Complexes</a></h2>
-          <p>无需重新训练即可把任意预训练蛋白质骨架生成模型改造成对称复合物零样本生成器，首次生成超过 1 万个残基的对称组装体。</p>
+          <p>无需重训练即可把任意预训练蛋白骨架生成模型改造成对称复合物零样本生成器，首次生成超过 1 万个残基的对称组装体。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
-          <h2><a href="https://www.nature.com/articles/s41586-026-11210-2" target="_blank" rel="noopener">An open structure-guided RNA foundation model for generalizable prediction</a></h2>
-          <p>首个以结构为引导、在 2100 万条 RNA 序列-结构配对上预训练的开放 RNA 基础模型 structRFM，把 AlphaFold 式结构监督搬到 RNA。</p>
+          <h2><a href="https://arxiv.org/abs/2611.04287v2" target="_blank" rel="noopener">Predicting protein structures at any folding stage from sequence</a></h2>
+          <p>FoldScape 按折叠进度 Q 从序列直接采样任意阶段构象集合，无需推理时跑分子动力学，补上从松散链到近天然态的连续路径。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2611.07653v1" target="_blank" rel="noopener">PharmAgents2: Towards Autonomous End-to-End Drug Discovery</a></h2>
-          <p>把 AI 药物发现从单点工具推进到端到端自主系统，在三个真实项目里产出湿实验验证结果，包括一个此前未报道的变构位点。</p>
+          <p>把 AI 药物发现从单点工具推进到端到端自主系统，在三个真实项目产出湿实验验证结果，包括一个此前未报道的变构位点。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://github.com/AI4Science-WestlakeU/RealPDEBench" target="_blank" rel="noopener">AI4Science-WestlakeU/RealPDEBench</a></h2>
-          <p>ICLR26 Oral 论文发布 RealPDEBench，首个把真实实验测量与仿真数据成对配齐的复杂物理系统基准，直指 AI 求解 PDE 时仿真刷分的问题。</p>
+          <p>ICLR26 Oral 论文发布首个把真实实验测量与仿真数据成对配齐的复杂物理系统基准，直指 AI 求解 PDE 时「仿真刷分」的痛点。</p>
         </article>
         
         <article class="card">
@@ -170,7 +170,7 @@
         <article class="card">
           <span class="field">生物信息</span>
           <h2><a href="https://arxiv.org/abs/2611.08853v1" target="_blank" rel="noopener">Synchronized Optimal Transport Reconstructs Coupled Transcriptomic and Chromatin Dynamics</a></h2>
-          <p>首次把非平衡同步最优传输扩展到跨模态映射，让单细胞 RNA 和 ATAC 两种状态空间里的发育轨迹同步重建。</p>
+          <p>首次把非平衡同步最优传输扩展到跨模态映射，让单细胞 RNA 与 ATAC 两种状态空间里的发育轨迹同步重建，而非先压到同一表示再分析。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>跨周对比看，molsim 与 materials 仍是绝对主力（合计约 40 条），但重心从第一周的「单点方法修补」（扩散模型时间一致性、MLIP 不确定性、增强采样 GPU 化）明显转向第二周的「系统级集成」（覆盖 85 元素的通用反应力场、可微基础模型逆向设计、PaddleMaterials 统一工具包）。climate 从第一周偏「模式耦合与降尺度」转向第二周偏「集合预报与可解释性」（Sonny-ENS 用不到 3 块 GPU 天在 96% 指标上超过 ECMWF 业务集合；SAE 拆解地球观测基础模型），热度上升约 30%。protein 侧第一周以折叠路径与对称组装为主，第二周转向 RNA 基础模型与抗体强化学习，方向从「结构预测」扩展到「序列-结构-功能」全链条。ai4math 两周持续升温，RealPDEBench、Conformal Prediction for Time-Dependent PDEs、SSF-Net 等把「基准」与「不确定性」推成主线。新浮现方向：scifm 从第一周电网基础模型扩展到第二周「可执行论文环境」，drug 从表征质疑（On the limitations of molecular representations）转向端到端自主系统（PharmAgents2），bioinfo 出现跨模态最优传输这一新工具范式。</p>
+      <p>按条目数统计，molsim 从第一周约 18 条增至第二周约 20 条，仍是最大子领域，但重心从「新势函数」转向「势的可用性」：第一周 SO3LR 覆盖 85 元素、UMA 在 LAMMPS 跑通 NPT；第二周则出现扩散粗粒化力场补时间项监督、激发态势尺寸一致性、在线自由能学习 VESPER、GPU 原生 PLUMED-JAX 等「把模拟做对、做快」的工作。materials 从约 14 条降至约 12 条，但方向更集中：第一周以生成与筛选为主（双金属合金、对称性晶体生成），第二周转向可微逆向设计与电子结构基础模型（可微晶体基础模型、能带赝势网络、ROSE 交换关联泛函），「可微」出现频率明显上升。climate 从约 10 条增至约 12 条，且评价体系类条目增多：第一周多为预报模型（Sonny-ENS、洪水神经算子），第二周出现 EnergyBench 实盘基准、GeoSim 多场基准、稀疏自编码器可解释性，说明气候 AI 开始补「可信度基础设施」。protein 从约 8 条降至约 6 条，但主题从「静态结构预测」明显转向「动态与组装」：折叠路径 FoldScape、动态稳定性基准 BILBY-PRO、对称复合物零样本生成，静态回折不再是唯一卖点。drug 从约 5 条增至约 6 条，且从「表征质疑」走向「端到端系统」：第一周有《On the limitations of molecular representations》泼冷水，第二周 PharmAgents2 与 D2ML 直接给出湿实验验证的闭环。ai4math 从约 6 条增至约 8 条，新浮现「PDE 代理的不确定性量化」方向：Conformal Prediction for Time-Dependent PDEs 首次证明覆盖率随时间失效，RealPDEBench 则从数据侧质疑仿真刷分。scifm 与 bioinfo 条目数持平（各约 2-3 条），但 scifm 出现「论文即环境」的新形态（Scientist World），bioinfo 则从序列模型转向跨模态轨迹重建（MUSS、同步最优传输）。整体看，新浮现方向是「AI 科学家的可执行环境」与「代理模型的不确定性/基准」，前者两周内从 0 到 2 条（Scientist World、AutoDNA），后者从 2 条增至 5 条以上。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下两周重点跟踪三条线：一是「可微基础模型 + 等变表示」在材料与分子逆向设计中的落地速度，尤其是能否从单任务走向多目标联合优化；二是气候侧「冻结 AI 天气模型 + 物理模块」的耦合稳定性与千年积分表现，以及集合预报的小型化能否复现；三是 RealPDEBench、BILBY-PRO、FlowReconBench 等新基准能否推动「真实实验 vs 仿真刷分」的评估范式切换。</p>
+      <p>下两周重点跟踪两条线：一是「可微基础模型 + 逆向设计」能否从超导/光伏扩展到更多材料属性，并出现可复现的湿实验闭环；二是 PDE/气候代理模型的「不确定性量化与实盘基准」是否会形成统一评价协议，尤其是 RealPDEBench 与 EnergyBench 的后续采用情况。</p>
       
     </section>
     
