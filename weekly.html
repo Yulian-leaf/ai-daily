@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-11-10 15:39 (北京时间 UTC+8)
+      生成于 2026-11-10 17:37 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 11-09 ~ 11-15</h2>
       <p class="r-range">2026-11-09 ~ 2026-11-15</p>
-      <p class="r-overview">本期最鲜明的信号是「绕开传统计算瓶颈」：材料领域用学出来的经验赝势网络和随机传播方法，分别跳过 DFT 自洽迭代与声子全对角化；分子模拟则从尺寸一致性和时间一致性两个角度修补机器学习势的系统性偏差。气候地球方向继续把 AI 天气模型往地球系统模型和观测约束的集合生成上推，同时开始用稀疏自编码器拆解地球观测基础模型的可解释性。蛋白质与生物信息方向侧重零样本扩展和跨模态轨迹对齐，科学基础模型则把电网仿真从稳态推进到动态暂态。整体看，本期工作普遍强调「可计算的误差控制」和「不重训的复用」，而非单纯刷精度。</p>
+      <p class="r-overview">本期最鲜明的信号是「绕开传统求解器」：材料领域用学出来的经验赝势网络直接输出完整能带，用局部学习加随机传播绕开自洽迭代与矩阵对角化；气候领域把冻结的 AI 天气模型当作大气引擎拼成千年地球系统模型。与此同时，扩散模型与机器学习势开始补「物理一致性」的课——粗粒化力场补时间项监督，激发态势补尺寸一致性。逆向设计与可解释性也在推进：可微晶体基础模型把超导与光伏放进同一梯度框架，稀疏自编码器拆解地球观测嵌入。整体看，AI4S 正从「预测得更准」转向「算得更省、物理更对、还能反推设计」。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -144,12 +144,6 @@
         </article>
         
         <article class="card">
-          <span class="field">生物信息</span>
-          <h2><a href="https://arxiv.org/abs/2611.08853v1" target="_blank" rel="noopener">Synchronized Optimal Transport Reconstructs Coupled Transcriptomic and Chromatin Dynamics</a></h2>
-          <p>首次把「非平衡同步最优传输」扩展到跨模态映射，让单细胞 RNA 和 ATAC 两种不同状态空间里的发育轨迹能同步重建，而不是先压到同一个表示里再分析。</p>
-        </article>
-        
-        <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2611.08912v1" target="_blank" rel="noopener">SSF-Net: A Spatial-Spectral Fusion Network for Accurate PDE Operator Learning</a></h2>
           <p>用「空间+频谱」双分支网络同时捕捉偏微分方程的局部传播与全局耦合，在参数更少的情况下预测误差低于注意力/卷积基线，且复杂度接近线性。</p>
@@ -167,16 +161,28 @@
           <p>把电网基础模型从稳态分析扩展到动态仿真，首次实现跨电网迁移的暂态学习，单 GPU 比单核数值仿真器快 924–1232 倍。</p>
         </article>
         
+        <article class="card">
+          <span class="field">生物信息</span>
+          <h2><a href="https://arxiv.org/abs/2611.08853v1" target="_blank" rel="noopener">Synchronized Optimal Transport Reconstructs Coupled Transcriptomic and Chromatin Dynamics</a></h2>
+          <p>首次把「非平衡同步最优传输」扩展到跨模态映射，让单细胞 RNA 和 ATAC 两种不同状态空间里的发育轨迹能同步重建，而不是先压到同一个表示里再分析。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">气候地球</span>
+          <h2><a href="https://arxiv.org/abs/2611.11398v1" target="_blank" rel="noopener">Decomposing Earth Embeddings with Sparse Autoencoders</a></h2>
+          <p>首次把稀疏自编码器系统用于地球观测基础模型，提出适配卫星像素的评估协议，让原本不透明的全球米级嵌入变得可逐特征解读。</p>
+        </article>
+        
       </div>
       
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期「绕开迭代求解器」从电子结构蔓延到声子与激发态：材料方向连续出现经验赝势网络、随机传播声子、局部学习电子密度三条路线，分子模拟则把尺寸一致性和时间一致性作为机器学习势的硬约束来修补。气候方向从「训更大的 AI 天气模型」转向「把冻结模型拼成地球系统模型」和「用观测引导扩散模型生成集合」，并首次把稀疏自编码器用于地球观测基础模型的可解释性拆解。蛋白质零样本生成开始冲击万残基级对称组装体，科学基础模型则从稳态电网分析跨到动态暂态仿真。</p>
+      <p>与上一期相比，本期「绕开传统数值求解器」从单点尝试变成跨领域主线：材料端同时出现经验赝势直出能带、局部学习加随机传播绕开自洽迭代与对角化、随机传播搬到声子计算；气候端则把冻结 AI 天气模型嵌进地球系统模型。另一个新方向是「给生成模型补物理约束」：粗粒化扩散模型补时间项监督、激发态机器学习势补尺寸一致性、线性 ACE 势补保形误差棒，说明社区开始系统性地审计并修补 AI 模型的物理一致性，而不只是刷精度。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注：绕开自洽迭代的电子结构方法能否从能带扩展到力与声子并给出误差棒；以及冻结 AI 天气模型拼成的地球系统模型在千年尺度上的守恒性与漂移表现。</p>
+      <p>下期值得关注「可微基础模型 + 逆向设计」是否会从材料扩展到分子与气候参数反演，以及更多工作给生成式力场和 AI 天气模型补上严格的一致性约束与不确定性校准。</p>
       
     </section>
     
