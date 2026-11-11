@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-11-11 14:58 (北京时间 UTC+8)
+      生成于 2026-11-11 17:13 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,58 +95,46 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 11-09 ~ 11-15</h2>
       <p class="r-range">2026-11-09 ~ 2026-11-15</p>
-      <p class="r-overview">本期最鲜明的信号是「物理约束」与「闭环反馈」同时进入模型内部：AdjointFlow 把已知物理模型注入生成式传输，ProTEUS 把湿实验反馈接进蛋白质进化闭环，KC-Maps 用已知漂移/扩散系数替代轨迹积分。材料方向从「预测哈密顿量」转向「直接输出能带、声子、可微逆设计」，数据与基准建设（UniHam 10 万+样本）同步补齐。气候方向集中在绕开分辨率与算力瓶颈：One2N 递归精修到 0.07°、Rescene-ESM 用冻结天气模型拼出千年尺度地球系统模型。整体看，AI4S 正从「拟合数据」转向「嵌入物理 + 接入实验 + 压缩串行计算」。</p>
+      <p class="r-overview">本期最鲜明的信号是「世界模型」从蛋白质扩散到分子动力学与地球系统：ProTEUS 把定向进化做成闭环世界模型，OriDynamics 统一全原子构象集合生成，Rescene-ESM 用冻结 AI 天气模型拼出可跑千年的地球系统模型。第二条主线是「绕开昂贵求解器」：KC-Maps 把百万步 SDE 积分压成一次前向，随机传播方法把声子与 Kohn-Sham DFT 的对角化成本降为线性，经验赝势网络直接输出能带。第三条是数据与评测补课：UniHam 补上含自旋轨道耦合的大规模哈密顿量数据集，Jackknife-conformal 给原子势配上可校准误差棒。整体看，本期工作更强调「物理约束注入生成过程」与「可验证的闭环」，而非单纯堆参数。</p>
 
       
       <h3 class="sub">本期亮点</h3>
       <div class="cards">
         
         <article class="card">
-          <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2611.13389v1" target="_blank" rel="noopener">AdjointFlow: Accelerating Scientific Inverse Problems with Physics-Based Transport</a></h2>
-          <p>把已知物理模型直接注入生成式传输过程，逆问题重建比条件扩散更准，推理比传统 PnP 方法快最多五个数量级。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2611.08910v1" target="_blank" rel="noopener">Task-Contribution Dynamics of Adam in Physics-Informed Neural Networks</a></h2>
-          <p>用「任务贡献度」拆解 PINN 中各项损失的此消彼长，据此提出的 GMAdam 在多个 PDE 基准上稳定优于 Adam。</p>
-        </article>
-        
-        <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2611.13348v1" target="_blank" rel="noopener">ProTEUS: A mutation-resolved world model for closed-loop protein evolution</a></h2>
-          <p>潜空间预测突变后果 + 湿实验反馈迭代，两个真实酶工程案例均拿到比野生型高 10 倍以上活性的变体。</p>
+          <p>潜空间预测突变后果 + 湿实验反馈闭环，两个真实酶工程案例均拿到比野生型高 10 倍以上活性的变体。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
-          <h2><a href="https://arxiv.org/abs/2611.11997v1" target="_blank" rel="noopener">HyInv Technical Report</a></h2>
-          <p>腾讯混元用科研智能体 Hyra 2.0 训练出仅 196 万参数的逆折叠模型，在 5 个数据集、7 种组合上取得平均 scTM 领先。</p>
+          <h2><a href="https://arxiv.org/abs/2611.11958v1" target="_blank" rel="noopener">OriDynamics: Towards a World Model for Biomolecular Dynamics</a></h2>
+          <p>首个统一的全原子构象集合生成框架，同时覆盖蛋白单体、蛋白-小分子与蛋白-蛋白复合物，并显式建模分子间协同涨落。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2611.12880v1" target="_blank" rel="noopener">Kolmogorov-Chapman Maps: Trajectory-Free Learning for Simulating Molecular Dynamics</a></h2>
-          <p>只用无轨迹的边缘分布样本加已知漂移/扩散系数学出 SDE 转移核，把百万级串行积分压缩成一次网络前向。</p>
+          <p>仅用无轨迹的边缘分布样本加已知漂移/扩散系数学出 SDE 转移核，把百万级串行积分压缩成一次网络前向。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2611.12002v1" target="_blank" rel="noopener">SATE: Transferable Spin-Adapted Neural Wavefunctions</a></h2>
-          <p>把可迁移神经波函数、自旋适配反对称化与有效核势合进一个预训练模型，首次跨分子、跨电子态预测 3d 过渡金属自旋态能隙。</p>
+          <p>把可迁移神经波函数、自旋适配反对称化与有效核势合进一个预训练基础模型，首次跨分子、跨电子态预测 3d 过渡金属自旋态能隙与反应能。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2611.12509v1" target="_blank" rel="noopener">UniHam: A Large-Scale SOC-Complete Dataset and Benchmark for Hamiltonian Learning in Materials</a></h2>
-          <p>首个带完整自旋轨道耦合的大规模材料哈密顿量数据集，10 万+样本覆盖 72 种元素，填补材料基础模型的数据瓶颈。</p>
+          <p>首个带完整自旋轨道耦合的大规模材料哈密顿量数据集，10 万+ 样本覆盖 72 种元素，填补材料基础模型的数据瓶颈。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2611.09572v1" target="_blank" rel="noopener">Inverse design of superconductors and semiconductors with differentiable foundation models</a></h2>
-          <p>把预训练晶体基础模型改造成可对元素种类与占位求梯度的版本，首次把超导与光伏材料逆向设计放进同一可微框架。</p>
+          <h2><a href="https://arxiv.org/abs/2611.11544v1" target="_blank" rel="noopener">Overcoming speed-accuracy trade-offs with medium-sized interatomic potentials</a></h2>
+          <p>中等规模模型在可迁移精度上逼近大模型，推理速度比大模型快一个数量级以上，直接挑战「小模型快但不准、大模型准但慢」的取舍。</p>
         </article>
         
         <article class="card">
@@ -162,6 +150,18 @@
         </article>
         
         <article class="card">
+          <span class="field">AI4Math/PDE</span>
+          <h2><a href="https://arxiv.org/abs/2611.13389v1" target="_blank" rel="noopener">AdjointFlow: Accelerating Scientific Inverse Problems with Physics-Based Transport</a></h2>
+          <p>把已知物理模型直接注入生成式传输过程，重建比条件扩散更准，推理比传统 PnP 方法快最多五个数量级。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">AI4Math/PDE</span>
+          <h2><a href="https://arxiv.org/abs/2611.08910v1" target="_blank" rel="noopener">Task-Contribution Dynamics of Adam in Physics-Informed Neural Networks: Slow-Manifold Analysis and Gradient Modulation</a></h2>
+          <p>用「任务贡献度」指标拆解 PINN 训练中各项损失的此消彼长，据此提出 GMAdam，在多个 PDE 基准上稳定优于 Adam。</p>
+        </article>
+        
+        <article class="card">
           <span class="field">科学基础模型</span>
           <h2><a href="https://arxiv.org/abs/2611.08867v1" target="_blank" rel="noopener">Extending Grid Foundation Models for Phasor-Domain Dynamic Simulation</a></h2>
           <p>把电网基础模型从稳态扩展到动态仿真，首次实现跨电网迁移的暂态学习，单 GPU 比单核数值仿真器快 924–1232 倍。</p>
@@ -170,7 +170,7 @@
         <article class="card">
           <span class="field">生物信息</span>
           <h2><a href="https://arxiv.org/abs/2611.08853v1" target="_blank" rel="noopener">Synchronized Optimal Transport Reconstructs Coupled Transcriptomic and Chromatin Dynamics</a></h2>
-          <p>首次把非平衡同步最优传输扩展到跨模态映射，让单细胞 RNA 与 ATAC 两种状态空间中的发育轨迹同步重建。</p>
+          <p>首次把非平衡同步最优传输扩展到跨模态映射，让单细胞 RNA 与 ATAC 两种状态空间中的发育轨迹同步重建，而非先压到同一表示再分析。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期「物理先验进模型」从口号变成可计算组件：AdjointFlow 注入物理传输、KC-Maps 用已知漂移/扩散系数替代轨迹、LEH-MACE 用局部激发哈密顿量保证尺寸一致性。同时出现两条新线：一是「闭环实验」——ProTEUS 把湿实验反馈接进蛋白质进化；二是「压缩串行计算」——KC-Maps 一次前向替代百万步积分、随机传播把声子与 DFT 的对角化成本降到线性。材料方向则从预测哈密顿量转向直接输出能带/声子与可微逆设计，并伴随 UniHam 这类带完整 SOC 的大规模基准补齐数据短板。</p>
+      <p>与上一期相比，本期从「单点预测模型」明显转向「可闭环、可外推的世界模型」：蛋白质侧出现闭环进化与统一构象集合生成，地球系统侧出现以冻结天气模型为引擎的千年尺度 ESM。同时「绕开求解器」成为跨领域共同策略——KC-Maps 免轨迹学转移核、随机传播把声子与 DFT 对角化降为线性、经验赝势网络直出能带，三者都在削减传统数值管线的串行成本。另一个新动向是评测与不确定性补课：UniHam 补数据集、Jackknife-conformal 给原子势配可校准误差棒，说明社区开始为「可信 AI4S」铺基础设施。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注：物理约束生成模型在逆问题上的泛化边界，以及「世界模型 + 闭环实验」能否从酶工程复制到更广的蛋白与分子体系；同时留意可微基础模型在超导/光伏之外的材料逆设计扩展。</p>
+      <p>下期值得关注世界模型在湿实验闭环中的可复现性，以及免求解器方法能否从肽、硅等小体系推广到含重元素与强关联体系。</p>
       
     </section>
     

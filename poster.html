@@ -79,12 +79,12 @@
     <div class="brand">AI4S-DAILY</div>
     
     <h1 class="title">AI4S 周报 · 11-09 ~ 11-15</h1>
-    <p class="slogan">「物理入模，闭环进化」</p>
-    <p class="range">2026-11-09 ~ 2026-11-15 · 2026-11-11 14:58 (北京时间 UTC+8)</p>
+    <p class="slogan">「世界模型接管科学模拟」</p>
+    <p class="range">2026-11-09 ~ 2026-11-15 · 2026-11-11 17:13 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期最鲜明的信号是「物理约束」与「闭环反馈」同时进入模型内部：AdjointFlow 把已知物理模型注入生成式传输，ProTEUS 把湿实验反馈接进蛋白质进化闭环，KC-Maps 用已知漂移/扩散系数替代轨迹积分。材料方向从「预测哈密顿量」转向「直接输出能带、声子、可微逆设计」，数据与基准建设（UniHam 10 万+样本）同步补齐。气候方向集中在绕开分辨率与算力瓶颈：One2N 递归精修到 0.07°、Rescene-ESM 用冻结天气模型拼出千年尺度地球系统模型。整体看，AI4S 正从「拟合数据」转向「嵌入物理 + 接入实验 + 压缩串行计算」。</p>
+  <p class="overview">本期最鲜明的信号是「世界模型」从蛋白质扩散到分子动力学与地球系统：ProTEUS 把定向进化做成闭环世界模型，OriDynamics 统一全原子构象集合生成，Rescene-ESM 用冻结 AI 天气模型拼出可跑千年的地球系统模型。第二条主线是「绕开昂贵求解器」：KC-Maps 把百万步 SDE 积分压成一次前向，随机传播方法把声子与 Kohn-Sham DFT 的对角化成本降为线性，经验赝势网络直接输出能带。第三条是数据与评测补课：UniHam 补上含自旋轨道耦合的大规模哈密顿量数据集，Jackknife-conformal 给原子势配上可校准误差棒。整体看，本期工作更强调「物理约束注入生成过程」与「可验证的闭环」，而非单纯堆参数。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -176,12 +176,12 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期「物理先验进模型」从口号变成可计算组件：AdjointFlow 注入物理传输、KC-Maps 用已知漂移/扩散系数替代轨迹、LEH-MACE 用局部激发哈密顿量保证尺寸一致性。同时出现两条新线：一是「闭环实验」——ProTEUS 把湿实验反馈接进蛋白质进化；二是「压缩串行计算」——KC-Maps 一次前向替代百万步积分、随机传播把声子与 DFT 的对角化成本降到线性。材料方向则从预测哈密顿量转向直接输出能带/声子与可微逆设计，并伴随 UniHam 这类带完整 SOC 的大规模基准补齐数据短板。</p>
+  <p class="trend">与上一期相比，本期从「单点预测模型」明显转向「可闭环、可外推的世界模型」：蛋白质侧出现闭环进化与统一构象集合生成，地球系统侧出现以冻结天气模型为引擎的千年尺度 ESM。同时「绕开求解器」成为跨领域共同策略——KC-Maps 免轨迹学转移核、随机传播把声子与 DFT 对角化降为线性、经验赝势网络直出能带，三者都在削减传统数值管线的串行成本。另一个新动向是评测与不确定性补课：UniHam 补数据集、Jackknife-conformal 给原子势配可校准误差棒，说明社区开始为「可信 AI4S」铺基础设施。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">7355</span><small>抓取条目</small></div>
+      <div><span class="num">7360</span><small>抓取条目</small></div>
       <div><span class="num">510</span><small>总结</small></div>
       <div><span class="num">510</span><small>已上墙</small></div>
     </div>
@@ -196,7 +196,7 @@
       <div class="frow">
         <span class="flabel">💊 药物发现</span>
         <div class="fbar"><div class="fbar-fill" style="width: 10%"></div></div>
-        <b>43</b>
+        <b>45</b>
       </div>
       
       <div class="frow">
@@ -207,7 +207,7 @@
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 69%"></div></div>
+        <div class="fbar"><div class="fbar-fill" style="width: 68%"></div></div>
         <b>308</b>
       </div>
       
@@ -226,7 +226,7 @@
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>448</b>
+        <b>450</b>
       </div>
       
       <div class="frow">
