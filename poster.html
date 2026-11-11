@@ -79,12 +79,12 @@
     <div class="brand">AI4S-DAILY</div>
     
     <h1 class="title">AI4S 周报 · 11-09 ~ 11-15</h1>
-    <p class="slogan">「绕开迭代，直出能带与气候」</p>
-    <p class="range">2026-11-09 ~ 2026-11-15 · 2026-11-10 17:37 (北京时间 UTC+8)</p>
+    <p class="slogan">「物理入模，闭环成真」</p>
+    <p class="range">2026-11-09 ~ 2026-11-15 · 2026-11-11 10:38 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期最鲜明的信号是「绕开传统求解器」：材料领域用学出来的经验赝势网络直接输出完整能带，用局部学习加随机传播绕开自洽迭代与矩阵对角化；气候领域把冻结的 AI 天气模型当作大气引擎拼成千年地球系统模型。与此同时，扩散模型与机器学习势开始补「物理一致性」的课——粗粒化力场补时间项监督，激发态势补尺寸一致性。逆向设计与可解释性也在推进：可微晶体基础模型把超导与光伏放进同一梯度框架，稀疏自编码器拆解地球观测嵌入。整体看，AI4S 正从「预测得更准」转向「算得更省、物理更对、还能反推设计」。</p>
+  <p class="overview">本期最鲜明的信号是「物理约束」与「闭环反馈」同时进入模型内部：AdjointFlow 把已知物理模型注入生成式传输，ProTEUS 用湿实验反馈驱动蛋白质进化，KC-Maps 用已知漂移/扩散系数替代轨迹采样。与此同时，科学基础模型开始从「预训练一次」走向「可微、可迁移、可精修」：UniHam 补上 SOC 完整的大规模哈密顿量数据，SATE 让神经波函数跨分子跨自旋态迁移，One2N 用递归精修绕开分辨率算力爆炸。效率侧同样密集：中等规模势函数挑战「大即准」的取舍，随机传播把声子计算从三次方降到线性，电网基础模型把动态仿真加速三个数量级。整体看，本期不是单点刷榜，而是「把物理先验、实验闭环、可微优化」三条线同时拧进科学计算管线。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -95,8 +95,8 @@
       <span class="field">🧬 蛋白质/结构</span>
       <span class="score">8.0</span>
     </div>
-    <h3>Efficient and Accurate Zero Shot Generation of Symmetric Protein Complexes</h3>
-    <p>无需重新训练，就能把任意预训练的蛋白质骨架生成模型改造成对称复合物的零样本生成器，并首次生成超过1万个残基的对称组装体，规模远超以往。</p>
+    <h3>ProTEUS: A mutation-resolved world model for closed-loop protein evolution</h3>
+    <p>把蛋白质定向进化做成「世界模型 + 闭环实验」：模型在潜空间里预测突变后果，再用湿实验反馈迭代，两个真实酶工程案例都拿到比野生型高 10 倍以上的活性变体。</p>
   </div>
   
   <div class="hl">
@@ -104,8 +104,8 @@
       <span class="field">⚛️ 分子模拟</span>
       <span class="score">8.0</span>
     </div>
-    <h3>Toward universal excited-state machine-learned potentials: a local excitation Hamiltonian for size consistency and transferability</h3>
-    <p>提出 LEH-MACE，把激发态能量写成「局部激发哈密顿量」的本征值，从而让机器学习势首次严格满足尺寸一致性——两个分子离得远时，总激发态就是各自激发态的并集，…</p>
+    <h3>Autonomous Optimization of Numerical Algorithms by an AI Agent: Application to Atomistic Simulation</h3>
+    <p>让大模型编码智能体在不可篡改的验证器监督下，自动改写原子模拟库 ASE 的数值算法，既提速实现又改进方法本身，并发现文献中没有的算法组件。</p>
   </div>
   
   <div class="hl">
@@ -113,8 +113,8 @@
       <span class="field">🧪 材料科学</span>
       <span class="score">8.0</span>
     </div>
-    <h3>Learning Electronic Band Structures Across the s, p, d Blocks with an Empirical Pseudopotential Network</h3>
-    <p>用一个「学出来的经验赝势网络」直接输出完整能带结构，覆盖 s、p、d 区 63 种元素，绕开 DFT 自洽迭代，也绕开「先预测哈密顿量再交给 DFT 求解器」的…</p>
+    <h3>UniHam: A Large-Scale SOC-Complete Dataset and Benchmark for Hamiltonian Learning in Materials</h3>
+    <p>首个带完整自旋轨道耦合（SOC，影响重元素电子行为的关键物理效应）的大规模材料哈密顿量数据集，10万+样本覆盖72种元素，填补了材料基础模型的数据瓶颈。</p>
   </div>
   
   <div class="hl">
@@ -122,17 +122,17 @@
       <span class="field">🌍 气候地球</span>
       <span class="score">8.0</span>
     </div>
-    <h3>Rescene-ESM: an Earth system model built around a frozen AI weather model</h3>
-    <p>把冻结的 2080 万参数 AI 天气模型当作大气引擎，外接物理海洋、海冰、陆地、河流、碳与能量模块，拼成一个能跑千年的地球系统模型，首次让 AI 天气模型把气…</p>
+    <h3>One2N: Recursive refinement breaks the resolution barrier for Earth-system AI</h3>
+    <p>把已有粗分辨率地球系统 AI 模型逐级「递归精修」到 0.07°，单张 80GB GPU 就能训练，绕开分辨率翻倍带来的算力爆炸。</p>
   </div>
   
   <div class="hl">
     <div class="hl-head">
-      <span class="field">🌍 气候地球</span>
+      <span class="field">📐 AI4Math/PDE</span>
       <span class="score">8.0</span>
     </div>
-    <h3>Guiding future global temperature distributions with simulations and observations</h3>
-    <p>用一个条件扩散模型同时学习17个CMIP6气候模型和ERA5观测，在采样时用「引导」把模拟结果往观测拉，既纠正偏差又保留模型间差异，还能免跑模拟生成大样本集合。</p>
+    <h3>AdjointFlow: Accelerating Scientific Inverse Problems with Physics-Based Transport</h3>
+    <p>把已知物理模型直接注入生成式传输过程，让科学逆问题（从观测反推内部结构）的重建既准又快：比条件扩散模型更准，推理比传统 PnP 方法快最多五个数量级。</p>
   </div>
   
   <div class="hl">
@@ -140,17 +140,17 @@
       <span class="field">⚛️ 分子模拟</span>
       <span class="score">8.0</span>
     </div>
-    <h3>Spatiotemporal Energy Consistency Enables Reliable Coarse-Grained Molecular Dynamics from Diffusion Models</h3>
-    <p>指出扩散模型学到的粗粒化力场存在「空间对、时间错」的系统性偏差，并给出可精确计算的时间项监督，让粗粒化分子动力学首次在肽和蛋白上达到化学精度级别的自由能误差。</p>
+    <h3>Kolmogorov-Chapman Maps: Trajectory-Free Learning for Simulating Molecular Dynamics</h3>
+    <p>提出 KC-Maps：只用「无轨迹」的边缘分布样本加已知漂移/扩散系数，就能学出随机微分方程（SDE）的转移核，把百万级串行积分压缩成一次网络前向，在肽分子体系…</p>
   </div>
   
   <div class="hl">
     <div class="hl-head">
-      <span class="field">📐 AI4Math/PDE</span>
-      <span class="score">7.0</span>
+      <span class="field">⚛️ 分子模拟</span>
+      <span class="score">8.0</span>
     </div>
-    <h3>SSF-Net: A Spatial-Spectral Fusion Network for Accurate PDE Operator Learning</h3>
-    <p>用「空间+频谱」双分支网络同时捕捉偏微分方程（PDE）的局部传播与全局耦合，在参数更少的情况下预测误差低于注意力/卷积基线，且复杂度接近线性。</p>
+    <h3>SATE: Transferable Spin-Adapted Neural Wavefunctions</h3>
+    <p>把「可迁移神经波函数」「自旋适配反对称化」和「有效核势」三件事合进一个预训练基础模型，首次让神经波函数能跨分子、跨电子态预测 3d 过渡金属的自旋态能隙与反应能…</p>
   </div>
   
   <div class="hl">
@@ -176,63 +176,63 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期「绕开传统数值求解器」从单点尝试变成跨领域主线：材料端同时出现经验赝势直出能带、局部学习加随机传播绕开自洽迭代与对角化、随机传播搬到声子计算；气候端则把冻结 AI 天气模型嵌进地球系统模型。另一个新方向是「给生成模型补物理约束」：粗粒化扩散模型补时间项监督、激发态机器学习势补尺寸一致性、线性 ACE 势补保形误差棒，说明社区开始系统性地审计并修补 AI 模型的物理一致性，而不只是刷精度。</p>
+  <p class="trend">与上一期相比，本期从「单点模型刷指标」转向「把物理先验、实验闭环、可微优化拧进管线」：AdjointFlow、KC-Maps、LEH-MACE 都在把已知物理结构写进生成或学习过程；ProTEUS 把湿实验反馈接进世界模型闭环；UniHam、SATE、One2N 则显示科学基础模型开始补数据、补迁移、补精修。另一个新方向是「效率优先」的再平衡：中等规模势函数、随机传播声子、电网基础模型都在用更少算力换可用精度，而不是一味堆大模型。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">7159</span><small>抓取条目</small></div>
-      <div><span class="num">500</span><small>总结</small></div>
-      <div><span class="num">500</span><small>已上墙</small></div>
+      <div><span class="num">7260</span><small>抓取条目</small></div>
+      <div><span class="num">510</span><small>总结</small></div>
+      <div><span class="num">510</span><small>已上墙</small></div>
     </div>
     <div class="fields">
       
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 14%"></div></div>
-        <b>60</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 12%"></div></div>
+        <b>61</b>
       </div>
       
       <div class="frow">
         <span class="flabel">💊 药物发现</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 10%"></div></div>
-        <b>43</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 9%"></div></div>
+        <b>44</b>
       </div>
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 51%"></div></div>
-        <b>223</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 46%"></div></div>
+        <b>226</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 74%"></div></div>
-        <b>322</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 68%"></div></div>
+        <b>331</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 36%"></div></div>
-        <b>158</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 35%"></div></div>
+        <b>170</b>
       </div>
       
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 33%"></div></div>
-        <b>145</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 32%"></div></div>
+        <b>157</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>436</b>
+        <b>489</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 33%"></div></div>
-        <b>143</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 31%"></div></div>
+        <b>153</b>
       </div>
       
     </div>
