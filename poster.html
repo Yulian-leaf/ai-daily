@@ -79,12 +79,12 @@
     <div class="brand">AI4S-DAILY</div>
     
     <h1 class="title">AI4S 周报 · 11-09 ~ 11-15</h1>
-    <p class="slogan">「物理入模，闭环成真」</p>
-    <p class="range">2026-11-09 ~ 2026-11-15 · 2026-11-11 10:38 (北京时间 UTC+8)</p>
+    <p class="slogan">「物理入模，闭环进化」</p>
+    <p class="range">2026-11-09 ~ 2026-11-15 · 2026-11-11 14:58 (北京时间 UTC+8)</p>
     
   </div>
 
-  <p class="overview">本期最鲜明的信号是「物理约束」与「闭环反馈」同时进入模型内部：AdjointFlow 把已知物理模型注入生成式传输，ProTEUS 用湿实验反馈驱动蛋白质进化，KC-Maps 用已知漂移/扩散系数替代轨迹采样。与此同时，科学基础模型开始从「预训练一次」走向「可微、可迁移、可精修」：UniHam 补上 SOC 完整的大规模哈密顿量数据，SATE 让神经波函数跨分子跨自旋态迁移，One2N 用递归精修绕开分辨率算力爆炸。效率侧同样密集：中等规模势函数挑战「大即准」的取舍，随机传播把声子计算从三次方降到线性，电网基础模型把动态仿真加速三个数量级。整体看，本期不是单点刷榜，而是「把物理先验、实验闭环、可微优化」三条线同时拧进科学计算管线。</p>
+  <p class="overview">本期最鲜明的信号是「物理约束」与「闭环反馈」同时进入模型内部：AdjointFlow 把已知物理模型注入生成式传输，ProTEUS 把湿实验反馈接进蛋白质进化闭环，KC-Maps 用已知漂移/扩散系数替代轨迹积分。材料方向从「预测哈密顿量」转向「直接输出能带、声子、可微逆设计」，数据与基准建设（UniHam 10 万+样本）同步补齐。气候方向集中在绕开分辨率与算力瓶颈：One2N 递归精修到 0.07°、Rescene-ESM 用冻结天气模型拼出千年尺度地球系统模型。整体看，AI4S 正从「拟合数据」转向「嵌入物理 + 接入实验 + 压缩串行计算」。</p>
 
   
   <h2 class="sec">Top 亮点</h2>
@@ -176,12 +176,12 @@
 
   
   <h2 class="sec">趋势</h2>
-  <p class="trend">与上一期相比，本期从「单点模型刷指标」转向「把物理先验、实验闭环、可微优化拧进管线」：AdjointFlow、KC-Maps、LEH-MACE 都在把已知物理结构写进生成或学习过程；ProTEUS 把湿实验反馈接进世界模型闭环；UniHam、SATE、One2N 则显示科学基础模型开始补数据、补迁移、补精修。另一个新方向是「效率优先」的再平衡：中等规模势函数、随机传播声子、电网基础模型都在用更少算力换可用精度，而不是一味堆大模型。</p>
+  <p class="trend">与上一期相比，本期「物理先验进模型」从口号变成可计算组件：AdjointFlow 注入物理传输、KC-Maps 用已知漂移/扩散系数替代轨迹、LEH-MACE 用局部激发哈密顿量保证尺寸一致性。同时出现两条新线：一是「闭环实验」——ProTEUS 把湿实验反馈接进蛋白质进化；二是「压缩串行计算」——KC-Maps 一次前向替代百万步积分、随机传播把声子与 DFT 的对角化成本降到线性。材料方向则从预测哈密顿量转向直接输出能带/声子与可微逆设计，并伴随 UniHam 这类带完整 SOC 的大规模基准补齐数据短板。</p>
   
 
   <div class="stats">
     <div class="nums">
-      <div><span class="num">7260</span><small>抓取条目</small></div>
+      <div><span class="num">7355</span><small>抓取条目</small></div>
       <div><span class="num">510</span><small>总结</small></div>
       <div><span class="num">510</span><small>已上墙</small></div>
     </div>
@@ -189,50 +189,50 @@
       
       <div class="frow">
         <span class="flabel">🧬 蛋白质/结构</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 12%"></div></div>
-        <b>61</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 13%"></div></div>
+        <b>58</b>
       </div>
       
       <div class="frow">
         <span class="flabel">💊 药物发现</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 9%"></div></div>
-        <b>44</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 10%"></div></div>
+        <b>43</b>
       </div>
       
       <div class="frow">
         <span class="flabel">⚛️ 分子模拟</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 46%"></div></div>
-        <b>226</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 51%"></div></div>
+        <b>228</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧪 材料科学</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 68%"></div></div>
-        <b>331</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 69%"></div></div>
+        <b>308</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🌍 气候地球</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 35%"></div></div>
-        <b>170</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 36%"></div></div>
+        <b>161</b>
       </div>
       
       <div class="frow">
         <span class="flabel">📐 AI4Math/PDE</span>
-        <div class="fbar"><div class="fbar-fill" style="width: 32%"></div></div>
-        <b>157</b>
+        <div class="fbar"><div class="fbar-fill" style="width: 33%"></div></div>
+        <b>147</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧠 科学基础模型</span>
         <div class="fbar"><div class="fbar-fill" style="width: 100%"></div></div>
-        <b>489</b>
+        <b>448</b>
       </div>
       
       <div class="frow">
         <span class="flabel">🧫 生物信息</span>
         <div class="fbar"><div class="fbar-fill" style="width: 31%"></div></div>
-        <b>153</b>
+        <b>141</b>
       </div>
       
     </div>

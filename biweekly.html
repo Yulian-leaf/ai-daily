@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="weekly.html">周报 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-11-11 10:38 (北京时间 UTC+8)
+      生成于 2026-11-11 14:58 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 双周报告 · 11-02 ~ 11-15</h2>
       <p class="r-range">2026-11-02 ~ 2026-11-15</p>
-      <p class="r-overview">这两周 AI4S 的主旋律是「闭环化」与「世界模型化」：蛋白质领域出现 ProTEUS 这类把潜空间预测与湿实验反馈串成闭环的工作，OriDynamics 则直接以「生物分子世界模型」为名统一全原子构象生成；分子模拟侧，SO3LR Tauri 试图用一套力场覆盖 85 种元素，SATE 让神经波函数跨分子迁移，方向从「单体系高精度」转向「跨体系可迁移」。第一周以方法学补丁为主（如 Shadow MD、PLUMED-JAX、WASABI 等采样与工程优化），第二周明显转向「系统级整合」：Rescene-ESM 把冻结 AI 天气模型拼成千年地球系统模型，Scientist World 把论文变成可执行环境，PharmAgents2 把药物发现做成端到端自主系统。量化上看，蛋白质条目从第一周的十余条略降至第二周中段，但质量上升（Nature 正刊两篇）；材料侧哈密顿量数据集密集出现（UniHam 10 万+、MP-HAM-110K 11 万），气候侧则从「预报精度」转向「系统耦合与可解释」。</p>
+      <p class="r-overview">这两周 AI4S 的主旋律是「闭环化」与「世界模型化」：蛋白质领域出现 ProTEUS 这类把潜空间预测与湿实验反馈串成闭环的定向进化框架，OriDynamics 则把全原子构象集合生成统一到单一框架，指向「生物分子世界模型」；分子模拟领域 SO3LR Tauri 试图用一套力场覆盖 85 种元素，SATE 让神经波函数跨分子迁移，KC-Maps 把百万级串行积分压成一次前向。第一周以「工具链与基准补齐」为主（RealPDEBench、Fracture-Bench、FlowReconBench、USearchMolecules 等密集出现），第二周明显转向「闭环系统与基础模型改造」：ProTEUS、AutoDNA、PharmAgents2、Scientist World 等把 AI 从单点预测推进到「假设—实验—反馈」的自主循环，同时 Rescene-ESM、One2N 等把冻结的 AI 天气模型改造成可长期积分的地球系统组件。整体看，评价体系也在同步收紧——BILBY-PRO 拆开静态回折与动态稳定性、RealPDEBench 直指仿真刷分，说明社区开始为「闭环可信度」补基础设施。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -103,7 +103,7 @@
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
-          <h2><a href="https://arxiv.org/abs/2611.13348v1" target="_blank" rel="noopener">ProTEUS: mutation-resolved world model for closed-loop protein evolution</a></h2>
+          <h2><a href="https://arxiv.org/abs/2611.13348v1" target="_blank" rel="noopener">ProTEUS: A mutation-resolved world model for closed-loop protein evolution</a></h2>
           <p>潜空间预测突变后果 + 湿实验反馈迭代，两个真实酶工程案例均拿到比野生型高 10 倍以上活性的变体。</p>
         </article>
         
@@ -115,7 +115,7 @@
         
         <article class="card">
           <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2611.06237v1" target="_blank" rel="noopener">SO3LR Tauri: Generally Applicable Force Fields Covering the Periodic Table</a></h2>
+          <h2><a href="https://arxiv.org/abs/2611.06237v1" target="_blank" rel="noopener">SO3LR Tauri: Generally Applicable Force Fields for Reactive (Bio)Molecular Simulations Covering the Periodic Table</a></h2>
           <p>一套神经网络力场覆盖 85 种元素，同一模型处理有机反应、蛋白质、核酸、膜与金属酶，无需按体系定制。</p>
         </article>
         
@@ -127,14 +127,14 @@
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2611.12509v1" target="_blank" rel="noopener">UniHam: Large-Scale SOC-Complete Dataset for Hamiltonian Learning</a></h2>
-          <p>首个带完整自旋轨道耦合的大规模材料哈密顿量数据集，10 万+ 样本覆盖 72 种元素，填补材料基础模型数据瓶颈。</p>
+          <h2><a href="https://arxiv.org/abs/2611.12509v1" target="_blank" rel="noopener">UniHam: A Large-Scale SOC-Complete Dataset and Benchmark for Hamiltonian Learning in Materials</a></h2>
+          <p>首个带完整自旋轨道耦合的大规模材料哈密顿量数据集，10 万+ 样本覆盖 72 种元素，填补材料基础模型的数据瓶颈。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2611.09572v1" target="_blank" rel="noopener">Inverse design of superconductors and semiconductors with differentiable foundation models</a></h2>
-          <p>把预训练晶体基础模型改造成对元素种类与占位可求梯度的版本，首次把超导与光伏材料逆向设计放进同一可微框架。</p>
+          <p>把预训练晶体基础模型改造成可对元素种类与占位求梯度的版本，首次把超导与光伏材料逆向设计放进同一可微框架。</p>
         </article>
         
         <article class="card">
@@ -157,20 +157,20 @@
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://github.com/AI4Science-WestlakeU/RealPDEBench" target="_blank" rel="noopener">RealPDEBench: paired real-experiment and simulation benchmark</a></h2>
-          <p>ICLR26 Oral，首个把真实实验测量与仿真数据成对配齐的复杂物理系统基准，直指 AI 求解 PDE 时「仿真刷分、现实失效」的痛点。</p>
+          <h2><a href="https://github.com/AI4Science-WestlakeU/RealPDEBench" target="_blank" rel="noopener">AI4Science-WestlakeU/RealPDEBench</a></h2>
+          <p>ICLR26 Oral 论文发布首个把真实实验测量与仿真数据成对配齐的复杂物理系统基准，直指 AI 求解 PDE 时仿真刷分的问题。</p>
         </article>
         
         <article class="card">
           <span class="field">科学基础模型</span>
           <h2><a href="https://arxiv.org/abs/2611.08478v1" target="_blank" rel="noopener">Scientist World: Grow a Research World for AI-Scientists</a></h2>
-          <p>把每篇论文变成可执行环境，首批 1000 个环境上前沿 AI 已有 74% 概率超过人类研究者。</p>
+          <p>把每篇论文变成可执行环境，让 AI 科学家与人类作者同台竞技；首批 1000 个环境上前沿 AI 已有 74% 概率超过人类研究者。</p>
         </article>
         
         <article class="card">
-          <span class="field">药物发现</span>
-          <h2><a href="https://arxiv.org/abs/2611.07653v1" target="_blank" rel="noopener">PharmAgents2: Towards Autonomous End-to-End Drug Discovery</a></h2>
-          <p>端到端自主系统自己提假设、筛化合物、选靶点，三个真实项目产出湿实验验证结果，含一个此前未报道的变构位点。</p>
+          <span class="field">生物信息</span>
+          <h2><a href="https://arxiv.org/abs/2611.08853v1" target="_blank" rel="noopener">Synchronized Optimal Transport Reconstructs Coupled Transcriptomic and Chromatin Dynamics</a></h2>
+          <p>首次把非平衡同步最优传输扩展到跨模态映射，让单细胞 RNA 与 ATAC 两种状态空间里的发育轨迹同步重建。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>跨周对比看三条线：其一，蛋白质从「结构预测」转向「动力学与世界模型」，第一周 FoldScape 还在补折叠路径，第二周 OriDynamics 与 ProTEUS 已把目标抬到构象集合与闭环进化，且 Nature 正刊连发 AutoDNA 与 structRFM，说明该领域正从 arXiv 预印本向顶刊工程化落地迁移。其二，分子模拟热度持续但重心偏移：第一周以采样与工程优化为主（PLUMED-JAX、WASABI、Shadow MD、VESPER 等约 8 条），第二周转向「通用可迁移」（SO3LR Tauri 覆盖 85 元素、SATE 跨分子波函数、KC-Maps 无轨迹学习），方法学补丁类条目占比从约六成降至四成。其三，材料侧哈密顿量数据集成密集出现（UniHam 10 万+、MP-HAM-110K 11 万、SOC 完整），两周内至少 4 条，明显是「数据先行、模型跟进」的布局期；气候侧则从第一周的预报精度竞赛（Sonny-ENS、PROLA、洪水神经算子）转向第二周的系统耦合与可解释（Rescene-ESM、One2N、SAE 分解地球嵌入），方向性判断是「单点预报趋于饱和，系统级整合刚起步」。新浮现方向是「AI 科学家基础设施」：Scientist World、Hyra 2.0/HyInv、PharmAgents2 两周内三条，且都强调可执行环境与闭环验证。</p>
+      <p>跨周对比看，molsim 仍是绝对主力（两周合计约 30 条），但内部重心从第一周的「采样与增强工具链」（PLUMED-JAX、WASABI、VESPER、Shadow MD 等）转向第二周的「可迁移基础势与波函数」（SO3LR Tauri、SATE、LEH-MACE、KC-Maps），说明社区在补齐采样工具后开始攻「一套模型跨体系」的泛化问题。protein 从第一周约 6 条增至第二周约 8 条，且形态明显变化：第一周以结构预测与生成（FoldScape、对称复合物零样本生成、structRFM）为主，第二周转向闭环与动力学世界模型（ProTEUS、OriDynamics、AutoDNA、iGC），「湿实验反馈」出现频次从 0 升至 3 条。materials 两周均维持约 12 条的高位，但第一周偏数据集与基准（UniHam、MP-HAM-110K、Fracture-Bench），第二周偏可微逆向设计与可解释性（可微基础模型逆向设计、Graph Symbolic Distillation、Spectral symmetry fingerprints）。climate 从第一周约 5 条增至第二周约 7 条，且出现「冻结 AI 天气模型 + 物理模块拼装地球系统」（Rescene-ESM）与「递归精修破分辨率壁垒」（One2N）两条路线并进。ai4math 热度基本持平（两周各约 6 条），但第二周出现 RealPDEBench 这类「真实实验配对」基准与 AdjointFlow 这类物理注入生成模型，评价与建模同时收紧。scifm 与 bioinfo 条目数少但方向新：scifm 从电网基础模型扩展到动态仿真，bioinfo 从单模态走向跨模态同步传输。新浮现方向是「AI 科学家可执行环境」（Scientist World）与「闭环自主实验室」（AutoDNA、PharmAgents2），两周内合计 4 条，此前日报中未见同密度出现。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下两周重点跟踪两条线：一是「世界模型 + 闭环实验」能否从个案走向可复现流程（ProTEUS、OriDynamics、PharmAgents2 的后续验证），二是材料哈密顿量数据集爆发后是否紧接着出现跨数据集泛化的基础模型。</p>
+      <p>下两周重点跟踪两条线：一是「闭环系统」能否给出可复现的湿实验闭环指标（ProTEUS、AutoDNA、PharmAgents2 的后续验证），二是「冻结基础模型 + 物理模块」拼装路线（Rescene-ESM、One2N）在长期积分稳定性上的表现。</p>
       
     </section>
     
