@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-11-11 17:13 (北京时间 UTC+8)
+      生成于 2026-11-12 11:41 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,46 +95,64 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 11-09 ~ 11-15</h2>
       <p class="r-range">2026-11-09 ~ 2026-11-15</p>
-      <p class="r-overview">本期最鲜明的信号是「世界模型」从蛋白质扩散到分子动力学与地球系统：ProTEUS 把定向进化做成闭环世界模型，OriDynamics 统一全原子构象集合生成，Rescene-ESM 用冻结 AI 天气模型拼出可跑千年的地球系统模型。第二条主线是「绕开昂贵求解器」：KC-Maps 把百万步 SDE 积分压成一次前向，随机传播方法把声子与 Kohn-Sham DFT 的对角化成本降为线性，经验赝势网络直接输出能带。第三条是数据与评测补课：UniHam 补上含自旋轨道耦合的大规模哈密顿量数据集，Jackknife-conformal 给原子势配上可校准误差棒。整体看，本期工作更强调「物理约束注入生成过程」与「可验证的闭环」，而非单纯堆参数。</p>
+      <p class="r-overview">本期最鲜明的信号是「闭环」：蛋白质定向进化、原子模拟算法优化、虚拟筛选全流程都开始把模型预测与实验/验证器反馈接成回路，而不是单点预测。基础模型继续向「世界模型」形态演进，蛋白-配体相互作用、生物分子动力学、地球系统都出现了可迭代、可外接物理模块的统一框架。与此同时，一批工作用中等规模模型、递归精修、随机传播等手段正面拆解「精度-速度」取舍，把成本压到单卡可训练、线性复杂度。数据侧也在补课：首个 SOC 完整材料哈密顿量数据集、可解释地球嵌入、诚实误差棒，说明社区开始认真对待「基础模型吃什么、信多少」。</p>
 
       
       <h3 class="sub">本期亮点</h3>
       <div class="cards">
         
         <article class="card">
-          <span class="field">蛋白质/结构</span>
-          <h2><a href="https://arxiv.org/abs/2611.13348v1" target="_blank" rel="noopener">ProTEUS: A mutation-resolved world model for closed-loop protein evolution</a></h2>
-          <p>潜空间预测突变后果 + 湿实验反馈闭环，两个真实酶工程案例均拿到比野生型高 10 倍以上活性的变体。</p>
+          <span class="field">生物信息</span>
+          <h2><a href="https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/" target="_blank" rel="noopener">AlphaGenome 2: Deciphering how cells read DNA to better understand disease</a></h2>
+          <p>把「DNA 序列如何被特定细胞读取」做成可预测模型，可直接评估变异对具体细胞类型和疾病的影响，推进非编码变异致病机制解读。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
-          <h2><a href="https://arxiv.org/abs/2611.11958v1" target="_blank" rel="noopener">OriDynamics: Towards a World Model for Biomolecular Dynamics</a></h2>
-          <p>首个统一的全原子构象集合生成框架，同时覆盖蛋白单体、蛋白-小分子与蛋白-蛋白复合物，并显式建模分子间协同涨落。</p>
+          <h2><a href="https://arxiv.org/abs/2611.13348v1" target="_blank" rel="noopener">ProTEUS: A mutation-resolved world model for closed-loop protein evolution</a></h2>
+          <p>把定向进化做成「世界模型 + 湿实验闭环」，两个真实酶工程案例均获得比野生型活性高 10 倍以上的变体。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">蛋白质/结构</span>
+          <h2><a href="https://arxiv.org/abs/2611.14504v1" target="_blank" rel="noopener">Emergent Biological Capabilities in a Foundation Model for Molecular Interactions</a></h2>
+          <p>仅用蛋白-配体序列、无结构坐标、无任务监督训练，最大规模时零样本涌现机制判断、结合位点定位、共价/非共价区分三种能力。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">药物发现</span>
+          <h2><a href="https://arxiv.org/abs/2611.14511v1" target="_blank" rel="noopener">Pyrite: Building and Benchmarking Protein-Ligand Pose Ranking Agents</a></h2>
+          <p>1500 对蛋白-配体构象成对排序基准：专家化学家仅接近随机水平，LLM 智能体最高达 74% 准确率。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">药物发现</span>
+          <h2><a href="https://arxiv.org/abs/2611.14287v1" target="_blank" rel="noopener">ANTIOCH-VS: From Sequence to Hits with Modular, Open-Source Ensemble Virtual Screening</a></h2>
+          <p>开源虚拟筛选框架把「蛋白序列到候选分子短名单」打包成一条命令，无需配体结合晶体结构即可跑完整个筛选战役。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2611.13143v1" target="_blank" rel="noopener">Autonomous Optimization of Numerical Algorithms by an AI Agent: Application to Atomistic Simulation</a></h2>
+          <p>大模型编码智能体在不可篡改验证器监督下自动改写 ASE 数值算法，既提速实现又改进方法本身，并发现文献中没有的算法组件。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2611.12880v1" target="_blank" rel="noopener">Kolmogorov-Chapman Maps: Trajectory-Free Learning for Simulating Molecular Dynamics</a></h2>
-          <p>仅用无轨迹的边缘分布样本加已知漂移/扩散系数学出 SDE 转移核，把百万级串行积分压缩成一次网络前向。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2611.12002v1" target="_blank" rel="noopener">SATE: Transferable Spin-Adapted Neural Wavefunctions</a></h2>
-          <p>把可迁移神经波函数、自旋适配反对称化与有效核势合进一个预训练基础模型，首次跨分子、跨电子态预测 3d 过渡金属自旋态能隙与反应能。</p>
+          <p>仅用无轨迹边缘分布样本加已知漂移/扩散系数学出 SDE 转移核，把百万级串行积分压缩成一次网络前向。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2611.12509v1" target="_blank" rel="noopener">UniHam: A Large-Scale SOC-Complete Dataset and Benchmark for Hamiltonian Learning in Materials</a></h2>
-          <p>首个带完整自旋轨道耦合的大规模材料哈密顿量数据集，10 万+ 样本覆盖 72 种元素，填补材料基础模型的数据瓶颈。</p>
+          <p>首个带完整自旋轨道耦合的大规模材料哈密顿量数据集，10 万+样本覆盖 72 种元素，填补材料基础模型的数据瓶颈。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2611.11544v1" target="_blank" rel="noopener">Overcoming speed-accuracy trade-offs with medium-sized interatomic potentials</a></h2>
-          <p>中等规模模型在可迁移精度上逼近大模型，推理速度比大模型快一个数量级以上，直接挑战「小模型快但不准、大模型准但慢」的取舍。</p>
+          <h2><a href="https://arxiv.org/abs/2611.09572v1" target="_blank" rel="noopener">Inverse design of superconductors and semiconductors with differentiable foundation models</a></h2>
+          <p>把预训练晶体基础模型改造成可对「元素种类+占位」求梯度的版本，首次把超导与光伏材料逆向设计放进同一可微框架。</p>
         </article>
         
         <article class="card">
@@ -152,25 +170,7 @@
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2611.13389v1" target="_blank" rel="noopener">AdjointFlow: Accelerating Scientific Inverse Problems with Physics-Based Transport</a></h2>
-          <p>把已知物理模型直接注入生成式传输过程，重建比条件扩散更准，推理比传统 PnP 方法快最多五个数量级。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">AI4Math/PDE</span>
-          <h2><a href="https://arxiv.org/abs/2611.08910v1" target="_blank" rel="noopener">Task-Contribution Dynamics of Adam in Physics-Informed Neural Networks: Slow-Manifold Analysis and Gradient Modulation</a></h2>
-          <p>用「任务贡献度」指标拆解 PINN 训练中各项损失的此消彼长，据此提出 GMAdam，在多个 PDE 基准上稳定优于 Adam。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">科学基础模型</span>
-          <h2><a href="https://arxiv.org/abs/2611.08867v1" target="_blank" rel="noopener">Extending Grid Foundation Models for Phasor-Domain Dynamic Simulation</a></h2>
-          <p>把电网基础模型从稳态扩展到动态仿真，首次实现跨电网迁移的暂态学习，单 GPU 比单核数值仿真器快 924–1232 倍。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">生物信息</span>
-          <h2><a href="https://arxiv.org/abs/2611.08853v1" target="_blank" rel="noopener">Synchronized Optimal Transport Reconstructs Coupled Transcriptomic and Chromatin Dynamics</a></h2>
-          <p>首次把非平衡同步最优传输扩展到跨模态映射，让单细胞 RNA 与 ATAC 两种状态空间中的发育轨迹同步重建，而非先压到同一表示再分析。</p>
+          <p>把已知物理模型注入生成式传输过程，科学逆问题重建比条件扩散更准，推理比传统 PnP 方法快最多五个数量级。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期从「单点预测模型」明显转向「可闭环、可外推的世界模型」：蛋白质侧出现闭环进化与统一构象集合生成，地球系统侧出现以冻结天气模型为引擎的千年尺度 ESM。同时「绕开求解器」成为跨领域共同策略——KC-Maps 免轨迹学转移核、随机传播把声子与 DFT 对角化降为线性、经验赝势网络直出能带，三者都在削减传统数值管线的串行成本。另一个新动向是评测与不确定性补课：UniHam 补数据集、Jackknife-conformal 给原子势配可校准误差棒，说明社区开始为「可信 AI4S」铺基础设施。</p>
+      <p>与上一期相比，单点预测类工作占比下降，「闭环/迭代」类工作明显增多：ProTEUS 用湿实验反馈迭代、AI 智能体在验证器监督下改算法、ANTIOCH-VS 把筛选全流程串成一条命令。基础模型侧从「更大」转向「更可用」：中等规模原子势、递归精修、随机传播、局部邻域幅值等都在拆解精度-速度取舍；同时数据与不确定性补课加速（UniHam、SAE 可解释地球嵌入、jackknife-conformal 误差棒）。另一个新方向是「冻结大模型 + 外接物理模块」的拼装式系统模型（Rescene-ESM）。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注世界模型在湿实验闭环中的可复现性，以及免求解器方法能否从肽、硅等小体系推广到含重元素与强关联体系。</p>
+      <p>下期值得关注闭环系统能否给出可复现的湿实验/基准成绩，以及「冻结基础模型 + 轻量物理模块」的拼装路线能否扩展到更多地球与分子体系。</p>
       
     </section>
     
