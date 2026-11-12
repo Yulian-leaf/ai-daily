@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="weekly.html">周报 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-11-12 11:41 (北京时间 UTC+8)
+      生成于 2026-11-12 15:35 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 双周报告 · 11-02 ~ 11-15</h2>
       <p class="r-range">2026-11-02 ~ 2026-11-15</p>
-      <p class="r-overview">这两周 AI4S 的主旋律是「闭环化」与「世界模型化」：蛋白质方向从静态结构预测转向折叠路径、构象集合与闭环定向进化；分子模拟从「更快更准的势函数」转向「可微分、可跳步、可在线学习的采样与积分框架」。第一周以工具链与基准建设为主（PaddleMaterials、RealPDEBench、Fracture-Bench、FlowReconBench 等密集出现），第二周明显转向「系统级整合」——AlphaGenome 2、Scientist World、PharmAgents2、Rescene-ESM、AutoDNA 等把模型嵌进真实科研或实验流程。另一个清晰信号是「可解释性回潮」：符号蒸馏、稀疏自编码器、图符号蒸馏、Lie 对称性发现等条目集中出现，说明社区开始追问「模型学到了什么规律」，而不只是分数。</p>
+      <p class="r-overview">这两周 AI4S 的主旋律是「闭环化」与「系统化」：蛋白质方向从静态结构预测转向折叠路径、构象集合与闭环定向进化；分子模拟从单一势函数走向覆盖周期表、跨电子态、可微分求解器的通用基础设施；气候与材料则密集出现「基础模型 + 物理约束 + 可解释蒸馏」的组合拳。第一周以方法学铺底为主（神经波函数、哈密顿量数据集、可微分浅水模型、符号蒸馏），第二周明显转向「系统级整合与真实实验闭环」——AutoDNA 闭环实验室、PharmAgents2 端到端药物发现、Scientist World 可执行论文环境、Rescene-ESM 千年地球系统模型集中出现。量化信号也很清晰：蛋白质条目从第一周的约 8 条增至第二周的约 12 条，气候从约 10 条增至约 14 条，而纯分子模拟方法条目略有回落、让位于工具链与 GPU 原生框架。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -103,20 +103,20 @@
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
-          <h2><a href="https://arxiv.org/abs/2611.14504v1" target="_blank" rel="noopener">Emergent Biological Capabilities in a Foundation Model for Molecular Interactions</a></h2>
-          <p>仅用蛋白-配体序列、无结构坐标训练的基础模型在最大规模时零样本涌现机制判断、结合位点定位与共价/非共价区分三种能力，并有湿实验命中率佐证。</p>
+          <h2><a href="https://arxiv.org/abs/2611.13348v1" target="_blank" rel="noopener">ProTEUS: A mutation-resolved world model for closed-loop protein evolution</a></h2>
+          <p>把定向进化做成「世界模型 + 湿实验闭环」，两个真实酶工程案例均拿到比野生型高 10 倍以上活性的变体。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
-          <h2><a href="https://arxiv.org/abs/2611.13348v1" target="_blank" rel="noopener">ProTEUS: A mutation-resolved world model for closed-loop protein evolution</a></h2>
-          <p>把定向进化做成「潜空间世界模型 + 湿实验反馈」闭环，两个真实酶工程案例均拿到比野生型高 10 倍以上的活性变体。</p>
+          <h2><a href="https://arxiv.org/abs/2611.14504v1" target="_blank" rel="noopener">Emergent Biological Capabilities in a Foundation Model for Molecular Interactions</a></h2>
+          <p>仅用蛋白-配体序列、无结构坐标训练的基础模型在最大规模时涌现出机制判断、结合位点定位、共价/非共价区分三种零样本能力。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2611.14511v1" target="_blank" rel="noopener">Pyrite: Building and Benchmarking Protein-Ligand Pose Ranking Agents</a></h2>
-          <p>1500 对构象的成对排序基准显示专家化学家仅接近随机水平，而 LLM 智能体最高达 74% 准确率，反超人类专家。</p>
+          <p>1500 对构象成对排序基准上，专家化学家仅接近随机水平，LLM 智能体最高达 74% 准确率，反超人类专家。</p>
         </article>
         
         <article class="card">
@@ -133,8 +133,8 @@
         
         <article class="card">
           <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2611.12880v1" target="_blank" rel="noopener">Kolmogorov-Chapman Maps: Trajectory-Free Learning for Simulating Molecular Dynamics</a></h2>
-          <p>仅用无轨迹的边缘分布样本加已知漂移/扩散系数即可学出 SDE 转移核，把百万级串行积分压缩为一次网络前向。</p>
+          <h2><a href="https://arxiv.org/abs/2611.12002v1" target="_blank" rel="noopener">SATE: Transferable Spin-Adapted Neural Wavefunctions</a></h2>
+          <p>首次让神经波函数跨分子、跨电子态预测 3d 过渡金属的自旋态能隙与反应能。</p>
         </article>
         
         <article class="card">
@@ -146,13 +146,13 @@
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2611.09572v1" target="_blank" rel="noopener">Inverse design of superconductors and semiconductors with differentiable foundation models</a></h2>
-          <p>把预训练晶体基础模型改造成可对元素种类与占位求梯度的版本，首次将超导与光伏材料逆向设计纳入同一可微框架。</p>
+          <p>把预训练晶体基础模型改造成可对元素种类与占位求梯度的版本，首次把超导与光伏材料逆向设计放进同一可微框架。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
           <h2><a href="https://arxiv.org/abs/2611.11066v1" target="_blank" rel="noopener">Rescene-ESM: an Earth system model built around a frozen AI weather model</a></h2>
-          <p>以冻结的 2080 万参数 AI 天气模型为大气引擎，外接物理海洋、海冰、陆地、河流、碳与能量模块，拼成可跑千年的地球系统模型。</p>
+          <p>以冻结的 2080 万参数 AI 天气模型为大气引擎，外接物理海洋、海冰、陆地、碳与能量模块，拼成可跑千年的地球系统模型。</p>
         </article>
         
         <article class="card">
@@ -168,9 +168,9 @@
         </article>
         
         <article class="card">
-          <span class="field">生物信息</span>
-          <h2><a href="https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/" target="_blank" rel="noopener">AlphaGenome 2: Deciphering how cells read DNA to better understand disease</a></h2>
-          <p>把「DNA 序列如何被特定细胞读取」做成可预测模型，可直接评估变异对具体细胞类型和疾病的影响，推进非编码变异致病机制解读。</p>
+          <span class="field">科学基础模型</span>
+          <h2><a href="https://arxiv.org/abs/2611.08478v1" target="_blank" rel="noopener">Scientist World: Grow a Research World for AI-Scientists</a></h2>
+          <p>把每篇论文变成可执行环境，首批 1000 个环境上前沿 AI 已有 74% 概率超过人类研究者。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>按条目数统计，molsim 仍是最大板块（约 30 条），但内部重心从「势函数精度竞赛」转向「采样与积分框架」：第一周以 SO3LR Tauri、SATE、LEH-MACE 等势函数为主，第二周则密集出现 KC-Maps、VESPER、WASABI、Restrained Diffusion Bridges、PLUMED-JAX 等采样/自由能方法，说明「有势函数之后怎么用」成为新瓶颈。protein 从第一周的结构预测与生成（FoldScape、对称复合物生成）明显转向第二周的闭环与实验整合（ProTEUS、AutoDNA、iGC、HyInv），「湿实验闭环」条目从 0 增至 4 条。materials 保持高位但形态变化：第一周偏数据集与基准（UniHam、Fracture-Bench、MP-HAM-110K），第二周偏逆向设计与可微基础模型（超导/半导体逆向设计、Agentic inverse design、FACTO）。climate 热度上升，从第一周的洪水/流域代理模型转向第二周的系统级整合（Rescene-ESM、One2N、Sonny-ENS），「地球系统模型」类条目从 1 条增至 3 条。ai4math 相对降温，条目从第一周的十余条降至第二周的数条，且从「新算子架构」转向「不确定性量化与训练动力学」（Conformal Prediction for PDEs、GMAdam）。新浮现方向：可解释性工具集中出现（符号蒸馏、SAE 分解地球嵌入、图符号蒸馏、Lie 对称性发现），两周合计 5 条以上，是此前日报中少见的一类。</p>
+      <p>跨周对比看三条线。其一，蛋白质与药物发现明显升温：第一周以结构预测与表征为主（FoldScape、structRFM、iGC 等约 8 条），第二周转向闭环与评测（ProTEUS、OriDynamics、Pyrite、PharmAgents2、AutoDNA），条目数从约 8 条增至约 12 条，且「湿实验验证」出现频率从 1 次升到 4 次。其二，气候地球持续走高：从第一周约 10 条增至第二周约 14 条，重心从单一预报模型（Sonny-ENS、PROLA）转向系统级整合（Rescene-ESM、One2N）与可解释性（Decomposing Earth Embeddings）。其三，分子模拟方法条目从约 20 条回落到约 16 条，但结构变化明显——纯采样/自由能方法减少，GPU 原生工具链（PLUMED-JAX、GPU ML/MM、LAMMPS NPT）与通用势函数（SO3LR Tauri、SATE、FACTO）增多，说明该领域正从「发方法」转向「建基础设施」。新浮现方向有两个：一是「可执行科学环境/科研智能体」（Scientist World、Hyra 2.0 训出 HyInv、Agentic inverse design），两周内从 1 条增至 4 条；二是「可解释蒸馏」（符号蒸馏季风方程、Graph Symbolic Distillation、SAE 分解地球嵌入），从 1 条增至 3 条。相对降温的是纯基准类工作（Fracture-Bench、FlowReconBench、GeoSim 等仍多但增量放缓），以及传统 PINN 改进（仅 SSF-Net、GMAdam 两条）。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下两周重点跟踪两条线：一是「闭环实验系统」能否从单点演示走向可复现基准（ProTEUS、AutoDNA、PharmAgents2 的方法论对比）；二是「可解释性工具」是否会从案例展示沉淀为通用评估协议（符号蒸馏与 SAE 在材料/气候上的交叉验证）。</p>
+      <p>下两周重点跟踪两条线：一是「闭环实验 + 智能体」能否从个案走向可复现流程（ProTEUS、PharmAgents2、AutoDNA 的后续与第三方复现）；二是通用势函数与神经波函数在含过渡金属、激发态体系上的跨体系泛化实测（SO3LR Tauri、SATE 的独立基准）。</p>
       
     </section>
     
