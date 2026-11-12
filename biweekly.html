@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="weekly.html">周报 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-11-12 15:35 (北京时间 UTC+8)
+      生成于 2026-11-12 17:41 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 双周报告 · 11-02 ~ 11-15</h2>
       <p class="r-range">2026-11-02 ~ 2026-11-15</p>
-      <p class="r-overview">这两周 AI4S 的主旋律是「闭环化」与「系统化」：蛋白质方向从静态结构预测转向折叠路径、构象集合与闭环定向进化；分子模拟从单一势函数走向覆盖周期表、跨电子态、可微分求解器的通用基础设施；气候与材料则密集出现「基础模型 + 物理约束 + 可解释蒸馏」的组合拳。第一周以方法学铺底为主（神经波函数、哈密顿量数据集、可微分浅水模型、符号蒸馏），第二周明显转向「系统级整合与真实实验闭环」——AutoDNA 闭环实验室、PharmAgents2 端到端药物发现、Scientist World 可执行论文环境、Rescene-ESM 千年地球系统模型集中出现。量化信号也很清晰：蛋白质条目从第一周的约 8 条增至第二周的约 12 条，气候从约 10 条增至约 14 条，而纯分子模拟方法条目略有回落、让位于工具链与 GPU 原生框架。</p>
+      <p class="r-overview">这两周 AI4S 的主旋律是「闭环化」与「世界模型化」：蛋白质方向从静态结构预测转向折叠路径、构象集合与闭环定向进化；分子模拟从单一势函数走向覆盖周期表、跨电子态、可微分与可自动优化的全栈工具链。第一周以「基础模型+基准」为主（AlphaGenome 2、structRFM、RealPDEBench、UniHam），第二周明显转向「智能体+闭环实验+可微分物理」（Scientist World、ProTEUS、PharmAgents2、Hydrograd v2.0、AdjointFlow），AI 不再只做预测，而是开始自己改算法、自己设计实验、自己迭代。同时「不确定性量化」与「真实数据基准」密集出现，说明社区开始认真对待「模型说的到底可不可信」。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -104,7 +104,7 @@
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2611.13348v1" target="_blank" rel="noopener">ProTEUS: A mutation-resolved world model for closed-loop protein evolution</a></h2>
-          <p>把定向进化做成「世界模型 + 湿实验闭环」，两个真实酶工程案例均拿到比野生型高 10 倍以上活性的变体。</p>
+          <p>把蛋白质定向进化做成「世界模型+湿实验闭环」，两个真实酶工程案例均拿到比野生型高 10 倍以上的活性变体。</p>
         </article>
         
         <article class="card">
@@ -128,7 +128,7 @@
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2611.06237v1" target="_blank" rel="noopener">SO3LR Tauri: Generally Applicable Force Fields for Reactive (Bio)Molecular Simulations Covering the Periodic Table</a></h2>
-          <p>单一机器学习力场覆盖 85 种元素，同一套模型同时处理有机反应、蛋白质、核酸、膜与金属酶，无需按体系定制。</p>
+          <p>单一机器学习力场覆盖 85 种元素，用同一套模型同时处理有机反应、蛋白质、核酸、膜和金属酶，无需按体系定制。</p>
         </article>
         
         <article class="card">
@@ -140,7 +140,7 @@
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2611.12509v1" target="_blank" rel="noopener">UniHam: A Large-Scale SOC-Complete Dataset and Benchmark for Hamiltonian Learning in Materials</a></h2>
-          <p>首个带完整自旋轨道耦合的大规模材料哈密顿量数据集，10 万+ 样本覆盖 72 种元素，填补材料基础模型的数据瓶颈。</p>
+          <p>首个带完整自旋轨道耦合的大规模材料哈密顿量数据集，10 万+样本覆盖 72 种元素，填补材料基础模型的数据瓶颈。</p>
         </article>
         
         <article class="card">
@@ -151,14 +151,14 @@
         
         <article class="card">
           <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2611.11066v1" target="_blank" rel="noopener">Rescene-ESM: an Earth system model built around a frozen AI weather model</a></h2>
-          <p>以冻结的 2080 万参数 AI 天气模型为大气引擎，外接物理海洋、海冰、陆地、碳与能量模块，拼成可跑千年的地球系统模型。</p>
+          <h2><a href="https://arxiv.org/abs/2611.12249v1" target="_blank" rel="noopener">One2N: Recursive refinement breaks the resolution barrier for Earth-system AI</a></h2>
+          <p>把粗分辨率地球系统 AI 模型逐级递归精修到 0.07°，单张 80GB GPU 即可训练，绕开分辨率翻倍带来的算力爆炸。</p>
         </article>
         
         <article class="card">
           <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2611.12249v1" target="_blank" rel="noopener">One2N: Recursive refinement breaks the resolution barrier for Earth-system AI</a></h2>
-          <p>把粗分辨率地球系统 AI 模型逐级递归精修到 0.07°，单张 80GB GPU 即可训练，绕开分辨率翻倍带来的算力爆炸。</p>
+          <h2><a href="https://arxiv.org/abs/2611.11066v1" target="_blank" rel="noopener">Rescene-ESM: an Earth system model built around a frozen AI weather model</a></h2>
+          <p>把冻结的 2080 万参数 AI 天气模型当大气引擎，外接物理海洋、海冰、陆地、河流、碳与能量模块，拼成可跑千年的地球系统模型。</p>
         </article>
         
         <article class="card">
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>跨周对比看三条线。其一，蛋白质与药物发现明显升温：第一周以结构预测与表征为主（FoldScape、structRFM、iGC 等约 8 条），第二周转向闭环与评测（ProTEUS、OriDynamics、Pyrite、PharmAgents2、AutoDNA），条目数从约 8 条增至约 12 条，且「湿实验验证」出现频率从 1 次升到 4 次。其二，气候地球持续走高：从第一周约 10 条增至第二周约 14 条，重心从单一预报模型（Sonny-ENS、PROLA）转向系统级整合（Rescene-ESM、One2N）与可解释性（Decomposing Earth Embeddings）。其三，分子模拟方法条目从约 20 条回落到约 16 条，但结构变化明显——纯采样/自由能方法减少，GPU 原生工具链（PLUMED-JAX、GPU ML/MM、LAMMPS NPT）与通用势函数（SO3LR Tauri、SATE、FACTO）增多，说明该领域正从「发方法」转向「建基础设施」。新浮现方向有两个：一是「可执行科学环境/科研智能体」（Scientist World、Hyra 2.0 训出 HyInv、Agentic inverse design），两周内从 1 条增至 4 条；二是「可解释蒸馏」（符号蒸馏季风方程、Graph Symbolic Distillation、SAE 分解地球嵌入），从 1 条增至 3 条。相对降温的是纯基准类工作（Fracture-Bench、FlowReconBench、GeoSim 等仍多但增量放缓），以及传统 PINN 改进（仅 SSF-Net、GMAdam 两条）。</p>
+      <p>跨周对比看，protein 与 molsim 仍是绝对主力（各约 15 条），但重心明显迁移：第一周 protein 以「结构预测新能力」为主（FoldScape 折叠路径、structRFM 结构引导 RNA 基础模型、对称复合物零样本生成），第二周转向「闭环与智能体」（ProTEUS 世界模型+湿实验、iGC 强化学习抗体优化、AutoDNA 自主实验室、HyInv 科研智能体训模型）。molsim 第一周偏「工具链与可微分」（PLUMED-JAX、Hydrograd 类思路、WASABI 采样），第二周集中爆发「覆盖周期表/跨电子态的通用势」（SO3LR Tauri 85 元素、SATE 过渡金属自旋态、LEH-MACE 尺寸一致激发态）与「自动改算法」（AI Agent 改写 ASE、KC-Maps 无轨迹学习）。materials 从第一周的「数据集与基准建设」（UniHam、MP-HAM-110K、Fracture-Bench）转向第二周的「可微逆向设计」（可微基础模型逆设计超导/半导体、Agentic 空间编程材料）。climate 两周都高产（约 14 条），但第二周明显从「预报精度」转向「地球系统耦合与可解释」（Rescene-ESM 千年耦合、One2N 分辨率递归、SAE 拆解地球嵌入）。ai4math 第一周偏「PDE 算子与 PINN 训练理论」，第二周出现「物理注入生成式逆问题」（AdjointFlow）与「从数据发现对称性」新方向。scifm 与 bioinfo 条数少但质量高：scifm 出现 Scientist World 这类「AI 科学家竞技场」，bioinfo 的 AlphaGenome 2 把非编码变异解读推进到细胞类型分辨率。整体看，「不确定性量化/校准」从零星变为成簇出现（Jackknife-conformal、Conformal Prediction for PDEs、OOD 不确定性预训练），「真实实验数据基准」成为新共识（RealPDEBench、Pyrite、BILBY-PRO、EnergyBench）。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下两周重点跟踪两条线：一是「闭环实验 + 智能体」能否从个案走向可复现流程（ProTEUS、PharmAgents2、AutoDNA 的后续与第三方复现）；二是通用势函数与神经波函数在含过渡金属、激发态体系上的跨体系泛化实测（SO3LR Tauri、SATE 的独立基准）。</p>
+      <p>下两周重点跟踪三条线：一是「世界模型+闭环湿实验」能否从个案走向可复现流程（ProTEUS、PharmAgents2、AutoDNA 的后续验证）；二是通用机器学习力场在周期表覆盖与激发态/自旋态上的实际外推误差，尤其 SO3LR Tauri 与 SATE 的独立复现；三是「AI 智能体自动改科学算法/自动做实验」的验证器与可信度框架，这决定闭环路线能走多远。</p>
       
     </section>
     

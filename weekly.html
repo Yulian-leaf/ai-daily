@@ -87,7 +87,7 @@
       <a href="index.html">← 日报</a> ·
       <a href="biweekly.html">双周报告 →</a> ·
       <a href="poster.html">🖼 海报 →</a> ·
-      生成于 2026-11-12 15:34 (北京时间 UTC+8)
+      生成于 2026-11-12 17:40 (北京时间 UTC+8)
     </p>
   </header>
   <main>
@@ -95,7 +95,7 @@
     <section class="latest">
       <h2 class="r-title">AI4S 周报 · 11-09 ~ 11-15</h2>
       <p class="r-range">2026-11-09 ~ 2026-11-15</p>
-      <p class="r-overview">本期最鲜明的信号是「闭环」：蛋白质定向进化、虚拟筛选、原子模拟算法优化都开始把模型预测与湿实验或验证器反馈接成迭代回路，而不是一次性预测。与此同时，基础模型继续向「世界模型」形态演进——蛋白构象集合、分子动力学转移核、地球系统模型都在试图用一次前向替代串行数值积分。效率侧同样密集：可微分求解器、随机传播、递归精修、中等规模势函数共同指向「绕开三次方成本」这一主题。数据与基准方面，SOC 完整哈密顿量数据集和 Pyrite 构象排序基准补上了材料与药物发现的关键评测缺口。</p>
+      <p class="r-overview">本期最鲜明的信号是「闭环」：ProTEUS 把蛋白质定向进化做成世界模型加湿实验迭代，AI 智能体在验证器监督下自动改写原子模拟算法，符号蒸馏从季风数据里挖出可解释方程。与此同时，基础模型继续向「涌现能力」和「跨体系迁移」推进——蛋白-配体交互模型在最大规模时零样本涌现机制判断，神经波函数首次跨分子预测过渡金属自旋态。效率侧同样密集：One2N 用递归精修绕开分辨率算力爆炸，中等规模原子间势挑战「大而准、小而快」的取舍，可微分浅水模型把闭包学习加速 96 倍。整体看，本期从「单点预测更准」转向「预测—实验—优化」的循环，以及用更少参数、更少算力换可解释与可迁移。</p>
 
       
       <h3 class="sub">本期亮点</h3>
@@ -104,49 +104,49 @@
         <article class="card">
           <span class="field">蛋白质/结构</span>
           <h2><a href="https://arxiv.org/abs/2611.13348v1" target="_blank" rel="noopener">ProTEUS: A mutation-resolved world model for closed-loop protein evolution</a></h2>
-          <p>把定向进化做成「潜空间世界模型 + 湿实验反馈」闭环，两个真实酶工程案例均获得比野生型活性高 10 倍以上的变体。</p>
+          <p>把蛋白质定向进化做成「世界模型 + 闭环湿实验」：潜空间预测突变后果，两个真实酶工程案例均拿到比野生型高 10 倍以上活性的变体。</p>
         </article>
         
         <article class="card">
           <span class="field">蛋白质/结构</span>
-          <h2><a href="https://arxiv.org/abs/2611.11958v1" target="_blank" rel="noopener">OriDynamics: Towards a World Model for Biomolecular Dynamics</a></h2>
-          <p>首个统一的全原子构象集合生成框架，同时覆盖蛋白单体、蛋白-小分子与蛋白-蛋白复合物，并显式建模分子间协同涨落。</p>
+          <h2><a href="https://arxiv.org/abs/2611.14504v1" target="_blank" rel="noopener">Emergent Biological Capabilities in a Foundation Model for Molecular Interactions</a></h2>
+          <p>仅用蛋白-配体序列、无结构坐标与任务监督训练的基础模型，在最大规模时零样本涌现机制判断、结合位点定位、共价/非共价区分三种能力。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2611.14511v1" target="_blank" rel="noopener">Pyrite: Building and Benchmarking Protein-Ligand Pose Ranking Agents</a></h2>
-          <p>1500 对蛋白-配体构象的成对排序基准显示专家化学家接近随机水平，而 LLM 智能体最高达 74% 准确率。</p>
+          <p>1500 对蛋白-配体构象成对排序基准：专家化学家仅接近随机水平，LLM 智能体最高达 74% 准确率，反超人类专家。</p>
         </article>
         
         <article class="card">
           <span class="field">药物发现</span>
           <h2><a href="https://arxiv.org/abs/2611.14287v1" target="_blank" rel="noopener">ANTIOCH-VS: From Sequence to Hits with Modular, Open-Source Ensemble Virtual Screening</a></h2>
-          <p>开源框架把「蛋白序列到候选分子短名单」打包成一条命令，无需配体结合晶体结构即可跑完整个虚拟筛选战役。</p>
-        </article>
-        
-        <article class="card">
-          <span class="field">分子模拟</span>
-          <h2><a href="https://arxiv.org/abs/2611.12880v1" target="_blank" rel="noopener">Kolmogorov-Chapman Maps: Trajectory-Free Learning for Simulating Molecular Dynamics</a></h2>
-          <p>仅用无轨迹边缘分布样本加已知漂移/扩散系数学出 SDE 转移核，把百万级串行积分压缩为一次网络前向。</p>
+          <p>开源虚拟筛选框架把「蛋白序列到候选分子短名单」全流程打包成一条命令，无需配体结合晶体结构即可跑完整个筛选战役。</p>
         </article>
         
         <article class="card">
           <span class="field">分子模拟</span>
           <h2><a href="https://arxiv.org/abs/2611.13143v1" target="_blank" rel="noopener">Autonomous Optimization of Numerical Algorithms by an AI Agent: Application to Atomistic Simulation</a></h2>
-          <p>LLM 编码智能体在不可篡改验证器监督下自动改写 ASE 数值算法，既提速实现又改进方法本身，并发现文献中没有的算法组件。</p>
+          <p>大模型编码智能体在不可篡改验证器监督下自动改写 ASE 数值算法，既提速实现又改进方法本身，并发现文献中没有的算法组件。</p>
+        </article>
+        
+        <article class="card">
+          <span class="field">分子模拟</span>
+          <h2><a href="https://arxiv.org/abs/2611.12002v1" target="_blank" rel="noopener">SATE: Transferable Spin-Adapted Neural Wavefunctions</a></h2>
+          <p>把可迁移神经波函数、自旋适配反对称化与有效核势合进一个预训练基础模型，首次跨分子、跨电子态预测 3d 过渡金属自旋态能隙与反应能。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
           <h2><a href="https://arxiv.org/abs/2611.12509v1" target="_blank" rel="noopener">UniHam: A Large-Scale SOC-Complete Dataset and Benchmark for Hamiltonian Learning in Materials</a></h2>
-          <p>首个带完整自旋轨道耦合的大规模材料哈密顿量数据集，10 万+ 样本覆盖 72 种元素，填补材料基础模型的数据瓶颈。</p>
+          <p>首个带完整自旋轨道耦合的大规模材料哈密顿量数据集，10 万+样本覆盖 72 种元素，填补材料基础模型的数据瓶颈。</p>
         </article>
         
         <article class="card">
           <span class="field">材料科学</span>
-          <h2><a href="https://arxiv.org/abs/2611.09572v1" target="_blank" rel="noopener">Inverse design of superconductors and semiconductors with differentiable foundation models</a></h2>
-          <p>把预训练晶体基础模型改造成可对元素种类与占位求梯度的版本，首次将超导与光伏材料逆向设计放进同一可微框架。</p>
+          <h2><a href="https://arxiv.org/abs/2611.11544v1" target="_blank" rel="noopener">Overcoming speed-accuracy trade-offs with medium-sized interatomic potentials</a></h2>
+          <p>中等规模模型在可迁移精度上逼近大模型，推理速度比大模型快一个数量级以上，直接挑战「小模型快但不准、大模型准但慢」的固有取舍。</p>
         </article>
         
         <article class="card">
@@ -157,20 +157,20 @@
         
         <article class="card">
           <span class="field">气候地球</span>
-          <h2><a href="https://arxiv.org/abs/2611.11066v1" target="_blank" rel="noopener">Rescene-ESM: an Earth system model built around a frozen AI weather model</a></h2>
-          <p>以冻结的 2080 万参数 AI 天气模型为大气引擎，外接物理海洋、海冰、陆地、河流、碳与能量模块，拼成可跑千年的地球系统模型。</p>
+          <h2><a href="https://arxiv.org/abs/2611.14401v1" target="_blank" rel="noopener">Discovering Equations for the Thermodynamics of South Asian Monsoon Precipitation</a></h2>
+          <p>用符号蒸馏从 21 年季风再分析数据中挖出可解释降水方程，解释方差达常用浮力诊断的 1.5 倍，参数却少约一千倍。</p>
         </article>
         
         <article class="card">
           <span class="field">AI4Math/PDE</span>
           <h2><a href="https://arxiv.org/abs/2611.13389v1" target="_blank" rel="noopener">AdjointFlow: Accelerating Scientific Inverse Problems with Physics-Based Transport</a></h2>
-          <p>把已知物理模型注入生成式传输过程，科学逆问题重建比条件扩散更准，推理比传统 PnP 方法快最多五个数量级。</p>
+          <p>把已知物理模型注入生成式传输过程，科学逆问题重建比条件扩散模型更准，推理比传统 PnP 方法快最多五个数量级。</p>
         </article>
         
         <article class="card">
           <span class="field">生物信息</span>
           <h2><a href="https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/" target="_blank" rel="noopener">AlphaGenome 2: Deciphering how cells read DNA to better understand disease</a></h2>
-          <p>把「DNA 序列如何被特定细胞读取」做成可预测模型，可直接评估变异对具体细胞类型和疾病的影响。</p>
+          <p>把「DNA 序列如何被特定细胞读取」做成可预测模型，可直接评估变异对具体细胞类型和疾病的影响，推进非编码变异致病机制解读。</p>
         </article>
         
       </div>
@@ -178,11 +178,11 @@
 
       
       <h3 class="sub">趋势观察</h3>
-      <p>与上一期相比，本期从「单点预测更强」转向「流程闭环与数值替代」：蛋白质领域出现世界模型加湿实验反馈的闭环进化，药物筛选出现一条命令跑完全流程的开源框架；分子模拟与材料领域集中出现绕开自洽迭代、全对角化和串行积分的方案（KC-Maps、随机传播、可微浅水模型、中等规模势函数）。另一个新方向是「智能体改算法」——LLM 编码智能体在验证器监督下自动改写数值库，把 AI 从使用者变成方法改进者。基准与数据侧，Pyrite 和 UniHam 分别补上了构象排序与 SOC 完整哈密顿量的评测缺口。</p>
+      <p>与上一期相比，本期从「单点预测精度」明显转向三类新方向：一是闭环实验，ProTEUS 与 AI 智能体自动改算法都把模型放进「预测—验证—迭代」回路；二是可解释与可迁移，符号蒸馏出方程、神经波函数跨分子迁移、中等规模势挑战规模取舍，都在回答「模型学到了什么、能否搬走」；三是效率工程密集出现，One2N 递归精修、可微分浅水模型 96 倍加速、随机传播声子计算，显示社区开始系统性地拆解算力瓶颈。</p>
       
       
       <h3 class="sub">下周展望</h3>
-      <p>下期值得关注闭环系统能否给出可复现的湿实验增益，以及「无轨迹/一次前向」类方法在更大分子与更长时序上的误差累积表现。</p>
+      <p>下期值得关注闭环系统能否从个案走向通用流程，以及带 SOC 的哈密顿量数据集与可迁移神经波函数能否在真实材料筛选上兑现。</p>
       
     </section>
     
